@@ -1,0 +1,589 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x6EA41E26D1EAFCC9",
+      "device": "xc7k325tffg676-1",
+      "name": "design_1",
+      "synth_flow_mode": "None",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "xlconstant_0": "",
+      "I2C_hdmi_cfg_0": "",
+      "i2c_master_0": "",
+      "xlconstant_1": "",
+      "xlconcat_0": "",
+      "sync_t1_0": "",
+      "clk_wiz_0": "",
+      "genClkRst_0": ""
+    },
+    "ports": {
+      "ena": {
+        "direction": "O"
+      },
+      "slv_addr": {
+        "direction": "O",
+        "left": "6",
+        "right": "0"
+      },
+      "rw": {
+        "direction": "O"
+      },
+      "data_wr": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "cnt": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "clk": {
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_genClkRst_0_0_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "50000000",
+            "value_src": "user_prop"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default_prop"
+          }
+        }
+      },
+      "rst_n": {
+        "direction": "O",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "const_prop"
+          }
+        }
+      },
+      "state": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "sda": {
+        "direction": "IO"
+      },
+      "scl": {
+        "direction": "IO"
+      },
+      "busy": {
+        "direction": "O"
+      },
+      "ack_err": {
+        "direction": "O"
+      },
+      "i2c_state": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "i2c_sdclk": {
+        "direction": "O"
+      },
+      "HDMI_TX_HS": {
+        "direction": "O"
+      },
+      "HDMI_TX_VS": {
+        "direction": "O"
+      },
+      "HDMI_TX_DE": {
+        "direction": "O"
+      },
+      "HDMI_TX_D": {
+        "direction": "O",
+        "left": "23",
+        "right": "0",
+        "parameters": {
+          "PortWidth": {
+            "value": "24",
+            "value_src": "ip_prop"
+          }
+        }
+      }
+    },
+    "components": {
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
+      "I2C_hdmi_cfg_0": {
+        "vlnv": "xilinx.com:module_ref:I2C_hdmi_cfg:1.0",
+        "xci_name": "design_1_I2C_hdmi_cfg_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "I2C_hdmi_cfg",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_genClkRst_0_0_clk",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "hdmi_tx_int": {
+            "direction": "I"
+          },
+          "busy": {
+            "direction": "I"
+          },
+          "ena": {
+            "direction": "O"
+          },
+          "slv_addr": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          },
+          "i2c_rw": {
+            "direction": "O"
+          },
+          "i2c_data_wr": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "ready": {
+            "direction": "O"
+          },
+          "cnt_sim": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "state_sim": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          }
+        }
+      },
+      "i2c_master_0": {
+        "vlnv": "xilinx.com:module_ref:i2c_master:1.0",
+        "xci_name": "design_1_i2c_master_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "i2c_master",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_genClkRst_0_0_clk",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "ena": {
+            "direction": "I"
+          },
+          "addr": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "rw": {
+            "direction": "I"
+          },
+          "data_wr": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "busy": {
+            "direction": "O"
+          },
+          "data_rd": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "ack_error": {
+            "direction": "O"
+          },
+          "sda": {
+            "direction": "IO"
+          },
+          "scl": {
+            "direction": "IO"
+          },
+          "sdclk_sim": {
+            "direction": "O"
+          },
+          "state_sim": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_1_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlconcat_0": {
+        "vlnv": "xilinx.com:ip:xlconcat:2.1",
+        "xci_name": "design_1_xlconcat_0_0",
+        "parameters": {
+          "IN0_WIDTH": {
+            "value": "8"
+          },
+          "IN1_WIDTH": {
+            "value": "8"
+          },
+          "IN2_WIDTH": {
+            "value": "8"
+          },
+          "NUM_PORTS": {
+            "value": "3"
+          }
+        }
+      },
+      "sync_t1_0": {
+        "vlnv": "xilinx.com:module_ref:sync_t1:1.0",
+        "xci_name": "design_1_sync_t1_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sync_t1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk_pxl": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "hsync": {
+            "direction": "O"
+          },
+          "vsync": {
+            "direction": "O"
+          },
+          "de": {
+            "direction": "O"
+          },
+          "R": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "G": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "B": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0_0",
+        "parameters": {
+          "CLKIN1_JITTER_PS": {
+            "value": "200.0"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "146.589"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "157.402"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "150.000"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "19.875"
+          },
+          "MMCM_CLKIN1_PERIOD": {
+            "value": "20.000"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.0"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "6.625"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "1"
+          },
+          "PRIM_IN_FREQ": {
+            "value": "50.000"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "genClkRst_0": {
+        "vlnv": "xilinx.com:module_ref:genClkRst:1.0",
+        "xci_name": "design_1_genClkRst_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "genClkRst",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      }
+    },
+    "nets": {
+      "genClkRst_0_rst_n": {
+        "ports": [
+          "genClkRst_0/rst_n",
+          "rst_n",
+          "I2C_hdmi_cfg_0/rst_n",
+          "i2c_master_0/rst_n",
+          "clk_wiz_0/resetn",
+          "sync_t1_0/rst_n"
+        ]
+      },
+      "I2C_hdmi_cfg_0_ena": {
+        "ports": [
+          "I2C_hdmi_cfg_0/ena",
+          "ena",
+          "i2c_master_0/ena"
+        ]
+      },
+      "I2C_hdmi_cfg_0_slv_addr": {
+        "ports": [
+          "I2C_hdmi_cfg_0/slv_addr",
+          "slv_addr",
+          "i2c_master_0/addr"
+        ]
+      },
+      "I2C_hdmi_cfg_0_i2c_rw": {
+        "ports": [
+          "I2C_hdmi_cfg_0/i2c_rw",
+          "rw",
+          "i2c_master_0/rw"
+        ]
+      },
+      "I2C_hdmi_cfg_0_i2c_data_wr": {
+        "ports": [
+          "I2C_hdmi_cfg_0/i2c_data_wr",
+          "data_wr",
+          "i2c_master_0/data_wr"
+        ]
+      },
+      "I2C_hdmi_cfg_0_cnt_sim": {
+        "ports": [
+          "I2C_hdmi_cfg_0/cnt_sim",
+          "cnt"
+        ]
+      },
+      "genClkRst_0_clk": {
+        "ports": [
+          "genClkRst_0/clk",
+          "clk",
+          "I2C_hdmi_cfg_0/clk",
+          "i2c_master_0/clk",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "I2C_hdmi_cfg_0_state_sim": {
+        "ports": [
+          "I2C_hdmi_cfg_0/state_sim",
+          "state"
+        ]
+      },
+      "Net": {
+        "ports": [
+          "sda",
+          "i2c_master_0/sda"
+        ]
+      },
+      "Net1": {
+        "ports": [
+          "scl",
+          "i2c_master_0/scl"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "I2C_hdmi_cfg_0/hdmi_tx_int"
+        ]
+      },
+      "i2c_master_0_busy": {
+        "ports": [
+          "i2c_master_0/busy",
+          "busy",
+          "I2C_hdmi_cfg_0/busy"
+        ]
+      },
+      "i2c_master_0_ack_error": {
+        "ports": [
+          "i2c_master_0/ack_error",
+          "ack_err"
+        ]
+      },
+      "i2c_master_0_state_sim": {
+        "ports": [
+          "i2c_master_0/state_sim",
+          "i2c_state"
+        ]
+      },
+      "i2c_master_0_sdclk_sim": {
+        "ports": [
+          "i2c_master_0/sdclk_sim",
+          "i2c_sdclk"
+        ]
+      },
+      "sync_t1_0_hsync": {
+        "ports": [
+          "sync_t1_0/hsync",
+          "HDMI_TX_HS"
+        ]
+      },
+      "sync_t1_0_vsync": {
+        "ports": [
+          "sync_t1_0/vsync",
+          "HDMI_TX_VS"
+        ]
+      },
+      "sync_t1_0_de": {
+        "ports": [
+          "sync_t1_0/de",
+          "HDMI_TX_DE"
+        ]
+      },
+      "sync_t1_0_R": {
+        "ports": [
+          "sync_t1_0/R",
+          "xlconcat_0/In0"
+        ]
+      },
+      "sync_t1_0_G": {
+        "ports": [
+          "sync_t1_0/G",
+          "xlconcat_0/In1"
+        ]
+      },
+      "sync_t1_0_B": {
+        "ports": [
+          "sync_t1_0/B",
+          "xlconcat_0/In2"
+        ]
+      },
+      "xlconcat_0_dout": {
+        "ports": [
+          "xlconcat_0/dout",
+          "HDMI_TX_D"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "sync_t1_0/clk_pxl"
+        ]
+      }
+    }
+  }
+}

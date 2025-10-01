@@ -1,0 +1,157 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xuartlite_sinit.c"
+  12              		.text
+  13              		.section	.text.XUartLite_LookupConfig,"ax",%progbits
+  14              		.align	1
+  15              		.global	XUartLite_LookupConfig
+  16              		.arch armv6s-m
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	XUartLite_LookupConfig:
+  23              		@ args = 0, pretend = 0, frame = 16
+  24              		@ frame_needed = 1, uses_anonymous_args = 0
+  25 0000 80B5     		push	{r7, lr}
+  26 0002 84B0     		sub	sp, sp, #16
+  27 0004 00AF     		add	r7, sp, #0
+  28 0006 0200     		movs	r2, r0
+  29 0008 BB1D     		adds	r3, r7, #6
+  30 000a 1A80     		strh	r2, [r3]
+  31 000c 0023     		movs	r3, #0
+  32 000e FB60     		str	r3, [r7, #12]
+  33 0010 0023     		movs	r3, #0
+  34 0012 BB60     		str	r3, [r7, #8]
+  35 0014 10E0     		b	.L2
+  36              	.L5:
+  37 0016 0C4B     		ldr	r3, .L7
+  38 0018 BA68     		ldr	r2, [r7, #8]
+  39 001a 1201     		lsls	r2, r2, #4
+  40 001c D35A     		ldrh	r3, [r2, r3]
+  41 001e BA1D     		adds	r2, r7, #6
+  42 0020 1288     		ldrh	r2, [r2]
+  43 0022 9A42     		cmp	r2, r3
+  44 0024 05D1     		bne	.L3
+  45 0026 BB68     		ldr	r3, [r7, #8]
+  46 0028 1A01     		lsls	r2, r3, #4
+  47 002a 074B     		ldr	r3, .L7
+  48 002c D318     		adds	r3, r2, r3
+  49 002e FB60     		str	r3, [r7, #12]
+  50 0030 05E0     		b	.L4
+  51              	.L3:
+  52 0032 BB68     		ldr	r3, [r7, #8]
+  53 0034 0133     		adds	r3, r3, #1
+  54 0036 BB60     		str	r3, [r7, #8]
+  55              	.L2:
+  56 0038 BB68     		ldr	r3, [r7, #8]
+  57 003a 002B     		cmp	r3, #0
+  58 003c EBD0     		beq	.L5
+  59              	.L4:
+  60 003e FB68     		ldr	r3, [r7, #12]
+  61 0040 1800     		movs	r0, r3
+  62 0042 BD46     		mov	sp, r7
+  63 0044 04B0     		add	sp, sp, #16
+  64              		@ sp needed
+  65 0046 80BD     		pop	{r7, pc}
+  66              	.L8:
+  67              		.align	2
+  68              	.L7:
+  69 0048 00000000 		.word	XUartLite_ConfigTable
+  71              		.section	.rodata
+  72              		.align	2
+  73              	.LC2:
+  74 0000 2E2E2F73 		.ascii	"../src/uartlite_v3_2/src/xuartlite_sinit.c\000"
+  74      72632F75 
+  74      6172746C 
+  74      6974655F 
+  74      76335F32 
+  75              		.section	.text.XUartLite_Initialize,"ax",%progbits
+  76              		.align	1
+  77              		.global	XUartLite_Initialize
+  78              		.syntax unified
+  79              		.code	16
+  80              		.thumb_func
+  81              		.fpu softvfp
+  83              	XUartLite_Initialize:
+  84              		@ args = 0, pretend = 0, frame = 16
+  85              		@ frame_needed = 1, uses_anonymous_args = 0
+  86 0000 80B5     		push	{r7, lr}
+  87 0002 84B0     		sub	sp, sp, #16
+  88 0004 00AF     		add	r7, sp, #0
+  89 0006 7860     		str	r0, [r7, #4]
+  90 0008 0A00     		movs	r2, r1
+  91 000a BB1C     		adds	r3, r7, #2
+  92 000c 1A80     		strh	r2, [r3]
+  93 000e 7B68     		ldr	r3, [r7, #4]
+  94 0010 002B     		cmp	r3, #0
+  95 0012 0DD0     		beq	.L10
+  96 0014 124B     		ldr	r3, .L15
+  97 0016 0022     		movs	r2, #0
+  98 0018 1A60     		str	r2, [r3]
+  99 001a BB1C     		adds	r3, r7, #2
+ 100 001c 1B88     		ldrh	r3, [r3]
+ 101 001e 1800     		movs	r0, r3
+ 102 0020 FFF7FEFF 		bl	XUartLite_LookupConfig
+ 103 0024 0300     		movs	r3, r0
+ 104 0026 FB60     		str	r3, [r7, #12]
+ 105 0028 FB68     		ldr	r3, [r7, #12]
+ 106 002a 002B     		cmp	r3, #0
+ 107 002c 0CD1     		bne	.L13
+ 108 002e 09E0     		b	.L14
+ 109              	.L10:
+ 110 0030 0C4B     		ldr	r3, .L15+4
+ 111 0032 8121     		movs	r1, #129
+ 112 0034 1800     		movs	r0, r3
+ 113 0036 FFF7FEFF 		bl	Xil_Assert
+ 114 003a 094B     		ldr	r3, .L15
+ 115 003c 0122     		movs	r2, #1
+ 116 003e 1A60     		str	r2, [r3]
+ 117 0040 0023     		movs	r3, #0
+ 118 0042 09E0     		b	.L12
+ 119              	.L14:
+ 120 0044 0223     		movs	r3, #2
+ 121 0046 07E0     		b	.L12
+ 122              	.L13:
+ 123 0048 FB68     		ldr	r3, [r7, #12]
+ 124 004a 5A68     		ldr	r2, [r3, #4]
+ 125 004c F968     		ldr	r1, [r7, #12]
+ 126 004e 7B68     		ldr	r3, [r7, #4]
+ 127 0050 1800     		movs	r0, r3
+ 128 0052 FFF7FEFF 		bl	XUartLite_CfgInitialize
+ 129 0056 0300     		movs	r3, r0
+ 130              	.L12:
+ 131 0058 1800     		movs	r0, r3
+ 132 005a BD46     		mov	sp, r7
+ 133 005c 04B0     		add	sp, sp, #16
+ 134              		@ sp needed
+ 135 005e 80BD     		pop	{r7, pc}
+ 136              	.L16:
+ 137              		.align	2
+ 138              	.L15:
+ 139 0060 00000000 		.word	Xil_AssertStatus
+ 140 0064 00000000 		.word	.LC2
+ 142              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xuartlite_sinit.c
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:14     .text.XUartLite_LookupConfig:00000000 $t
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:22     .text.XUartLite_LookupConfig:00000000 XUartLite_LookupConfig
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:69     .text.XUartLite_LookupConfig:00000048 $d
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:72     .rodata:00000000 $d
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:76     .text.XUartLite_Initialize:00000000 $t
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:83     .text.XUartLite_Initialize:00000000 XUartLite_Initialize
+C:\Users\george\AppData\Local\Temp\cc7FBOXS.s:139    .text.XUartLite_Initialize:00000060 $d
+
+UNDEFINED SYMBOLS
+XUartLite_ConfigTable
+Xil_Assert
+XUartLite_CfgInitialize
+Xil_AssertStatus

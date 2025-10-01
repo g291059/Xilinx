@@ -1,0 +1,215 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xspi_stats.c"
+  12              		.text
+  13              		.section	.rodata
+  14              		.align	2
+  15              	.LC1:
+  16 0000 2E2E2F73 		.ascii	"../src/spi_v4_4/src/xspi_stats.c\000"
+  16      72632F73 
+  16      70695F76 
+  16      345F342F 
+  16      7372632F 
+  17              		.section	.text.XSpi_GetStats,"ax",%progbits
+  18              		.align	1
+  19              		.global	XSpi_GetStats
+  20              		.arch armv6s-m
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  24              		.fpu softvfp
+  26              	XSpi_GetStats:
+  27              		@ args = 0, pretend = 0, frame = 8
+  28              		@ frame_needed = 1, uses_anonymous_args = 0
+  29 0000 80B5     		push	{r7, lr}
+  30 0002 82B0     		sub	sp, sp, #8
+  31 0004 00AF     		add	r7, sp, #0
+  32 0006 7860     		str	r0, [r7, #4]
+  33 0008 3960     		str	r1, [r7]
+  34 000a 7B68     		ldr	r3, [r7, #4]
+  35 000c 002B     		cmp	r3, #0
+  36 000e 06D0     		beq	.L2
+  37 0010 244B     		ldr	r3, .L11
+  38 0012 0022     		movs	r2, #0
+  39 0014 1A60     		str	r2, [r3]
+  40 0016 3B68     		ldr	r3, [r7]
+  41 0018 002B     		cmp	r3, #0
+  42 001a 12D0     		beq	.L5
+  43 001c 08E0     		b	.L9
+  44              	.L2:
+  45 001e 224B     		ldr	r3, .L11+4
+  46 0020 5A21     		movs	r1, #90
+  47 0022 1800     		movs	r0, r3
+  48 0024 FFF7FEFF 		bl	Xil_Assert
+  49 0028 1E4B     		ldr	r3, .L11
+  50 002a 0122     		movs	r2, #1
+  51 002c 1A60     		str	r2, [r3]
+  52 002e 36E0     		b	.L1
+  53              	.L9:
+  54 0030 1C4B     		ldr	r3, .L11
+  55 0032 0022     		movs	r2, #0
+  56 0034 1A60     		str	r2, [r3]
+  57 0036 7B68     		ldr	r3, [r7, #4]
+  58 0038 DB69     		ldr	r3, [r3, #28]
+  59 003a 1C4A     		ldr	r2, .L11+8
+  60 003c 9342     		cmp	r3, r2
+  61 003e 25D1     		bne	.L7
+  62 0040 08E0     		b	.L10
+  63              	.L5:
+  64 0042 194B     		ldr	r3, .L11+4
+  65 0044 5B21     		movs	r1, #91
+  66 0046 1800     		movs	r0, r3
+  67 0048 FFF7FEFF 		bl	Xil_Assert
+  68 004c 154B     		ldr	r3, .L11
+  69 004e 0122     		movs	r2, #1
+  70 0050 1A60     		str	r2, [r3]
+  71 0052 24E0     		b	.L1
+  72              	.L10:
+  73 0054 134B     		ldr	r3, .L11
+  74 0056 0022     		movs	r2, #0
+  75 0058 1A60     		str	r2, [r3]
+  76 005a 7B68     		ldr	r3, [r7, #4]
+  77 005c 1A68     		ldr	r2, [r3]
+  78 005e 3B68     		ldr	r3, [r7]
+  79 0060 1A60     		str	r2, [r3]
+  80 0062 7B68     		ldr	r3, [r7, #4]
+  81 0064 5A68     		ldr	r2, [r3, #4]
+  82 0066 3B68     		ldr	r3, [r7]
+  83 0068 5A60     		str	r2, [r3, #4]
+  84 006a 7B68     		ldr	r3, [r7, #4]
+  85 006c 9A68     		ldr	r2, [r3, #8]
+  86 006e 3B68     		ldr	r3, [r7]
+  87 0070 9A60     		str	r2, [r3, #8]
+  88 0072 7B68     		ldr	r3, [r7, #4]
+  89 0074 DA68     		ldr	r2, [r3, #12]
+  90 0076 3B68     		ldr	r3, [r7]
+  91 0078 DA60     		str	r2, [r3, #12]
+  92 007a 7B68     		ldr	r3, [r7, #4]
+  93 007c 1A69     		ldr	r2, [r3, #16]
+  94 007e 3B68     		ldr	r3, [r7]
+  95 0080 1A61     		str	r2, [r3, #16]
+  96 0082 7B68     		ldr	r3, [r7, #4]
+  97 0084 5A69     		ldr	r2, [r3, #20]
+  98 0086 3B68     		ldr	r3, [r7]
+  99 0088 5A61     		str	r2, [r3, #20]
+ 100 008a 08E0     		b	.L1
+ 101              	.L7:
+ 102 008c 064B     		ldr	r3, .L11+4
+ 103 008e 5C21     		movs	r1, #92
+ 104 0090 1800     		movs	r0, r3
+ 105 0092 FFF7FEFF 		bl	Xil_Assert
+ 106 0096 034B     		ldr	r3, .L11
+ 107 0098 0122     		movs	r2, #1
+ 108 009a 1A60     		str	r2, [r3]
+ 109 009c C046     		nop
+ 110              	.L1:
+ 111 009e BD46     		mov	sp, r7
+ 112 00a0 02B0     		add	sp, sp, #8
+ 113              		@ sp needed
+ 114 00a2 80BD     		pop	{r7, pc}
+ 115              	.L12:
+ 116              		.align	2
+ 117              	.L11:
+ 118 00a4 00000000 		.word	Xil_AssertStatus
+ 119 00a8 00000000 		.word	.LC1
+ 120 00ac 11111111 		.word	286331153
+ 122              		.section	.text.XSpi_ClearStats,"ax",%progbits
+ 123              		.align	1
+ 124              		.global	XSpi_ClearStats
+ 125              		.syntax unified
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.fpu softvfp
+ 130              	XSpi_ClearStats:
+ 131              		@ args = 0, pretend = 0, frame = 8
+ 132              		@ frame_needed = 1, uses_anonymous_args = 0
+ 133 0000 80B5     		push	{r7, lr}
+ 134 0002 82B0     		sub	sp, sp, #8
+ 135 0004 00AF     		add	r7, sp, #0
+ 136 0006 7860     		str	r0, [r7, #4]
+ 137 0008 7B68     		ldr	r3, [r7, #4]
+ 138 000a 002B     		cmp	r3, #0
+ 139 000c 08D0     		beq	.L14
+ 140 000e 1A4B     		ldr	r3, .L20
+ 141 0010 0022     		movs	r2, #0
+ 142 0012 1A60     		str	r2, [r3]
+ 143 0014 7B68     		ldr	r3, [r7, #4]
+ 144 0016 DB69     		ldr	r3, [r3, #28]
+ 145 0018 184A     		ldr	r2, .L20+4
+ 146 001a 9342     		cmp	r3, r2
+ 147 001c 1FD1     		bne	.L17
+ 148 001e 08E0     		b	.L19
+ 149              	.L14:
+ 150 0020 174B     		ldr	r3, .L20+8
+ 151 0022 7421     		movs	r1, #116
+ 152 0024 1800     		movs	r0, r3
+ 153 0026 FFF7FEFF 		bl	Xil_Assert
+ 154 002a 134B     		ldr	r3, .L20
+ 155 002c 0122     		movs	r2, #1
+ 156 002e 1A60     		str	r2, [r3]
+ 157 0030 1EE0     		b	.L13
+ 158              	.L19:
+ 159 0032 114B     		ldr	r3, .L20
+ 160 0034 0022     		movs	r2, #0
+ 161 0036 1A60     		str	r2, [r3]
+ 162 0038 7B68     		ldr	r3, [r7, #4]
+ 163 003a 0022     		movs	r2, #0
+ 164 003c 1A60     		str	r2, [r3]
+ 165 003e 7B68     		ldr	r3, [r7, #4]
+ 166 0040 0022     		movs	r2, #0
+ 167 0042 5A60     		str	r2, [r3, #4]
+ 168 0044 7B68     		ldr	r3, [r7, #4]
+ 169 0046 0022     		movs	r2, #0
+ 170 0048 9A60     		str	r2, [r3, #8]
+ 171 004a 7B68     		ldr	r3, [r7, #4]
+ 172 004c 0022     		movs	r2, #0
+ 173 004e DA60     		str	r2, [r3, #12]
+ 174 0050 7B68     		ldr	r3, [r7, #4]
+ 175 0052 0022     		movs	r2, #0
+ 176 0054 1A61     		str	r2, [r3, #16]
+ 177 0056 7B68     		ldr	r3, [r7, #4]
+ 178 0058 0022     		movs	r2, #0
+ 179 005a 5A61     		str	r2, [r3, #20]
+ 180 005c 08E0     		b	.L13
+ 181              	.L17:
+ 182 005e 084B     		ldr	r3, .L20+8
+ 183 0060 7521     		movs	r1, #117
+ 184 0062 1800     		movs	r0, r3
+ 185 0064 FFF7FEFF 		bl	Xil_Assert
+ 186 0068 034B     		ldr	r3, .L20
+ 187 006a 0122     		movs	r2, #1
+ 188 006c 1A60     		str	r2, [r3]
+ 189 006e C046     		nop
+ 190              	.L13:
+ 191 0070 BD46     		mov	sp, r7
+ 192 0072 02B0     		add	sp, sp, #8
+ 193              		@ sp needed
+ 194 0074 80BD     		pop	{r7, pc}
+ 195              	.L21:
+ 196 0076 C046     		.align	2
+ 197              	.L20:
+ 198 0078 00000000 		.word	Xil_AssertStatus
+ 199 007c 11111111 		.word	286331153
+ 200 0080 00000000 		.word	.LC1
+ 202              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xspi_stats.c
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:14     .rodata:00000000 $d
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:18     .text.XSpi_GetStats:00000000 $t
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:26     .text.XSpi_GetStats:00000000 XSpi_GetStats
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:118    .text.XSpi_GetStats:000000a4 $d
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:123    .text.XSpi_ClearStats:00000000 $t
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:130    .text.XSpi_ClearStats:00000000 XSpi_ClearStats
+C:\Users\george\AppData\Local\Temp\cczb5s8e.s:198    .text.XSpi_ClearStats:00000078 $d
+
+UNDEFINED SYMBOLS
+Xil_Assert
+Xil_AssertStatus

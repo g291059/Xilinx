@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 14 18:25:32 2020" VIVADOVERSION="2019.1">
+
+  <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="design_1" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS/>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/Rom_t_0" HWVERSION="1.0" INSTANCE="Rom_t_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Rom_t" VLNV="xilinx.com:module_ref:Rom_t:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="BUS_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="ADDR_WIDTH" VALUE="12"/>
+        <PARAMETER NAME="ROM_DEPTH" VALUE="3072"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Rom_t_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="do" RIGHT="0" SIGIS="undef" SIGNAME="Rom_t_0_do">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="freeRunCounter_0" PORT="di"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="addr" RIGHT="0" SIGIS="undef" SIGNAME="changer_t1_0_do8">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="changer_t1_0" PORT="do8"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ck" SIGIS="undef" SIGNAME="genClkRst_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="genClkRst_0_oreset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="oreset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/changer_t1_0" HWVERSION="1.0" INSTANCE="changer_t1_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="changer_t1" VLNV="xilinx.com:module_ref:changer_t1:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_changer_t1_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="genClkRst_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="addri" RIGHT="0" SIGIS="undef" SIGNAME="term_t1_0_addr_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="term_t1_0" PORT="addr_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="di16" RIGHT="0" SIGIS="undef" SIGNAME="dpram_t2_0_dob">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dpram_t2_0" PORT="dob"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="10" NAME="addro" RIGHT="0" SIGIS="undef" SIGNAME="changer_t1_0_addro">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dpram_t2_0" PORT="addrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="do8" RIGHT="0" SIGIS="undef" SIGNAME="changer_t1_0_do8">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rom_t_0" PORT="addr"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/dpram_t2_0" HWVERSION="1.0" INSTANCE="dpram_t2_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="dpram_t2" VLNV="xilinx.com:module_ref:dpram_t2:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="BUS_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="ADDR_WIDTH" VALUE="11"/>
+        <PARAMETER NAME="RAM_DEPTH" VALUE="1600"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_dpram_t2_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clka" SIGIS="undef"/>
+        <PORT DIR="I" NAME="clkb" SIGIS="undef" SIGNAME="genClkRst_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="wea" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="10" NAME="addra" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="10" NAME="addrb" RIGHT="0" SIGIS="undef" SIGNAME="changer_t1_0_addro">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="changer_t1_0" PORT="addro"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dia" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="15" NAME="doa" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="15" NAME="dob" RIGHT="0" SIGIS="undef" SIGNAME="dpram_t2_0_dob">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="changer_t1_0" PORT="di16"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/freeRunCounter_0" HWVERSION="1.0" INSTANCE="freeRunCounter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="freeRunCounter" VLNV="xilinx.com:module_ref:freeRunCounter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="N" VALUE="8"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_freeRunCounter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="genClkRst_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ce" SIGIS="undef" SIGNAME="term_t1_0_cnt_oe">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="term_t1_0" PORT="cnt_oe"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="do" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="7" NAME="di" RIGHT="0" SIGIS="undef" SIGNAME="Rom_t_0_do">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rom_t_0" PORT="do"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/genClkRst_0" HWVERSION="1.0" INSTANCE="genClkRst_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="genClkRst" VLNV="xilinx.com:module_ref:genClkRst:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_genClkRst_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="oclk" SIGIS="undef" SIGNAME="genClkRst_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rom_t_0" PORT="ck"/>
+            <CONNECTION INSTANCE="dpram_t2_0" PORT="clkb"/>
+            <CONNECTION INSTANCE="changer_t1_0" PORT="clk_i"/>
+            <CONNECTION INSTANCE="freeRunCounter_0" PORT="clk"/>
+            <CONNECTION INSTANCE="term_t1_0" PORT="clk_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="oreset" SIGIS="undef" SIGNAME="genClkRst_0_oreset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Rom_t_0" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="addr_o" RIGHT="0" SIGIS="undef" SIGNAME="genClkRst_0_addr_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="term_t1_0" PORT="hctr_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/term_t1_0" HWVERSION="1.0" INSTANCE="term_t1_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="term_t1" VLNV="xilinx.com:module_ref:term_t1:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="X_TERM_PXL_WIDTH" VALUE="640"/>
+        <PARAMETER NAME="Y_TERM_PXL_HEIGHT" VALUE="480"/>
+        <PARAMETER NAME="X_TERM_H_PXL_START" VALUE="24"/>
+        <PARAMETER NAME="Y_TERM_V_PXL_START" VALUE="0"/>
+        <PARAMETER NAME="X_TERM_CHR_WIDTH" VALUE="80"/>
+        <PARAMETER NAME="Y_TERM_CHR_HEIGHT" VALUE="40"/>
+        <PARAMETER NAME="X_CHR_PXL_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="Y_CHR_PXL_HEIGHT" VALUE="12"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_term_t1_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="genClkRst_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="hctr_i" RIGHT="0" SIGIS="undef" SIGNAME="genClkRst_0_addr_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="genClkRst_0" PORT="addr_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="vctr_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="cnt_oe" SIGIS="undef" SIGNAME="term_t1_0_cnt_oe">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="freeRunCounter_0" PORT="ce"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="addr_o" RIGHT="0" SIGIS="undef" SIGNAME="term_t1_0_addr_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="changer_t1_0" PORT="addri"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="12"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="11" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="term_t1_0" PORT="vctr_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_1_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dpram_t2_0" PORT="wea"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

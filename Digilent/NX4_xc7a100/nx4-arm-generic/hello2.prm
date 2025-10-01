@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX4
+Size               16M
+Start Address      0x00000000
+End Address        0x00FFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x003A607B    Apr  5 16:59:05 2021    C:/Users/george/Documents/Workspace/Xilinx/nx4-arm-generic/hello2.bit

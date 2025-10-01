@@ -1,0 +1,253 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+sleeping            0x4               ./src/sys/irqhandler.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./src/sys/irqhandler.o
+ .data          0x00000000        0x0 ./src/sys/irqhandler.o
+ .bss           0x00000000        0x0 ./src/sys/irqhandler.o
+ .text.waitForInt
+                0x00000000       0x20 ./src/sys/irqhandler.o
+ COMMON         0x00000000        0x4 ./src/sys/irqhandler.o
+ .text          0x00000000        0x0 ./src/sys/main.o
+ .data          0x00000000        0x0 ./src/sys/main.o
+ .bss           0x00000000        0x0 ./src/sys/main.o
+ .data          0x00000000        0x0 ./src/sys/startup_CM1.o
+ .bss           0x00000000        0x0 ./src/sys/startup_CM1.o
+ .text          0x00000000        0x0 ./src/sys/system.o
+ .data          0x00000000        0x0 ./src/sys/system.o
+ .bss           0x00000000        0x0 ./src/sys/system.o
+ .text.SystemCoreClockUpdate
+                0x00000000       0x18 ./src/sys/system.o
+ .text          0x00000000        0x0 ./src/debug/gpio_dbg.o
+ .data          0x00000000        0x0 ./src/debug/gpio_dbg.o
+ .bss           0x00000000        0x0 ./src/debug/gpio_dbg.o
+ .data.gpio_dbg_tri
+                0x00000000        0x4 ./src/debug/gpio_dbg.o
+ .text.gpio_dbg_read
+                0x00000000       0x14 ./src/debug/gpio_dbg.o
+ .text.gpio_dbg_mask
+                0x00000000       0x1c ./src/debug/gpio_dbg.o
+ .text          0x00000000        0x0 ./src/common/gpio.o
+ .data          0x00000000        0x0 ./src/common/gpio.o
+ .bss           0x00000000        0x0 ./src/common/gpio.o
+ .text.NVIC_ClearPendingIRQ
+                0x00000000       0x34 ./src/common/gpio.o
+ .data.gpio_0_data
+                0x00000000        0x4 ./src/common/gpio.o
+ .data.gpio_0_tri
+                0x00000000        0x4 ./src/common/gpio.o
+ .data.gpio_0_gier
+                0x00000000        0x4 ./src/common/gpio.o
+ .data.gpio_0_ier
+                0x00000000        0x4 ./src/common/gpio.o
+ .data.gpio_0_isr
+                0x00000000        0x4 ./src/common/gpio.o
+ .text.gpio_0_write
+                0x00000000       0x1c ./src/common/gpio.o
+ .text.gpio_0_read
+                0x00000000       0x14 ./src/common/gpio.o
+ .text.gpio_0_mask
+                0x00000000       0x1c ./src/common/gpio.o
+ .text.gpio_0_devIntEnable
+                0x00000000       0x18 ./src/common/gpio.o
+ .text.gpio_0_devIntDisable
+                0x00000000       0x18 ./src/common/gpio.o
+ .text.gpio_0_chIntEnable
+                0x00000000       0x24 ./src/common/gpio.o
+ .text.gpio_0_chIntDisable
+                0x00000000       0x28 ./src/common/gpio.o
+ .text.gpio_0_intStatus
+                0x00000000       0x14 ./src/common/gpio.o
+ .text.gpio_0_clrInt
+                0x00000000       0x1c ./src/common/gpio.o
+ .data.irqCnt   0x00000000        0x4 ./src/common/gpio.o
+ .text.gpio0IrqHandler
+                0x00000000       0x1c ./src/common/gpio.o
+ .comment       0x00000000       0x7a ./src/common/gpio.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/common/gpio.o
+ .text          0x00000000        0x0 ./src/common/uart.o
+ .data          0x00000000        0x0 ./src/common/uart.o
+ .bss           0x00000000        0x0 ./src/common/uart.o
+ .bss.txBuf_1   0x00000000        0x8 ./src/common/uart.o
+ .bss.rxBuf_1   0x00000000        0x8 ./src/common/uart.o
+ .data.uartl_1  0x00000000       0x18 ./src/common/uart.o
+ .data.uartlPool
+                0x00000000        0x4 ./src/common/uart.o
+ .bss.uartlIdx  0x00000000        0x4 ./src/common/uart.o
+ .text.newUartl
+                0x00000000       0x3c ./src/common/uart.o
+ .text.uartl_sendByte
+                0x00000000       0x2e ./src/common/uart.o
+ .text.outbyte  0x00000000       0x28 ./src/common/uart.o
+ .text.uartl_recvByte
+                0x00000000       0x26 ./src/common/uart.o
+ .text.uartl_sendBuffer
+                0x00000000       0xce ./src/common/uart.o
+ .text.uartl_send
+                0x00000000       0x66 ./src/common/uart.o
+ .text.uartl_recvBuffer
+                0x00000000       0xba ./src/common/uart.o
+ .text.uartl_recv
+                0x00000000       0x66 ./src/common/uart.o
+ .text.uartl_resetFifos
+                0x00000000       0x2c ./src/common/uart.o
+ .text.uartl_isSending
+                0x00000000       0x24 ./src/common/uart.o
+ .text.uart0IrqHandler
+                0x00000000        0xa ./src/common/uart.o
+ .text.uartApp  0x00000000        0xa ./src/common/uart.o
+ .comment       0x00000000       0x7a ./src/common/uart.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/common/uart.o
+ .text          0x00000000        0x0 ./src/apps/knobCtrl.o
+ .data          0x00000000        0x0 ./src/apps/knobCtrl.o
+ .bss           0x00000000        0x0 ./src/apps/knobCtrl.o
+ .data.yy       0x00000000       0x20 ./src/apps/knobCtrl.o
+ .text.xx       0x00000000       0x50 ./src/apps/knobCtrl.o
+ .text.knobRead
+                0x00000000       0x2e ./src/apps/knobCtrl.o
+ .text.knobWrite
+                0x00000000       0x58 ./src/apps/knobCtrl.o
+ .comment       0x00000000       0x7a ./src/apps/knobCtrl.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/apps/knobCtrl.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+IRAM             0x20000000         0x00005000
+IROM             0x00000000         0x00005000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+START GROUP
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\librdimon.a
+END GROUP
+LOAD ./src/sys/irqhandler.o
+LOAD ./src/sys/main.o
+LOAD ./src/sys/startup_CM1.o
+LOAD ./src/sys/system.o
+LOAD ./src/debug/gpio_dbg.o
+LOAD ./src/common/gpio.o
+LOAD ./src/common/uart.o
+LOAD ./src/apps/knobCtrl.o
+START GROUP
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+END GROUP
+START GROUP
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\librdimon.a
+END GROUP
+
+.text           0x00000000      0x184
+ *(.text)
+ .text          0x00000000      0x114 ./src/sys/startup_CM1.o
+                0x00000000                __Vectors
+                0x000000c0                Reset_Handler
+                0x000000f2                PendSV_Handler
+                0x000000f2                SVC_Handler
+                0x000000f2                HardFault_IRQHandler
+                0x000000f2                NMI_IRQHandler
+                0x000000f2                SysTick_Handler
+ *(.text .text.*)
+ .text.GPIO0_IRQHandler
+                0x00000114        0xa ./src/sys/irqhandler.o
+                0x00000114                GPIO0_IRQHandler
+ .text.TIMER0_IRQHandler
+                0x0000011e        0xa ./src/sys/irqhandler.o
+                0x0000011e                TIMER0_IRQHandler
+ .text.SPI0_IRQHandler
+                0x00000128        0xa ./src/sys/irqhandler.o
+                0x00000128                SPI0_IRQHandler
+ .text.UART0_IRQHandler
+                0x00000132        0xa ./src/sys/irqhandler.o
+                0x00000132                UART0_IRQHandler
+ .text.main     0x0000013c       0x14 ./src/sys/main.o
+                0x0000013c                main
+ .text.SystemInit
+                0x00000150       0x18 ./src/sys/system.o
+                0x00000150                SystemInit
+ .text.gpio_dbg_write
+                0x00000168       0x1c ./src/debug/gpio_dbg.o
+                0x00000168                gpio_dbg_write
+ *(.rodata .rodata.* .constdata .constdata.*)
+ *(.glue_7)
+ .glue_7        0x00000184        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000184        0x0 linker stubs
+
+.vfp11_veneer   0x00000184        0x0
+ .vfp11_veneer  0x00000184        0x0 linker stubs
+
+.v4_bx          0x00000184        0x0
+ .v4_bx         0x00000184        0x0 linker stubs
+
+.iplt           0x00000184        0x0
+ .iplt          0x00000184        0x0 ./src/sys/main.o
+
+.rel.dyn        0x00000184        0x0
+ .rel.iplt      0x00000184        0x0 ./src/sys/main.o
+
+.data           0x00000184        0x8
+                0x00000184                _idata = .
+ *(.data)
+ *(.data .data.*)
+ .data.SystemCoreClock
+                0x00000184        0x4 ./src/sys/system.o
+                0x00000184                SystemCoreClock
+ .data.gpio_dbg_data
+                0x00000188        0x4 ./src/debug/gpio_dbg.o
+                0x00000188                gpio_dbg_data
+
+.igot.plt       0x0000018c        0x0
+ .igot.plt      0x0000018c        0x0 ./src/sys/main.o
+
+.bss            0x20000000        0x8
+                0x20000000                _sdata = .
+                0x20000008                . = (. + SIZEOF (.data))
+ *fill*         0x20000000        0x8 
+                0x20000008                _edata = .
+                0x20000008                _sbss = .
+ *(.bss)
+                0x20000008                _ebss = .
+
+.STACK          0x20000008      0x500
+ *(.STACK)
+ .STACK         0x20000008      0x500 ./src/sys/startup_CM1.o
+                0x20000508                __initial_sp
+OUTPUT(CM1_0.elf elf32-littlearm)
+
+.comment        0x00000000       0x79
+ .comment       0x00000000       0x79 ./src/sys/irqhandler.o
+                                 0x7a (size before relaxing)
+ .comment       0x00000079       0x7a ./src/sys/main.o
+ .comment       0x00000079       0x7a ./src/sys/system.o
+ .comment       0x00000079       0x7a ./src/debug/gpio_dbg.o
+
+.ARM.attributes
+                0x00000000       0x2a
+ .ARM.attributes
+                0x00000000       0x2c ./src/sys/irqhandler.o
+ .ARM.attributes
+                0x0000002c       0x2c ./src/sys/main.o
+ .ARM.attributes
+                0x00000058       0x1c ./src/sys/startup_CM1.o
+ .ARM.attributes
+                0x00000074       0x2c ./src/sys/system.o
+ .ARM.attributes
+                0x000000a0       0x2c ./src/debug/gpio_dbg.o
+
+.HEAP           0x00000000        0x0
+ .HEAP          0x00000000        0x0 ./src/sys/startup_CM1.o

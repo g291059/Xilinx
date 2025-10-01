@@ -1,0 +1,201 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"gpioApp.c"
+  12              		.text
+  13              		.section	.bss.gpio0,"aw",%nobits
+  14              		.align	2
+  17              	gpio0:
+  18 0000 00000000 		.space	16
+  18      00000000 
+  18      00000000 
+  18      00000000 
+  19              		.section	.data.config0,"aw"
+  20              		.align	2
+  23              	config0:
+  24 0000 0000     		.short	0
+  25 0002 0000     		.space	2
+  26 0004 00000040 		.word	1073741824
+  27 0008 00000000 		.word	0
+  28 000c 00000000 		.word	0
+  29              		.section	.rodata
+  30              		.align	2
+  31              	.LC2:
+  32 0000 4572726F 		.ascii	"Error: XGpio_CfgInitialize %d\015\012\000"
+  32      723A2058 
+  32      4770696F 
+  32      5F436667 
+  32      496E6974 
+  33              		.align	2
+  34              	.LC4:
+  35 0020 4572726F 		.ascii	"Error: XGpio_Initialize %d\015\012\000"
+  35      723A2058 
+  35      4770696F 
+  35      5F496E69 
+  35      7469616C 
+  36 003d 000000   		.align	2
+  37              	.LC6:
+  38 0040 53756363 		.ascii	"Success: XGpio_Initialize\015\012\000"
+  38      6573733A 
+  38      20584770 
+  38      696F5F49 
+  38      6E697469 
+  39              		.section	.text.gpioInit,"ax",%progbits
+  40              		.align	1
+  41              		.global	gpioInit
+  42              		.arch armv6s-m
+  43              		.syntax unified
+  44              		.code	16
+  45              		.thumb_func
+  46              		.fpu softvfp
+  48              	gpioInit:
+  49              		@ args = 0, pretend = 0, frame = 8
+  50              		@ frame_needed = 1, uses_anonymous_args = 0
+  51 0000 80B5     		push	{r7, lr}
+  52 0002 82B0     		sub	sp, sp, #8
+  53 0004 00AF     		add	r7, sp, #0
+  54 0006 1B4B     		ldr	r3, .L5
+  55 0008 5A68     		ldr	r2, [r3, #4]
+  56 000a 1A49     		ldr	r1, .L5
+  57 000c 1A4B     		ldr	r3, .L5+4
+  58 000e 1800     		movs	r0, r3
+  59 0010 FFF7FEFF 		bl	XGpio_CfgInitialize
+  60 0014 0300     		movs	r3, r0
+  61 0016 7B60     		str	r3, [r7, #4]
+  62 0018 7B68     		ldr	r3, [r7, #4]
+  63 001a 002B     		cmp	r3, #0
+  64 001c 07D0     		beq	.L2
+  65 001e 7A68     		ldr	r2, [r7, #4]
+  66 0020 164B     		ldr	r3, .L5+8
+  67 0022 1100     		movs	r1, r2
+  68 0024 1800     		movs	r0, r3
+  69 0026 FFF7FEFF 		bl	xil_printf
+  70 002a 0123     		movs	r3, #1
+  71 002c 1DE0     		b	.L3
+  72              	.L2:
+  73 002e 124B     		ldr	r3, .L5+4
+  74 0030 0021     		movs	r1, #0
+  75 0032 1800     		movs	r0, r3
+  76 0034 FFF7FEFF 		bl	XGpio_Initialize
+  77 0038 0300     		movs	r3, r0
+  78 003a 7B60     		str	r3, [r7, #4]
+  79 003c 7B68     		ldr	r3, [r7, #4]
+  80 003e 002B     		cmp	r3, #0
+  81 0040 07D0     		beq	.L4
+  82 0042 7A68     		ldr	r2, [r7, #4]
+  83 0044 0E4B     		ldr	r3, .L5+12
+  84 0046 1100     		movs	r1, r2
+  85 0048 1800     		movs	r0, r3
+  86 004a FFF7FEFF 		bl	xil_printf
+  87 004e 0123     		movs	r3, #1
+  88 0050 0BE0     		b	.L3
+  89              	.L4:
+  90 0052 0C4B     		ldr	r3, .L5+16
+  91 0054 1800     		movs	r0, r3
+  92 0056 FFF7FEFF 		bl	xil_printf
+  93 005a 0123     		movs	r3, #1
+  94 005c 5A42     		rsbs	r2, r3, #0
+  95 005e 064B     		ldr	r3, .L5+4
+  96 0060 0121     		movs	r1, #1
+  97 0062 1800     		movs	r0, r3
+  98 0064 FFF7FEFF 		bl	XGpio_SetDataDirection
+  99 0068 0023     		movs	r3, #0
+ 100              	.L3:
+ 101 006a 1800     		movs	r0, r3
+ 102 006c BD46     		mov	sp, r7
+ 103 006e 02B0     		add	sp, sp, #8
+ 104              		@ sp needed
+ 105 0070 80BD     		pop	{r7, pc}
+ 106              	.L6:
+ 107 0072 C046     		.align	2
+ 108              	.L5:
+ 109 0074 00000000 		.word	config0
+ 110 0078 00000000 		.word	gpio0
+ 111 007c 00000000 		.word	.LC2
+ 112 0080 20000000 		.word	.LC4
+ 113 0084 40000000 		.word	.LC6
+ 115              		.section	.text.gpioWrite,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	gpioWrite
+ 118              		.syntax unified
+ 119              		.code	16
+ 120              		.thumb_func
+ 121              		.fpu softvfp
+ 123              	gpioWrite:
+ 124              		@ args = 0, pretend = 0, frame = 8
+ 125              		@ frame_needed = 1, uses_anonymous_args = 0
+ 126 0000 80B5     		push	{r7, lr}
+ 127 0002 82B0     		sub	sp, sp, #8
+ 128 0004 00AF     		add	r7, sp, #0
+ 129 0006 7860     		str	r0, [r7, #4]
+ 130 0008 7A68     		ldr	r2, [r7, #4]
+ 131 000a 044B     		ldr	r3, .L8
+ 132 000c 0121     		movs	r1, #1
+ 133 000e 1800     		movs	r0, r3
+ 134 0010 FFF7FEFF 		bl	XGpio_DiscreteWrite
+ 135 0014 C046     		nop
+ 136 0016 BD46     		mov	sp, r7
+ 137 0018 02B0     		add	sp, sp, #8
+ 138              		@ sp needed
+ 139 001a 80BD     		pop	{r7, pc}
+ 140              	.L9:
+ 141              		.align	2
+ 142              	.L8:
+ 143 001c 00000000 		.word	gpio0
+ 145              		.section	.text.gpioRead,"ax",%progbits
+ 146              		.align	1
+ 147              		.global	gpioRead
+ 148              		.syntax unified
+ 149              		.code	16
+ 150              		.thumb_func
+ 151              		.fpu softvfp
+ 153              	gpioRead:
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 1, uses_anonymous_args = 0
+ 156 0000 80B5     		push	{r7, lr}
+ 157 0002 00AF     		add	r7, sp, #0
+ 158 0004 044B     		ldr	r3, .L12
+ 159 0006 0121     		movs	r1, #1
+ 160 0008 1800     		movs	r0, r3
+ 161 000a FFF7FEFF 		bl	XGpio_DiscreteRead
+ 162 000e 0300     		movs	r3, r0
+ 163 0010 1800     		movs	r0, r3
+ 164 0012 BD46     		mov	sp, r7
+ 165              		@ sp needed
+ 166 0014 80BD     		pop	{r7, pc}
+ 167              	.L13:
+ 168 0016 C046     		.align	2
+ 169              	.L12:
+ 170 0018 00000000 		.word	gpio0
+ 172              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 gpioApp.c
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:14     .bss.gpio0:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:17     .bss.gpio0:00000000 gpio0
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:20     .data.config0:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:23     .data.config0:00000000 config0
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:30     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:40     .text.gpioInit:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:48     .text.gpioInit:00000000 gpioInit
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:109    .text.gpioInit:00000074 $d
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:116    .text.gpioWrite:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:123    .text.gpioWrite:00000000 gpioWrite
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:143    .text.gpioWrite:0000001c $d
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:146    .text.gpioRead:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:153    .text.gpioRead:00000000 gpioRead
+C:\Users\jl241\AppData\Local\Temp\cc4y3Gwh.s:170    .text.gpioRead:00000018 $d
+
+UNDEFINED SYMBOLS
+XGpio_CfgInitialize
+xil_printf
+XGpio_Initialize
+XGpio_SetDataDirection
+XGpio_DiscreteWrite
+XGpio_DiscreteRead

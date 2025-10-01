@@ -1,0 +1,24 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-102,-238",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace inst test_counter_0 -pg 1 -lvl 1 -x -2170 -y -190 -defaultsOSRD
+preplace inst clock_div_pow2_0 -pg 1 -lvl 2 -x -1920 -y -200 -defaultsOSRD
+preplace inst decoder328_0 -pg 1 -lvl 4 -x -1500 -y -210 -defaultsOSRD
+preplace inst i8sl_shifter_0 -pg 1 -lvl 5 -x -1290 -y -220 -defaultsOSRD
+preplace inst pulse_0 -pg 1 -lvl 4 -x -1500 -y -110 -defaultsOSRD
+preplace inst u3_counter_0 -pg 1 -lvl 3 -x -1710 -y -200 -defaultsOSRD
+preplace netloc test_counter_0_oclk 1 1 4 -2080 -290 N -290 N -290 -1380
+preplace netloc test_counter_0_oreset 1 1 2 -2080 -110 -1800J
+preplace netloc clock_div_pow2_0_o_clk_div16 1 2 1 -1810 -210n
+preplace netloc u3_counter_0_Q 1 3 1 -1620 -210n
+preplace netloc decoder328_0_res 1 4 1 -1390 -240n
+preplace netloc pulse_0_Q 1 4 1 -1380 -200n
+levelinfo -pg 1 -2270 -2170 -1920 -1710 -1500 -1290 -1190
+pagesize -pg 1 -db -bbox -sgen -2270 -420 -1190 320
+"
+}
+0

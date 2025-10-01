@@ -1,0 +1,762 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:49:42 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 4972
+License: Customer
+
+Current time: 	Tue Mar 14 10:20:10 GMT 2023
+Time zone: 	Greenwich Mean Time (Europe/London)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1680x1050
+Screen resolution (DPI): 100
+Available screens: 2
+Available disk space: 50 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/Xilinx/Vivado/2019.1/tps/win64/jre9.0.4
+Java executable location: 	C:/Xilinx/Vivado/2019.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	george
+User home directory: C:/Users/george
+User working directory: C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic
+User country: 	GB
+User language: 	en
+User locale: 	en_GB
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2019.1
+RDI_DATADIR: C:/Xilinx/Vivado/2019.1/data
+RDI_BINDIR: C:/Xilinx/Vivado/2019.1/bin
+
+Vivado preferences file location: C:/Users/george/AppData/Roaming/Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: C:/Users/george/AppData/Roaming/Xilinx/Vivado/2019.1/
+Vivado layouts directory: C:/Users/george/AppData/Roaming/Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic/vivado.log
+Vivado journal file location: 	C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic/vivado.jou
+Engine tmp dir: 	C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic/.Xil/Vivado-4972-DESKTOP-R8BVPM7
+
+Xilinx Environment Variables
+----------------------------
+NO_XILINX_DATA_LICENSE: HIDDEN
+XILINX: C:/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2019.1
+XILINX_SDK: C:/Xilinx/SDK/2019.1
+XILINX_VIVADO: C:/Xilinx/Vivado/2019.1
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2019.1
+
+
+GUI allocated memory:	186 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 696 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\george\Documents\Workspace\Xilinx\qm-arm-generic\qm-arm-generic.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic/qm-arm-generic.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 707 MB. GUI used memory: 47 MB. Current time: 3/14/23, 10:20:12 AM GMT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 61 MB (+61775kb) [00:00:19]
+// [Engine Memory]: 730 MB (+614177kb) [00:00:19]
+// [GUI Memory]: 70 MB (+5672kb) [00:00:20]
+// [GUI Memory]: 110 MB (+38243kb) [00:00:21]
+// [Engine Memory]: 774 MB (+7832kb) [00:00:21]
+// WARNING: HEventQueue.dispatchEvent() is taking  3974 ms.
+// Tcl Message: open_project C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic/qm-arm-generic.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/george/Documents/Xilinx_Arm/AT472-BU-98000-r0p1-00rel0/vivado/Arm_ipi_repository'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'. 
+// [GUI Memory]: 117 MB (+2212kb) [00:00:23]
+// [Engine Memory]: 822 MB (+10031kb) [00:00:23]
+// WARNING: HEventQueue.dispatchEvent() is taking  2177 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1294 ms.
+// Tcl Message: open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 851.555 ; gain = 178.664 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,248 MB. GUI used memory: 72 MB. Current time: 3/14/23, 10:20:28 AM GMT
+// Project name: qm-arm-generic; location: C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic; part: xc7a100tlfgg676-2L
+// [Engine Memory]: 1,248 MB (+402750kb) [00:00:27]
+dismissDialog("Open Project"); // by (cl)
+// a (cl): Critical Messages: addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed time: 14 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (a)
+dismissDialog("Critical Messages"); // a (cl)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// by (cl):  Open Block Design : addNotify
+// TclEventType: LOAD_FEATURE
+// Tcl Message: open_bd_design {C:/Users/george/Documents/Workspace/Xilinx/qm-arm-generic/qm-arm-generic.srcs/sources_1/bd/design_1/design_1.bd} 
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_OPEN_DIAGRAM
+// [GUI Memory]: 125 MB (+1344kb) [00:00:47]
+// WARNING: HEventQueue.dispatchEvent() is taking  1856 ms.
+// TclEventType: RSB_CONNECTION_CHANGE
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// TclEventType: RSB_LOCK_CHANGE
+// 'bB' command handler elapsed time: 4 seconds
+dismissDialog("Open Block Design"); // by (cl)
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 58 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 21 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// WARNING: HEventQueue.dispatchEvent() is taking  1032 ms.
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton(PAResourceItoN.MigPinSelectionPage_READ_XDC_UCF, "Read XDC/UCF"); // a (E, h)
+// [GUI Memory]: 144 MB (+13405kb) [00:04:17]
+// Elapsed time: 149 seconds
+dismissFileChooser();
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 83 MB. Current time: 3/14/23, 10:50:32 AM GMT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 79 MB. Current time: 3/14/23, 11:20:32 AM GMT
+// Elapsed time: 3743 seconds
+selectButton(PAResourceItoN.MigPinSelectionPage_VALIDATE, "Validate"); // a (E, h)
+selectButton("OptionPane.button", "OK"); // JButton (A, H)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 16 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 817 seconds
+selectButton("BACK", "< Back"); // JButton (j, h)
+// Elapsed time: 264 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("CANCEL", "Cancel"); // JButton (j, h)
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+// 'ai' command handler elapsed time: 5086 seconds
+selectButton("OptionPane.button", "Yes"); // JButton (A, H)
+dismissDialog("Memory Interface Generator"); // h (cl)
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 112 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 80 MB. Current time: 3/14/23, 11:50:33 AM GMT
+// Elapsed time: 486 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 80 MB. Current time: 3/14/23, 12:20:33 PM GMT
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 2234 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (r)
+dismissDialog("Re-customize IP"); // r (cl)
+// Elapsed time: 54 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 23 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 30 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 284 seconds
+dismissDialog("Re-customize IP"); // r (cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 82 MB. Current time: 3/14/23, 12:50:34 PM GMT
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_PIN
+// r (cl): Customize Pin: addNotify
+// Elapsed time: 1405 seconds
+dismissDialog("Customize Pin"); // r (cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// O (cl):  Re-customize IP : addNotify
+// r (cl): Re-customize IP: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1100 ms.
+dismissDialog("Re-customize IP"); // O (cl)
+// Elapsed time: 20 seconds
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 1); // cT (E, r)
+// [GUI Memory]: 151 MB (+205kb) [02:47:59]
+// Elapsed time: 250 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (r)
+dismissDialog("Re-customize IP"); // r (cl)
+// Elapsed time: 67 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 144 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 13 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 84 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 120 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 94 MB. Current time: 3/14/23, 1:20:34 PM GMT
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 777 seconds
+dismissDialog("Re-customize IP"); // r (cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+dismissDialog("Re-customize IP"); // r (cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+dismissDialog("Re-customize IP"); // r (cl)
+// Elapsed time: 53 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 172 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 23 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 69 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 34 seconds
+dismissDialog("Re-customize IP"); // r (cl)
+// Elapsed time: 536 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 20 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 96 MB. Current time: 3/14/23, 1:50:34 PM GMT
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 549 seconds
+dismissDialog("Re-customize IP"); // r (cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// O (cl):  Re-customize IP : addNotify
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 67 seconds
+dismissDialog("Re-customize IP"); // O (cl)
+dismissDialog("Re-customize IP"); // r (cl)
+// [GUI Memory]: 163 MB (+5139kb) [03:34:15]
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// O (cl):  Re-customize IP : addNotify
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 22 seconds
+dismissDialog("Re-customize IP"); // O (cl)
+// [GUI Memory]: 174 MB (+2012kb) [03:34:45]
+// Elapsed time: 71 seconds
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 1); // cT (E, r)
+// Elapsed time: 47 seconds
+selectCheckBox(PAResourceTtoZ.XPG_IPSymbol_SHOW_DISABLED_PORTS, "Show disabled ports", true); // g (cC, r): TRUE
+selectCheckBox(PAResourceTtoZ.XPG_IPSymbol_SHOW_DISABLED_PORTS, "Show disabled ports", false); // g (cC, r): FALSE
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "MMCM Settings", 2); // cT (E, r)
+// Elapsed time: 15 seconds
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Summary", 3); // cT (E, r)
+// Elapsed time: 10 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (r)
+dismissDialog("Re-customize IP"); // r (cl)
+// Elapsed time: 74 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 513 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// WARNING: HEventQueue.dispatchEvent() is taking  1021 ms.
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 15 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton(PAResourceItoN.MigPinSelectionPage_VALIDATE, "Validate"); // a (E, h)
+selectButton("OptionPane.button", "OK"); // JButton (A, H)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 721 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("CANCEL", "Cancel"); // JButton (j, h)
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+// 'ai' command handler elapsed time: 795 seconds
+selectButton("OptionPane.button", "Yes"); // JButton (A, H)
+dismissDialog("Memory Interface Generator"); // h (cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 116 MB. Current time: 3/14/23, 2:20:35 PM GMT
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 1227 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 46 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// WARNING: HEventQueue.dispatchEvent() is taking  1192 ms.
+// Elapsed time: 27 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 45 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 45 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 30 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton(PAResourceItoN.MigPinSelectionPage_VALIDATE, "Validate"); // a (E, h)
+selectButton("OptionPane.button", "OK"); // JButton (A, H)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 47 seconds
+selectTable(PAResourceItoN.MigSystemSignalsSelectionPage_TABLE, "clk_ref_i ; 34 ; M2(SRCC_P)", 0, "M2(SRCC_P)", 2); // aM (E, h)
+editTable(PAResourceItoN.MigSystemSignalsSelectionPage_TABLE, "M2(SRCC_P)", 0, "Pin Number", 2); // aM (E, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 240 seconds
+selectButton("CANCEL", "Cancel"); // JButton (j, h)
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+// 'ai' command handler elapsed time: 700 seconds
+selectButton("OptionPane.button", "Yes"); // JButton (A, H)
+dismissDialog("Memory Interface Generator"); // h (cl)
+// Elapsed time: 103 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 115 MB. Current time: 3/14/23, 2:50:35 PM GMT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 288 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 173 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1229, 58); // dt (af, cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 17 seconds
+selectButton("CANCEL", "Cancel"); // JButton (j, h)
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+// 'ai' command handler elapsed time: 13 seconds
+selectButton("OptionPane.button", "Yes"); // JButton (A, H)
+dismissDialog("Memory Interface Generator"); // h (cl)
+// Elapsed time: 253 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1157, 15); // dt (af, cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 12 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// Elapsed time: 43 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// WARNING: HEventQueue.dispatchEvent() is taking  1141 ms.
+// Elapsed time: 322 seconds
+selectButton("CANCEL", "Cancel"); // JButton (j, h)
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+selectButton("OptionPane.button", "No"); // JButton (A, H)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton(PAResourceItoN.MigPinSelectionPage_VALIDATE, "Validate"); // a (E, h)
+selectButton("OptionPane.button", "OK"); // JButton (A, H)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectTable(PAResourceItoN.MigSystemSignalsSelectionPage_TABLE, "sys_rst ; Select Bank ; No connect", 0, "Select Bank", 1); // aM (E, h)
+// Elapsed time: 32 seconds
+editTable(PAResourceItoN.MigSystemSignalsSelectionPage_TABLE, "Select Bank", 0, "Bank Number", 1); // aM (E, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectRadioButton(PAResourceItoN.MigLicensePage_ACCEPT, "Accept"); // a (Q, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("FINISH", "Generate"); // JButton (j, h)
+// by (cl):  Generate IP : addNotify
+dismissDialog("Memory Interface Generator"); // h (cl)
+// Tcl Command: 'set_property -name {CONFIG.XML_INPUT_FILE} -value  {mig_a.prj} -objects [get_bd_cells mig_7series_0]'
+// Tcl Message: set_property -name {CONFIG.XML_INPUT_FILE} -value  {mig_a.prj} -objects [get_bd_cells mig_7series_0] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Command: 'set_property -name {CONFIG.RESET_BOARD_INTERFACE} -value  {Custom} -objects [get_bd_cells mig_7series_0]'
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: mig_a.prj 
+// Tcl Message: set_property -name {CONFIG.RESET_BOARD_INTERFACE} -value  {Custom} -objects [get_bd_cells mig_7series_0] 
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Command: 'set_property -name {CONFIG.MIG_DONT_TOUCH_PARAM} -value  {Custom} -objects [get_bd_cells mig_7series_0]'
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: Custom 
+// Tcl Message: set_property -name {CONFIG.MIG_DONT_TOUCH_PARAM} -value  {Custom} -objects [get_bd_cells mig_7series_0] 
+// Tcl Command: 'set_property -name {CONFIG.BOARD_MIG_PARAM} -value  {Custom} -objects [get_bd_cells mig_7series_0]'
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: Custom 
+// Tcl Message: set_property -name {CONFIG.BOARD_MIG_PARAM} -value  {Custom} -objects [get_bd_cells mig_7series_0] 
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// aI (cl): Generate Output Products: addNotify
+// Tcl Message: Custom 
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Generate IP"); // by (cl)
+// Elapsed time: 21 seconds
+selectButton(PAResourceQtoS.SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL, "Skip"); // a (aI)
+// 'ai' command handler elapsed time: 481 seconds
+dismissDialog("Generate Output Products"); // aI (cl)
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "System_zoom_in"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 58 seconds
+dismissDialog("Re-customize IP"); // r (cl)
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "System_zoom_out"); // B (f, cl)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 118 MB. Current time: 3/14/23, 3:20:35 PM GMT
+// Elapsed time: 597 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1146, 51); // dt (af, cl)
+// Elapsed time: 85 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1203, 104); // dt (af, cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 14 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// WARNING: HEventQueue.dispatchEvent() is taking  1071 ms.
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton(PAResourceItoN.MigPinSelectionPage_VALIDATE, "Validate"); // a (E, h)
+selectButton("OptionPane.button", "OK"); // JButton (A, H)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 122 MB. Current time: 3/14/23, 3:50:36 PM GMT
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+// 'ai' command handler elapsed time: 2160 seconds
+// Elapsed time: 2125 seconds
+selectButton("OptionPane.button", "Yes"); // JButton (A, H)
+dismissDialog("Memory Interface Generator"); // h (cl)
+// Elapsed time: 871 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 968, 19); // dt (af, cl)
+// Elapsed time: 339 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 925, 48); // dt (af, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 116 MB. Current time: 3/14/23, 4:20:36 PM GMT
+// Elapsed time: 251 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1040, 57); // dt (af, cl)
+// Elapsed time: 35 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 955, 80); // dt (af, cl)
+// Elapsed time: 297 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1232, 49); // dt (af, cl)
+// Elapsed time: 357 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1199, 46); // dt (af, cl)
+// Elapsed time: 18 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1246, 68); // dt (af, cl)
+// Elapsed time: 384 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1198, 15); // dt (af, cl)
+// Elapsed time: 118 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1219, 61); // dt (af, cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// N (cl):  Re-customize IP : addNotify
+// h (cl): Memory Interface Generator: addNotify
+// Elapsed time: 42 seconds
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+selectButton("NEXT", "Next >"); // JButton (j, h)
+// HOptionPane Warning: 'Are you sure you want to quit? (Quit Confirmation)'
+// 'ai' command handler elapsed time: 221 seconds
+// Elapsed time: 211 seconds
+selectButton("OptionPane.button", "Yes"); // JButton (A, H)
+dismissDialog("Memory Interface Generator"); // h (cl)
+// [GUI Memory]: 184 MB (+1653kb) [06:30:27]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 119 MB. Current time: 3/14/23, 4:50:36 PM GMT
+// Elapsed time: 1290 seconds
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 54, 42, 1153, 540, false, false, false, true, false); // gl (k, cl) - Popup Trigger
+selectMenu(PAResourceQtoS.SelectMenu_HIGHLIGHT, "Highlight"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceQtoS.SelectMenu_HIGHLIGHT, "Highlight"); // ae (an, Popup.HeavyWeightWindow)
+// Elapsed time: 10 seconds
+selectMenu(PAResourceQtoS.SelectMenu_HIGHLIGHT, "Highlight"); // ae (an, Popup.HeavyWeightWindow)
+selectMenuItem(RDIResourceCommand.RDICommands_PROPERTIES, "Block Properties..."); // ah (an, Popup.HeavyWeightWindow)
+// Run Command: RDIResourceCommand.RDICommands_PROPERTIES
+// Elapsed time: 70 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Address Editor", 1); // k (j, cl)
+// Elapsed time: 58 seconds
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_quad_spi_0 ; AXI_LITE ; Reg ; 0x44A0_0000 ; 64K ; 0x44A0_FFFF", 3, "axi_quad_spi_0", 0, false); // g (O, cl)
+// Elapsed time: 66 seconds
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_gpio_0 ; S_AXI ; Reg ; 0x4000_0000 ; 64K ; 0x4000_FFFF", 2, "axi_gpio_0", 0, false); // g (O, cl)
+// Elapsed time: 95 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "System", 0); // k (j, cl)
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1202 ms. Increasing delay to 3606 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 1133 ms. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1117 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 131 MB. Current time: 3/14/23, 5:20:38 PM GMT
+// Elapsed time: 387 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1154, 46); // dt (af, cl)
+// Elapsed time: 174 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1156, 101); // dt (af, cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// O (cl):  Re-customize IP : addNotify
+// r (cl): Re-customize IP: addNotify
+dismissDialog("Re-customize IP"); // O (cl)
+// Elapsed time: 20 seconds
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Debug", 1); // bg (E, r)
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Instruction Memory", 2); // bg (E, r)
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Data Memory", 3); // bg (E, r)
+// Elapsed time: 12 seconds
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Configuration", 0); // bg (E, r)
+// Elapsed time: 33 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1135, 11); // dt (af, cl)
+// Elapsed time: 18 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1117, 117); // dt (af, cl)
+// Elapsed time: 127 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1148, 111); // dt (af, cl)
+dismissDialog("Re-customize IP"); // r (cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// r (cl): Re-customize IP: addNotify
+// Elapsed time: 25 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (r)
+dismissDialog("Re-customize IP"); // r (cl)
+// Elapsed time: 138 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1120, 74); // dt (af, cl)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_PIN
+// r (cl): Customize Pin: addNotify
+// Elapsed time: 65 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1136, 21); // dt (af, cl)
+dismissDialog("Customize Pin"); // r (cl)
+// Elapsed time: 171 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // u (O, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// D (cl): Settings: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1860 ms.
+// Elapsed time: 48 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Simulation]", 1, false); // L (E, D)
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Elaboration]", 2, false); // L (E, D)
+// [GUI Memory]: 203 MB (+10566kb) [07:15:58]
+// Elapsed time: 10 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Synthesis]", 3, false); // L (E, D)
+// Elapsed time: 11 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Implementation]", 4, false); // L (E, D)
+// Elapsed time: 12 seconds
+expandTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, IP]", 6); // L (E, D)
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, IP, Repository]", 7, false); // L (E, D)
+// Elapsed time: 33 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, IP, Packager]", 8, false); // L (E, D)
+// Elapsed time: 13 seconds
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, Project]", 0, false); // L (E, D)
+// Elapsed time: 11 seconds
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, IP Defaults]", 1, false); // L (E, D)
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, IP Defaults]", 1, false); // L (E, D)
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, Board Repository]", 2, false); // L (E, D)
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, Source File]", 3, false); // L (E, D)
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, Display]", 4, false); // L (E, D)
+// Elapsed time: 12 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, IP]", 6, true); // L (E, D) - Node
+// Elapsed time: 21 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, IP, Repository]", 7, false); // L (E, D)
+// Elapsed time: 600 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1070, 114); // dt (af, cl)
+dismissDialog("Settings"); // D (cl)
+// Elapsed time: 96 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 901, 108); // dt (af, cl)
+selectTab((HResource) null, (HResource) null, "Sources", 0); // aK (aH, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 141 MB. Current time: 3/14/23, 5:50:37 PM GMT
+// Elapsed time: 390 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 968, 58); // dt (af, cl)
+// Elapsed time: 377 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1240, 140); // dt (af, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,260 MB. GUI used memory: 135 MB. Current time: 3/14/23, 6:20:37 PM GMT

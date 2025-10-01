@@ -1,0 +1,251 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"main.c"
+  12              		.text
+  13              		.section	.rodata
+  14              		.align	2
+  15              	.LC2:
+  16 0000 48656C6C 		.ascii	"Hello from CM1-1\015\012\000"
+  16      6F206672 
+  16      6F6D2043 
+  16      4D312D31 
+  16      0D0A00
+  17 0013 00       		.align	2
+  18              	.LC4:
+  19 0014 4770696F 		.ascii	"Gpio0 Initialisation Failed\015\012\000"
+  19      3020496E 
+  19      69746961 
+  19      6C697361 
+  19      74696F6E 
+  20 0032 0000     		.align	2
+  21              	.LC6:
+  22 0034 4770696F 		.ascii	"Gpio0 Initialisation Success\015\012\000"
+  22      3020496E 
+  22      69746961 
+  22      6C697361 
+  22      74696F6E 
+  23 0053 00       		.align	2
+  24              	.LC8:
+  25 0054 4770696F 		.ascii	"Gpio1 Initialisation Failed\015\012\000"
+  25      3120496E 
+  25      69746961 
+  25      6C697361 
+  25      74696F6E 
+  26 0072 0000     		.align	2
+  27              	.LC10:
+  28 0074 4770696F 		.ascii	"Gpio1 Initialisation Success\015\012\000"
+  28      3120496E 
+  28      69746961 
+  28      6C697361 
+  28      74696F6E 
+  29 0093 00       		.align	2
+  30              	.LC12:
+  31 0094 53572069 		.ascii	"SW in = %x \015\012\000"
+  31      6E203D20 
+  31      2578200D 
+  31      0A00
+  32 00a2 0000     		.align	2
+  33              	.LC14:
+  34 00a4 61667465 		.ascii	"after 1st delay\015\012\000"
+  34      72203173 
+  34      74206465 
+  34      6C61790D 
+  34      0A00
+  35 00b6 0000     		.align	2
+  36              	.LC16:
+  37 00b8 61667465 		.ascii	"after 2nd delay\015\012\000"
+  37      7220326E 
+  37      64206465 
+  37      6C61790D 
+  37      0A00
+  38 00ca 0000     		.align	2
+  39              	.LC0:
+  40 00cc 0100     		.short	1
+  41 00ce 0000     		.space	2
+  42 00d0 00000140 		.word	1073807360
+  43 00d4 00000000 		.word	0
+  44 00d8 00000000 		.word	0
+  45              		.section	.text.main,"ax",%progbits
+  46              		.align	1
+  47              		.global	main
+  48              		.arch armv6s-m
+  49              		.syntax unified
+  50              		.code	16
+  51              		.thumb_func
+  52              		.fpu softvfp
+  54              	main:
+  55              		@ args = 0, pretend = 0, frame = 80
+  56              		@ frame_needed = 1, uses_anonymous_args = 0
+  57 0000 B0B5     		push	{r4, r5, r7, lr}
+  58 0002 94B0     		sub	sp, sp, #80
+  59 0004 00AF     		add	r7, sp, #0
+  60 0006 1424     		movs	r4, #20
+  61 0008 3B19     		adds	r3, r7, r4
+  62 000a 0022     		movs	r2, #0
+  63 000c 1A80     		strh	r2, [r3]
+  64 000e 3B19     		adds	r3, r7, r4
+  65 0010 8022     		movs	r2, #128
+  66 0012 D205     		lsls	r2, r2, #23
+  67 0014 5A60     		str	r2, [r3, #4]
+  68 0016 3B19     		adds	r3, r7, r4
+  69 0018 0022     		movs	r2, #0
+  70 001a 9A60     		str	r2, [r3, #8]
+  71 001c 3B19     		adds	r3, r7, r4
+  72 001e 0022     		movs	r2, #0
+  73 0020 DA60     		str	r2, [r3, #12]
+  74 0022 3B1D     		adds	r3, r7, #4
+  75 0024 3D4A     		ldr	r2, .L11
+  76 0026 23CA     		ldmia	r2!, {r0, r1, r5}
+  77 0028 23C3     		stmia	r3!, {r0, r1, r5}
+  78 002a 1268     		ldr	r2, [r2]
+  79 002c 1A60     		str	r2, [r3]
+  80 002e 3C4B     		ldr	r3, .L11+4
+  81 0030 1800     		movs	r0, r3
+  82 0032 FFF7FEFF 		bl	print
+  83 0036 3B19     		adds	r3, r7, r4
+  84 0038 5A68     		ldr	r2, [r3, #4]
+  85 003a 3919     		adds	r1, r7, r4
+  86 003c 3424     		movs	r4, #52
+  87 003e 3B19     		adds	r3, r7, r4
+  88 0040 1800     		movs	r0, r3
+  89 0042 FFF7FEFF 		bl	XGpio_CfgInitialize
+  90 0046 3B1D     		adds	r3, r7, #4
+  91 0048 5A68     		ldr	r2, [r3, #4]
+  92 004a 391D     		adds	r1, r7, #4
+  93 004c 2423     		movs	r3, #36
+  94 004e FB18     		adds	r3, r7, r3
+  95 0050 1800     		movs	r0, r3
+  96 0052 FFF7FEFF 		bl	XGpio_CfgInitialize
+  97 0056 3B19     		adds	r3, r7, r4
+  98 0058 0021     		movs	r1, #0
+  99 005a 1800     		movs	r0, r3
+ 100 005c FFF7FEFF 		bl	XGpio_Initialize
+ 101 0060 0300     		movs	r3, r0
+ 102 0062 FB64     		str	r3, [r7, #76]
+ 103 0064 FB6C     		ldr	r3, [r7, #76]
+ 104 0066 002B     		cmp	r3, #0
+ 105 0068 05D0     		beq	.L2
+ 106 006a 2E4B     		ldr	r3, .L11+8
+ 107 006c 1800     		movs	r0, r3
+ 108 006e FFF7FEFF 		bl	xil_printf
+ 109 0072 0123     		movs	r3, #1
+ 110 0074 4EE0     		b	.L10
+ 111              	.L2:
+ 112 0076 2C4B     		ldr	r3, .L11+12
+ 113 0078 1800     		movs	r0, r3
+ 114 007a FFF7FEFF 		bl	xil_printf
+ 115 007e 2423     		movs	r3, #36
+ 116 0080 FB18     		adds	r3, r7, r3
+ 117 0082 0121     		movs	r1, #1
+ 118 0084 1800     		movs	r0, r3
+ 119 0086 FFF7FEFF 		bl	XGpio_Initialize
+ 120 008a 0300     		movs	r3, r0
+ 121 008c FB64     		str	r3, [r7, #76]
+ 122 008e FB6C     		ldr	r3, [r7, #76]
+ 123 0090 002B     		cmp	r3, #0
+ 124 0092 05D0     		beq	.L4
+ 125 0094 254B     		ldr	r3, .L11+16
+ 126 0096 1800     		movs	r0, r3
+ 127 0098 FFF7FEFF 		bl	xil_printf
+ 128 009c 0123     		movs	r3, #1
+ 129 009e 39E0     		b	.L10
+ 130              	.L4:
+ 131 00a0 234B     		ldr	r3, .L11+20
+ 132 00a2 1800     		movs	r0, r3
+ 133 00a4 FFF7FEFF 		bl	xil_printf
+ 134              	.L9:
+ 135 00a8 0023     		movs	r3, #0
+ 136 00aa BB64     		str	r3, [r7, #72]
+ 137 00ac 3423     		movs	r3, #52
+ 138 00ae FB18     		adds	r3, r7, r3
+ 139 00b0 0121     		movs	r1, #1
+ 140 00b2 1800     		movs	r0, r3
+ 141 00b4 FFF7FEFF 		bl	XGpio_DiscreteRead
+ 142 00b8 0300     		movs	r3, r0
+ 143 00ba BB64     		str	r3, [r7, #72]
+ 144 00bc BA6C     		ldr	r2, [r7, #72]
+ 145 00be 1D4B     		ldr	r3, .L11+24
+ 146 00c0 1100     		movs	r1, r2
+ 147 00c2 1800     		movs	r0, r3
+ 148 00c4 FFF7FEFF 		bl	xil_printf
+ 149 00c8 0023     		movs	r3, #0
+ 150 00ca 7B64     		str	r3, [r7, #68]
+ 151 00cc 02E0     		b	.L5
+ 152              	.L6:
+ 153 00ce 7B6C     		ldr	r3, [r7, #68]
+ 154 00d0 0133     		adds	r3, r3, #1
+ 155 00d2 7B64     		str	r3, [r7, #68]
+ 156              	.L5:
+ 157 00d4 7B6C     		ldr	r3, [r7, #68]
+ 158 00d6 184A     		ldr	r2, .L11+28
+ 159 00d8 9342     		cmp	r3, r2
+ 160 00da F8D9     		bls	.L6
+ 161 00dc 174B     		ldr	r3, .L11+32
+ 162 00de 1800     		movs	r0, r3
+ 163 00e0 FFF7FEFF 		bl	xil_printf
+ 164 00e4 BB6C     		ldr	r3, [r7, #72]
+ 165 00e6 0F22     		movs	r2, #15
+ 166 00e8 1A40     		ands	r2, r3
+ 167 00ea 2423     		movs	r3, #36
+ 168 00ec FB18     		adds	r3, r7, r3
+ 169 00ee 0121     		movs	r1, #1
+ 170 00f0 1800     		movs	r0, r3
+ 171 00f2 FFF7FEFF 		bl	XGpio_DiscreteWrite
+ 172 00f6 0023     		movs	r3, #0
+ 173 00f8 7B64     		str	r3, [r7, #68]
+ 174 00fa 02E0     		b	.L7
+ 175              	.L8:
+ 176 00fc 7B6C     		ldr	r3, [r7, #68]
+ 177 00fe 0133     		adds	r3, r3, #1
+ 178 0100 7B64     		str	r3, [r7, #68]
+ 179              	.L7:
+ 180 0102 7B6C     		ldr	r3, [r7, #68]
+ 181 0104 0C4A     		ldr	r2, .L11+28
+ 182 0106 9342     		cmp	r3, r2
+ 183 0108 F8D9     		bls	.L8
+ 184 010a 0D4B     		ldr	r3, .L11+36
+ 185 010c 1800     		movs	r0, r3
+ 186 010e FFF7FEFF 		bl	xil_printf
+ 187 0112 C9E7     		b	.L9
+ 188              	.L10:
+ 189 0114 1800     		movs	r0, r3
+ 190 0116 BD46     		mov	sp, r7
+ 191 0118 14B0     		add	sp, sp, #80
+ 192              		@ sp needed
+ 193 011a B0BD     		pop	{r4, r5, r7, pc}
+ 194              	.L12:
+ 195              		.align	2
+ 196              	.L11:
+ 197 011c CC000000 		.word	.LC0
+ 198 0120 00000000 		.word	.LC2
+ 199 0124 14000000 		.word	.LC4
+ 200 0128 34000000 		.word	.LC6
+ 201 012c 54000000 		.word	.LC8
+ 202 0130 74000000 		.word	.LC10
+ 203 0134 94000000 		.word	.LC12
+ 204 0138 3F420F00 		.word	999999
+ 205 013c A4000000 		.word	.LC14
+ 206 0140 B8000000 		.word	.LC16
+ 208              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\jl241\AppData\Local\Temp\cc1nADSc.s:14     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc1nADSc.s:46     .text.main:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc1nADSc.s:54     .text.main:00000000 main
+C:\Users\jl241\AppData\Local\Temp\cc1nADSc.s:197    .text.main:0000011c $d
+
+UNDEFINED SYMBOLS
+print
+XGpio_CfgInitialize
+XGpio_Initialize
+xil_printf
+XGpio_DiscreteRead
+XGpio_DiscreteWrite

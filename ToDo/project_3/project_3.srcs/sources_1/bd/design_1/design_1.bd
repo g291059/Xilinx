@@ -1,0 +1,272 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x4E1A07364E1A0736",
+      "device": "xa7a100tcsg324-1I",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clock_div_pow2_0": "",
+      "decoder328_0": "",
+      "i8sl_shifter_0": "",
+      "pulse_0": "",
+      "srcv_0": "",
+      "u3_counter_0": "",
+      "test_counter_0": ""
+    },
+    "ports": {
+      "Q": {
+        "direction": "O",
+        "left": "4",
+        "right": "0"
+      }
+    },
+    "components": {
+      "clock_div_pow2_0": {
+        "vlnv": "xilinx.com:module_ref:clock_div_pow2:1.0",
+        "xci_name": "design_1_clock_div_pow2_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "clock_div_pow2",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_i",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "o_clk_div2": {
+            "direction": "O"
+          },
+          "o_clk_div4": {
+            "direction": "O"
+          },
+          "o_clk_div8": {
+            "direction": "O"
+          },
+          "o_clk_div16": {
+            "direction": "O"
+          },
+          "o_clk_div32": {
+            "direction": "O"
+          },
+          "o_clk_div64": {
+            "direction": "O"
+          },
+          "o_clk_div128": {
+            "direction": "O"
+          },
+          "o_clk_div256": {
+            "direction": "O"
+          }
+        }
+      },
+      "decoder328_0": {
+        "vlnv": "xilinx.com:module_ref:decoder328:1.0",
+        "xci_name": "design_1_decoder328_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "decoder328",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sel": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "res": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "i8sl_shifter_0": {
+        "vlnv": "xilinx.com:module_ref:i8sl_shifter:1.0",
+        "xci_name": "design_1_i8sl_shifter_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "i8sl_shifter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "sload": {
+            "direction": "I"
+          },
+          "SO": {
+            "direction": "O"
+          }
+        }
+      },
+      "pulse_0": {
+        "vlnv": "xilinx.com:module_ref:pulse:1.0",
+        "xci_name": "design_1_pulse_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pulse",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "sel": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "Q": {
+            "direction": "O"
+          }
+        }
+      },
+      "srcv_0": {
+        "vlnv": "xilinx.com:module_ref:srcv:1.0",
+        "xci_name": "design_1_srcv_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "srcv",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_i",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_line": {
+            "direction": "I"
+          },
+          "Q": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          }
+        }
+      },
+      "u3_counter_0": {
+        "vlnv": "xilinx.com:module_ref:u3_counter:1.0",
+        "xci_name": "design_1_u3_counter_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "u3_counter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "C": {
+            "direction": "I"
+          },
+          "S": {
+            "direction": "I"
+          },
+          "Q": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
+      },
+      "test_counter_0": {
+        "vlnv": "xilinx.com:module_ref:test_counter:1.0",
+        "xci_name": "design_1_test_counter_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "test_counter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "oclk": {
+            "direction": "O"
+          },
+          "oreset": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "test_counter_0_oclk": {
+        "ports": [
+          "test_counter_0/oclk",
+          "clock_div_pow2_0/i_clk",
+          "srcv_0/i_clk"
+        ]
+      },
+      "u3_counter_0_Q": {
+        "ports": [
+          "u3_counter_0/Q",
+          "decoder328_0/sel",
+          "pulse_0/sel"
+        ]
+      },
+      "decoder328_0_res": {
+        "ports": [
+          "decoder328_0/res",
+          "i8sl_shifter_0/D"
+        ]
+      },
+      "clock_div_pow2_0_o_clk_div16": {
+        "ports": [
+          "clock_div_pow2_0/o_clk_div16",
+          "i8sl_shifter_0/clk",
+          "pulse_0/clk"
+        ]
+      },
+      "i8sl_shifter_0_SO": {
+        "ports": [
+          "i8sl_shifter_0/SO",
+          "srcv_0/i_line"
+        ]
+      },
+      "pulse_0_Q": {
+        "ports": [
+          "pulse_0/Q",
+          "i8sl_shifter_0/sload"
+        ]
+      },
+      "clock_div_pow2_0_o_clk_div128": {
+        "ports": [
+          "clock_div_pow2_0/o_clk_div128",
+          "u3_counter_0/C"
+        ]
+      },
+      "srcv_0_Q": {
+        "ports": [
+          "srcv_0/Q",
+          "Q"
+        ]
+      },
+      "test_counter_0_oreset": {
+        "ports": [
+          "test_counter_0/oreset",
+          "u3_counter_0/S"
+        ]
+      }
+    }
+  }
+}

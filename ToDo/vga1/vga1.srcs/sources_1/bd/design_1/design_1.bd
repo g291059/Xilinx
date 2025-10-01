@@ -1,0 +1,145 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2"
+    },
+    "design_tree": {
+      "vga": {
+        "RgbLedDisplay_0": "",
+        "OverlayCtl_0": ""
+      }
+    },
+    "components": {
+      "vga": {
+        "ports": {
+          "pxl_clk": {
+            "type": "clk",
+            "direction": "I"
+          }
+        },
+        "components": {
+          "RgbLedDisplay_0": {
+            "vlnv": "xilinx.com:module_ref:RgbLedDisplay:1.0",
+            "xci_name": "design_1_RgbLedDisplay_0_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "RgbLedDisplay",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "pxl_clk": {
+                "type": "clk",
+                "direction": "I"
+              },
+              "RGB_LED_RED": {
+                "direction": "I",
+                "left": "4",
+                "right": "0"
+              },
+              "RGB_LED_GREEN": {
+                "direction": "I",
+                "left": "4",
+                "right": "0"
+              },
+              "RGB_LED_BLUE": {
+                "direction": "I",
+                "left": "4",
+                "right": "0"
+              },
+              "H_COUNT_I": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "V_COUNT_I": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "RGB_LED_R_RED_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_R_GREEN_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_R_BLUE_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_G_RED_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_G_GREEN_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_G_BLUE_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_B_RED_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_B_GREEN_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RGB_LED_B_BLUE_COL": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              }
+            }
+          },
+          "OverlayCtl_0": {
+            "vlnv": "xilinx.com:module_ref:OverlayCtl:1.0",
+            "xci_name": "design_1_OverlayCtl_0_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "OverlayCtl",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "CLK_I": {
+                "direction": "I"
+              },
+              "VSYNC_I": {
+                "direction": "I"
+              },
+              "ACTIVE_I": {
+                "direction": "I"
+              },
+              "OVERLAY_O": {
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "nets": {
+          "pxl_clk_1": {
+            "ports": [
+              "pxl_clk",
+              "RgbLedDisplay_0/pxl_clk"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

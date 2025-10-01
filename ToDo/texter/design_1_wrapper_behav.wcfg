@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="design_1_wrapper_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="design_1_wrapper" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="481035fs"></ZoomStartTime>
+      <ZoomEndTime time="899036fs"></ZoomEndTime>
+      <Cursor1Time time="760035fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="93"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/design_1_wrapper/design_1_i/genClkRst_0/addr_o" type="array">
+      <obj_property name="ElementShortName">addr_o[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_o[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/changer_t1_0/addri" type="array">
+      <obj_property name="ElementShortName">addri[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addri[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/changer_t1_0/addro" type="array">
+      <obj_property name="ElementShortName">addro[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addro[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/changer_t1_0/di16" type="array">
+      <obj_property name="ElementShortName">di16[15:0]</obj_property>
+      <obj_property name="ObjectShortName">di16[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/changer_t1_0/do8" type="array">
+      <obj_property name="ElementShortName">do8[7:0]</obj_property>
+      <obj_property name="ObjectShortName">do8[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/term_t1_0/hctr_i" type="array">
+      <obj_property name="ElementShortName">hctr_i[11:0]</obj_property>
+      <obj_property name="ObjectShortName">hctr_i[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/term_t1_0/vctr_i" type="array">
+      <obj_property name="ElementShortName">vctr_i[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vctr_i[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/freeRunCounter_0/ce" type="logic">
+      <obj_property name="ElementShortName">ce</obj_property>
+      <obj_property name="ObjectShortName">ce</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/freeRunCounter_0/do" type="logic">
+      <obj_property name="ElementShortName">do</obj_property>
+      <obj_property name="ObjectShortName">do</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/genClkRst_0/oclk" type="logic">
+      <obj_property name="ElementShortName">oclk</obj_property>
+      <obj_property name="ObjectShortName">oclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/freeRunCounter_0/di" type="array">
+      <obj_property name="ElementShortName">di[7:0]</obj_property>
+      <obj_property name="ObjectShortName">di[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/Rom_t_0/addr" type="array">
+      <obj_property name="ElementShortName">addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[11:0]</obj_property>
+   </wvobject>
+</wave_config>

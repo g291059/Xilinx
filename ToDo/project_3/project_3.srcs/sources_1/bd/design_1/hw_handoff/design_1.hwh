@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May  6 19:05:50 2020" VIVADOVERSION="2019.2">
+
+  <SYSTEMINFO ARCH="artix7" DEVICE="xa7a100t" NAME="design_1" PACKAGE="csg324" SPEEDGRADE="-1I"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="O" LEFT="4" NAME="Q" RIGHT="0" SIGIS="undef" SIGNAME="srcv_0_Q">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="srcv_0" PORT="Q"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/clock_div_pow2_0" HWVERSION="1.0" INSTANCE="clock_div_pow2_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="clock_div_pow2" VLNV="xilinx.com:module_ref:clock_div_pow2:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_clock_div_pow2_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="i_clk" SIGIS="clk" SIGNAME="test_counter_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="test_counter_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_clk_div2" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_clk_div4" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_clk_div8" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_clk_div16" SIGIS="undef" SIGNAME="clock_div_pow2_0_o_clk_div16">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i8sl_shifter_0" PORT="clk"/>
+            <CONNECTION INSTANCE="pulse_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_clk_div32" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_clk_div64" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_clk_div128" SIGIS="undef" SIGNAME="clock_div_pow2_0_o_clk_div128">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="u3_counter_0" PORT="C"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_clk_div256" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/decoder328_0" HWVERSION="1.0" INSTANCE="decoder328_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="decoder328" VLNV="xilinx.com:module_ref:decoder328:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_decoder328_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="sel" RIGHT="0" SIGIS="undef" SIGNAME="u3_counter_0_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="u3_counter_0" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="res" RIGHT="0" SIGIS="undef" SIGNAME="decoder328_0_res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i8sl_shifter_0" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/i8sl_shifter_0" HWVERSION="1.0" INSTANCE="i8sl_shifter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="i8sl_shifter" VLNV="xilinx.com:module_ref:i8sl_shifter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_i8sl_shifter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="decoder328_0_res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decoder328_0" PORT="res"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clock_div_pow2_0_o_clk_div16">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clock_div_pow2_0" PORT="o_clk_div16"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sload" SIGIS="undef" SIGNAME="pulse_0_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pulse_0" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="SO" SIGIS="undef" SIGNAME="i8sl_shifter_0_SO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="srcv_0" PORT="i_line"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/pulse_0" HWVERSION="1.0" INSTANCE="pulse_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pulse" VLNV="xilinx.com:module_ref:pulse:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_pulse_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clock_div_pow2_0_o_clk_div16">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clock_div_pow2_0" PORT="o_clk_div16"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="sel" RIGHT="0" SIGIS="undef" SIGNAME="u3_counter_0_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="u3_counter_0" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Q" SIGIS="undef" SIGNAME="pulse_0_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i8sl_shifter_0" PORT="sload"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/srcv_0" HWVERSION="1.0" INSTANCE="srcv_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="srcv" VLNV="xilinx.com:module_ref:srcv:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_srcv_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="i_clk" SIGIS="clk" SIGNAME="test_counter_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="test_counter_0" PORT="oclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_line" SIGIS="undef" SIGNAME="i8sl_shifter_0_SO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i8sl_shifter_0" PORT="SO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="4" NAME="Q" RIGHT="0" SIGIS="undef" SIGNAME="srcv_0_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/test_counter_0" HWVERSION="1.0" INSTANCE="test_counter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="test_counter" VLNV="xilinx.com:module_ref:test_counter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_test_counter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="oclk" SIGIS="undef" SIGNAME="test_counter_0_oclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clock_div_pow2_0" PORT="i_clk"/>
+            <CONNECTION INSTANCE="srcv_0" PORT="i_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="oreset" SIGIS="undef" SIGNAME="test_counter_0_oreset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="u3_counter_0" PORT="S"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/u3_counter_0" HWVERSION="1.0" INSTANCE="u3_counter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="u3_counter" VLNV="xilinx.com:module_ref:u3_counter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_u3_counter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="C" SIGIS="undef" SIGNAME="clock_div_pow2_0_o_clk_div128">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clock_div_pow2_0" PORT="o_clk_div128"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S" SIGIS="undef" SIGNAME="test_counter_0_oreset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="test_counter_0" PORT="oreset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="Q" RIGHT="0" SIGIS="undef" SIGNAME="u3_counter_0_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decoder328_0" PORT="sel"/>
+            <CONNECTION INSTANCE="pulse_0" PORT="sel"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

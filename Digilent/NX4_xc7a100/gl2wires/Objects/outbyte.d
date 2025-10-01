@@ -1,0 +1,17 @@
+.\objects\outbyte.o: project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\libsrc\standalone_v6_7\src\outbyte.c
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xparameters.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xuartlite_l.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xil_types.h
+.\objects\outbyte.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\outbyte.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xil_assert.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xil_io.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xil_printf.h
+.\objects\outbyte.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\outbyte.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\outbyte.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xparameters.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\bspconfig.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xpseudo_asm.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xreg_cortexm1.h
+.\objects\outbyte.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xpseudo_asm_gcc.h

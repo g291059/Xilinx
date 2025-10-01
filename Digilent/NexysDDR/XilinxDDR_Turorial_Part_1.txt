@@ -1,0 +1,297 @@
+Tutorial: Using DDR in HDL designs Part 1
+
+This tutorial aims to provide a step by step guide to implementing an external memory interface for Xilinx FPGA
+boards. We'll start from scratch using the Vivado External Memory Interface Generator IP. I'll be targeting the
+Nexys Video board because this is one that I have and can test with. The basic procedures in this tutorial can
+be used for any board. The Artix and Kintex FPGA devices don't have a hard memory controller block, unlike the
+Spartan 6 devices. The design flow for a Spartan 6 based board would be different than the one that I'm about to
+lay out. Also note that this tutorial is for DDR memory connected to logic. I don't know of any Digilent ZYNQ boards
+that have external memory connected to the PL.
+
+This tutorial has more benefit than just teaching you how to use DDR in your designs. You will also learn how to let
+Vivado teach you about HDL features that you might not be familiar with and have Verilog ( script generated perhaps )
+source code to read and learn from. Not all FPGA vendor IP provides sources in a readable format but the MiG does.
+
+I prefer avoiding picture based tutorials because the tools frequently change with new releases and pictures can be
+confusing. Also, this format has no embedded code to cause problems.
+
+One thing has to be understood about the MiG tool and this tutorial. The user experience may be different for different
+devices. That is you may not see the same settings to fill out depending on the FPGA part that you are using. Also,
+depending on the part, you might have options grayed out preventing a user design choice. What I'm saying is that it's
+possible that you might not be able to exactly follow along as I do in the tutorial. If you are doing a DDR design for a
+Kintex board, it's likely that the DDR is connected to HP IO Banks; you will see options specific to that device. No big deal.
+You can always post a question to this Digilent Forum thread and get an answer.
+
+
+Eventually, I'll be creating a design meant to be used in an all VHDL or Verilog design project. This means that I'll be selecting
+options in the MiG IP that fit into an existing HDL design. After you successfully implement your first project using
+the DDR on your board you might want to experiment with other options. Most of the free Xilinx IP is geared toward a
+MicroBlaze AXI design. Our HDL design won't be using a soft-processor and certainly not AXI busses. Fortunately, the
+MiG IP, like the FIFO and embedded memory IP let us choose a native interface for our DDR controller. Better yet,
+we have the IP generate output products what we get are unencrypted HDL source files.
+
+Before starting we need to have available a few reference materials. Here is my list for the Nexys Video. By the way,
+this is how I do every project, even ones that are similar to previous projects that target different boards.
+  ug586_7Series_MIS
+  ds181_Artix_7_Data_Sheet**
+  Nexys_Video_RM**
+  Nexys_Video_sch**
+  NexysVideo_Master.xdc**
+  ug586_7Series_MIS
+  ug471_7Series_SelectIO***
+  4Gb_1_35V_DDR3L**
+
+** You may need versions of these materials specific to your FPGA and memory devices.
+*** For Kintex boards that connect DDR to HP IO banks there are device specific MiG options not available for Artix boards.
+
+These references are all in pdf format. For some boards like the Genesys2 the reference manual is only offered in an
+on-line format. And, of course, if I was targeting the Genesys2, I'd need ds182_Kintex_7_Data_Sheet instead of the
+Artix datasheet. Make sure to use the most up to date reference material. For this tutorial I was tripped up by using
+an older NexysVideo_Master constraints file with a bad pin location.
+
+Before trying to understand any IP that creates soft DDR controllers you should have some appreciation for the complexity of
+the DDR devices themselves. For the Nexys Video the 4Gb_1_35V_DDR3L.pdf is a good overview of what's going on. Memory
+vendors also provide application notes for using their devices. After a quick read-through of the memory datasheet you
+should do the same with the MiG reference manual. Xilinx documentation isn't know for being particularly clear, comprehensive,
+or up to date so don't worry about the details for now.
+
+The next step is to start reading the reference manual for our board because there will usually be a good
+description of capabilities of the external memory. In section 3.1 of the Nexys Video Reference Manual most of the
+necessary about the DDR device part and speed grade and the DDR controller PHY IO configuration are listed. Most of
+the time the memory device will be one that the MiG IP supports directly. Sometimes I have a board that uses an
+external memory that isn't supported by the MiG IP and it's necessary to set up the IP for a custom part. The main
+difference is that for a supported part, the MiG will have appropriate timing as default values. For a non-supported
+part we will be to have that information provided. If you can't find it anywhere then you will have to get it from
+your board vendor. The Nexys Video Refernce Manual defines these MiG settings:
+Memory type:                      DDR3 SDRAM
+Max. clock period:                2500ps (800Mbps data rate, MT/s)
+Clock ratio:                      4:1
+Memory type:                      Components
+Memory part:                      MT41K256M16HA-125
+Memory voltage:                   1.5V
+Data width:                       16
+Data mask:                        Enabled
+Input clock period:               10000ps (100 MHz)
+Output driver impedance:          RZQ/6
+Chip Select pin:                  Disabled
+On-die termination:               RZQ/6
+Internal Vref:                    Enabled
+Internal termination impedance:   50ohms
+
+It's important to know that board reference manuals, master constraints files and material provided by the board vendor
+may have errors or information that isn't too useful for actual designs. This just means that we have take seriously our obligation
+to fact check all source material that we use. Usually, but not always, the schematic is completely reliable.
+
+Since DDR memory devices are complicated and data rates are high we need to do a bit of homework before trying to implement
+a DDR interface controller. We start with the appropriate FPGA datasheet, which for my board is ds181_Artix_7_Data_Sheet. It
+explicitly provides the information that we want. In the AC Switching Characteristic section Table 16 tells us the maximum
+DDR PHY data rate for my -1 device. For a DDR3 4:1 Memory Controller this is 800 Mbps. For a DDR3 2:1 Memory it is 620 Mbsp.
+Since this is a DDR interface the PHY clocks are limited to 400 MHz for a 4:1 controller and 310 MHz for a 2:1 controller. Sometimes
+these maximum clock frequencies exceed the clocking infrastructure of the device for a particular speed grade. If we look for
+Fmax_bufg we see that for the -1 part this is 464 MHz which exceeds our DDR requirements so this is good. The Fmax_bufio for
+my part is 600 MHz so again either the 4:1 or 2:1 DDR controllers can work with our board.
+
+Next we need to work out a bit of a conflict in the Digilent Documentation. According to the reference manual the memory
+on the Nexys Video is a Micron MT41K256M16HA-187E DDR3 device. This is in agreement with the schematic. But the recommended
+MiG settings stated in the reference manual lists a MT41K256M16HA-125 as the preferred selection. Why is that?
+
+Well we need to look at the 4Gb_1_35V_DDR3L datasheet for our device. DDR timing is generally specified as three specific
+parameters: Trcd/Trp/Tcl and are in clock period units. So, what is the clock rate? From page 1 of 4Gb_1_35V_DDR3L the
+cycle time for the -187E part is 1.875 ns @ CL = 7 corresponding to the DDR3-1066 speed grade. A 1.875 ns clock period corresponds
+to a 533 MHz maximum clock and a 1066 MBsp data rate on each DQ pin. We know that 800 Mbps (MT/s) is the maximum achievable data
+rate for the Nexys Video FPGA so 400 MHz is going to be the highest PHY clock rate that we can do.
+
+A point to consider about DDR is the voltage. If you go to the Micron website you will see datasheets only for DDR3L devices,
+which run at 1.35V. The schematic for the Nexys Video shows that the DDR3 device is powered by 1.5V. There are a few other details
+to consider but I'm not going to delve into them.
+
+Before we get started with Vivado I have to confess that even though I've been using DDR on FPGA boards for quite a while using
+only HDL I ran into a wall because I started this using Vivado 2020.2. I just recently created a couple of DDR designs for a Kintex
+board using Vivado so I figured that this tutorial would be pretty straight-forward... but was I wrong. After spending a few days
+fighting with Vivado 2020.2 I decided to do it all over using Vivado 2019.1. This resulted in success. The behavior of the Mig
+IP in even those two versions of Vivado are not the same and I will try and point this out as I go.
+
+So, let's create a special Vivado project just to setup the MiG IP for our board. Keep in mind that if your board
+isn't a Nexys Video that some of the settings the I choose will be different than the ones that you choose. I created
+my Vivado 2019.1 project named NexysVideo_DDR3 using the Quick Start/Create Project selection. For Project type we'll select
+"RTL Project". When the Add Sources page comes up select Verilog. If you don't want to do a Verilog design, that's OK. Neither
+do I. But as I'll explain later, for this particular project we'll want to tell Vivado that we'll be using Verilog.
+There are no source files, IP or constraints to add at this time, so click through to the Default Part Page. If you've installed
+the Digilent board files and are using a Digilent board then you can select your board. If you gotten around to doing
+this yet for your Vivado installation you'll be selecting the FPGA device as listed in the reference manual. For me,
+it's the XC7A200T-1SBG484C. So, I'll select:
+  Parts View:
+  Family: Artix-7 (XC7A)
+  Package: SBG484 (SBG484)
+  Speed: -1 (-1)
+
+The selections above narrow down the possible parts to: xca200tsbg484-1, so I'll click on that part and select it. Lastly,
+on the last page Vivado will create the project. Now, before we go on I'll explain why we want to use Verilog for this
+project. Verilog allows for getting access to signals deep within the design hierarchy. For simulation this is a particularly
+nice feature because we don't have to bring them out to the toplevel being simulated as is required in VHDL. Simulating
+DDR is not trivial even with Verilog but I don't know of any FPGA vendor that supports simulating the DDR controller using
+VHDL. This isn't a problem as we can always instantiate any Verilog module in a VHDL design. In fact, if we had chosen VHDL
+as our project language, the controller sources would still be in Verilog, so we'd end up with a mixed language project
+anyway. The difference is that we have a change of simulating a DDR design that consists of all Verilog sources.
+
+Now, before trying to create a DDR controller let's see if there is any help from our board vendor. At the Nexys Video
+home page her: "https://digilent.com/programmable-logic/nexys-video-start" I found at the bottom of the Additional Resources
+section a Zip archive with a Mig .prj file and an ISE .ucf constraints file. The text says that the .prj file is for a MiG
+native interface controller which is just what we want. Fortunately, both files are readable in a standard text editor. You should
+definitely see if something similar exists for your board. Unfortunately, there's not a lot of consistency for all of the
+Digilent board support. If you read the NexysVideoMIG.ucf file in nexysvideomig.zip you'll see that the only thing that it
+provides is the FPGA pin locations for FPGA-DDR connections. This can save a lot of time because the MiG tool can get confused
+by what it reads if you point it to an ISE style constraints file. And it won't let you edit the mistakes either, so you have to
+edit the constraints file to suit the IP. Selecting pins manually in the MiG is not only tedious but a real pain. I know because
+I've had to do a MiG from scratch using the schematic as a guide.
+
+Time to create a controller for our board using the MiG IP.
+
+In the Project Manager Window of Vivado click on the IP Catalog.
+
+We'll select Vivado Repository/Memories and Storage Elements/Memory Interface Generators/Memory Interface Generator(MIG 7 Series...) IP.
+
+After the IP Wizard open click to go to the second page. Just for fun we'll select the "Verify Pin Changes and Update Design
+option. Clicking next brings up a page to select a .prj and .ucf file. So I selected the two files in the nexysvideomig archive.
+Unfortunately, after selecting both of these files Vivado gives me two options: Back or Cancel. For some reason that Vivado doesn't
+want to reveal it's decided that it doesn't like the files that we've given it. No surprise if you've been using a lot of XIlinx tools
+for as long as I have, but no worries either because we are going to create our own MiG project anyway. By the way, when you select cancel
+it terminates the Mig IP Wizard so you have to start from square one.
+
+So, back at the second page of the MiG Wizard select. We'll leave everything in the default setting. We don't want an AXI interface
+as this is complicated and just uses more resources than is necessary. The only time to select more than 1 controller is when there
+are separate external memory devices that don't share data, address and control lines. On page the Pin Compatible page just click next.
+On the Memory Selection page I want DDR3 SDRAM because that's what is on my board; most likely yours too.
+On the Options for Controller 0 page We need to change the Clock Period. This refers to the clock that the DDR DQ pins are clocked at and
+must be 1/2 the data rate. So, for the Nexys Video I want an 800 Mbps. Since this is Double Data Rate and the DQ pins change on each
+clock edge I need the Clock Period to be 400 MHz or 2500 ps. In Vivado 2020.2 the Clock Period came up as 2500 ps as the default which
+is what I want anyway. In Vivado 2019.1 it came up as 3225ps  (310 MHz) with a 2:1 PHY to Controller clock ratio. When I changed this
+to 2500 ps the only possible option is a 4:1 controller. This is consistent with the datasheet.
+The Memory type is left at Components for Digilent boards. The Memory part for the Nexys Video is a MT41K256M16HA-187E. This isn't one of
+the parts that I can select. But the MT41K256M16XX-125 is so I'll select that one.
+
+Here are rest of the settings based on information from the Nexys video Reference Manual:
+ - Memory Voltage is 1.5V               - no change
+ - Data Width is 8                      - changed it to 16 because that's how many DQ pins are connected to the FPGA
+                                          according to the schematic
+ - Data Mask is enabled                 - no change
+ - Number Bank Machines is 4            - no change
+ - Ordering is Strict                   - changed to normal
+ - Input Clock Period is 3225ps         - changed it to 5000ps
+ - Read Burst type is sequential        - no change
+ - Output driver impedance is RZQ/7     - no change
+ - RTT is RZQ/4                         - no change
+ - Controller chip select is enabled    - changed to disabled because we don't need it
+ - Memory Mapping is bank-Row-Column    - no change
+ - System Clock is Differential         - changed to No Buffer
+ - Reference Clock is Differential      - changed to Use System Clock
+ - System Reset Polarity is ACTVIVE LOW - no change
+ - Debug Signals Control is OFF         - changed to ON. Normally, we'd have this off but for now I have plans for this.
+ - Sample Depth is 1024                 - no change
+ - Internal Vref is not checked         - checked it
+ - IO Power Reduction is ON             - no change
+ - XADC Instantiation is Enabled        - no change
+ - Internal Termination is 50 ohms      - no change
+
+The next page defines the pin assignments. Be sure to select the Fixed Pin Out option because the board can't be changed.
+On the next page we will get to try the ucf file again because we really don't want to do this manually. So I'll click on the Read XDCUCF
+button near the bottom of the page and read in the NexysVideoMIG.ucf that we tried before. Here, the IP seems to have figured out
+the correct pin location constraints. So I'll hit the Validate button. It passes to the Next button becomes valid and I'll hit that one.
+If you don't have an xdc or ucf file that works you will have to create one from the reference manual or schematic, or just enter the
+information manually. Before you can select a pin you must select the Bank Number. Then you can scroll down and select from one of the
+pins available. You have to repeat this for every pin.
+
+On the next page we'll just skip by because none of these signals will be going directly to an IO pin. At this point you can just keep
+hitting next until you get to the page where you have to accept the licence to use the IP core. The last step is to generate the
+output products.
+
+Were not quite done yet because we need to check the pin assignments against the schematic. The reference manuals sometimes have errors
+as do the master constraints file. We don't want to damage the FPGA by having a mistake with pin location constraints. To do this properly
+we need to figure out where Vivado puts it's IP sources. This changes from version to version. For Vivado 2020.2 you can find sources in
+the GUI Sources Window select IP Sources and expand the mig_7series_0 hierarchy. We should check the .prj file. Of course, Vivado has
+decided not to show us this information, but I found it here: ..\NV_DDR.srcs\sources_1\ip\mig_7series_0\mig_a.prj. You can read this
+using a text editor. What we are really interested in though are the constraints files that the IP generates, and this is available in
+the IP Sources view. There are 2 .xdc files. Open the mig_7 series_0.xdc file in Vivado. You'll see all of the pin location constraints as
+well as the appropriate IOSTANDARD constraints, even though we didn't specify them when creating our DDR controller. After confirming that
+the pin locations agree with the board schematic we can move on to explore the sources.
+
+One source to look at is the mig_7series_v4_2_iodelay_ctrl.v source ( the name might be slightly different fo other versions of Vivado ).
+This shows that the design uses the IDELAY feature of the FPGA device. This explains why choosing an Input Clock of 200 MHz lets us simplify
+the clocking. Details can be found in ug471_7Series_SelectIO.
+
+After getting familiar with the IP source code structure it's time to see if our DDR controller works. Unfortunately, the controller by itself
+doesn't do anything. But fortunately the IP provides an example project with additional sources that we can look at. I highly encourage
+you to read though the sources as you are likely to expand your Verilog skill set and get some valuable pointers on how to resolve practical
+issues often encountered in FPGA development.
+
+Go back to the Hierarchy view in the Sources Window. Right-click on the mig_7series_0 line and select "Open the Example Design" This will
+open a new project that includes a DDR tester, all in HDL. In the example_top heirarchy open the example_top.v toplevel source
+file. Notice that the parameter SIMULATION is set to FALSE. This all HDL demo is meant to be run on hardware. Let's Generate the bitstream
+and find out what happens. Well, we get some errors during the Implementation phase. Clicking on the errors tells us what the problem signal
+are. There are a number of signal on the toplevel port that need have pins assigned to them: sys_clk_i, tg_compare_error, init_calib_complete,
+and sys_rst. Now one way to handle this would be to assign pins to these input and output signals but since we chose to use an unbuffered
+Input Clock of 200 MHz we will have to do it the preferred way. That is, we will create new toplevel source that instantiates the example
+design example_top.v module. This isn't too difficult. Just take the example_top.v port signals and use them to create a new source file
+called imp_top.v. We will also have to create an MMCM to create a 200 MHz clock since our board doesn't have an external 200 MHz clock module.
+
+I've created a toplevel file named imp_top.v that instantiates the example_top.v design. I also have a imp_top.xdc constraints file
+to specify the locations for pin that aren't part of the DDR PHY interface. Simply add these files to the example project, making sure to
+right-click on imp_top.v and mark it as the TOP entity. The last step is to generate the 200 MHz signal that the example needs for system_clk_i.
+Note that you will have to figure out the correct pin locations for your clock and reset inputs as well as the LED outputs. Also,
+make sure that you understand whether a '1' lights the LED or a '0' lights the LED.
+
+Open the Ip catalog and Clocking Wizard under the FPGA Features and Design IP. According to the Nexys Video Reference Manual I have a
+100 MHz external clock connected to pin R4. So on the first page of the Clocking Wizard I don't need to change anything. On the Output
+Clocks page we will create 2 output clocks; clk_out_1 is 100 MHz and clk_out_2 is 200 MHz  After setting this just hit the OK button
+and generate the output products. This produces a .xci file and an instantiation template that agrees with our new toplevel source file.
+
+The clock_in and sys_rst will use pins connected to external devices. The tg_compare_error and init_calib_complete outputs will
+just be connected to LEDs. So consulting the master
+
+
+Now that we've taken care of the example pins let's try and generate a bitstream again.
+
+In both Vivado 2020.2 and Vivado 2019.1 I didn't get past Implementation because, for some unknown reason, Vivado decided to ignore
+the MIg constraints and assign the ddr3_ba pins to bank 14. Needless to say but the error messages gave no clue to this. In fact I
+couldn't figure out what was causing the errors until I opened the Implementation in IO Planning view and looked at the pins. Once
+I changed the pins here and saved the "new" constraints to imp_top.xdc I was able to generate a bitstream. So if you are wondering
+as to why these pins exist in imp_top.xdc, that's the reason. I've been fighting recent versions of Vivado with similar problems on
+most of my projects.
+
+If you've gotten this far and have a bitstream don't celebrate just yet. I wasted 4 days trying to get Vivado 2020.2 to work and never
+got the init_calib_complete signal asserted. Unfortunately, until this happens you can't use the DDR.
+
+The documentation says that the Mig example project is fully synthesizable so let's find out. Open the Hardware Manager in Vivado.
+Connect to your board and download the bitstream and debug code to the board. LED[7] should be lit to indicate that the MMCM PLL has locked.
+LED[6] must be lit indicating that init_calib_complete is asserted. LED[5] should be blinking indicating that clk100 is running.
+If all of this is good then you can trigger the ILA and see the design working. Congratulations! you have just created your first working
+FPGA project using the DDR on your board.
+
+How do you know that the memory is being written to and read from and checked for errors? Click on the hw_vios tab at the top of the
+Hardware Manager window. You'll see that there are no signals show so we have to add them by clicking on the '+' button. Add the
+dgb_td_rd_counts and dgb_td_wr_counts signals. You should see these values changing. If you read through ug586_7Series_MIS you will
+see how to change the test parameters.
+
+So this is a good time to point out that Vivado does some very naughty coding tricks on us. It wants to control every file that has
+been put into the list of sources. I prefer to use a Windows text editor that runs as just an executable... that is it isn't an installed
+application. This creates a situation where the Vivado editor has one version of the code and my editor has another version. Both are sensitive
+to any changes to the source files but still both can think that the hard disk has the same file with different contents. Actually, I think
+that Vivado has a habit of storing information in memory and gets confused. This is a historic problem from the first release of Vivado. In the 
+earliest versions of Vivado I've had it exit prematurely and leave the Windows filesystem in an unusable state. I couldn't even delete the 
+problem folder. Also worrisome is that on encountering what it thinks are errors in the source file, for instance it will create hook tcl 
+scripts that seem to prevent it from setting constraints. The best way to deal with these situations is to open the Implementation view and 
+change the offending constraints to what they should be and have Vivado update your toplevel constraints file. I've decided that instead of 
+glossing over Vivado's bad habits it would be more helpful to encounter them, fix them, and talk about them. The truth is that Vivado can get 
+wrapped around the axle depending on source file errors that it encounters and create more problems that you end up having to fix. This is 
+something that is hard to duplicate because it depends on a lot of things and the order of things. All versions of Vivado have bugs but things 
+seem to be deteriorating at an increasing rate with every new tool release.
+
+So, now you have a typical FPGA board demo, but what good is it, except to verify that the DDR on your board works. Well, not much. But
+this is the end of the turorial part 1. In part 2 we'll try and do something a bit more interesting with our external memory. In the mean
+time, if you are adventurous you could try out some different settings and see if they work. There's also a lot of reading material to
+work on digesting; this includes examining the source code. There are a lot of Verilog techniques to see. There are also a LOT of mysteries
+that this tutorial hasn't commented on so please to post comments and questions. This is meant to be an interactive tutorial, so please interact.
+
+
+
+

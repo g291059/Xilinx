@@ -1,0 +1,108 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port JB3 -pg 1 -lvl 8 -x 2270 -y 700 -defaultsOSRD
+preplace port JB4 -pg 1 -lvl 8 -x 2270 -y 720 -defaultsOSRD
+preplace port JB5 -pg 1 -lvl 8 -x 2270 -y 820 -defaultsOSRD
+preplace port JB6 -pg 1 -lvl 8 -x 2270 -y 840 -defaultsOSRD
+preplace port JD10 -pg 1 -lvl 0 -x -60 -y 780 -defaultsOSRD
+preplace port JD9 -pg 1 -lvl 0 -x -60 -y 800 -defaultsOSRD
+preplace port JD8 -pg 1 -lvl 0 -x -60 -y 820 -defaultsOSRD
+preplace port JA4 -pg 1 -lvl 8 -x 2270 -y 210 -defaultsOSRD
+preplace port JA6 -pg 1 -lvl 8 -x 2270 -y 230 -defaultsOSRD
+preplace port JA8 -pg 1 -lvl 8 -x 2270 -y 250 -defaultsOSRD
+preplace port JA12 -pg 1 -lvl 8 -x 2270 -y 270 -defaultsOSRD
+preplace port JA10 -pg 1 -lvl 8 -x 2270 -y 290 -defaultsOSRD
+preplace port JB36 -pg 1 -lvl 8 -x 2270 -y 110 -defaultsOSRD
+preplace port JB34 -pg 1 -lvl 8 -x 2270 -y 90 -defaultsOSRD
+preplace port JB32 -pg 1 -lvl 8 -x 2270 -y 70 -defaultsOSRD
+preplace port JB30 -pg 1 -lvl 8 -x 2270 -y 50 -defaultsOSRD
+preplace port JB28 -pg 1 -lvl 8 -x 2270 -y 30 -defaultsOSRD
+preplace port JB26 -pg 1 -lvl 8 -x 2270 -y 10 -defaultsOSRD
+preplace port JB24 -pg 1 -lvl 8 -x 2270 -y -10 -defaultsOSRD
+preplace port JB22 -pg 1 -lvl 8 -x 2270 -y -30 -defaultsOSRD
+preplace port clk_i -pg 1 -lvl 0 -x -60 -y 570 -defaultsOSRD
+preplace port JC10 -pg 1 -lvl 0 -x -60 -y 680 -defaultsOSRD
+preplace port JC9 -pg 1 -lvl 0 -x -60 -y 700 -defaultsOSRD
+preplace port JC8 -pg 1 -lvl 0 -x -60 -y 720 -defaultsOSRD
+preplace port JC1 -pg 1 -lvl 8 -x 2270 -y 900 -defaultsOSRD
+preplace port JC2 -pg 1 -lvl 8 -x 2270 -y 920 -defaultsOSRD
+preplace port JC3 -pg 1 -lvl 8 -x 2270 -y 940 -defaultsOSRD
+preplace inst decoder328_0 -pg 1 -lvl 5 -x 1440 -y 930 -defaultsOSRD
+preplace inst div50_0 -pg 1 -lvl 4 -x 1140 -y 940 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 3 -x 840 -y 180 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 2 -x 570 -y 560 -defaultsOSRD
+preplace inst ky040_0 -pg 1 -lvl 4 -x 1140 -y 690 -defaultsOSRD
+preplace inst ky040_1 -pg 1 -lvl 5 -x 1440 -y 790 -defaultsOSRD
+preplace inst clock_div_pow2_0 -pg 1 -lvl 3 -x 840 -y 550 -defaultsOSRD
+preplace inst split_0 -pg 1 -lvl 7 -x 2080 -y 40 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 3 -x 840 -y 280 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 3 -x 840 -y 380 -defaultsOSRD
+preplace inst Rom_t_0 -pg 1 -lvl 6 -x 1780 -y 320 -defaultsOSRD
+preplace inst genClkRst_0 -pg 1 -lvl 1 -x 270 -y 550 -defaultsOSRD
+preplace inst dpram_t2_0 -pg 1 -lvl 4 -x 1140 -y 110 -defaultsOSRD
+preplace inst p2s_0 -pg 1 -lvl 7 -x 2080 -y 270 -defaultsOSRD
+preplace inst ramctrl_0 -pg 1 -lvl 2 -x 570 -y 120 -defaultsOSRD
+preplace inst sync_t1_0 -pg 1 -lvl 5 -x 1440 -y 260 -defaultsOSRD
+preplace inst tm1637_standalone_0 -pg 1 -lvl 7 -x 2080 -y 710 -defaultsOSRD
+preplace inst tm1637_standalone_1 -pg 1 -lvl 7 -x 2080 -y 830 -defaultsOSRD
+preplace inst reader_0 -pg 1 -lvl 6 -x 1780 -y 950 -defaultsOSRD
+preplace netloc div50_0_clk_o 1 4 1 NJ 940
+preplace netloc decoder328_0_res 1 5 1 N 930
+preplace netloc clock_div_pow2_0_o_clk_div2 1 3 4 NJ 480 NJ 480 NJ 480 1920
+preplace netloc tm1637_standalone_0_scl 1 7 1 NJ 700
+preplace netloc tm1637_standalone_0_sda 1 7 1 NJ 720
+preplace netloc clock_div_pow2_0_o_clk_div256 1 3 2 990 590 1290
+preplace netloc tm1637_standalone_1_scl 1 7 1 NJ 820
+preplace netloc tm1637_standalone_1_sda 1 7 1 NJ 840
+preplace netloc sync_t1_0_rom_addr 1 5 1 1620 290n
+preplace netloc sync_t1_0_sel 1 5 2 1600J 240 1920
+preplace netloc sync_t1_0_cmd 1 5 2 1580J 410 1930
+preplace netloc clk_i_1 1 2 2 700 710 970J
+preplace netloc Net 1 4 4 1300 420 NJ 420 NJ 420 2190
+preplace netloc sync_t1_0_rst 1 5 2 1630 230 N
+preplace netloc ky040_0_sel 1 1 5 370 690 N 690 960 600 1270 1000 1620J
+preplace netloc JD10_1 1 0 5 NJ 780 N 780 NJ 780 NJ 780 NJ
+preplace netloc JD9_1 1 0 5 NJ 800 N 800 NJ 800 NJ 800 NJ
+preplace netloc JD8_1 1 0 5 NJ 820 N 820 NJ 820 NJ 820 NJ
+preplace netloc ky040_1_sel 1 1 5 380 1010 N 1010 N 1010 N 1010 1590
+preplace netloc reader_0_dbg_rst_o 1 6 1 1950 840n
+preplace netloc reader_0_dbg_clk_o 1 6 1 1930 720n
+preplace netloc p2s_0_scl 1 7 1 2200J 210n
+preplace netloc p2s_0_sda 1 7 1 2210J 230n
+preplace netloc p2s_0_resx 1 7 1 2220J 250n
+preplace netloc p2s_0_csx 1 7 1 2230J 270n
+preplace netloc p2s_0_dcx 1 7 1 2240J 290n
+preplace netloc split_0_o1 1 7 1 N -30
+preplace netloc split_0_o2 1 7 1 N -10
+preplace netloc split_0_o3 1 7 1 N 10
+preplace netloc split_0_o4 1 7 1 N 30
+preplace netloc split_0_o5 1 7 1 N 50
+preplace netloc split_0_o6 1 7 1 N 70
+preplace netloc split_0_o7 1 7 1 N 90
+preplace netloc split_0_o8 1 7 1 N 110
+preplace netloc xlconstant_2_dout 1 3 4 NJ 380 1270J 430 NJ 430 1950
+preplace netloc clock_div_pow2_0_o_clk_div8 1 1 6 360 20 N 20 950 250 1290J 390 1590J 210 NJ
+preplace netloc sync_t1_0_ram_addr 1 3 3 1000 220 1270J 130 1580
+preplace netloc dpram_t2_0_dob 1 4 1 1280 110n
+preplace netloc sync_t1_0_clk_ram 1 5 2 1610J 400 1940
+preplace netloc clk_i_2 1 0 2 -40J 480 360
+preplace netloc xlconstant_0_dout 1 1 4 380 30 NJ 30 990 230 N
+preplace netloc ramctrl_0_wea 1 2 2 700 110 970J
+preplace netloc ramctrl_0_dia 1 2 2 N 100 960J
+preplace netloc ramctrl_0_addra 1 2 5 N 120 980J 0 N 0 N 0 1920
+preplace netloc Rom_t_0_rom_o 1 6 1 1920 290n
+preplace netloc JC10_1 1 0 4 NJ 680 NJ 680 NJ 680 N
+preplace netloc JC9_1 1 0 4 NJ 700 NJ 700 NJ 700 N
+preplace netloc JC8_1 1 0 4 NJ 720 NJ 720 NJ 720 N
+preplace netloc reader_0_vcc_en 1 6 2 N 900 NJ
+preplace netloc reader_0_iso_clk 1 6 2 N 920 NJ
+preplace netloc reader_0_iso_rst 1 6 2 N 940 NJ
+levelinfo -pg 1 -60 270 570 840 1140 1440 1780 2080 2270
+pagesize -pg 1 -db -bbox -sgen -150 -180 2360 1060
+"
+}
+{
+   "da_clkrst_cnt":"1"
+}

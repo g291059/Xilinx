@@ -1,0 +1,1134 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x295486F2669BCBCE",
+      "device": "xc7a100tcsg324-1",
+      "name": "design_1",
+      "synth_flow_mode": "None",
+      "tool_version": "2019.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "RgbLed_0": "",
+      "sSegDemo_0": "",
+      "AudioDemo_0": "",
+      "FPGAMonitor_0": "",
+      "TempSensorCtl_0": "",
+      "AccelerometerCtl_0": "",
+      "clk_wiz": "",
+      "MouseCtl_0": "",
+      "xlconstant_0": "",
+      "xlconstant_1": "",
+      "Vga_0": "",
+      "xlconstant_2": ""
+    },
+    "ports": {
+      "btnr_i": {
+        "direction": "I"
+      },
+      "btnd_i": {
+        "direction": "I"
+      },
+      "ps2_clk": {
+        "type": "clk",
+        "direction": "IO",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "clk_i": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_sys_clock"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "Mem_CEN": {
+        "direction": "O"
+      },
+      "Mem_OEN": {
+        "direction": "O"
+      },
+      "Mem_WEN": {
+        "direction": "O"
+      },
+      "Mem_UB": {
+        "direction": "O"
+      },
+      "Mem_ADV": {
+        "direction": "O"
+      },
+      "Mem_CLK": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_AudioDemo_0_0_Mem_CLK",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "Mem_CRE": {
+        "direction": "O"
+      },
+      "Mem_LB": {
+        "direction": "O"
+      },
+      "Mem_DQ": {
+        "direction": "IO",
+        "left": "15",
+        "right": "0"
+      },
+      "Mem_A": {
+        "direction": "O",
+        "left": "22",
+        "right": "0"
+      },
+      "reset_p": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "btnl_i": {
+        "direction": "I"
+      },
+      "btnc_i": {
+        "direction": "I"
+      },
+      "btnu_i": {
+        "direction": "I"
+      },
+      "vga_hs_o": {
+        "direction": "O"
+      },
+      "vga_vs_o": {
+        "direction": "O"
+      },
+      "vga_red_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_green_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_blue_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "sclk": {
+        "direction": "O"
+      },
+      "mosi": {
+        "direction": "O"
+      },
+      "ss": {
+        "direction": "O"
+      },
+      "miso": {
+        "direction": "I"
+      },
+      "tmp_scl": {
+        "direction": "IO"
+      },
+      "tmp_sda": {
+        "direction": "IO"
+      },
+      "disp_seg_o": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "disp_an_o": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "ps2_data": {
+        "direction": "IO"
+      }
+    },
+    "components": {
+      "RgbLed_0": {
+        "vlnv": "xilinx.com:module_ref:RgbLed:1.0",
+        "xci_name": "design_1_RgbLed_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RgbLed",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rstn_i": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "btnl_i": {
+            "direction": "I"
+          },
+          "btnc_i": {
+            "direction": "I"
+          },
+          "btnr_i": {
+            "direction": "I"
+          },
+          "btnd_i": {
+            "direction": "I"
+          },
+          "pwm1_red_o": {
+            "direction": "O"
+          },
+          "pwm1_green_o": {
+            "direction": "O"
+          },
+          "pwm1_blue_o": {
+            "direction": "O"
+          },
+          "pwm2_red_o": {
+            "direction": "O"
+          },
+          "pwm2_green_o": {
+            "direction": "O"
+          },
+          "pwm2_blue_o": {
+            "direction": "O"
+          },
+          "RED_OUT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "GREEN_OUT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "BLUE_OUT": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "sSegDemo_0": {
+        "vlnv": "xilinx.com:module_ref:sSegDemo:1.0",
+        "xci_name": "design_1_sSegDemo_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sSegDemo",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rstn_i": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "seg_o": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "an_o": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "AudioDemo_0": {
+        "vlnv": "xilinx.com:module_ref:AudioDemo:1.0",
+        "xci_name": "design_1_AudioDemo_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "AudioDemo",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rstn_i": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "btn_u": {
+            "direction": "I"
+          },
+          "leds_o": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "pdm_m_clk_o": {
+            "direction": "O"
+          },
+          "pdm_m_data_i": {
+            "direction": "I"
+          },
+          "pdm_lrsel_o": {
+            "direction": "O"
+          },
+          "pwm_audio_o": {
+            "direction": "O"
+          },
+          "pwm_sdaudio_o": {
+            "direction": "O"
+          },
+          "Mem_A": {
+            "direction": "O",
+            "left": "22",
+            "right": "0"
+          },
+          "Mem_DQ": {
+            "direction": "IO",
+            "left": "15",
+            "right": "0"
+          },
+          "Mem_CEN": {
+            "direction": "O"
+          },
+          "Mem_OEN": {
+            "direction": "O"
+          },
+          "Mem_WEN": {
+            "direction": "O"
+          },
+          "Mem_UB": {
+            "direction": "O"
+          },
+          "Mem_LB": {
+            "direction": "O"
+          },
+          "Mem_ADV": {
+            "direction": "O"
+          },
+          "Mem_CLK": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "Mem_CRE": {
+            "direction": "O"
+          },
+          "pdm_clk_rising_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "FPGAMonitor_0": {
+        "vlnv": "xilinx.com:module_ref:FPGAMonitor:1.0",
+        "xci_name": "design_1_FPGAMonitor_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FPGAMonitor",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK_I": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "RST_I": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "TEMP_O": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          }
+        }
+      },
+      "TempSensorCtl_0": {
+        "vlnv": "xilinx.com:module_ref:TempSensorCtl:1.0",
+        "xci_name": "design_1_TempSensorCtl_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TempSensorCtl",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "TMP_SCL": {
+            "direction": "IO"
+          },
+          "TMP_SDA": {
+            "direction": "IO"
+          },
+          "TEMP_O": {
+            "direction": "O",
+            "left": "12",
+            "right": "0"
+          },
+          "RDY_O": {
+            "direction": "O"
+          },
+          "ERR_O": {
+            "direction": "O"
+          },
+          "CLK_I": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SRST_I": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          }
+        }
+      },
+      "AccelerometerCtl_0": {
+        "vlnv": "xilinx.com:module_ref:AccelerometerCtl:1.0",
+        "xci_name": "design_1_AccelerometerCtl_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "AccelerometerCtl",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "SYSCLK": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "SCLK": {
+            "direction": "O"
+          },
+          "MOSI": {
+            "direction": "O"
+          },
+          "MISO": {
+            "direction": "I"
+          },
+          "SS": {
+            "direction": "O"
+          },
+          "ACCEL_X_OUT": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "ACCEL_Y_OUT": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "ACCEL_MAG_OUT": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "ACCEL_TMP_OUT": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          }
+        }
+      },
+      "clk_wiz": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0",
+        "parameters": {
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "MouseCtl_0": {
+        "vlnv": "xilinx.com:module_ref:MouseCtl:1.0",
+        "xci_name": "design_1_MouseCtl_0_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "MouseCtl",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "xpos": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "ypos": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "zpos": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "left": {
+            "direction": "O"
+          },
+          "middle": {
+            "direction": "O"
+          },
+          "right": {
+            "direction": "O"
+          },
+          "new_event": {
+            "direction": "O"
+          },
+          "ps2_clk": {
+            "type": "clk",
+            "direction": "IO"
+          },
+          "ps2_data": {
+            "direction": "IO"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "007"
+          },
+          "CONST_WIDTH": {
+            "value": "12"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_1_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "020"
+          },
+          "CONST_WIDTH": {
+            "value": "12"
+          }
+        }
+      },
+      "Vga_0": {
+        "vlnv": "xilinx.com:module_ref:Vga:1.0",
+        "xci_name": "design_1_Vga_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Vga",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK_I": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "VGA_HS_O": {
+            "direction": "O"
+          },
+          "VGA_VS_O": {
+            "direction": "O"
+          },
+          "VGA_RED_O": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "VGA_GREEN_O": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "VGA_BLUE_O": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "RGB_LED_RED": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "RGB_LED_GREEN": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "RGB_LED_BLUE": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "ACCEL_RADIUS": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "LEVEL_THRESH": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "ACL_X_IN": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "ACL_Y_IN": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "ACL_MAG_IN": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "MIC_M_DATA_I": {
+            "direction": "I"
+          },
+          "MIC_M_CLK_RISING": {
+            "direction": "I"
+          },
+          "MOUSE_X_POS": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "MOUSE_Y_POS": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "XADC_TEMP_VALUE_I": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "ADT7420_TEMP_VALUE_I": {
+            "direction": "I",
+            "left": "12",
+            "right": "0"
+          },
+          "ADXL362_TEMP_VALUE_I": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          }
+        }
+      },
+      "xlconstant_2": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_2_1"
+      }
+    },
+    "nets": {
+      "clk_wiz_clk_out1": {
+        "ports": [
+          "clk_wiz/clk_out1",
+          "sSegDemo_0/clk_i",
+          "AudioDemo_0/clk_i",
+          "FPGAMonitor_0/CLK_I",
+          "RgbLed_0/clk_i",
+          "TempSensorCtl_0/CLK_I",
+          "AccelerometerCtl_0/SYSCLK",
+          "MouseCtl_0/clk",
+          "Vga_0/CLK_I"
+        ]
+      },
+      "TempSensorCtl_0_TEMP_O": {
+        "ports": [
+          "TempSensorCtl_0/TEMP_O",
+          "Vga_0/ADT7420_TEMP_VALUE_I"
+        ]
+      },
+      "btnr_i_1": {
+        "ports": [
+          "btnr_i",
+          "RgbLed_0/btnr_i"
+        ]
+      },
+      "btnd_i_1": {
+        "ports": [
+          "btnd_i",
+          "RgbLed_0/btnd_i"
+        ]
+      },
+      "AccelerometerCtl_0_ACCEL_X_OUT": {
+        "ports": [
+          "AccelerometerCtl_0/ACCEL_X_OUT",
+          "Vga_0/ACL_X_IN"
+        ]
+      },
+      "AccelerometerCtl_0_ACCEL_Y_OUT": {
+        "ports": [
+          "AccelerometerCtl_0/ACCEL_Y_OUT",
+          "Vga_0/ACL_Y_IN"
+        ]
+      },
+      "AccelerometerCtl_0_ACCEL_MAG_OUT": {
+        "ports": [
+          "AccelerometerCtl_0/ACCEL_MAG_OUT",
+          "Vga_0/ACL_MAG_IN"
+        ]
+      },
+      "RgbLed_0_RED_OUT": {
+        "ports": [
+          "RgbLed_0/RED_OUT",
+          "Vga_0/RGB_LED_RED"
+        ]
+      },
+      "RgbLed_0_GREEN_OUT": {
+        "ports": [
+          "RgbLed_0/GREEN_OUT",
+          "Vga_0/RGB_LED_GREEN"
+        ]
+      },
+      "RgbLed_0_BLUE_OUT": {
+        "ports": [
+          "RgbLed_0/BLUE_OUT",
+          "Vga_0/RGB_LED_BLUE"
+        ]
+      },
+      "Net4": {
+        "ports": [
+          "xlconstant_2/dout",
+          "AudioDemo_0/pdm_m_data_i",
+          "Vga_0/MIC_M_DATA_I"
+        ]
+      },
+      "AudioDemo_0_pdm_clk_rising_o": {
+        "ports": [
+          "AudioDemo_0/pdm_clk_rising_o",
+          "Vga_0/MIC_M_CLK_RISING"
+        ]
+      },
+      "FPGAMonitor_0_TEMP_O": {
+        "ports": [
+          "FPGAMonitor_0/TEMP_O",
+          "Vga_0/XADC_TEMP_VALUE_I"
+        ]
+      },
+      "AccelerometerCtl_0_ACCEL_TMP_OUT": {
+        "ports": [
+          "AccelerometerCtl_0/ACCEL_TMP_OUT",
+          "Vga_0/ADXL362_TEMP_VALUE_I"
+        ]
+      },
+      "MouseCtl_0_xpos": {
+        "ports": [
+          "MouseCtl_0/xpos",
+          "Vga_0/MOUSE_X_POS"
+        ]
+      },
+      "MouseCtl_0_ypos": {
+        "ports": [
+          "MouseCtl_0/ypos",
+          "Vga_0/MOUSE_Y_POS"
+        ]
+      },
+      "Net2": {
+        "ports": [
+          "ps2_clk",
+          "MouseCtl_0/ps2_clk"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "Vga_0/ACCEL_RADIUS"
+        ]
+      },
+      "xlconstant_1_dout": {
+        "ports": [
+          "xlconstant_1/dout",
+          "Vga_0/LEVEL_THRESH"
+        ]
+      },
+      "clk_i_1": {
+        "ports": [
+          "clk_i",
+          "clk_wiz/clk_in1"
+        ]
+      },
+      "AudioDemo_0_Mem_CEN": {
+        "ports": [
+          "AudioDemo_0/Mem_CEN",
+          "Mem_CEN"
+        ]
+      },
+      "AudioDemo_0_Mem_OEN": {
+        "ports": [
+          "AudioDemo_0/Mem_OEN",
+          "Mem_OEN"
+        ]
+      },
+      "AudioDemo_0_Mem_WEN": {
+        "ports": [
+          "AudioDemo_0/Mem_WEN",
+          "Mem_WEN"
+        ]
+      },
+      "AudioDemo_0_Mem_UB": {
+        "ports": [
+          "AudioDemo_0/Mem_UB",
+          "Mem_UB"
+        ]
+      },
+      "AudioDemo_0_Mem_ADV": {
+        "ports": [
+          "AudioDemo_0/Mem_ADV",
+          "Mem_ADV"
+        ]
+      },
+      "AudioDemo_0_Mem_CLK": {
+        "ports": [
+          "AudioDemo_0/Mem_CLK",
+          "Mem_CLK"
+        ]
+      },
+      "AudioDemo_0_Mem_CRE": {
+        "ports": [
+          "AudioDemo_0/Mem_CRE",
+          "Mem_CRE"
+        ]
+      },
+      "AudioDemo_0_Mem_LB": {
+        "ports": [
+          "AudioDemo_0/Mem_LB",
+          "Mem_LB"
+        ]
+      },
+      "Net5": {
+        "ports": [
+          "Mem_DQ",
+          "AudioDemo_0/Mem_DQ"
+        ]
+      },
+      "AudioDemo_0_Mem_A": {
+        "ports": [
+          "AudioDemo_0/Mem_A",
+          "Mem_A"
+        ]
+      },
+      "reset_p_1": {
+        "ports": [
+          "reset_p",
+          "clk_wiz/reset",
+          "RgbLed_0/rstn_i",
+          "MouseCtl_0/rst",
+          "FPGAMonitor_0/RST_I",
+          "AccelerometerCtl_0/RESET",
+          "sSegDemo_0/rstn_i",
+          "TempSensorCtl_0/SRST_I",
+          "AudioDemo_0/rstn_i"
+        ]
+      },
+      "btnl_i_0_1": {
+        "ports": [
+          "btnl_i",
+          "RgbLed_0/btnl_i"
+        ]
+      },
+      "btnc_i_0_1": {
+        "ports": [
+          "btnc_i",
+          "RgbLed_0/btnc_i"
+        ]
+      },
+      "btnu_i_1": {
+        "ports": [
+          "btnu_i",
+          "AudioDemo_0/btn_u"
+        ]
+      },
+      "Vga_0_VGA_HS_O": {
+        "ports": [
+          "Vga_0/VGA_HS_O",
+          "vga_hs_o"
+        ]
+      },
+      "Vga_0_VGA_VS_O": {
+        "ports": [
+          "Vga_0/VGA_VS_O",
+          "vga_vs_o"
+        ]
+      },
+      "Vga_0_VGA_RED_O": {
+        "ports": [
+          "Vga_0/VGA_RED_O",
+          "vga_red_o"
+        ]
+      },
+      "Vga_0_VGA_GREEN_O": {
+        "ports": [
+          "Vga_0/VGA_GREEN_O",
+          "vga_green_o"
+        ]
+      },
+      "Vga_0_VGA_BLUE_O": {
+        "ports": [
+          "Vga_0/VGA_BLUE_O",
+          "vga_blue_o"
+        ]
+      },
+      "AccelerometerCtl_0_SCLK": {
+        "ports": [
+          "AccelerometerCtl_0/SCLK",
+          "sclk"
+        ]
+      },
+      "AccelerometerCtl_0_MOSI": {
+        "ports": [
+          "AccelerometerCtl_0/MOSI",
+          "mosi"
+        ]
+      },
+      "AccelerometerCtl_0_SS": {
+        "ports": [
+          "AccelerometerCtl_0/SS",
+          "ss"
+        ]
+      },
+      "miso_1": {
+        "ports": [
+          "miso",
+          "AccelerometerCtl_0/MISO"
+        ]
+      },
+      "Net1": {
+        "ports": [
+          "tmp_scl",
+          "TempSensorCtl_0/TMP_SCL"
+        ]
+      },
+      "Net": {
+        "ports": [
+          "tmp_sda",
+          "TempSensorCtl_0/TMP_SDA"
+        ]
+      },
+      "sSegDemo_0_seg_o": {
+        "ports": [
+          "sSegDemo_0/seg_o",
+          "disp_seg_o"
+        ]
+      },
+      "sSegDemo_0_an_o": {
+        "ports": [
+          "sSegDemo_0/an_o",
+          "disp_an_o"
+        ]
+      },
+      "Net3": {
+        "ports": [
+          "ps2_data",
+          "MouseCtl_0/ps2_data"
+        ]
+      }
+    }
+  }
+}

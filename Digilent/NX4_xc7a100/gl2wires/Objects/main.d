@@ -1,0 +1,13 @@
+.\objects\main.o: main.c
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\main.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xil_printf.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\main.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xil_types.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\xparameters.h
+.\objects\main.o: .\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include\bspconfig.h

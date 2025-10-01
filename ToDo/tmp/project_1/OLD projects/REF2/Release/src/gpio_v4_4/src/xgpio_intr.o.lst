@@ -1,0 +1,748 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xgpio_intr.c"
+  12              		.text
+  13              		.section	.text.Xil_In32,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv6s-m
+  16              		.syntax unified
+  17              		.code	16
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	Xil_In32:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 1, uses_anonymous_args = 0
+  24 0000 80B5     		push	{r7, lr}
+  25 0002 82B0     		sub	sp, sp, #8
+  26 0004 00AF     		add	r7, sp, #0
+  27 0006 7860     		str	r0, [r7, #4]
+  28 0008 7B68     		ldr	r3, [r7, #4]
+  29 000a 1B68     		ldr	r3, [r3]
+  30 000c 1800     		movs	r0, r3
+  31 000e BD46     		mov	sp, r7
+  32 0010 02B0     		add	sp, sp, #8
+  33              		@ sp needed
+  34 0012 80BD     		pop	{r7, pc}
+  36              		.section	.text.Xil_Out32,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.code	16
+  40              		.thumb_func
+  41              		.fpu softvfp
+  43              	Xil_Out32:
+  44              		@ args = 0, pretend = 0, frame = 16
+  45              		@ frame_needed = 1, uses_anonymous_args = 0
+  46 0000 80B5     		push	{r7, lr}
+  47 0002 84B0     		sub	sp, sp, #16
+  48 0004 00AF     		add	r7, sp, #0
+  49 0006 7860     		str	r0, [r7, #4]
+  50 0008 3960     		str	r1, [r7]
+  51 000a 7B68     		ldr	r3, [r7, #4]
+  52 000c FB60     		str	r3, [r7, #12]
+  53 000e FB68     		ldr	r3, [r7, #12]
+  54 0010 3A68     		ldr	r2, [r7]
+  55 0012 1A60     		str	r2, [r3]
+  56 0014 C046     		nop
+  57 0016 BD46     		mov	sp, r7
+  58 0018 04B0     		add	sp, sp, #16
+  59              		@ sp needed
+  60 001a 80BD     		pop	{r7, pc}
+  62              		.section	.rodata
+  63              		.align	2
+  64              	.LC1:
+  65 0000 2E2E2F73 		.ascii	"../src/gpio_v4_4/src/xgpio_intr.c\000"
+  65      72632F67 
+  65      70696F5F 
+  65      76345F34 
+  65      2F737263 
+  66              		.section	.text.XGpio_InterruptGlobalEnable,"ax",%progbits
+  67              		.align	1
+  68              		.global	XGpio_InterruptGlobalEnable
+  69              		.syntax unified
+  70              		.code	16
+  71              		.thumb_func
+  72              		.fpu softvfp
+  74              	XGpio_InterruptGlobalEnable:
+  75              		@ args = 0, pretend = 0, frame = 8
+  76              		@ frame_needed = 1, uses_anonymous_args = 0
+  77 0000 80B5     		push	{r7, lr}
+  78 0002 82B0     		sub	sp, sp, #8
+  79 0004 00AF     		add	r7, sp, #0
+  80 0006 7860     		str	r0, [r7, #4]
+  81 0008 7B68     		ldr	r3, [r7, #4]
+  82 000a 002B     		cmp	r3, #0
+  83 000c 08D0     		beq	.L5
+  84 000e 1E4B     		ldr	r3, .L14
+  85 0010 0022     		movs	r2, #0
+  86 0012 1A60     		str	r2, [r3]
+  87 0014 7B68     		ldr	r3, [r7, #4]
+  88 0016 5B68     		ldr	r3, [r3, #4]
+  89 0018 1C4A     		ldr	r2, .L14+4
+  90 001a 9342     		cmp	r3, r2
+  91 001c 11D1     		bne	.L8
+  92 001e 08E0     		b	.L12
+  93              	.L5:
+  94 0020 1B4B     		ldr	r3, .L14+8
+  95 0022 5B21     		movs	r1, #91
+  96 0024 1800     		movs	r0, r3
+  97 0026 FFF7FEFF 		bl	Xil_Assert
+  98 002a 174B     		ldr	r3, .L14
+  99 002c 0122     		movs	r2, #1
+ 100 002e 1A60     		str	r2, [r3]
+ 101 0030 27E0     		b	.L4
+ 102              	.L12:
+ 103 0032 154B     		ldr	r3, .L14
+ 104 0034 0022     		movs	r2, #0
+ 105 0036 1A60     		str	r2, [r3]
+ 106 0038 7B68     		ldr	r3, [r7, #4]
+ 107 003a 9B68     		ldr	r3, [r3, #8]
+ 108 003c 012B     		cmp	r3, #1
+ 109 003e 17D1     		bne	.L10
+ 110 0040 08E0     		b	.L13
+ 111              	.L8:
+ 112 0042 134B     		ldr	r3, .L14+8
+ 113 0044 5C21     		movs	r1, #92
+ 114 0046 1800     		movs	r0, r3
+ 115 0048 FFF7FEFF 		bl	Xil_Assert
+ 116 004c 0E4B     		ldr	r3, .L14
+ 117 004e 0122     		movs	r2, #1
+ 118 0050 1A60     		str	r2, [r3]
+ 119 0052 16E0     		b	.L4
+ 120              	.L13:
+ 121 0054 0C4B     		ldr	r3, .L14
+ 122 0056 0022     		movs	r2, #0
+ 123 0058 1A60     		str	r2, [r3]
+ 124 005a 7B68     		ldr	r3, [r7, #4]
+ 125 005c 1B68     		ldr	r3, [r3]
+ 126 005e 1D33     		adds	r3, r3, #29
+ 127 0060 FF33     		adds	r3, r3, #255
+ 128 0062 8022     		movs	r2, #128
+ 129 0064 1206     		lsls	r2, r2, #24
+ 130 0066 1100     		movs	r1, r2
+ 131 0068 1800     		movs	r0, r3
+ 132 006a FFF7FEFF 		bl	Xil_Out32
+ 133 006e 08E0     		b	.L4
+ 134              	.L10:
+ 135 0070 074B     		ldr	r3, .L14+8
+ 136 0072 5D21     		movs	r1, #93
+ 137 0074 1800     		movs	r0, r3
+ 138 0076 FFF7FEFF 		bl	Xil_Assert
+ 139 007a 034B     		ldr	r3, .L14
+ 140 007c 0122     		movs	r2, #1
+ 141 007e 1A60     		str	r2, [r3]
+ 142 0080 C046     		nop
+ 143              	.L4:
+ 144 0082 BD46     		mov	sp, r7
+ 145 0084 02B0     		add	sp, sp, #8
+ 146              		@ sp needed
+ 147 0086 80BD     		pop	{r7, pc}
+ 148              	.L15:
+ 149              		.align	2
+ 150              	.L14:
+ 151 0088 00000000 		.word	Xil_AssertStatus
+ 152 008c 11111111 		.word	286331153
+ 153 0090 00000000 		.word	.LC1
+ 155              		.section	.text.XGpio_InterruptGlobalDisable,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	XGpio_InterruptGlobalDisable
+ 158              		.syntax unified
+ 159              		.code	16
+ 160              		.thumb_func
+ 161              		.fpu softvfp
+ 163              	XGpio_InterruptGlobalDisable:
+ 164              		@ args = 0, pretend = 0, frame = 8
+ 165              		@ frame_needed = 1, uses_anonymous_args = 0
+ 166 0000 80B5     		push	{r7, lr}
+ 167 0002 82B0     		sub	sp, sp, #8
+ 168 0004 00AF     		add	r7, sp, #0
+ 169 0006 7860     		str	r0, [r7, #4]
+ 170 0008 7B68     		ldr	r3, [r7, #4]
+ 171 000a 002B     		cmp	r3, #0
+ 172 000c 08D0     		beq	.L17
+ 173 000e 1D4B     		ldr	r3, .L26
+ 174 0010 0022     		movs	r2, #0
+ 175 0012 1A60     		str	r2, [r3]
+ 176 0014 7B68     		ldr	r3, [r7, #4]
+ 177 0016 5B68     		ldr	r3, [r3, #4]
+ 178 0018 1B4A     		ldr	r2, .L26+4
+ 179 001a 9342     		cmp	r3, r2
+ 180 001c 11D1     		bne	.L20
+ 181 001e 08E0     		b	.L24
+ 182              	.L17:
+ 183 0020 1A4B     		ldr	r3, .L26+8
+ 184 0022 7621     		movs	r1, #118
+ 185 0024 1800     		movs	r0, r3
+ 186 0026 FFF7FEFF 		bl	Xil_Assert
+ 187 002a 164B     		ldr	r3, .L26
+ 188 002c 0122     		movs	r2, #1
+ 189 002e 1A60     		str	r2, [r3]
+ 190 0030 25E0     		b	.L16
+ 191              	.L24:
+ 192 0032 144B     		ldr	r3, .L26
+ 193 0034 0022     		movs	r2, #0
+ 194 0036 1A60     		str	r2, [r3]
+ 195 0038 7B68     		ldr	r3, [r7, #4]
+ 196 003a 9B68     		ldr	r3, [r3, #8]
+ 197 003c 012B     		cmp	r3, #1
+ 198 003e 15D1     		bne	.L22
+ 199 0040 08E0     		b	.L25
+ 200              	.L20:
+ 201 0042 124B     		ldr	r3, .L26+8
+ 202 0044 7721     		movs	r1, #119
+ 203 0046 1800     		movs	r0, r3
+ 204 0048 FFF7FEFF 		bl	Xil_Assert
+ 205 004c 0D4B     		ldr	r3, .L26
+ 206 004e 0122     		movs	r2, #1
+ 207 0050 1A60     		str	r2, [r3]
+ 208 0052 14E0     		b	.L16
+ 209              	.L25:
+ 210 0054 0B4B     		ldr	r3, .L26
+ 211 0056 0022     		movs	r2, #0
+ 212 0058 1A60     		str	r2, [r3]
+ 213 005a 7B68     		ldr	r3, [r7, #4]
+ 214 005c 1B68     		ldr	r3, [r3]
+ 215 005e 1D33     		adds	r3, r3, #29
+ 216 0060 FF33     		adds	r3, r3, #255
+ 217 0062 0021     		movs	r1, #0
+ 218 0064 1800     		movs	r0, r3
+ 219 0066 FFF7FEFF 		bl	Xil_Out32
+ 220 006a 08E0     		b	.L16
+ 221              	.L22:
+ 222 006c 074B     		ldr	r3, .L26+8
+ 223 006e 7821     		movs	r1, #120
+ 224 0070 1800     		movs	r0, r3
+ 225 0072 FFF7FEFF 		bl	Xil_Assert
+ 226 0076 034B     		ldr	r3, .L26
+ 227 0078 0122     		movs	r2, #1
+ 228 007a 1A60     		str	r2, [r3]
+ 229 007c C046     		nop
+ 230              	.L16:
+ 231 007e BD46     		mov	sp, r7
+ 232 0080 02B0     		add	sp, sp, #8
+ 233              		@ sp needed
+ 234 0082 80BD     		pop	{r7, pc}
+ 235              	.L27:
+ 236              		.align	2
+ 237              	.L26:
+ 238 0084 00000000 		.word	Xil_AssertStatus
+ 239 0088 11111111 		.word	286331153
+ 240 008c 00000000 		.word	.LC1
+ 242              		.section	.text.XGpio_InterruptEnable,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	XGpio_InterruptEnable
+ 245              		.syntax unified
+ 246              		.code	16
+ 247              		.thumb_func
+ 248              		.fpu softvfp
+ 250              	XGpio_InterruptEnable:
+ 251              		@ args = 0, pretend = 0, frame = 16
+ 252              		@ frame_needed = 1, uses_anonymous_args = 0
+ 253 0000 80B5     		push	{r7, lr}
+ 254 0002 84B0     		sub	sp, sp, #16
+ 255 0004 00AF     		add	r7, sp, #0
+ 256 0006 7860     		str	r0, [r7, #4]
+ 257 0008 3960     		str	r1, [r7]
+ 258 000a 7B68     		ldr	r3, [r7, #4]
+ 259 000c 002B     		cmp	r3, #0
+ 260 000e 08D0     		beq	.L29
+ 261 0010 234B     		ldr	r3, .L38
+ 262 0012 0022     		movs	r2, #0
+ 263 0014 1A60     		str	r2, [r3]
+ 264 0016 7B68     		ldr	r3, [r7, #4]
+ 265 0018 5B68     		ldr	r3, [r3, #4]
+ 266 001a 224A     		ldr	r2, .L38+4
+ 267 001c 9342     		cmp	r3, r2
+ 268 001e 11D1     		bne	.L32
+ 269 0020 08E0     		b	.L36
+ 270              	.L29:
+ 271 0022 214B     		ldr	r3, .L38+8
+ 272 0024 9421     		movs	r1, #148
+ 273 0026 1800     		movs	r0, r3
+ 274 0028 FFF7FEFF 		bl	Xil_Assert
+ 275 002c 1C4B     		ldr	r3, .L38
+ 276 002e 0122     		movs	r2, #1
+ 277 0030 1A60     		str	r2, [r3]
+ 278 0032 31E0     		b	.L28
+ 279              	.L36:
+ 280 0034 1A4B     		ldr	r3, .L38
+ 281 0036 0022     		movs	r2, #0
+ 282 0038 1A60     		str	r2, [r3]
+ 283 003a 7B68     		ldr	r3, [r7, #4]
+ 284 003c 9B68     		ldr	r3, [r3, #8]
+ 285 003e 012B     		cmp	r3, #1
+ 286 0040 21D1     		bne	.L34
+ 287 0042 08E0     		b	.L37
+ 288              	.L32:
+ 289 0044 184B     		ldr	r3, .L38+8
+ 290 0046 9521     		movs	r1, #149
+ 291 0048 1800     		movs	r0, r3
+ 292 004a FFF7FEFF 		bl	Xil_Assert
+ 293 004e 144B     		ldr	r3, .L38
+ 294 0050 0122     		movs	r2, #1
+ 295 0052 1A60     		str	r2, [r3]
+ 296 0054 20E0     		b	.L28
+ 297              	.L37:
+ 298 0056 124B     		ldr	r3, .L38
+ 299 0058 0022     		movs	r2, #0
+ 300 005a 1A60     		str	r2, [r3]
+ 301 005c 7B68     		ldr	r3, [r7, #4]
+ 302 005e 1B68     		ldr	r3, [r3]
+ 303 0060 2933     		adds	r3, r3, #41
+ 304 0062 FF33     		adds	r3, r3, #255
+ 305 0064 1800     		movs	r0, r3
+ 306 0066 FFF7FEFF 		bl	Xil_In32
+ 307 006a 0300     		movs	r3, r0
+ 308 006c FB60     		str	r3, [r7, #12]
+ 309 006e 7B68     		ldr	r3, [r7, #4]
+ 310 0070 1B68     		ldr	r3, [r3]
+ 311 0072 2933     		adds	r3, r3, #41
+ 312 0074 FF33     		adds	r3, r3, #255
+ 313 0076 1800     		movs	r0, r3
+ 314 0078 FA68     		ldr	r2, [r7, #12]
+ 315 007a 3B68     		ldr	r3, [r7]
+ 316 007c 1343     		orrs	r3, r2
+ 317 007e 1900     		movs	r1, r3
+ 318 0080 FFF7FEFF 		bl	Xil_Out32
+ 319 0084 08E0     		b	.L28
+ 320              	.L34:
+ 321 0086 084B     		ldr	r3, .L38+8
+ 322 0088 9621     		movs	r1, #150
+ 323 008a 1800     		movs	r0, r3
+ 324 008c FFF7FEFF 		bl	Xil_Assert
+ 325 0090 034B     		ldr	r3, .L38
+ 326 0092 0122     		movs	r2, #1
+ 327 0094 1A60     		str	r2, [r3]
+ 328 0096 C046     		nop
+ 329              	.L28:
+ 330 0098 BD46     		mov	sp, r7
+ 331 009a 04B0     		add	sp, sp, #16
+ 332              		@ sp needed
+ 333 009c 80BD     		pop	{r7, pc}
+ 334              	.L39:
+ 335 009e C046     		.align	2
+ 336              	.L38:
+ 337 00a0 00000000 		.word	Xil_AssertStatus
+ 338 00a4 11111111 		.word	286331153
+ 339 00a8 00000000 		.word	.LC1
+ 341              		.section	.text.XGpio_InterruptDisable,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	XGpio_InterruptDisable
+ 344              		.syntax unified
+ 345              		.code	16
+ 346              		.thumb_func
+ 347              		.fpu softvfp
+ 349              	XGpio_InterruptDisable:
+ 350              		@ args = 0, pretend = 0, frame = 16
+ 351              		@ frame_needed = 1, uses_anonymous_args = 0
+ 352 0000 80B5     		push	{r7, lr}
+ 353 0002 84B0     		sub	sp, sp, #16
+ 354 0004 00AF     		add	r7, sp, #0
+ 355 0006 7860     		str	r0, [r7, #4]
+ 356 0008 3960     		str	r1, [r7]
+ 357 000a 7B68     		ldr	r3, [r7, #4]
+ 358 000c 002B     		cmp	r3, #0
+ 359 000e 08D0     		beq	.L41
+ 360 0010 234B     		ldr	r3, .L50
+ 361 0012 0022     		movs	r2, #0
+ 362 0014 1A60     		str	r2, [r3]
+ 363 0016 7B68     		ldr	r3, [r7, #4]
+ 364 0018 5B68     		ldr	r3, [r3, #4]
+ 365 001a 224A     		ldr	r2, .L50+4
+ 366 001c 9342     		cmp	r3, r2
+ 367 001e 11D1     		bne	.L44
+ 368 0020 08E0     		b	.L48
+ 369              	.L41:
+ 370 0022 214B     		ldr	r3, .L50+8
+ 371 0024 B821     		movs	r1, #184
+ 372 0026 1800     		movs	r0, r3
+ 373 0028 FFF7FEFF 		bl	Xil_Assert
+ 374 002c 1C4B     		ldr	r3, .L50
+ 375 002e 0122     		movs	r2, #1
+ 376 0030 1A60     		str	r2, [r3]
+ 377 0032 32E0     		b	.L40
+ 378              	.L48:
+ 379 0034 1A4B     		ldr	r3, .L50
+ 380 0036 0022     		movs	r2, #0
+ 381 0038 1A60     		str	r2, [r3]
+ 382 003a 7B68     		ldr	r3, [r7, #4]
+ 383 003c 9B68     		ldr	r3, [r3, #8]
+ 384 003e 012B     		cmp	r3, #1
+ 385 0040 22D1     		bne	.L46
+ 386 0042 08E0     		b	.L49
+ 387              	.L44:
+ 388 0044 184B     		ldr	r3, .L50+8
+ 389 0046 B921     		movs	r1, #185
+ 390 0048 1800     		movs	r0, r3
+ 391 004a FFF7FEFF 		bl	Xil_Assert
+ 392 004e 144B     		ldr	r3, .L50
+ 393 0050 0122     		movs	r2, #1
+ 394 0052 1A60     		str	r2, [r3]
+ 395 0054 21E0     		b	.L40
+ 396              	.L49:
+ 397 0056 124B     		ldr	r3, .L50
+ 398 0058 0022     		movs	r2, #0
+ 399 005a 1A60     		str	r2, [r3]
+ 400 005c 7B68     		ldr	r3, [r7, #4]
+ 401 005e 1B68     		ldr	r3, [r3]
+ 402 0060 2933     		adds	r3, r3, #41
+ 403 0062 FF33     		adds	r3, r3, #255
+ 404 0064 1800     		movs	r0, r3
+ 405 0066 FFF7FEFF 		bl	Xil_In32
+ 406 006a 0300     		movs	r3, r0
+ 407 006c FB60     		str	r3, [r7, #12]
+ 408 006e 7B68     		ldr	r3, [r7, #4]
+ 409 0070 1B68     		ldr	r3, [r3]
+ 410 0072 2933     		adds	r3, r3, #41
+ 411 0074 FF33     		adds	r3, r3, #255
+ 412 0076 1800     		movs	r0, r3
+ 413 0078 3B68     		ldr	r3, [r7]
+ 414 007a DB43     		mvns	r3, r3
+ 415 007c FA68     		ldr	r2, [r7, #12]
+ 416 007e 1340     		ands	r3, r2
+ 417 0080 1900     		movs	r1, r3
+ 418 0082 FFF7FEFF 		bl	Xil_Out32
+ 419 0086 08E0     		b	.L40
+ 420              	.L46:
+ 421 0088 074B     		ldr	r3, .L50+8
+ 422 008a BA21     		movs	r1, #186
+ 423 008c 1800     		movs	r0, r3
+ 424 008e FFF7FEFF 		bl	Xil_Assert
+ 425 0092 034B     		ldr	r3, .L50
+ 426 0094 0122     		movs	r2, #1
+ 427 0096 1A60     		str	r2, [r3]
+ 428 0098 C046     		nop
+ 429              	.L40:
+ 430 009a BD46     		mov	sp, r7
+ 431 009c 04B0     		add	sp, sp, #16
+ 432              		@ sp needed
+ 433 009e 80BD     		pop	{r7, pc}
+ 434              	.L51:
+ 435              		.align	2
+ 436              	.L50:
+ 437 00a0 00000000 		.word	Xil_AssertStatus
+ 438 00a4 11111111 		.word	286331153
+ 439 00a8 00000000 		.word	.LC1
+ 441              		.section	.text.XGpio_InterruptClear,"ax",%progbits
+ 442              		.align	1
+ 443              		.global	XGpio_InterruptClear
+ 444              		.syntax unified
+ 445              		.code	16
+ 446              		.thumb_func
+ 447              		.fpu softvfp
+ 449              	XGpio_InterruptClear:
+ 450              		@ args = 0, pretend = 0, frame = 16
+ 451              		@ frame_needed = 1, uses_anonymous_args = 0
+ 452 0000 80B5     		push	{r7, lr}
+ 453 0002 84B0     		sub	sp, sp, #16
+ 454 0004 00AF     		add	r7, sp, #0
+ 455 0006 7860     		str	r0, [r7, #4]
+ 456 0008 3960     		str	r1, [r7]
+ 457 000a 7B68     		ldr	r3, [r7, #4]
+ 458 000c 002B     		cmp	r3, #0
+ 459 000e 08D0     		beq	.L53
+ 460 0010 234B     		ldr	r3, .L62
+ 461 0012 0022     		movs	r2, #0
+ 462 0014 1A60     		str	r2, [r3]
+ 463 0016 7B68     		ldr	r3, [r7, #4]
+ 464 0018 5B68     		ldr	r3, [r3, #4]
+ 465 001a 224A     		ldr	r2, .L62+4
+ 466 001c 9342     		cmp	r3, r2
+ 467 001e 11D1     		bne	.L56
+ 468 0020 08E0     		b	.L60
+ 469              	.L53:
+ 470 0022 214B     		ldr	r3, .L62+8
+ 471 0024 DB21     		movs	r1, #219
+ 472 0026 1800     		movs	r0, r3
+ 473 0028 FFF7FEFF 		bl	Xil_Assert
+ 474 002c 1C4B     		ldr	r3, .L62
+ 475 002e 0122     		movs	r2, #1
+ 476 0030 1A60     		str	r2, [r3]
+ 477 0032 31E0     		b	.L52
+ 478              	.L60:
+ 479 0034 1A4B     		ldr	r3, .L62
+ 480 0036 0022     		movs	r2, #0
+ 481 0038 1A60     		str	r2, [r3]
+ 482 003a 7B68     		ldr	r3, [r7, #4]
+ 483 003c 9B68     		ldr	r3, [r3, #8]
+ 484 003e 012B     		cmp	r3, #1
+ 485 0040 21D1     		bne	.L58
+ 486 0042 08E0     		b	.L61
+ 487              	.L56:
+ 488 0044 184B     		ldr	r3, .L62+8
+ 489 0046 DC21     		movs	r1, #220
+ 490 0048 1800     		movs	r0, r3
+ 491 004a FFF7FEFF 		bl	Xil_Assert
+ 492 004e 144B     		ldr	r3, .L62
+ 493 0050 0122     		movs	r2, #1
+ 494 0052 1A60     		str	r2, [r3]
+ 495 0054 20E0     		b	.L52
+ 496              	.L61:
+ 497 0056 124B     		ldr	r3, .L62
+ 498 0058 0022     		movs	r2, #0
+ 499 005a 1A60     		str	r2, [r3]
+ 500 005c 7B68     		ldr	r3, [r7, #4]
+ 501 005e 1B68     		ldr	r3, [r3]
+ 502 0060 2133     		adds	r3, r3, #33
+ 503 0062 FF33     		adds	r3, r3, #255
+ 504 0064 1800     		movs	r0, r3
+ 505 0066 FFF7FEFF 		bl	Xil_In32
+ 506 006a 0300     		movs	r3, r0
+ 507 006c FB60     		str	r3, [r7, #12]
+ 508 006e 7B68     		ldr	r3, [r7, #4]
+ 509 0070 1B68     		ldr	r3, [r3]
+ 510 0072 2133     		adds	r3, r3, #33
+ 511 0074 FF33     		adds	r3, r3, #255
+ 512 0076 1800     		movs	r0, r3
+ 513 0078 FB68     		ldr	r3, [r7, #12]
+ 514 007a 3A68     		ldr	r2, [r7]
+ 515 007c 1340     		ands	r3, r2
+ 516 007e 1900     		movs	r1, r3
+ 517 0080 FFF7FEFF 		bl	Xil_Out32
+ 518 0084 08E0     		b	.L52
+ 519              	.L58:
+ 520 0086 084B     		ldr	r3, .L62+8
+ 521 0088 DD21     		movs	r1, #221
+ 522 008a 1800     		movs	r0, r3
+ 523 008c FFF7FEFF 		bl	Xil_Assert
+ 524 0090 034B     		ldr	r3, .L62
+ 525 0092 0122     		movs	r2, #1
+ 526 0094 1A60     		str	r2, [r3]
+ 527 0096 C046     		nop
+ 528              	.L52:
+ 529 0098 BD46     		mov	sp, r7
+ 530 009a 04B0     		add	sp, sp, #16
+ 531              		@ sp needed
+ 532 009c 80BD     		pop	{r7, pc}
+ 533              	.L63:
+ 534 009e C046     		.align	2
+ 535              	.L62:
+ 536 00a0 00000000 		.word	Xil_AssertStatus
+ 537 00a4 11111111 		.word	286331153
+ 538 00a8 00000000 		.word	.LC1
+ 540              		.section	.text.XGpio_InterruptGetEnabled,"ax",%progbits
+ 541              		.align	1
+ 542              		.global	XGpio_InterruptGetEnabled
+ 543              		.syntax unified
+ 544              		.code	16
+ 545              		.thumb_func
+ 546              		.fpu softvfp
+ 548              	XGpio_InterruptGetEnabled:
+ 549              		@ args = 0, pretend = 0, frame = 8
+ 550              		@ frame_needed = 1, uses_anonymous_args = 0
+ 551 0000 80B5     		push	{r7, lr}
+ 552 0002 82B0     		sub	sp, sp, #8
+ 553 0004 00AF     		add	r7, sp, #0
+ 554 0006 7860     		str	r0, [r7, #4]
+ 555 0008 7B68     		ldr	r3, [r7, #4]
+ 556 000a 002B     		cmp	r3, #0
+ 557 000c 08D0     		beq	.L65
+ 558 000e 204B     		ldr	r3, .L74
+ 559 0010 0022     		movs	r2, #0
+ 560 0012 1A60     		str	r2, [r3]
+ 561 0014 7B68     		ldr	r3, [r7, #4]
+ 562 0016 5B68     		ldr	r3, [r3, #4]
+ 563 0018 1E4A     		ldr	r2, .L74+4
+ 564 001a 9342     		cmp	r3, r2
+ 565 001c 12D1     		bne	.L68
+ 566 001e 09E0     		b	.L72
+ 567              	.L65:
+ 568 0020 1D4B     		ldr	r3, .L74+8
+ 569 0022 FE21     		movs	r1, #254
+ 570 0024 1800     		movs	r0, r3
+ 571 0026 FFF7FEFF 		bl	Xil_Assert
+ 572 002a 194B     		ldr	r3, .L74
+ 573 002c 0122     		movs	r2, #1
+ 574 002e 1A60     		str	r2, [r3]
+ 575 0030 0023     		movs	r3, #0
+ 576 0032 28E0     		b	.L67
+ 577              	.L72:
+ 578 0034 164B     		ldr	r3, .L74
+ 579 0036 0022     		movs	r2, #0
+ 580 0038 1A60     		str	r2, [r3]
+ 581 003a 7B68     		ldr	r3, [r7, #4]
+ 582 003c 9B68     		ldr	r3, [r3, #8]
+ 583 003e 012B     		cmp	r3, #1
+ 584 0040 16D1     		bne	.L70
+ 585 0042 09E0     		b	.L73
+ 586              	.L68:
+ 587 0044 144B     		ldr	r3, .L74+8
+ 588 0046 FF21     		movs	r1, #255
+ 589 0048 1800     		movs	r0, r3
+ 590 004a FFF7FEFF 		bl	Xil_Assert
+ 591 004e 104B     		ldr	r3, .L74
+ 592 0050 0122     		movs	r2, #1
+ 593 0052 1A60     		str	r2, [r3]
+ 594 0054 0023     		movs	r3, #0
+ 595 0056 16E0     		b	.L67
+ 596              	.L73:
+ 597 0058 0D4B     		ldr	r3, .L74
+ 598 005a 0022     		movs	r2, #0
+ 599 005c 1A60     		str	r2, [r3]
+ 600 005e 7B68     		ldr	r3, [r7, #4]
+ 601 0060 1B68     		ldr	r3, [r3]
+ 602 0062 2933     		adds	r3, r3, #41
+ 603 0064 FF33     		adds	r3, r3, #255
+ 604 0066 1800     		movs	r0, r3
+ 605 0068 FFF7FEFF 		bl	Xil_In32
+ 606 006c 0300     		movs	r3, r0
+ 607 006e 0AE0     		b	.L67
+ 608              	.L70:
+ 609 0070 8023     		movs	r3, #128
+ 610 0072 5A00     		lsls	r2, r3, #1
+ 611 0074 084B     		ldr	r3, .L74+8
+ 612 0076 1100     		movs	r1, r2
+ 613 0078 1800     		movs	r0, r3
+ 614 007a FFF7FEFF 		bl	Xil_Assert
+ 615 007e 044B     		ldr	r3, .L74
+ 616 0080 0122     		movs	r2, #1
+ 617 0082 1A60     		str	r2, [r3]
+ 618 0084 0023     		movs	r3, #0
+ 619              	.L67:
+ 620 0086 1800     		movs	r0, r3
+ 621 0088 BD46     		mov	sp, r7
+ 622 008a 02B0     		add	sp, sp, #8
+ 623              		@ sp needed
+ 624 008c 80BD     		pop	{r7, pc}
+ 625              	.L75:
+ 626 008e C046     		.align	2
+ 627              	.L74:
+ 628 0090 00000000 		.word	Xil_AssertStatus
+ 629 0094 11111111 		.word	286331153
+ 630 0098 00000000 		.word	.LC1
+ 632              		.section	.text.XGpio_InterruptGetStatus,"ax",%progbits
+ 633              		.align	1
+ 634              		.global	XGpio_InterruptGetStatus
+ 635              		.syntax unified
+ 636              		.code	16
+ 637              		.thumb_func
+ 638              		.fpu softvfp
+ 640              	XGpio_InterruptGetStatus:
+ 641              		@ args = 0, pretend = 0, frame = 8
+ 642              		@ frame_needed = 1, uses_anonymous_args = 0
+ 643 0000 80B5     		push	{r7, lr}
+ 644 0002 82B0     		sub	sp, sp, #8
+ 645 0004 00AF     		add	r7, sp, #0
+ 646 0006 7860     		str	r0, [r7, #4]
+ 647 0008 7B68     		ldr	r3, [r7, #4]
+ 648 000a 002B     		cmp	r3, #0
+ 649 000c 08D0     		beq	.L77
+ 650 000e 234B     		ldr	r3, .L86
+ 651 0010 0022     		movs	r2, #0
+ 652 0012 1A60     		str	r2, [r3]
+ 653 0014 7B68     		ldr	r3, [r7, #4]
+ 654 0016 5B68     		ldr	r3, [r3, #4]
+ 655 0018 214A     		ldr	r2, .L86+4
+ 656 001a 9342     		cmp	r3, r2
+ 657 001c 15D1     		bne	.L80
+ 658 001e 0CE0     		b	.L84
+ 659              	.L77:
+ 660 0020 1C23     		movs	r3, #28
+ 661 0022 FF33     		adds	r3, r3, #255
+ 662 0024 1A00     		movs	r2, r3
+ 663 0026 1F4B     		ldr	r3, .L86+8
+ 664 0028 1100     		movs	r1, r2
+ 665 002a 1800     		movs	r0, r3
+ 666 002c FFF7FEFF 		bl	Xil_Assert
+ 667 0030 1A4B     		ldr	r3, .L86
+ 668 0032 0122     		movs	r2, #1
+ 669 0034 1A60     		str	r2, [r3]
+ 670 0036 0023     		movs	r3, #0
+ 671 0038 2BE0     		b	.L79
+ 672              	.L84:
+ 673 003a 184B     		ldr	r3, .L86
+ 674 003c 0022     		movs	r2, #0
+ 675 003e 1A60     		str	r2, [r3]
+ 676 0040 7B68     		ldr	r3, [r7, #4]
+ 677 0042 9B68     		ldr	r3, [r3, #8]
+ 678 0044 012B     		cmp	r3, #1
+ 679 0046 18D1     		bne	.L82
+ 680 0048 0BE0     		b	.L85
+ 681              	.L80:
+ 682 004a 8E23     		movs	r3, #142
+ 683 004c 5A00     		lsls	r2, r3, #1
+ 684 004e 154B     		ldr	r3, .L86+8
+ 685 0050 1100     		movs	r1, r2
+ 686 0052 1800     		movs	r0, r3
+ 687 0054 FFF7FEFF 		bl	Xil_Assert
+ 688 0058 104B     		ldr	r3, .L86
+ 689 005a 0122     		movs	r2, #1
+ 690 005c 1A60     		str	r2, [r3]
+ 691 005e 0023     		movs	r3, #0
+ 692 0060 17E0     		b	.L79
+ 693              	.L85:
+ 694 0062 0E4B     		ldr	r3, .L86
+ 695 0064 0022     		movs	r2, #0
+ 696 0066 1A60     		str	r2, [r3]
+ 697 0068 7B68     		ldr	r3, [r7, #4]
+ 698 006a 1B68     		ldr	r3, [r3]
+ 699 006c 2133     		adds	r3, r3, #33
+ 700 006e FF33     		adds	r3, r3, #255
+ 701 0070 1800     		movs	r0, r3
+ 702 0072 FFF7FEFF 		bl	Xil_In32
+ 703 0076 0300     		movs	r3, r0
+ 704 0078 0BE0     		b	.L79
+ 705              	.L82:
+ 706 007a 1E23     		movs	r3, #30
+ 707 007c FF33     		adds	r3, r3, #255
+ 708 007e 1A00     		movs	r2, r3
+ 709 0080 084B     		ldr	r3, .L86+8
+ 710 0082 1100     		movs	r1, r2
+ 711 0084 1800     		movs	r0, r3
+ 712 0086 FFF7FEFF 		bl	Xil_Assert
+ 713 008a 044B     		ldr	r3, .L86
+ 714 008c 0122     		movs	r2, #1
+ 715 008e 1A60     		str	r2, [r3]
+ 716 0090 0023     		movs	r3, #0
+ 717              	.L79:
+ 718 0092 1800     		movs	r0, r3
+ 719 0094 BD46     		mov	sp, r7
+ 720 0096 02B0     		add	sp, sp, #8
+ 721              		@ sp needed
+ 722 0098 80BD     		pop	{r7, pc}
+ 723              	.L87:
+ 724 009a C046     		.align	2
+ 725              	.L86:
+ 726 009c 00000000 		.word	Xil_AssertStatus
+ 727 00a0 11111111 		.word	286331153
+ 728 00a4 00000000 		.word	.LC1
+ 730              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xgpio_intr.c
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:14     .text.Xil_In32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:21     .text.Xil_In32:00000000 Xil_In32
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:37     .text.Xil_Out32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:43     .text.Xil_Out32:00000000 Xil_Out32
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:63     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:67     .text.XGpio_InterruptGlobalEnable:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:74     .text.XGpio_InterruptGlobalEnable:00000000 XGpio_InterruptGlobalEnable
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:151    .text.XGpio_InterruptGlobalEnable:00000088 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:156    .text.XGpio_InterruptGlobalDisable:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:163    .text.XGpio_InterruptGlobalDisable:00000000 XGpio_InterruptGlobalDisable
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:238    .text.XGpio_InterruptGlobalDisable:00000084 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:243    .text.XGpio_InterruptEnable:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:250    .text.XGpio_InterruptEnable:00000000 XGpio_InterruptEnable
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:337    .text.XGpio_InterruptEnable:000000a0 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:342    .text.XGpio_InterruptDisable:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:349    .text.XGpio_InterruptDisable:00000000 XGpio_InterruptDisable
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:437    .text.XGpio_InterruptDisable:000000a0 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:442    .text.XGpio_InterruptClear:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:449    .text.XGpio_InterruptClear:00000000 XGpio_InterruptClear
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:536    .text.XGpio_InterruptClear:000000a0 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:541    .text.XGpio_InterruptGetEnabled:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:548    .text.XGpio_InterruptGetEnabled:00000000 XGpio_InterruptGetEnabled
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:628    .text.XGpio_InterruptGetEnabled:00000090 $d
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:633    .text.XGpio_InterruptGetStatus:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:640    .text.XGpio_InterruptGetStatus:00000000 XGpio_InterruptGetStatus
+C:\Users\jl241\AppData\Local\Temp\cc9gAbZY.s:726    .text.XGpio_InterruptGetStatus:0000009c $d
+
+UNDEFINED SYMBOLS
+Xil_Assert
+Xil_AssertStatus

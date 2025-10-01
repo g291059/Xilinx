@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="design_1_wrapper_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="design_1_wrapper" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="11393145000000fs"></ZoomStartTime>
+      <ZoomEndTime time="11397745000001fs"></ZoomEndTime>
+      <Cursor1Time time="11395990000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="111"></NameColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="31" />
+   <wave_markers>
+      <marker time="19018830000000" label="" />
+      <marker time="10921101350000" label="" />
+      <marker time="1160063334000" label="" />
+      <marker time="10670000000" label="" />
+      <marker time="4773750000000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/clock_div_pow2_0/inst/o_clk_div8" type="logic">
+      <obj_property name="ElementShortName">o_clk_div8</obj_property>
+      <obj_property name="ObjectShortName">o_clk_div8</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/delay" type="other">
+      <obj_property name="ElementShortName">delay</obj_property>
+      <obj_property name="ObjectShortName">delay</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/sel_reg" type="array">
+      <obj_property name="ElementShortName">sel_reg[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sel_reg[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/hctr" type="other">
+      <obj_property name="ElementShortName">hctr</obj_property>
+      <obj_property name="ObjectShortName">hctr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/extend" type="other">
+      <obj_property name="ElementShortName">extend</obj_property>
+      <obj_property name="ObjectShortName">extend</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/vctr" type="other">
+      <obj_property name="ElementShortName">vctr</obj_property>
+      <obj_property name="ObjectShortName">vctr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/chr_v_row" type="other">
+      <obj_property name="ElementShortName">chr_v_row</obj_property>
+      <obj_property name="ObjectShortName">chr_v_row</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/chr_v" type="other">
+      <obj_property name="ElementShortName">chr_v</obj_property>
+      <obj_property name="ObjectShortName">chr_v</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/chr_h" type="other">
+      <obj_property name="ElementShortName">chr_h</obj_property>
+      <obj_property name="ObjectShortName">chr_h</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/clkr" type="logic">
+      <obj_property name="ElementShortName">clkr</obj_property>
+      <obj_property name="ObjectShortName">clkr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/dpram_t2_0/inst/addrb" type="array">
+      <obj_property name="ElementShortName">addrb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/dpram_t2_0/inst/dob" type="array">
+      <obj_property name="ElementShortName">dob[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dob[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/Rom_t_0/inst/ck" type="logic">
+      <obj_property name="ElementShortName">ck</obj_property>
+      <obj_property name="ObjectShortName">ck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/Rom_t_0/inst/addr" type="array">
+      <obj_property name="ElementShortName">addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/Rom_t_0/inst/do" type="array">
+      <obj_property name="ElementShortName">do[7:0]</obj_property>
+      <obj_property name="ObjectShortName">do[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/pxl" type="logic">
+      <obj_property name="ElementShortName">pxl</obj_property>
+      <obj_property name="ObjectShortName">pxl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/cnt_pxl" type="other">
+      <obj_property name="ElementShortName">cnt_pxl</obj_property>
+      <obj_property name="ObjectShortName">cnt_pxl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/inst/clk_pxl" type="logic">
+      <obj_property name="ElementShortName">clk_pxl</obj_property>
+      <obj_property name="ObjectShortName">clk_pxl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/cnt_bit" type="other">
+      <obj_property name="ElementShortName">cnt_bit</obj_property>
+      <obj_property name="ObjectShortName">cnt_bit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/cnt_delay" type="other">
+      <obj_property name="ElementShortName">cnt_delay</obj_property>
+      <obj_property name="ObjectShortName">cnt_delay</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/cnt_prm" type="other">
+      <obj_property name="ElementShortName">cnt_prm</obj_property>
+      <obj_property name="ObjectShortName">cnt_prm</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/dcx" type="logic">
+      <obj_property name="ElementShortName">dcx</obj_property>
+      <obj_property name="ObjectShortName">dcx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/csx" type="logic">
+      <obj_property name="ElementShortName">csx</obj_property>
+      <obj_property name="ObjectShortName">csx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/resx" type="logic">
+      <obj_property name="ElementShortName">resx</obj_property>
+      <obj_property name="ObjectShortName">resx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/sda" type="logic">
+      <obj_property name="ElementShortName">sda</obj_property>
+      <obj_property name="ObjectShortName">sda</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/scl" type="logic">
+      <obj_property name="ElementShortName">scl</obj_property>
+      <obj_property name="ObjectShortName">scl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/cmd_cmd" type="array">
+      <obj_property name="ElementShortName">cmd_cmd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cmd_cmd[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/cmd_in" type="array">
+      <obj_property name="ElementShortName">cmd_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cmd_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/p2s_0/inst/rom_in" type="array">
+      <obj_property name="ElementShortName">rom_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_in[7:0]</obj_property>
+   </wvobject>
+</wave_config>

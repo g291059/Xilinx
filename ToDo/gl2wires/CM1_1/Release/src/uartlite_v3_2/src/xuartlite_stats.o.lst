@@ -1,0 +1,222 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xuartlite_stats.c"
+  12              		.text
+  13              		.section	.rodata
+  14              		.align	2
+  15              	.LC1:
+  16 0000 2E2E2F73 		.ascii	"../src/uartlite_v3_2/src/xuartlite_stats.c\000"
+  16      72632F75 
+  16      6172746C 
+  16      6974655F 
+  16      76335F32 
+  17              		.section	.text.XUartLite_GetStats,"ax",%progbits
+  18              		.align	1
+  19              		.global	XUartLite_GetStats
+  20              		.arch armv6s-m
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  24              		.fpu softvfp
+  26              	XUartLite_GetStats:
+  27              		@ args = 0, pretend = 0, frame = 8
+  28              		@ frame_needed = 1, uses_anonymous_args = 0
+  29 0000 80B5     		push	{r7, lr}
+  30 0002 82B0     		sub	sp, sp, #8
+  31 0004 00AF     		add	r7, sp, #0
+  32 0006 7860     		str	r0, [r7, #4]
+  33 0008 3960     		str	r1, [r7]
+  34 000a 7B68     		ldr	r3, [r7, #4]
+  35 000c 002B     		cmp	r3, #0
+  36 000e 06D0     		beq	.L2
+  37 0010 264B     		ldr	r3, .L11
+  38 0012 0022     		movs	r2, #0
+  39 0014 1A60     		str	r2, [r3]
+  40 0016 3B68     		ldr	r3, [r7]
+  41 0018 002B     		cmp	r3, #0
+  42 001a 12D0     		beq	.L5
+  43 001c 08E0     		b	.L9
+  44              	.L2:
+  45 001e 244B     		ldr	r3, .L11+4
+  46 0020 5C21     		movs	r1, #92
+  47 0022 1800     		movs	r0, r3
+  48 0024 FFF7FEFF 		bl	Xil_Assert
+  49 0028 204B     		ldr	r3, .L11
+  50 002a 0122     		movs	r2, #1
+  51 002c 1A60     		str	r2, [r3]
+  52 002e 3AE0     		b	.L1
+  53              	.L9:
+  54 0030 1E4B     		ldr	r3, .L11
+  55 0032 0022     		movs	r2, #0
+  56 0034 1A60     		str	r2, [r3]
+  57 0036 7B68     		ldr	r3, [r7, #4]
+  58 0038 1B6A     		ldr	r3, [r3, #32]
+  59 003a 1E4A     		ldr	r2, .L11+8
+  60 003c 9342     		cmp	r3, r2
+  61 003e 29D1     		bne	.L7
+  62 0040 08E0     		b	.L10
+  63              	.L5:
+  64 0042 1B4B     		ldr	r3, .L11+4
+  65 0044 5D21     		movs	r1, #93
+  66 0046 1800     		movs	r0, r3
+  67 0048 FFF7FEFF 		bl	Xil_Assert
+  68 004c 174B     		ldr	r3, .L11
+  69 004e 0122     		movs	r2, #1
+  70 0050 1A60     		str	r2, [r3]
+  71 0052 28E0     		b	.L1
+  72              	.L10:
+  73 0054 154B     		ldr	r3, .L11
+  74 0056 0022     		movs	r2, #0
+  75 0058 1A60     		str	r2, [r3]
+  76 005a 7B68     		ldr	r3, [r7, #4]
+  77 005c 1A68     		ldr	r2, [r3]
+  78 005e 3B68     		ldr	r3, [r7]
+  79 0060 1A60     		str	r2, [r3]
+  80 0062 7B68     		ldr	r3, [r7, #4]
+  81 0064 5A68     		ldr	r2, [r3, #4]
+  82 0066 3B68     		ldr	r3, [r7]
+  83 0068 5A60     		str	r2, [r3, #4]
+  84 006a 7B68     		ldr	r3, [r7, #4]
+  85 006c 9A68     		ldr	r2, [r3, #8]
+  86 006e 3B68     		ldr	r3, [r7]
+  87 0070 9A60     		str	r2, [r3, #8]
+  88 0072 7B68     		ldr	r3, [r7, #4]
+  89 0074 DA68     		ldr	r2, [r3, #12]
+  90 0076 3B68     		ldr	r3, [r7]
+  91 0078 DA60     		str	r2, [r3, #12]
+  92 007a 7B68     		ldr	r3, [r7, #4]
+  93 007c 1A69     		ldr	r2, [r3, #16]
+  94 007e 3B68     		ldr	r3, [r7]
+  95 0080 1A61     		str	r2, [r3, #16]
+  96 0082 7B68     		ldr	r3, [r7, #4]
+  97 0084 9A69     		ldr	r2, [r3, #24]
+  98 0086 3B68     		ldr	r3, [r7]
+  99 0088 9A61     		str	r2, [r3, #24]
+ 100 008a 7B68     		ldr	r3, [r7, #4]
+ 101 008c 5A69     		ldr	r2, [r3, #20]
+ 102 008e 3B68     		ldr	r3, [r7]
+ 103 0090 5A61     		str	r2, [r3, #20]
+ 104 0092 08E0     		b	.L1
+ 105              	.L7:
+ 106 0094 064B     		ldr	r3, .L11+4
+ 107 0096 5E21     		movs	r1, #94
+ 108 0098 1800     		movs	r0, r3
+ 109 009a FFF7FEFF 		bl	Xil_Assert
+ 110 009e 034B     		ldr	r3, .L11
+ 111 00a0 0122     		movs	r2, #1
+ 112 00a2 1A60     		str	r2, [r3]
+ 113 00a4 C046     		nop
+ 114              	.L1:
+ 115 00a6 BD46     		mov	sp, r7
+ 116 00a8 02B0     		add	sp, sp, #8
+ 117              		@ sp needed
+ 118 00aa 80BD     		pop	{r7, pc}
+ 119              	.L12:
+ 120              		.align	2
+ 121              	.L11:
+ 122 00ac 00000000 		.word	Xil_AssertStatus
+ 123 00b0 00000000 		.word	.LC1
+ 124 00b4 11111111 		.word	286331153
+ 126              		.section	.text.XUartLite_ClearStats,"ax",%progbits
+ 127              		.align	1
+ 128              		.global	XUartLite_ClearStats
+ 129              		.syntax unified
+ 130              		.code	16
+ 131              		.thumb_func
+ 132              		.fpu softvfp
+ 134              	XUartLite_ClearStats:
+ 135              		@ args = 0, pretend = 0, frame = 8
+ 136              		@ frame_needed = 1, uses_anonymous_args = 0
+ 137 0000 80B5     		push	{r7, lr}
+ 138 0002 82B0     		sub	sp, sp, #8
+ 139 0004 00AF     		add	r7, sp, #0
+ 140 0006 7860     		str	r0, [r7, #4]
+ 141 0008 7B68     		ldr	r3, [r7, #4]
+ 142 000a 002B     		cmp	r3, #0
+ 143 000c 08D0     		beq	.L14
+ 144 000e 1B4B     		ldr	r3, .L20
+ 145 0010 0022     		movs	r2, #0
+ 146 0012 1A60     		str	r2, [r3]
+ 147 0014 7B68     		ldr	r3, [r7, #4]
+ 148 0016 1B6A     		ldr	r3, [r3, #32]
+ 149 0018 194A     		ldr	r2, .L20+4
+ 150 001a 9342     		cmp	r3, r2
+ 151 001c 22D1     		bne	.L17
+ 152 001e 08E0     		b	.L19
+ 153              	.L14:
+ 154 0020 184B     		ldr	r3, .L20+8
+ 155 0022 7F21     		movs	r1, #127
+ 156 0024 1800     		movs	r0, r3
+ 157 0026 FFF7FEFF 		bl	Xil_Assert
+ 158 002a 144B     		ldr	r3, .L20
+ 159 002c 0122     		movs	r2, #1
+ 160 002e 1A60     		str	r2, [r3]
+ 161 0030 21E0     		b	.L13
+ 162              	.L19:
+ 163 0032 124B     		ldr	r3, .L20
+ 164 0034 0022     		movs	r2, #0
+ 165 0036 1A60     		str	r2, [r3]
+ 166 0038 7B68     		ldr	r3, [r7, #4]
+ 167 003a 0022     		movs	r2, #0
+ 168 003c 1A60     		str	r2, [r3]
+ 169 003e 7B68     		ldr	r3, [r7, #4]
+ 170 0040 0022     		movs	r2, #0
+ 171 0042 5A60     		str	r2, [r3, #4]
+ 172 0044 7B68     		ldr	r3, [r7, #4]
+ 173 0046 0022     		movs	r2, #0
+ 174 0048 9A60     		str	r2, [r3, #8]
+ 175 004a 7B68     		ldr	r3, [r7, #4]
+ 176 004c 0022     		movs	r2, #0
+ 177 004e DA60     		str	r2, [r3, #12]
+ 178 0050 7B68     		ldr	r3, [r7, #4]
+ 179 0052 0022     		movs	r2, #0
+ 180 0054 1A61     		str	r2, [r3, #16]
+ 181 0056 7B68     		ldr	r3, [r7, #4]
+ 182 0058 0022     		movs	r2, #0
+ 183 005a 9A61     		str	r2, [r3, #24]
+ 184 005c 7B68     		ldr	r3, [r7, #4]
+ 185 005e 0022     		movs	r2, #0
+ 186 0060 5A61     		str	r2, [r3, #20]
+ 187 0062 08E0     		b	.L13
+ 188              	.L17:
+ 189 0064 074B     		ldr	r3, .L20+8
+ 190 0066 8021     		movs	r1, #128
+ 191 0068 1800     		movs	r0, r3
+ 192 006a FFF7FEFF 		bl	Xil_Assert
+ 193 006e 034B     		ldr	r3, .L20
+ 194 0070 0122     		movs	r2, #1
+ 195 0072 1A60     		str	r2, [r3]
+ 196 0074 C046     		nop
+ 197              	.L13:
+ 198 0076 BD46     		mov	sp, r7
+ 199 0078 02B0     		add	sp, sp, #8
+ 200              		@ sp needed
+ 201 007a 80BD     		pop	{r7, pc}
+ 202              	.L21:
+ 203              		.align	2
+ 204              	.L20:
+ 205 007c 00000000 		.word	Xil_AssertStatus
+ 206 0080 11111111 		.word	286331153
+ 207 0084 00000000 		.word	.LC1
+ 209              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xuartlite_stats.c
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:14     .rodata:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:18     .text.XUartLite_GetStats:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:26     .text.XUartLite_GetStats:00000000 XUartLite_GetStats
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:122    .text.XUartLite_GetStats:000000ac $d
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:127    .text.XUartLite_ClearStats:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:134    .text.XUartLite_ClearStats:00000000 XUartLite_ClearStats
+C:\Users\george\AppData\Local\Temp\ccQiTXeu.s:205    .text.XUartLite_ClearStats:0000007c $d
+
+UNDEFINED SYMBOLS
+Xil_Assert
+Xil_AssertStatus

@@ -1,0 +1,161 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"commApp.c"
+  12              		.text
+  13              		.section	.rodata
+  14              		.align	2
+  15              	.LC0:
+  16 0000 61667465 		.ascii	"after delay\015\012\000"
+  16      72206465 
+  16      6C61790D 
+  16      0A00
+  17              		.section	.text.delay,"ax",%progbits
+  18              		.align	1
+  19              		.global	delay
+  20              		.arch armv6s-m
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  24              		.fpu softvfp
+  26              	delay:
+  27              		@ args = 0, pretend = 0, frame = 8
+  28              		@ frame_needed = 1, uses_anonymous_args = 0
+  29 0000 80B5     		push	{r7, lr}
+  30 0002 82B0     		sub	sp, sp, #8
+  31 0004 00AF     		add	r7, sp, #0
+  32 0006 7860     		str	r0, [r7, #4]
+  33 0008 C046     		nop
+  34              	.L2:
+  35 000a 7B68     		ldr	r3, [r7, #4]
+  36 000c 5A1E     		subs	r2, r3, #1
+  37 000e 7A60     		str	r2, [r7, #4]
+  38 0010 002B     		cmp	r3, #0
+  39 0012 FAD1     		bne	.L2
+  40 0014 034B     		ldr	r3, .L3
+  41 0016 1800     		movs	r0, r3
+  42 0018 FFF7FEFF 		bl	xil_printf
+  43 001c C046     		nop
+  44 001e BD46     		mov	sp, r7
+  45 0020 02B0     		add	sp, sp, #8
+  46              		@ sp needed
+  47 0022 80BD     		pop	{r7, pc}
+  48              	.L4:
+  49              		.align	2
+  50              	.L3:
+  51 0024 00000000 		.word	.LC0
+  53              		.section	.rodata
+  54 000e 0000     		.align	2
+  55              	.LC2:
+  56 0010 52656164 		.ascii	"Read HSO low \015\012\000"
+  56      2048534F 
+  56      206C6F77 
+  56      200D0A00 
+  57              		.align	2
+  58              	.LC4:
+  59 0020 48534920 		.ascii	"HSI low \015\012\000"
+  59      6C6F7720 
+  59      0D0A00
+  60 002b 00       		.align	2
+  61              	.LC6:
+  62 002c 52656164 		.ascii	"Read HSO high \015\012\000"
+  62      2048534F 
+  62      20686967 
+  62      68200D0A 
+  62      00
+  63 003d 000000   		.align	2
+  64              	.LC8:
+  65 0040 48534F20 		.ascii	"HSO high \015\012\000"
+  65      68696768 
+  65      200D0A00 
+  66              		.section	.text.commApi,"ax",%progbits
+  67              		.align	1
+  68              		.global	commApi
+  69              		.syntax unified
+  70              		.code	16
+  71              		.thumb_func
+  72              		.fpu softvfp
+  74              	commApi:
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 1, uses_anonymous_args = 0
+  77 0000 80B5     		push	{r7, lr}
+  78 0002 00AF     		add	r7, sp, #0
+  79 0004 FFF7FEFF 		bl	gpioInit
+  80 0008 8023     		movs	r3, #128
+  81 000a 5B00     		lsls	r3, r3, #1
+  82 000c 1800     		movs	r0, r3
+  83 000e FFF7FEFF 		bl	gpioWrite
+  84 0012 194B     		ldr	r3, .L9
+  85 0014 1800     		movs	r0, r3
+  86 0016 FFF7FEFF 		bl	delay
+  87 001a C046     		nop
+  88              	.L6:
+  89 001c FFF7FEFF 		bl	gpioRead
+  90 0020 0300     		movs	r3, r0
+  91 0022 0122     		movs	r2, #1
+  92 0024 1340     		ands	r3, r2
+  93 0026 F9D1     		bne	.L6
+  94 0028 144B     		ldr	r3, .L9+4
+  95 002a 1800     		movs	r0, r3
+  96 002c FFF7FEFF 		bl	xil_printf
+  97 0030 114B     		ldr	r3, .L9
+  98 0032 1800     		movs	r0, r3
+  99 0034 FFF7FEFF 		bl	delay
+ 100 0038 0020     		movs	r0, #0
+ 101 003a FFF7FEFF 		bl	gpioWrite
+ 102 003e 104B     		ldr	r3, .L9+8
+ 103 0040 1800     		movs	r0, r3
+ 104 0042 FFF7FEFF 		bl	xil_printf
+ 105 0046 C046     		nop
+ 106              	.L7:
+ 107 0048 FFF7FEFF 		bl	gpioRead
+ 108 004c 0300     		movs	r3, r0
+ 109 004e 0122     		movs	r2, #1
+ 110 0050 1340     		ands	r3, r2
+ 111 0052 F9D0     		beq	.L7
+ 112 0054 0B4B     		ldr	r3, .L9+12
+ 113 0056 1800     		movs	r0, r3
+ 114 0058 FFF7FEFF 		bl	xil_printf
+ 115 005c 064B     		ldr	r3, .L9
+ 116 005e 1800     		movs	r0, r3
+ 117 0060 FFF7FEFF 		bl	delay
+ 118 0064 8023     		movs	r3, #128
+ 119 0066 5B00     		lsls	r3, r3, #1
+ 120 0068 1800     		movs	r0, r3
+ 121 006a FFF7FEFF 		bl	gpioWrite
+ 122 006e 064B     		ldr	r3, .L9+16
+ 123 0070 1800     		movs	r0, r3
+ 124 0072 FFF7FEFF 		bl	xil_printf
+ 125              	.L8:
+ 126 0076 FEE7     		b	.L8
+ 127              	.L10:
+ 128              		.align	2
+ 129              	.L9:
+ 130 0078 10270000 		.word	10000
+ 131 007c 10000000 		.word	.LC2
+ 132 0080 20000000 		.word	.LC4
+ 133 0084 2C000000 		.word	.LC6
+ 134 0088 40000000 		.word	.LC8
+ 136              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 commApp.c
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:14     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:18     .text.delay:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:26     .text.delay:00000000 delay
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:51     .text.delay:00000024 $d
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:67     .text.commApi:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:74     .text.commApi:00000000 commApi
+C:\Users\jl241\AppData\Local\Temp\ccHbF6vY.s:130    .text.commApi:00000078 $d
+
+UNDEFINED SYMBOLS
+xil_printf
+gpioInit
+gpioWrite
+gpioRead

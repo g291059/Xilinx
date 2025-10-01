@@ -1,0 +1,27 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-310,-143",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace port clk_i -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port vga_hs_o -pg 1 -lvl 3 -x 400 -y 130 -defaultsOSRD
+preplace port vga_vs_o -pg 1 -lvl 3 -x 400 -y 150 -defaultsOSRD
+preplace portBus vga_red_o -pg 1 -lvl 3 -x 400 -y 70 -defaultsOSRD
+preplace portBus vga_green_o -pg 1 -lvl 3 -x 400 -y 90 -defaultsOSRD
+preplace portBus vga_blue_o -pg 1 -lvl 3 -x 400 -y 110 -defaultsOSRD
+preplace inst sync_t1_0 -pg 1 -lvl 2 -x 280 -y 110 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 100 -y 60 -defaultsOSRD
+preplace netloc xlconstant_0_dout 1 1 1 180J 60n
+preplace netloc clk_i_1 1 0 2 NJ 120 NJ
+preplace netloc sync_t1_0_R 1 2 1 NJ 70
+preplace netloc sync_t1_0_G 1 2 1 NJ 90
+preplace netloc sync_t1_0_B 1 2 1 NJ 110
+preplace netloc sync_t1_0_hsync 1 2 1 NJ 130
+preplace netloc sync_t1_0_vsync 1 2 1 NJ 150
+levelinfo -pg 1 0 100 280 400
+pagesize -pg 1 -db -bbox -sgen -80 0 560 210
+"
+}
+0

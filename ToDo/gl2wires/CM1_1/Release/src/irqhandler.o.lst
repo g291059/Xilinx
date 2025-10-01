@@ -1,0 +1,96 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"irqhandler.c"
+  12              		.text
+  13              		.section	.text.GPIO0_IRQHandler,"ax",%progbits
+  14              		.align	1
+  15              		.global	GPIO0_IRQHandler
+  16              		.arch armv6s-m
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	GPIO0_IRQHandler:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 1, uses_anonymous_args = 0
+  25 0000 80B5     		push	{r7, lr}
+  26 0002 00AF     		add	r7, sp, #0
+  27 0004 FFF7FEFF 		bl	gpio0IrqHandler
+  28 0008 C046     		nop
+  29 000a BD46     		mov	sp, r7
+  30              		@ sp needed
+  31 000c 80BD     		pop	{r7, pc}
+  33              		.section	.text.TIMER0_IRQHandler,"ax",%progbits
+  34              		.align	1
+  35              		.global	TIMER0_IRQHandler
+  36              		.syntax unified
+  37              		.code	16
+  38              		.thumb_func
+  39              		.fpu softvfp
+  41              	TIMER0_IRQHandler:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 1, uses_anonymous_args = 0
+  44 0000 80B5     		push	{r7, lr}
+  45 0002 00AF     		add	r7, sp, #0
+  46 0004 C046     		nop
+  47 0006 BD46     		mov	sp, r7
+  48              		@ sp needed
+  49 0008 80BD     		pop	{r7, pc}
+  51              		.section	.text.SPI00_IRQHandler,"ax",%progbits
+  52              		.align	1
+  53              		.global	SPI00_IRQHandler
+  54              		.syntax unified
+  55              		.code	16
+  56              		.thumb_func
+  57              		.fpu softvfp
+  59              	SPI00_IRQHandler:
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 1, uses_anonymous_args = 0
+  62 0000 80B5     		push	{r7, lr}
+  63 0002 00AF     		add	r7, sp, #0
+  64 0004 FFF7FEFF 		bl	spi0IrqHandler
+  65 0008 C046     		nop
+  66 000a BD46     		mov	sp, r7
+  67              		@ sp needed
+  68 000c 80BD     		pop	{r7, pc}
+  70              		.section	.text.UART0_IRQHandler,"ax",%progbits
+  71              		.align	1
+  72              		.global	UART0_IRQHandler
+  73              		.syntax unified
+  74              		.code	16
+  75              		.thumb_func
+  76              		.fpu softvfp
+  78              	UART0_IRQHandler:
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 1, uses_anonymous_args = 0
+  81 0000 80B5     		push	{r7, lr}
+  82 0002 00AF     		add	r7, sp, #0
+  83 0004 FFF7FEFF 		bl	uart0IrqHandler
+  84 0008 C046     		nop
+  85 000a BD46     		mov	sp, r7
+  86              		@ sp needed
+  87 000c 80BD     		pop	{r7, pc}
+  89              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 irqhandler.c
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:14     .text.GPIO0_IRQHandler:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:22     .text.GPIO0_IRQHandler:00000000 GPIO0_IRQHandler
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:34     .text.TIMER0_IRQHandler:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:41     .text.TIMER0_IRQHandler:00000000 TIMER0_IRQHandler
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:52     .text.SPI00_IRQHandler:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:59     .text.SPI00_IRQHandler:00000000 SPI00_IRQHandler
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:71     .text.UART0_IRQHandler:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccYxE26o.s:78     .text.UART0_IRQHandler:00000000 UART0_IRQHandler
+
+UNDEFINED SYMBOLS
+gpio0IrqHandler
+spi0IrqHandler
+uart0IrqHandler

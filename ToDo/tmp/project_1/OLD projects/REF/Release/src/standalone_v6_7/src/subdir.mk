@@ -1,0 +1,33 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../src/standalone_v6_7/src/outbyte.c \
+../src/standalone_v6_7/src/print.c \
+../src/standalone_v6_7/src/xil_assert.c \
+../src/standalone_v6_7/src/xil_printf.c 
+
+OBJS += \
+./src/standalone_v6_7/src/outbyte.o \
+./src/standalone_v6_7/src/print.o \
+./src/standalone_v6_7/src/xil_assert.o \
+./src/standalone_v6_7/src/xil_printf.o 
+
+C_DEPS += \
+./src/standalone_v6_7/src/outbyte.d \
+./src/standalone_v6_7/src/print.d \
+./src/standalone_v6_7/src/xil_assert.d \
+./src/standalone_v6_7/src/xil_printf.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+src/standalone_v6_7/src/%.o: ../src/standalone_v6_7/src/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: Cross ARM GNU C Compiler'
+	arm-none-eabi-gcc -mcpu=cortex-m1 -mthumb -mlittle-endian -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wunused -Wuninitialized -Wmissing-declarations -Wconversion -Wpointer-arith -Wpadded -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -DNDEBUG -I"../include" -I"C:\Users\george\Documents\Workspace\Xilinx\project_1\project_1.sdk\standalone_bsp_0\CORTEXM1_AXI_1\include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/DEVICE" -std=gnu99 -Wmissing-prototypes -Wstrict-prototypes -Wbad-function-cast -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

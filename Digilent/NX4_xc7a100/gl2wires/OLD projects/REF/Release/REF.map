@@ -1,0 +1,565 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                              ./src/standalone_v6_7/src/xil_printf.o (__aeabi_uidiv)
+c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                              c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+                              ./src/standalone_v6_7/src/xil_printf.o (_ctype_)
+c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+                              ./src/standalone_v6_7/src/xil_printf.o (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+Xil_AssertStatus    0x4               ./src/standalone_v6_7/src/xil_assert.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./system/src/cortexm/_initialize_hardware.o
+ .data          0x00000000        0x0 ./system/src/cortexm/_initialize_hardware.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/_initialize_hardware.o
+ .text          0x00000000        0x0 ./system/src/cortexm/_reset_hardware.o
+ .data          0x00000000        0x0 ./system/src/cortexm/_reset_hardware.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/_reset_hardware.o
+ .text.NVIC_SystemReset
+                0x00000000       0x24 ./system/src/cortexm/_reset_hardware.o
+ .text.__reset_hardware
+                0x00000000        0x8 ./system/src/cortexm/_reset_hardware.o
+ .comment       0x00000000       0x7a ./system/src/cortexm/_reset_hardware.o
+ .ARM.attributes
+                0x00000000       0x2c ./system/src/cortexm/_reset_hardware.o
+ .text          0x00000000        0x0 ./system/src/cortexm/_startup.o
+ .data          0x00000000        0x0 ./system/src/cortexm/_startup.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/_startup.o
+ .text.__initialize_data
+                0x00000000       0x34 ./system/src/cortexm/_startup.o
+ .text.__initialize_bss
+                0x00000000       0x2c ./system/src/cortexm/_startup.o
+ .text.__run_init_array
+                0x00000000       0x70 ./system/src/cortexm/_startup.o
+ .text.__run_fini_array
+                0x00000000       0x40 ./system/src/cortexm/_startup.o
+ .text          0x00000000        0x0 ./system/src/cortexm/exception_handlers.o
+ .data          0x00000000        0x0 ./system/src/cortexm/exception_handlers.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/exception_handlers.o
+ .text          0x00000000        0x0 ./system/src/cmsis/system_DEVICE.o
+ .data          0x00000000        0x0 ./system/src/cmsis/system_DEVICE.o
+ .bss           0x00000000        0x0 ./system/src/cmsis/system_DEVICE.o
+ .text          0x00000000        0x0 ./system/src/cmsis/vectors_DEVICE.o
+ .data          0x00000000        0x0 ./system/src/cmsis/vectors_DEVICE.o
+ .bss           0x00000000        0x0 ./system/src/cmsis/vectors_DEVICE.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_CfgInitialize
+                0x00000000       0x70 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_Send
+                0x00000000       0x6a ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_Recv
+                0x00000000       0x6a ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_ResetFifos
+                0x00000000       0x3e ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_IsSending
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite.o
+ .text.StubHandler
+                0x00000000       0x12 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_SendBuffer
+                0x00000000       0xe2 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_ReceiveBuffer
+                0x00000000      0x106 ./src/uartlite_v3_2/src/xuartlite.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .data.XUartLite_ConfigTable
+                0x00000000       0x10 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_g.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_SetRecvHandler
+                0x00000000       0x20 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_SetSendHandler
+                0x00000000       0x20 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_InterruptHandler
+                0x00000000       0x48 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.ReceiveDataHandler
+                0x00000000       0x48 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.SendDataHandler
+                0x00000000       0x46 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_DisableInterrupt
+                0x00000000       0x1e ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_EnableInterrupt
+                0x00000000       0x1e ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text.XUartLite_RecvByte
+                0x00000000       0x32 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .text.XUartLite_SelfTest
+                0x00000000       0x34 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .text.XUartLite_LookupConfig
+                0x00000000       0x4c ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .text.XUartLite_Initialize
+                0x00000000       0x3e ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .text.XUartLite_GetStats
+                0x00000000       0x4a ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .text.XUartLite_ClearStats
+                0x00000000       0x3a ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .text          0x00000000        0x0 ./src/standalone_v6_7/src/outbyte.o
+ .data          0x00000000        0x0 ./src/standalone_v6_7/src/outbyte.o
+ .bss           0x00000000        0x0 ./src/standalone_v6_7/src/outbyte.o
+ .text          0x00000000        0x0 ./src/standalone_v6_7/src/print.o
+ .data          0x00000000        0x0 ./src/standalone_v6_7/src/print.o
+ .bss           0x00000000        0x0 ./src/standalone_v6_7/src/print.o
+ .text          0x00000000        0x0 ./src/standalone_v6_7/src/xil_assert.o
+ .data          0x00000000        0x0 ./src/standalone_v6_7/src/xil_assert.o
+ .bss           0x00000000        0x0 ./src/standalone_v6_7/src/xil_assert.o
+ .data.Xil_AssertWait
+                0x00000000        0x4 ./src/standalone_v6_7/src/xil_assert.o
+ .bss.Xil_AssertCallbackRoutine
+                0x00000000        0x4 ./src/standalone_v6_7/src/xil_assert.o
+ .text.Xil_Assert
+                0x00000000       0x3c ./src/standalone_v6_7/src/xil_assert.o
+ .text.Xil_AssertSetCallback
+                0x00000000       0x1c ./src/standalone_v6_7/src/xil_assert.o
+ .text.XNullHandler
+                0x00000000       0x10 ./src/standalone_v6_7/src/xil_assert.o
+ .comment       0x00000000       0x7a ./src/standalone_v6_7/src/xil_assert.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/standalone_v6_7/src/xil_assert.o
+ COMMON         0x00000000        0x4 ./src/standalone_v6_7/src/xil_assert.o
+ .text          0x00000000        0x0 ./src/standalone_v6_7/src/xil_printf.o
+ .data          0x00000000        0x0 ./src/standalone_v6_7/src/xil_printf.o
+ .bss           0x00000000        0x0 ./src/standalone_v6_7/src/xil_printf.o
+ .text.padding  0x00000000       0x50 ./src/standalone_v6_7/src/xil_printf.o
+ .text.outs     0x00000000       0x80 ./src/standalone_v6_7/src/xil_printf.o
+ .rodata        0x00000000       0x11 ./src/standalone_v6_7/src/xil_printf.o
+ .text.outnum   0x00000000      0x12c ./src/standalone_v6_7/src/xil_printf.o
+ .text.getnum   0x00000000       0xb0 ./src/standalone_v6_7/src/xil_printf.o
+ .text.xil_printf
+                0x00000000      0x278 ./src/standalone_v6_7/src/xil_printf.o
+ .rodata.xil_printf
+                0x00000000      0x150 ./src/standalone_v6_7/src/xil_printf.o
+ .comment       0x00000000       0x7a ./src/standalone_v6_7/src/xil_printf.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/standalone_v6_7/src/xil_printf.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .text          0x00000000      0x114 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000000       0x20 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .text          0x00000000        0x4 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .data          0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .data          0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .bss           0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .rodata._ctype_
+                0x00000000      0x101 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .text          0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .data          0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .bss           0x00000000        0x0 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .text.strlen   0x00000000       0x5c c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .debug_frame   0x00000000       0x28 c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00005000         xr
+RAM              0x20000000         0x00005000         xrw
+CCMRAM           0x10000000         0x00000000         xrw
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./system/src/cortexm/_initialize_hardware.o
+LOAD ./system/src/cortexm/_reset_hardware.o
+LOAD ./system/src/cortexm/_startup.o
+LOAD ./system/src/cortexm/exception_handlers.o
+LOAD ./system/src/cmsis/system_DEVICE.o
+LOAD ./system/src/cmsis/vectors_DEVICE.o
+LOAD ./src/uartlite_v3_2/src/xuartlite.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_g.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_intr.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_l.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_selftest.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_sinit.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_stats.o
+LOAD ./src/standalone_v6_7/src/outbyte.o
+LOAD ./src/standalone_v6_7/src/print.o
+LOAD ./src/standalone_v6_7/src/xil_assert.o
+LOAD ./src/standalone_v6_7/src/xil_printf.o
+LOAD ./src/main.o
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libstdc++.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
+START GROUP
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/users/george/documents/idex/tools/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+END GROUP
+                0x20005000                __stack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x20005000                _estack = __stack
+                0x00000400                __Main_Stack_Size = 0x400
+                [!provide]                PROVIDE (_Main_Stack_Size = __Main_Stack_Size)
+                0x20004c00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
+                [!provide]                PROVIDE (_Main_Stack_Limit = __Main_Stack_Limit)
+                0x00000100                _Minimum_Stack_Size = 0x100
+                [!provide]                PROVIDE (_Heap_Begin = _end_noinit)
+                [!provide]                PROVIDE (_Heap_Limit = (__stack - __Main_Stack_Size))
+
+.isr_vector     0x00000000      0x1a6
+ FILL mask 0xff
+                0x00000000                __vectors_start = ABSOLUTE (.)
+                0x00000000                __vectors_start__ = ABSOLUTE (.)
+ *(.isr_vector)
+ .isr_vector    0x00000000       0x44 ./system/src/cmsis/vectors_DEVICE.o
+                0x00000000                __isr_vectors
+ *(.cfmconfig)
+ *(.after_vectors .after_vectors.*)
+ .after_vectors
+                0x00000044      0x10c ./system/src/cortexm/_startup.o
+                0x00000044                _start
+ .after_vectors
+                0x00000150       0x50 ./system/src/cortexm/exception_handlers.o
+                0x00000150                Reset_Handler
+                0x00000156                NMI_Handler
+                0x0000015c                HardFault_Handler
+                0x00000176                HardFault_Handler_C
+                0x00000182                SVC_Handler
+                0x00000188                PendSV_Handler
+                0x0000018e                SysTick_Handler
+ .after_vectors
+                0x000001a0        0x6 ./system/src/cmsis/vectors_DEVICE.o
+                0x000001a0                Default_Handler
+                0x000001a0                DeviceInterrupt_Handler
+
+.inits          0x000001a8       0x28
+                0x000001a8                __data_regions_array_start = .
+                0x000001a8        0x4 LONG 0x300 LOADADDR (.data)
+                0x000001ac        0x4 LONG 0x20000000 ADDR (.data)
+                0x000001b0        0x4 LONG 0x20000004 (ADDR (.data) + SIZEOF (.data))
+                0x000001b4        0x4 LONG 0x300 LOADADDR (.data_CCMRAM)
+                0x000001b8        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
+                0x000001bc        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
+                0x000001c0                __data_regions_array_end = .
+                0x000001c0                __bss_regions_array_start = .
+                0x000001c0        0x4 LONG 0x20000004 ADDR (.bss)
+                0x000001c4        0x4 LONG 0x20000004 (ADDR (.bss) + SIZEOF (.bss))
+                0x000001c8        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
+                0x000001cc        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
+                0x000001d0                __bss_regions_array_end = .
+ *(.init)
+ *(.fini)
+                0x000001d0                . = ALIGN (0x4)
+                0x000001d0                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array_sysinit .preinit_array_sysinit.*)
+ *(.preinit_array_platform .preinit_array_platform.*)
+ *(.preinit_array .preinit_array.*)
+                0x000001d0                PROVIDE (__preinit_array_end = .)
+                0x000001d0                . = ALIGN (0x4)
+                0x000001d0                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+                0x000001d0                PROVIDE (__init_array_end = .)
+                0x000001d0                . = ALIGN (0x4)
+                0x000001d0                PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+                0x000001d0                PROVIDE (__fini_array_end = .)
+
+.flashtext
+ *(.flashtext .flashtext.*)
+
+.text           0x000001d0      0x12e
+ *(.text .text.*)
+ .text.__initialize_hardware_early
+                0x000001d0        0xe ./system/src/cortexm/_initialize_hardware.o
+                0x000001d0                __initialize_hardware_early
+ .text.__initialize_hardware
+                0x000001de        0xe ./system/src/cortexm/_initialize_hardware.o
+                0x000001de                __initialize_hardware
+ .text.SystemCoreClockUpdate
+                0x000001ec       0x18 ./system/src/cmsis/system_DEVICE.o
+                0x000001ec                SystemCoreClockUpdate
+ .text.SystemInit
+                0x00000204       0x18 ./system/src/cmsis/system_DEVICE.o
+                0x00000204                SystemInit
+ .text.Xil_In32
+                0x0000021c       0x14 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text.Xil_Out32
+                0x00000230       0x1c ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text.XUartLite_SendByte
+                0x0000024c       0x3c ./src/uartlite_v3_2/src/xuartlite_l.o
+                0x0000024c                XUartLite_SendByte
+ .text.outbyte  0x00000288       0x28 ./src/standalone_v6_7/src/outbyte.o
+                0x00000288                outbyte
+ .text.print    0x000002b0       0x30 ./src/standalone_v6_7/src/print.o
+                0x000002b0                print
+ .text.main     0x000002e0       0x18 ./src/main.o
+                0x000002e0                main
+ *(.rodata .rodata.* .constdata .constdata.*)
+ .rodata        0x000002f8        0x6 ./src/main.o
+ *(vtable)
+ *(.eh_frame*)
+ *(.glue_7)
+ .glue_7        0x000002fe        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x000002fe        0x0 linker stubs
+
+.vfp11_veneer   0x00000300        0x0
+ .vfp11_veneer  0x00000300        0x0 linker stubs
+
+.v4_bx          0x00000300        0x0
+ .v4_bx         0x00000300        0x0 linker stubs
+
+.iplt           0x00000300        0x0
+ .iplt          0x00000300        0x0 ./system/src/cortexm/_initialize_hardware.o
+
+.rel.dyn        0x00000300        0x0
+ .rel.iplt      0x00000300        0x0 ./system/src/cortexm/_initialize_hardware.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00000300                . = ALIGN (0x4)
+                0x00000300                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00000300                __exidx_end = .
+                0x00000300                . = ALIGN (0x4)
+                0x00000300                _etext = .
+                0x00000300                __etext = .
+
+.data_CCMRAM    0x10000000        0x0 load address 0x00000300
+ FILL mask 0xff
+ *(.data.CCMRAM .data.CCMRAM.*)
+                0x10000000                . = ALIGN (0x4)
+                0x00000300                _sidata = LOADADDR (.data)
+
+.data           0x20000000        0x4 load address 0x00000300
+ FILL mask 0xff
+                0x20000000                _sdata = .
+                0x20000000                __data_start__ = .
+ *(.data_begin .data_begin.*)
+ *(.data .data.*)
+ .data.SystemCoreClock
+                0x20000000        0x4 ./system/src/cmsis/system_DEVICE.o
+                0x20000000                SystemCoreClock
+ *(.data_end .data_end.*)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                _edata = .
+                0x20000004                __data_end__ = .
+
+.igot.plt       0x20000004        0x0 load address 0x00000304
+ .igot.plt      0x20000004        0x0 ./system/src/cortexm/_initialize_hardware.o
+
+.bss_CCMRAM     0x10000000        0x0
+ *(.bss.CCMRAM .bss.CCMRAM.*)
+
+.bss            0x20000004        0x0
+                0x20000004                __bss_start__ = .
+                0x20000004                _sbss = .
+ *(.bss_begin .bss_begin.*)
+ *(.bss .bss.*)
+ *(COMMON)
+ *(.bss_end .bss_end.*)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                __bss_end__ = .
+                0x20000004                _ebss = .
+
+.noinit_CCMRAM
+ *(.noinit.CCMRAM .noinit.CCMRAM.*)
+
+.noinit         0x20000004        0x0
+                0x20000004                _noinit = .
+ *(.noinit .noinit.*)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                _end_noinit = .
+                [!provide]                PROVIDE (end = _end_noinit)
+                [!provide]                PROVIDE (_end = _end_noinit)
+                [!provide]                PROVIDE (__end = _end_noinit)
+                [!provide]                PROVIDE (__end__ = _end_noinit)
+
+._check_stack   0x20000004      0x100
+                0x20000104                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000004      0x100 
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata.*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata.*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata.*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata.*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata.*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x79
+ *(.comment)
+ .comment       0x00000000       0x79 ./system/src/cortexm/_initialize_hardware.o
+                                 0x7a (size before relaxing)
+ .comment       0x00000079       0x7a ./system/src/cortexm/_startup.o
+ .comment       0x00000079       0x7a ./system/src/cortexm/exception_handlers.o
+ .comment       0x00000079       0x7a ./system/src/cmsis/system_DEVICE.o
+ .comment       0x00000079       0x7a ./system/src/cmsis/vectors_DEVICE.o
+ .comment       0x00000079       0x7a ./src/uartlite_v3_2/src/xuartlite_l.o
+ .comment       0x00000079       0x7a ./src/standalone_v6_7/src/outbyte.o
+ .comment       0x00000079       0x7a ./src/standalone_v6_7/src/print.o
+ .comment       0x00000079       0x7a ./src/main.o
+
+.ARM.attributes
+                0x00000000       0x2c
+ .ARM.attributes
+                0x00000000       0x2c ./system/src/cortexm/_initialize_hardware.o
+ .ARM.attributes
+                0x0000002c       0x2c ./system/src/cortexm/_startup.o
+ .ARM.attributes
+                0x00000058       0x2c ./system/src/cortexm/exception_handlers.o
+ .ARM.attributes
+                0x00000084       0x2c ./system/src/cmsis/system_DEVICE.o
+ .ARM.attributes
+                0x000000b0       0x2c ./system/src/cmsis/vectors_DEVICE.o
+ .ARM.attributes
+                0x000000dc       0x2c ./src/uartlite_v3_2/src/xuartlite_l.o
+ .ARM.attributes
+                0x00000108       0x2c ./src/standalone_v6_7/src/outbyte.o
+ .ARM.attributes
+                0x00000134       0x2c ./src/standalone_v6_7/src/print.o
+ .ARM.attributes
+                0x00000160       0x2c ./src/main.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+OUTPUT(REF.elf elf32-littlearm)

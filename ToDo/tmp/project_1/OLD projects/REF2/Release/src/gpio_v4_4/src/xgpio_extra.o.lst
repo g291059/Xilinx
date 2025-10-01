@@ -1,0 +1,306 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xgpio_extra.c"
+  12              		.text
+  13              		.section	.text.Xil_In32,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv6s-m
+  16              		.syntax unified
+  17              		.code	16
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	Xil_In32:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 1, uses_anonymous_args = 0
+  24 0000 80B5     		push	{r7, lr}
+  25 0002 82B0     		sub	sp, sp, #8
+  26 0004 00AF     		add	r7, sp, #0
+  27 0006 7860     		str	r0, [r7, #4]
+  28 0008 7B68     		ldr	r3, [r7, #4]
+  29 000a 1B68     		ldr	r3, [r3]
+  30 000c 1800     		movs	r0, r3
+  31 000e BD46     		mov	sp, r7
+  32 0010 02B0     		add	sp, sp, #8
+  33              		@ sp needed
+  34 0012 80BD     		pop	{r7, pc}
+  36              		.section	.text.Xil_Out32,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.code	16
+  40              		.thumb_func
+  41              		.fpu softvfp
+  43              	Xil_Out32:
+  44              		@ args = 0, pretend = 0, frame = 16
+  45              		@ frame_needed = 1, uses_anonymous_args = 0
+  46 0000 80B5     		push	{r7, lr}
+  47 0002 84B0     		sub	sp, sp, #16
+  48 0004 00AF     		add	r7, sp, #0
+  49 0006 7860     		str	r0, [r7, #4]
+  50 0008 3960     		str	r1, [r7]
+  51 000a 7B68     		ldr	r3, [r7, #4]
+  52 000c FB60     		str	r3, [r7, #12]
+  53 000e FB68     		ldr	r3, [r7, #12]
+  54 0010 3A68     		ldr	r2, [r7]
+  55 0012 1A60     		str	r2, [r3]
+  56 0014 C046     		nop
+  57 0016 BD46     		mov	sp, r7
+  58 0018 04B0     		add	sp, sp, #16
+  59              		@ sp needed
+  60 001a 80BD     		pop	{r7, pc}
+  62              		.section	.rodata
+  63              		.align	2
+  64              	.LC1:
+  65 0000 2E2E2F73 		.ascii	"../src/gpio_v4_4/src/xgpio_extra.c\000"
+  65      72632F67 
+  65      70696F5F 
+  65      76345F34 
+  65      2F737263 
+  66              		.section	.text.XGpio_DiscreteSet,"ax",%progbits
+  67              		.align	1
+  68              		.global	XGpio_DiscreteSet
+  69              		.syntax unified
+  70              		.code	16
+  71              		.thumb_func
+  72              		.fpu softvfp
+  74              	XGpio_DiscreteSet:
+  75              		@ args = 0, pretend = 0, frame = 24
+  76              		@ frame_needed = 1, uses_anonymous_args = 0
+  77 0000 80B5     		push	{r7, lr}
+  78 0002 86B0     		sub	sp, sp, #24
+  79 0004 00AF     		add	r7, sp, #0
+  80 0006 F860     		str	r0, [r7, #12]
+  81 0008 B960     		str	r1, [r7, #8]
+  82 000a 7A60     		str	r2, [r7, #4]
+  83 000c FB68     		ldr	r3, [r7, #12]
+  84 000e 002B     		cmp	r3, #0
+  85 0010 08D0     		beq	.L5
+  86 0012 294B     		ldr	r3, .L14
+  87 0014 0022     		movs	r2, #0
+  88 0016 1A60     		str	r2, [r3]
+  89 0018 FB68     		ldr	r3, [r7, #12]
+  90 001a 5B68     		ldr	r3, [r3, #4]
+  91 001c 274A     		ldr	r2, .L14+4
+  92 001e 9342     		cmp	r3, r2
+  93 0020 10D1     		bne	.L8
+  94 0022 08E0     		b	.L12
+  95              	.L5:
+  96 0024 264B     		ldr	r3, .L14+8
+  97 0026 6421     		movs	r1, #100
+  98 0028 1800     		movs	r0, r3
+  99 002a FFF7FEFF 		bl	Xil_Assert
+ 100 002e 224B     		ldr	r3, .L14
+ 101 0030 0122     		movs	r2, #1
+ 102 0032 1A60     		str	r2, [r3]
+ 103 0034 3DE0     		b	.L4
+ 104              	.L12:
+ 105 0036 204B     		ldr	r3, .L14
+ 106 0038 0022     		movs	r2, #0
+ 107 003a 1A60     		str	r2, [r3]
+ 108 003c BB68     		ldr	r3, [r7, #8]
+ 109 003e 012B     		cmp	r3, #1
+ 110 0040 10D0     		beq	.L10
+ 111 0042 08E0     		b	.L13
+ 112              	.L8:
+ 113 0044 1E4B     		ldr	r3, .L14+8
+ 114 0046 6521     		movs	r1, #101
+ 115 0048 1800     		movs	r0, r3
+ 116 004a FFF7FEFF 		bl	Xil_Assert
+ 117 004e 1A4B     		ldr	r3, .L14
+ 118 0050 0122     		movs	r2, #1
+ 119 0052 1A60     		str	r2, [r3]
+ 120 0054 2DE0     		b	.L4
+ 121              	.L13:
+ 122 0056 BB68     		ldr	r3, [r7, #8]
+ 123 0058 022B     		cmp	r3, #2
+ 124 005a 21D1     		bne	.L11
+ 125 005c FB68     		ldr	r3, [r7, #12]
+ 126 005e DB68     		ldr	r3, [r3, #12]
+ 127 0060 012B     		cmp	r3, #1
+ 128 0062 1DD1     		bne	.L11
+ 129              	.L10:
+ 130 0064 144B     		ldr	r3, .L14
+ 131 0066 0022     		movs	r2, #0
+ 132 0068 1A60     		str	r2, [r3]
+ 133 006a BB68     		ldr	r3, [r7, #8]
+ 134 006c 013B     		subs	r3, r3, #1
+ 135 006e DB00     		lsls	r3, r3, #3
+ 136 0070 7B61     		str	r3, [r7, #20]
+ 137 0072 FB68     		ldr	r3, [r7, #12]
+ 138 0074 1A68     		ldr	r2, [r3]
+ 139 0076 7B69     		ldr	r3, [r7, #20]
+ 140 0078 D318     		adds	r3, r2, r3
+ 141 007a 1800     		movs	r0, r3
+ 142 007c FFF7FEFF 		bl	Xil_In32
+ 143 0080 0300     		movs	r3, r0
+ 144 0082 3B61     		str	r3, [r7, #16]
+ 145 0084 3A69     		ldr	r2, [r7, #16]
+ 146 0086 7B68     		ldr	r3, [r7, #4]
+ 147 0088 1343     		orrs	r3, r2
+ 148 008a 3B61     		str	r3, [r7, #16]
+ 149 008c FB68     		ldr	r3, [r7, #12]
+ 150 008e 1A68     		ldr	r2, [r3]
+ 151 0090 7B69     		ldr	r3, [r7, #20]
+ 152 0092 D318     		adds	r3, r2, r3
+ 153 0094 3A69     		ldr	r2, [r7, #16]
+ 154 0096 1100     		movs	r1, r2
+ 155 0098 1800     		movs	r0, r3
+ 156 009a FFF7FEFF 		bl	Xil_Out32
+ 157 009e 08E0     		b	.L4
+ 158              	.L11:
+ 159 00a0 074B     		ldr	r3, .L14+8
+ 160 00a2 6621     		movs	r1, #102
+ 161 00a4 1800     		movs	r0, r3
+ 162 00a6 FFF7FEFF 		bl	Xil_Assert
+ 163 00aa 034B     		ldr	r3, .L14
+ 164 00ac 0122     		movs	r2, #1
+ 165 00ae 1A60     		str	r2, [r3]
+ 166 00b0 C046     		nop
+ 167              	.L4:
+ 168 00b2 BD46     		mov	sp, r7
+ 169 00b4 06B0     		add	sp, sp, #24
+ 170              		@ sp needed
+ 171 00b6 80BD     		pop	{r7, pc}
+ 172              	.L15:
+ 173              		.align	2
+ 174              	.L14:
+ 175 00b8 00000000 		.word	Xil_AssertStatus
+ 176 00bc 11111111 		.word	286331153
+ 177 00c0 00000000 		.word	.LC1
+ 179              		.section	.text.XGpio_DiscreteClear,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	XGpio_DiscreteClear
+ 182              		.syntax unified
+ 183              		.code	16
+ 184              		.thumb_func
+ 185              		.fpu softvfp
+ 187              	XGpio_DiscreteClear:
+ 188              		@ args = 0, pretend = 0, frame = 24
+ 189              		@ frame_needed = 1, uses_anonymous_args = 0
+ 190 0000 80B5     		push	{r7, lr}
+ 191 0002 86B0     		sub	sp, sp, #24
+ 192 0004 00AF     		add	r7, sp, #0
+ 193 0006 F860     		str	r0, [r7, #12]
+ 194 0008 B960     		str	r1, [r7, #8]
+ 195 000a 7A60     		str	r2, [r7, #4]
+ 196 000c FB68     		ldr	r3, [r7, #12]
+ 197 000e 002B     		cmp	r3, #0
+ 198 0010 08D0     		beq	.L17
+ 199 0012 2A4B     		ldr	r3, .L26
+ 200 0014 0022     		movs	r2, #0
+ 201 0016 1A60     		str	r2, [r3]
+ 202 0018 FB68     		ldr	r3, [r7, #12]
+ 203 001a 5B68     		ldr	r3, [r3, #4]
+ 204 001c 284A     		ldr	r2, .L26+4
+ 205 001e 9342     		cmp	r3, r2
+ 206 0020 10D1     		bne	.L20
+ 207 0022 08E0     		b	.L24
+ 208              	.L17:
+ 209 0024 274B     		ldr	r3, .L26+8
+ 210 0026 9021     		movs	r1, #144
+ 211 0028 1800     		movs	r0, r3
+ 212 002a FFF7FEFF 		bl	Xil_Assert
+ 213 002e 234B     		ldr	r3, .L26
+ 214 0030 0122     		movs	r2, #1
+ 215 0032 1A60     		str	r2, [r3]
+ 216 0034 3EE0     		b	.L16
+ 217              	.L24:
+ 218 0036 214B     		ldr	r3, .L26
+ 219 0038 0022     		movs	r2, #0
+ 220 003a 1A60     		str	r2, [r3]
+ 221 003c BB68     		ldr	r3, [r7, #8]
+ 222 003e 012B     		cmp	r3, #1
+ 223 0040 10D0     		beq	.L22
+ 224 0042 08E0     		b	.L25
+ 225              	.L20:
+ 226 0044 1F4B     		ldr	r3, .L26+8
+ 227 0046 9121     		movs	r1, #145
+ 228 0048 1800     		movs	r0, r3
+ 229 004a FFF7FEFF 		bl	Xil_Assert
+ 230 004e 1B4B     		ldr	r3, .L26
+ 231 0050 0122     		movs	r2, #1
+ 232 0052 1A60     		str	r2, [r3]
+ 233 0054 2EE0     		b	.L16
+ 234              	.L25:
+ 235 0056 BB68     		ldr	r3, [r7, #8]
+ 236 0058 022B     		cmp	r3, #2
+ 237 005a 22D1     		bne	.L23
+ 238 005c FB68     		ldr	r3, [r7, #12]
+ 239 005e DB68     		ldr	r3, [r3, #12]
+ 240 0060 012B     		cmp	r3, #1
+ 241 0062 1ED1     		bne	.L23
+ 242              	.L22:
+ 243 0064 154B     		ldr	r3, .L26
+ 244 0066 0022     		movs	r2, #0
+ 245 0068 1A60     		str	r2, [r3]
+ 246 006a BB68     		ldr	r3, [r7, #8]
+ 247 006c 013B     		subs	r3, r3, #1
+ 248 006e DB00     		lsls	r3, r3, #3
+ 249 0070 7B61     		str	r3, [r7, #20]
+ 250 0072 FB68     		ldr	r3, [r7, #12]
+ 251 0074 1A68     		ldr	r2, [r3]
+ 252 0076 7B69     		ldr	r3, [r7, #20]
+ 253 0078 D318     		adds	r3, r2, r3
+ 254 007a 1800     		movs	r0, r3
+ 255 007c FFF7FEFF 		bl	Xil_In32
+ 256 0080 0300     		movs	r3, r0
+ 257 0082 3B61     		str	r3, [r7, #16]
+ 258 0084 7B68     		ldr	r3, [r7, #4]
+ 259 0086 DA43     		mvns	r2, r3
+ 260 0088 3B69     		ldr	r3, [r7, #16]
+ 261 008a 1340     		ands	r3, r2
+ 262 008c 3B61     		str	r3, [r7, #16]
+ 263 008e FB68     		ldr	r3, [r7, #12]
+ 264 0090 1A68     		ldr	r2, [r3]
+ 265 0092 7B69     		ldr	r3, [r7, #20]
+ 266 0094 D318     		adds	r3, r2, r3
+ 267 0096 3A69     		ldr	r2, [r7, #16]
+ 268 0098 1100     		movs	r1, r2
+ 269 009a 1800     		movs	r0, r3
+ 270 009c FFF7FEFF 		bl	Xil_Out32
+ 271 00a0 08E0     		b	.L16
+ 272              	.L23:
+ 273 00a2 084B     		ldr	r3, .L26+8
+ 274 00a4 9221     		movs	r1, #146
+ 275 00a6 1800     		movs	r0, r3
+ 276 00a8 FFF7FEFF 		bl	Xil_Assert
+ 277 00ac 034B     		ldr	r3, .L26
+ 278 00ae 0122     		movs	r2, #1
+ 279 00b0 1A60     		str	r2, [r3]
+ 280 00b2 C046     		nop
+ 281              	.L16:
+ 282 00b4 BD46     		mov	sp, r7
+ 283 00b6 06B0     		add	sp, sp, #24
+ 284              		@ sp needed
+ 285 00b8 80BD     		pop	{r7, pc}
+ 286              	.L27:
+ 287 00ba C046     		.align	2
+ 288              	.L26:
+ 289 00bc 00000000 		.word	Xil_AssertStatus
+ 290 00c0 11111111 		.word	286331153
+ 291 00c4 00000000 		.word	.LC1
+ 293              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xgpio_extra.c
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:14     .text.Xil_In32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:21     .text.Xil_In32:00000000 Xil_In32
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:37     .text.Xil_Out32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:43     .text.Xil_Out32:00000000 Xil_Out32
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:63     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:67     .text.XGpio_DiscreteSet:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:74     .text.XGpio_DiscreteSet:00000000 XGpio_DiscreteSet
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:175    .text.XGpio_DiscreteSet:000000b8 $d
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:180    .text.XGpio_DiscreteClear:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:187    .text.XGpio_DiscreteClear:00000000 XGpio_DiscreteClear
+C:\Users\jl241\AppData\Local\Temp\cc0QE17U.s:289    .text.XGpio_DiscreteClear:000000bc $d
+
+UNDEFINED SYMBOLS
+Xil_Assert
+Xil_AssertStatus

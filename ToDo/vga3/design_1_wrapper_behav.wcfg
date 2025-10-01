@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="design_1_wrapper_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="design_1_wrapper" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="64000000001fs"></ZoomEndTime>
+      <Cursor1Time time="13800000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wave_markers>
+      <marker time="600000000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/genClkRst_0/oclk" type="logic">
+      <obj_property name="ElementShortName">oclk</obj_property>
+      <obj_property name="ObjectShortName">oclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/genClkRst_0/oreset" type="logic">
+      <obj_property name="ElementShortName">oreset</obj_property>
+      <obj_property name="ObjectShortName">oreset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/clock_div_pow2_0/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/clock_div_pow2_0/o_clk_div2" type="logic">
+      <obj_property name="ElementShortName">o_clk_div2</obj_property>
+      <obj_property name="ObjectShortName">o_clk_div2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/clock_div_pow2_0/o_clk_div4" type="logic">
+      <obj_property name="ElementShortName">o_clk_div4</obj_property>
+      <obj_property name="ObjectShortName">o_clk_div4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/clk_pxl" type="logic">
+      <obj_property name="ElementShortName">clk_pxl</obj_property>
+      <obj_property name="ObjectShortName">clk_pxl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/R" type="array">
+      <obj_property name="ElementShortName">R[3:0]</obj_property>
+      <obj_property name="ObjectShortName">R[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/G" type="array">
+      <obj_property name="ElementShortName">G[3:0]</obj_property>
+      <obj_property name="ObjectShortName">G[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/B" type="array">
+      <obj_property name="ElementShortName">B[3:0]</obj_property>
+      <obj_property name="ObjectShortName">B[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/hsync" type="logic">
+      <obj_property name="ElementShortName">hsync</obj_property>
+      <obj_property name="ObjectShortName">hsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/design_1_wrapper/design_1_i/sync_t1_0/vsync" type="logic">
+      <obj_property name="ElementShortName">vsync</obj_property>
+      <obj_property name="ObjectShortName">vsync</obj_property>
+   </wvobject>
+</wave_config>

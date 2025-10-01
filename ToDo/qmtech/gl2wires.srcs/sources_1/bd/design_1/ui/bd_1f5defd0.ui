@@ -1,0 +1,100 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "commentid":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port clk_i -pg 1 -lvl 0 -x -120 -y 360 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x -120 -y 380 -defaultsOSRD
+preplace port JD4 -pg 1 -lvl 9 -x 2950 -y 700 -defaultsOSRD
+preplace port JD3 -pg 1 -lvl 9 -x 2950 -y 360 -defaultsOSRD
+preplace port JD2 -pg 1 -lvl 9 -x 2950 -y 680 -defaultsOSRD
+preplace port JD1 -pg 1 -lvl 9 -x 2950 -y 1320 -defaultsOSRD
+preplace port JC1 -pg 1 -lvl 9 -x 2950 -y 380 -defaultsOSRD
+preplace port JC2 -pg 1 -lvl 9 -x 2950 -y 340 -defaultsOSRD
+preplace port JC7 -pg 1 -lvl 9 -x 2950 -y 720 -defaultsOSRD
+preplace port uart_rx -pg 1 -lvl 9 -x 2950 -y -100 -defaultsOSRD -right
+preplace port uart_tx -pg 1 -lvl 9 -x 2950 -y -80 -defaultsOSRD
+preplace portBus JD7 -pg 1 -lvl 9 -x 2950 -y 740 -defaultsOSRD
+preplace inst CORTEXM1_AXI_0 -pg 1 -lvl 4 -x 1110 -y 280 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 6 -x 1930 -y 290 -defaultsOSRD
+preplace inst axi_gpio_1 -pg 1 -lvl 6 -x 1930 -y 1160 -defaultsOSRD
+preplace inst axi_gpio_2 -pg 1 -lvl 6 -x 1930 -y 130 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 5 -x 1530 -y 690 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 5 -x 1530 -y 250 -defaultsOSRD
+preplace inst axi_quad_spi_0 -pg 1 -lvl 6 -x 1930 -y 470 -defaultsOSRD
+preplace inst axi_quad_spi_1 -pg 1 -lvl 6 -x 1930 -y 960 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 4 -x 1110 -y 70 -defaultsOSRD
+preplace inst axi_timer_1 -pg 1 -lvl 4 -x 1110 -y 870 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 6 -x 1930 -y -80 -defaultsOSRD
+preplace inst axi_uartlite_1 -pg 1 -lvl 6 -x 1930 -y 1320 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 100 -y 350 -defaultsOSRD
+preplace inst mcu_mux_0 -pg 1 -lvl 8 -x 2530 -y 790 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -x 670 -y 380 -defaultsOSRD
+preplace inst sSegDisplay_0 -pg 1 -lvl 7 -x 2270 -y 130 -defaultsOSRD
+preplace inst se_mux_0 -pg 1 -lvl 8 -x 2530 -y 370 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 3 -x 670 -y 140 -defaultsOSRD
+preplace inst xlconcat_1 -pg 1 -lvl 3 -x 670 -y 790 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 370 -y 180 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 2 -x 370 -y 490 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 2 -x 370 -y 280 -defaultsOSRD
+preplace inst CORTEXM3_AXI_0 -pg 1 -lvl 4 -x 1110 -y 570 -defaultsOSRD
+preplace inst axi_protocol_convert_0 -pg 1 -lvl 6 -x 1930 -y 650 -defaultsOSRD
+preplace netloc sys_clock_1 1 0 1 NJ 360
+preplace netloc reset_1 1 0 3 -100 420 190 370 500
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 3 860 -50 1330 -50 1730
+preplace netloc clk_wiz_0_clk_out1 1 1 6 N 340 470 260 850 -40 1320 -40 1720 40 2120
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 3 2 870J 180 1360
+preplace netloc clk_wiz_0_locked 1 1 2 N 360 450
+preplace netloc xlconstant_1_dout 1 2 2 490 270 880J
+preplace netloc xlconstant_2_dout 1 2 2 N 280 840J
+preplace netloc axi_uartlite_1_tx 1 6 3 N 1320 N 1320 N
+preplace netloc axi_quad_spi_0_ss_o 1 6 3 2100 700 N 700 2650
+preplace netloc Net8 1 8 1 N 380
+preplace netloc se_mux_0_L1 1 7 2 2400 470 2680
+preplace netloc Net9 1 8 1 2680 720n
+preplace netloc axi_quad_spi_1_io0_o 1 6 2 2110 790 N
+preplace netloc se_mux_0_spi_miso 1 6 3 N 460 N 460 2660
+preplace netloc axi_quad_spi_0_io0_o 1 6 2 2120 390 N
+preplace netloc mcu_mux_0_spi_mosi 1 6 3 N 930 N 930 2670
+preplace netloc axi_quad_spi_0_sck_o 1 6 2 2110 370 N
+preplace netloc mcu_mux_0_spi_clk 1 6 3 N 970 N 970 2660
+preplace netloc xlconstant_0_dout 1 2 1 460 180n
+preplace netloc axi_quad_spi_1_ip2intc_irpt 1 2 5 500 990 NJ 990 1350J 890 1750J 850 2080
+preplace netloc axi_uartlite_1_interrupt 1 2 5 490 1070 NJ 1070 NJ 1070 NJ 1070 2080
+preplace netloc axi_quad_spi_0_ip2intc_irpt 1 2 5 460 -170 NJ -170 NJ -170 NJ -170 2090
+preplace netloc axi_uartlite_0_interrupt 1 2 5 490 -60 NJ -60 NJ -60 1700J 10 2080
+preplace netloc xlconcat_0_dout 1 3 1 890 140n
+preplace netloc axi_timer_0_interrupt 1 2 3 500 -70 NJ -70 1310
+preplace netloc axi_timer_1_interrupt 1 2 3 480 1010 NJ 1010 1320
+preplace netloc se_mux_0_gpio_i 1 6 3 2120J 290 2400 280 2660
+preplace netloc axi_gpio_0_gpio_io_o 1 6 2 N 300 2400
+preplace netloc axi_gpio_1_ip2intc_irpt 1 2 5 470 1000 NJ 1000 NJ 1000 1740J 840 2090
+preplace netloc axi_gpio_0_ip2intc_irpt 1 2 5 470 -180 NJ -180 NJ -180 NJ -180 2100
+preplace netloc mcu_mux_0_gpio_i 1 6 3 N 1150 N 1150 2650
+preplace netloc axi_gpio_1_gpio_io_o 1 6 2 2120 770 N
+preplace netloc axi_gpio_2_gpio_io_o 1 6 1 2120 130n
+preplace netloc sSegDisplay_0_loopback 1 6 2 2110 -30 2400
+preplace netloc axi_gpio_2_gpio_io_t 1 6 1 2120 150n
+preplace netloc uart_rx_1 1 6 3 2120 -70 N -70 2660
+preplace netloc axi_uartlite_0_tx 1 6 3 2110 -80 NJ -80 N
+preplace netloc xlconcat_1_dout 1 3 1 880 490n
+preplace netloc axi_interconnect_0_M00_AXI 1 5 1 1710 650n
+preplace netloc axi_interconnect_1_M00_AXI 1 5 1 1690 -100n
+preplace netloc axi_interconnect_1_M03_AXI 1 3 3 890 -80 NJ -80 1680
+preplace netloc CORTEXM1_AXI_0_CM1_AXI3 1 4 1 1310 110n
+preplace netloc axi_interconnect_1_M04_AXI 1 5 1 1700 110n
+preplace netloc axi_interconnect_1_M02_AXI 1 5 1 1740 250n
+preplace netloc axi_interconnect_0_M02_AXI 1 5 1 1690 690n
+preplace netloc axi_interconnect_1_M01_AXI 1 5 1 1750 230n
+preplace netloc axi_interconnect_0_M03_AXI 1 5 1 1700 710n
+preplace netloc axi_interconnect_0_M01_AXI 1 3 3 880 980 NJ 980 1680
+preplace netloc CORTEXM3_AXI_0_CM3_SYS_AXI3 1 4 1 1350 420n
+preplace netloc CORTEXM3_AXI_0_CM3_CODE_AXI3 1 4 2 1340J 450 1680
+levelinfo -pg 1 -120 100 370 670 1110 1530 1930 2270 2530 2950
+pagesize -pg 1 -db -bbox -sgen -200 -290 3060 1400
+"
+}
+{
+   "da_axi4_cnt":"1",
+   "da_board_cnt":"1"
+}

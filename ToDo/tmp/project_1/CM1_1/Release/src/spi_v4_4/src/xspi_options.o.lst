@@ -1,0 +1,339 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xspi_options.c"
+  12              		.text
+  13              		.section	.text.Xil_In32,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv6s-m
+  16              		.syntax unified
+  17              		.code	16
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	Xil_In32:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 1, uses_anonymous_args = 0
+  24 0000 80B5     		push	{r7, lr}
+  25 0002 82B0     		sub	sp, sp, #8
+  26 0004 00AF     		add	r7, sp, #0
+  27 0006 7860     		str	r0, [r7, #4]
+  28 0008 7B68     		ldr	r3, [r7, #4]
+  29 000a 1B68     		ldr	r3, [r3]
+  30 000c 1800     		movs	r0, r3
+  31 000e BD46     		mov	sp, r7
+  32 0010 02B0     		add	sp, sp, #8
+  33              		@ sp needed
+  34 0012 80BD     		pop	{r7, pc}
+  36              		.section	.text.Xil_Out32,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.code	16
+  40              		.thumb_func
+  41              		.fpu softvfp
+  43              	Xil_Out32:
+  44              		@ args = 0, pretend = 0, frame = 16
+  45              		@ frame_needed = 1, uses_anonymous_args = 0
+  46 0000 80B5     		push	{r7, lr}
+  47 0002 84B0     		sub	sp, sp, #16
+  48 0004 00AF     		add	r7, sp, #0
+  49 0006 7860     		str	r0, [r7, #4]
+  50 0008 3960     		str	r1, [r7]
+  51 000a 7B68     		ldr	r3, [r7, #4]
+  52 000c FB60     		str	r3, [r7, #12]
+  53 000e FB68     		ldr	r3, [r7, #12]
+  54 0010 3A68     		ldr	r2, [r7]
+  55 0012 1A60     		str	r2, [r3]
+  56 0014 C046     		nop
+  57 0016 BD46     		mov	sp, r7
+  58 0018 04B0     		add	sp, sp, #16
+  59              		@ sp needed
+  60 001a 80BD     		pop	{r7, pc}
+  62              		.section	.data.OptionsTable,"aw"
+  63              		.align	2
+  66              	OptionsTable:
+  67 0000 08000000 		.word	8
+  68 0004 01000000 		.word	1
+  69 0008 02000000 		.word	2
+  70 000c 08000000 		.word	8
+  71 0010 04000000 		.word	4
+  72 0014 10000000 		.word	16
+  73 0018 01000000 		.word	1
+  74 001c 04000000 		.word	4
+  75 0020 10000000 		.word	16
+  76 0024 80000000 		.word	128
+  77              		.section	.rodata
+  78              		.align	2
+  79              	.LC1:
+  80 0000 2E2E2F73 		.ascii	"../src/spi_v4_4/src/xspi_options.c\000"
+  80      72632F73 
+  80      70695F76 
+  80      345F342F 
+  80      7372632F 
+  81              		.section	.text.XSpi_SetOptions,"ax",%progbits
+  82              		.align	1
+  83              		.global	XSpi_SetOptions
+  84              		.syntax unified
+  85              		.code	16
+  86              		.thumb_func
+  87              		.fpu softvfp
+  89              	XSpi_SetOptions:
+  90              		@ args = 0, pretend = 0, frame = 16
+  91              		@ frame_needed = 1, uses_anonymous_args = 0
+  92 0000 80B5     		push	{r7, lr}
+  93 0002 84B0     		sub	sp, sp, #16
+  94 0004 00AF     		add	r7, sp, #0
+  95 0006 7860     		str	r0, [r7, #4]
+  96 0008 3960     		str	r1, [r7]
+  97 000a 7B68     		ldr	r3, [r7, #4]
+  98 000c 002B     		cmp	r3, #0
+  99 000e 08D0     		beq	.L5
+ 100 0010 344B     		ldr	r3, .L18
+ 101 0012 0022     		movs	r2, #0
+ 102 0014 1A60     		str	r2, [r3]
+ 103 0016 7B68     		ldr	r3, [r7, #4]
+ 104 0018 DB69     		ldr	r3, [r3, #28]
+ 105 001a 334A     		ldr	r2, .L18+4
+ 106 001c 9342     		cmp	r3, r2
+ 107 001e 12D1     		bne	.L8
+ 108 0020 09E0     		b	.L16
+ 109              	.L5:
+ 110 0022 324B     		ldr	r3, .L18+8
+ 111 0024 7E21     		movs	r1, #126
+ 112 0026 1800     		movs	r0, r3
+ 113 0028 FFF7FEFF 		bl	Xil_Assert
+ 114 002c 2D4B     		ldr	r3, .L18
+ 115 002e 0122     		movs	r2, #1
+ 116 0030 1A60     		str	r2, [r3]
+ 117 0032 0023     		movs	r3, #0
+ 118 0034 52E0     		b	.L7
+ 119              	.L16:
+ 120 0036 2B4B     		ldr	r3, .L18
+ 121 0038 0022     		movs	r2, #0
+ 122 003a 1A60     		str	r2, [r3]
+ 123 003c 7B68     		ldr	r3, [r7, #4]
+ 124 003e 9B6C     		ldr	r3, [r3, #72]
+ 125 0040 002B     		cmp	r3, #0
+ 126 0042 0CD0     		beq	.L10
+ 127 0044 09E0     		b	.L17
+ 128              	.L8:
+ 129 0046 294B     		ldr	r3, .L18+8
+ 130 0048 7F21     		movs	r1, #127
+ 131 004a 1800     		movs	r0, r3
+ 132 004c FFF7FEFF 		bl	Xil_Assert
+ 133 0050 244B     		ldr	r3, .L18
+ 134 0052 0122     		movs	r2, #1
+ 135 0054 1A60     		str	r2, [r3]
+ 136 0056 0023     		movs	r3, #0
+ 137 0058 40E0     		b	.L7
+ 138              	.L17:
+ 139 005a 1523     		movs	r3, #21
+ 140 005c 3EE0     		b	.L7
+ 141              	.L10:
+ 142 005e 3B68     		ldr	r3, [r7]
+ 143 0060 0122     		movs	r2, #1
+ 144 0062 1340     		ands	r3, r2
+ 145 0064 05D0     		beq	.L11
+ 146 0066 7B68     		ldr	r3, [r7, #4]
+ 147 0068 9B6A     		ldr	r3, [r3, #40]
+ 148 006a 002B     		cmp	r3, #0
+ 149 006c 01D0     		beq	.L11
+ 150 006e 204B     		ldr	r3, .L18+12
+ 151 0070 34E0     		b	.L7
+ 152              	.L11:
+ 153 0072 7B68     		ldr	r3, [r7, #4]
+ 154 0074 9B69     		ldr	r3, [r3, #24]
+ 155 0076 6033     		adds	r3, r3, #96
+ 156 0078 1800     		movs	r0, r3
+ 157 007a FFF7FEFF 		bl	Xil_In32
+ 158 007e 0300     		movs	r3, r0
+ 159 0080 FB60     		str	r3, [r7, #12]
+ 160 0082 0023     		movs	r3, #0
+ 161 0084 BB60     		str	r3, [r7, #8]
+ 162 0086 1DE0     		b	.L12
+ 163              	.L15:
+ 164 0088 1A4B     		ldr	r3, .L18+16
+ 165 008a BA68     		ldr	r2, [r7, #8]
+ 166 008c D200     		lsls	r2, r2, #3
+ 167 008e D358     		ldr	r3, [r2, r3]
+ 168 0090 3A68     		ldr	r2, [r7]
+ 169 0092 1340     		ands	r3, r2
+ 170 0094 09D0     		beq	.L13
+ 171 0096 174A     		ldr	r2, .L18+16
+ 172 0098 BB68     		ldr	r3, [r7, #8]
+ 173 009a DB00     		lsls	r3, r3, #3
+ 174 009c D318     		adds	r3, r2, r3
+ 175 009e 0433     		adds	r3, r3, #4
+ 176 00a0 1B68     		ldr	r3, [r3]
+ 177 00a2 FA68     		ldr	r2, [r7, #12]
+ 178 00a4 1343     		orrs	r3, r2
+ 179 00a6 FB60     		str	r3, [r7, #12]
+ 180 00a8 09E0     		b	.L14
+ 181              	.L13:
+ 182 00aa 124A     		ldr	r2, .L18+16
+ 183 00ac BB68     		ldr	r3, [r7, #8]
+ 184 00ae DB00     		lsls	r3, r3, #3
+ 185 00b0 D318     		adds	r3, r2, r3
+ 186 00b2 0433     		adds	r3, r3, #4
+ 187 00b4 1B68     		ldr	r3, [r3]
+ 188 00b6 DA43     		mvns	r2, r3
+ 189 00b8 FB68     		ldr	r3, [r7, #12]
+ 190 00ba 1340     		ands	r3, r2
+ 191 00bc FB60     		str	r3, [r7, #12]
+ 192              	.L14:
+ 193 00be BB68     		ldr	r3, [r7, #8]
+ 194 00c0 0133     		adds	r3, r3, #1
+ 195 00c2 BB60     		str	r3, [r7, #8]
+ 196              	.L12:
+ 197 00c4 BB68     		ldr	r3, [r7, #8]
+ 198 00c6 042B     		cmp	r3, #4
+ 199 00c8 DED9     		bls	.L15
+ 200 00ca 7B68     		ldr	r3, [r7, #4]
+ 201 00cc 9B69     		ldr	r3, [r3, #24]
+ 202 00ce 6033     		adds	r3, r3, #96
+ 203 00d0 FA68     		ldr	r2, [r7, #12]
+ 204 00d2 1100     		movs	r1, r2
+ 205 00d4 1800     		movs	r0, r3
+ 206 00d6 FFF7FEFF 		bl	Xil_Out32
+ 207 00da 0023     		movs	r3, #0
+ 208              	.L7:
+ 209 00dc 1800     		movs	r0, r3
+ 210 00de BD46     		mov	sp, r7
+ 211 00e0 04B0     		add	sp, sp, #16
+ 212              		@ sp needed
+ 213 00e2 80BD     		pop	{r7, pc}
+ 214              	.L19:
+ 215              		.align	2
+ 216              	.L18:
+ 217 00e4 00000000 		.word	Xil_AssertStatus
+ 218 00e8 11111111 		.word	286331153
+ 219 00ec 00000000 		.word	.LC1
+ 220 00f0 86040000 		.word	1158
+ 221 00f4 00000000 		.word	OptionsTable
+ 223              		.section	.text.XSpi_GetOptions,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	XSpi_GetOptions
+ 226              		.syntax unified
+ 227              		.code	16
+ 228              		.thumb_func
+ 229              		.fpu softvfp
+ 231              	XSpi_GetOptions:
+ 232              		@ args = 0, pretend = 0, frame = 24
+ 233              		@ frame_needed = 1, uses_anonymous_args = 0
+ 234 0000 80B5     		push	{r7, lr}
+ 235 0002 86B0     		sub	sp, sp, #24
+ 236 0004 00AF     		add	r7, sp, #0
+ 237 0006 7860     		str	r0, [r7, #4]
+ 238 0008 0023     		movs	r3, #0
+ 239 000a 7B61     		str	r3, [r7, #20]
+ 240 000c 7B68     		ldr	r3, [r7, #4]
+ 241 000e 002B     		cmp	r3, #0
+ 242 0010 08D0     		beq	.L21
+ 243 0012 234B     		ldr	r3, .L30
+ 244 0014 0022     		movs	r2, #0
+ 245 0016 1A60     		str	r2, [r3]
+ 246 0018 7B68     		ldr	r3, [r7, #4]
+ 247 001a DB69     		ldr	r3, [r3, #28]
+ 248 001c 214A     		ldr	r2, .L30+4
+ 249 001e 9342     		cmp	r3, r2
+ 250 0020 18D1     		bne	.L24
+ 251 0022 09E0     		b	.L29
+ 252              	.L21:
+ 253 0024 204B     		ldr	r3, .L30+8
+ 254 0026 C921     		movs	r1, #201
+ 255 0028 1800     		movs	r0, r3
+ 256 002a FFF7FEFF 		bl	Xil_Assert
+ 257 002e 1C4B     		ldr	r3, .L30
+ 258 0030 0122     		movs	r2, #1
+ 259 0032 1A60     		str	r2, [r3]
+ 260 0034 0023     		movs	r3, #0
+ 261 0036 2EE0     		b	.L23
+ 262              	.L29:
+ 263 0038 194B     		ldr	r3, .L30
+ 264 003a 0022     		movs	r2, #0
+ 265 003c 1A60     		str	r2, [r3]
+ 266 003e 7B68     		ldr	r3, [r7, #4]
+ 267 0040 9B69     		ldr	r3, [r3, #24]
+ 268 0042 6033     		adds	r3, r3, #96
+ 269 0044 1800     		movs	r0, r3
+ 270 0046 FFF7FEFF 		bl	Xil_In32
+ 271 004a 0300     		movs	r3, r0
+ 272 004c FB60     		str	r3, [r7, #12]
+ 273 004e 0023     		movs	r3, #0
+ 274 0050 3B61     		str	r3, [r7, #16]
+ 275 0052 1CE0     		b	.L26
+ 276              	.L24:
+ 277 0054 144B     		ldr	r3, .L30+8
+ 278 0056 CA21     		movs	r1, #202
+ 279 0058 1800     		movs	r0, r3
+ 280 005a FFF7FEFF 		bl	Xil_Assert
+ 281 005e 104B     		ldr	r3, .L30
+ 282 0060 0122     		movs	r2, #1
+ 283 0062 1A60     		str	r2, [r3]
+ 284 0064 0023     		movs	r3, #0
+ 285 0066 16E0     		b	.L23
+ 286              	.L28:
+ 287 0068 104A     		ldr	r2, .L30+12
+ 288 006a 3B69     		ldr	r3, [r7, #16]
+ 289 006c DB00     		lsls	r3, r3, #3
+ 290 006e D318     		adds	r3, r2, r3
+ 291 0070 0433     		adds	r3, r3, #4
+ 292 0072 1B68     		ldr	r3, [r3]
+ 293 0074 FA68     		ldr	r2, [r7, #12]
+ 294 0076 1340     		ands	r3, r2
+ 295 0078 06D0     		beq	.L27
+ 296 007a 0C4B     		ldr	r3, .L30+12
+ 297 007c 3A69     		ldr	r2, [r7, #16]
+ 298 007e D200     		lsls	r2, r2, #3
+ 299 0080 D358     		ldr	r3, [r2, r3]
+ 300 0082 7A69     		ldr	r2, [r7, #20]
+ 301 0084 1343     		orrs	r3, r2
+ 302 0086 7B61     		str	r3, [r7, #20]
+ 303              	.L27:
+ 304 0088 3B69     		ldr	r3, [r7, #16]
+ 305 008a 0133     		adds	r3, r3, #1
+ 306 008c 3B61     		str	r3, [r7, #16]
+ 307              	.L26:
+ 308 008e 3B69     		ldr	r3, [r7, #16]
+ 309 0090 042B     		cmp	r3, #4
+ 310 0092 E9D9     		bls	.L28
+ 311 0094 7B69     		ldr	r3, [r7, #20]
+ 312              	.L23:
+ 313 0096 1800     		movs	r0, r3
+ 314 0098 BD46     		mov	sp, r7
+ 315 009a 06B0     		add	sp, sp, #24
+ 316              		@ sp needed
+ 317 009c 80BD     		pop	{r7, pc}
+ 318              	.L31:
+ 319 009e C046     		.align	2
+ 320              	.L30:
+ 321 00a0 00000000 		.word	Xil_AssertStatus
+ 322 00a4 11111111 		.word	286331153
+ 323 00a8 00000000 		.word	.LC1
+ 324 00ac 00000000 		.word	OptionsTable
+ 326              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xspi_options.c
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:14     .text.Xil_In32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:21     .text.Xil_In32:00000000 Xil_In32
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:37     .text.Xil_Out32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:43     .text.Xil_Out32:00000000 Xil_Out32
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:63     .data.OptionsTable:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:66     .data.OptionsTable:00000000 OptionsTable
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:78     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:82     .text.XSpi_SetOptions:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:89     .text.XSpi_SetOptions:00000000 XSpi_SetOptions
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:217    .text.XSpi_SetOptions:000000e4 $d
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:224    .text.XSpi_GetOptions:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:231    .text.XSpi_GetOptions:00000000 XSpi_GetOptions
+C:\Users\jl241\AppData\Local\Temp\cc8TISis.s:321    .text.XSpi_GetOptions:000000a0 $d
+
+UNDEFINED SYMBOLS
+Xil_Assert
+Xil_AssertStatus

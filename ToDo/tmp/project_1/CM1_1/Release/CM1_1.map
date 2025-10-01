@@ -1,0 +1,624 @@
+Archive member included to satisfy reference by file (symbol)
+
+t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                              ./src/standalone_v7_0/src/xil_printf.o (__aeabi_uidiv)
+t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                              t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+                              ./src/standalone_v7_0/src/xil_printf.o (_ctype_)
+t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+                              ./src/standalone_v7_0/src/xil_printf.o (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+WriteBuffer         0x11              ./src/apps/spi.o
+ReadBuffer          0x11              ./src/apps/spi.o
+Xil_AssertStatus    0x4               ./src/standalone_v7_0/src/xil_assert.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/uartlite_v3_2/src/xuartlite.o
+ .rodata        0x00000000       0x25 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_CfgInitialize
+                0x00000000       0x98 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_Send
+                0x00000000      0x100 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_Recv
+                0x00000000      0x114 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_ResetFifos
+                0x00000000       0x98 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_IsSending
+                0x00000000       0x5c ./src/uartlite_v3_2/src/xuartlite.o
+ .text.StubHandler
+                0x00000000       0x30 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_SendBuffer
+                0x00000000       0xe2 ./src/uartlite_v3_2/src/xuartlite.o
+ .text.XUartLite_ReceiveBuffer
+                0x00000000      0x106 ./src/uartlite_v3_2/src/xuartlite.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .data.XUartLite_ConfigTable
+                0x00000000       0x10 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_g.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/uartlite_v3_2/src/xuartlite_g.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .rodata        0x00000000       0x2a ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_SetRecvHandler
+                0x00000000       0x90 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_SetSendHandler
+                0x00000000       0x90 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_InterruptHandler
+                0x00000000       0x70 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.ReceiveDataHandler
+                0x00000000       0x48 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.SendDataHandler
+                0x00000000       0x46 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_DisableInterrupt
+                0x00000000       0x78 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text.XUartLite_EnableInterrupt
+                0x00000000       0x78 ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_intr.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text.XUartLite_RecvByte
+                0x00000000       0x32 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .rodata        0x00000000       0x2e ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .text.XUartLite_SelfTest
+                0x00000000       0x88 ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_selftest.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .text.XUartLite_LookupConfig
+                0x00000000       0x4c ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .rodata        0x00000000       0x2b ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .text.XUartLite_Initialize
+                0x00000000       0x68 ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_sinit.o
+ .text          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .data          0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .bss           0x00000000        0x0 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .rodata        0x00000000       0x2b ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .text.XUartLite_GetStats
+                0x00000000       0xb8 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .text.XUartLite_ClearStats
+                0x00000000       0x88 ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .comment       0x00000000       0x7a ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_stats.o
+ .text          0x00000000        0x0 ./src/standalone_v7_0/src/outbyte.o
+ .data          0x00000000        0x0 ./src/standalone_v7_0/src/outbyte.o
+ .bss           0x00000000        0x0 ./src/standalone_v7_0/src/outbyte.o
+ .text          0x00000000        0x0 ./src/standalone_v7_0/src/print.o
+ .data          0x00000000        0x0 ./src/standalone_v7_0/src/print.o
+ .bss           0x00000000        0x0 ./src/standalone_v7_0/src/print.o
+ .text          0x00000000        0x0 ./src/standalone_v7_0/src/xil_assert.o
+ .data          0x00000000        0x0 ./src/standalone_v7_0/src/xil_assert.o
+ .bss           0x00000000        0x0 ./src/standalone_v7_0/src/xil_assert.o
+ .text.Xil_AssertSetCallback
+                0x00000000       0x1c ./src/standalone_v7_0/src/xil_assert.o
+ .text.XNullHandler
+                0x00000000       0x10 ./src/standalone_v7_0/src/xil_assert.o
+ .text          0x00000000        0x0 ./src/standalone_v7_0/src/xil_printf.o
+ .data          0x00000000        0x0 ./src/standalone_v7_0/src/xil_printf.o
+ .bss           0x00000000        0x0 ./src/standalone_v7_0/src/xil_printf.o
+ .text          0x00000000        0x0 ./src/spi_v4_4/src/xspi.o
+ .data          0x00000000        0x0 ./src/spi_v4_4/src/xspi.o
+ .bss           0x00000000        0x0 ./src/spi_v4_4/src/xspi.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/spi_v4_4/src/xspi.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/spi_v4_4/src/xspi.o
+ .rodata        0x00000000       0x1b ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_CfgInitialize
+                0x00000000      0x24c ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_Start
+                0x00000000       0xe8 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_Stop
+                0x00000000       0xb8 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_Reset
+                0x00000000       0x8c ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_Transfer
+                0x00000000      0x4f8 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_SetSlaveSelect
+                0x00000000       0xc4 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_GetSlaveSelect
+                0x00000000       0x74 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_SetStatusHandler
+                0x00000000       0xa0 ./src/spi_v4_4/src/xspi.o
+ .text.StubStatusHandler
+                0x00000000       0x34 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_InterruptHandler
+                0x00000000      0x3d8 ./src/spi_v4_4/src/xspi.o
+ .text.XSpi_Abort
+                0x00000000       0x82 ./src/spi_v4_4/src/xspi.o
+ .comment       0x00000000       0x7a ./src/spi_v4_4/src/xspi.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/spi_v4_4/src/xspi.o
+ .text          0x00000000        0x0 ./src/spi_v4_4/src/xspi_g.o
+ .data          0x00000000        0x0 ./src/spi_v4_4/src/xspi_g.o
+ .bss           0x00000000        0x0 ./src/spi_v4_4/src/xspi_g.o
+ .data.XSpi_ConfigTable
+                0x00000000       0x1c ./src/spi_v4_4/src/xspi_g.o
+ .comment       0x00000000       0x7a ./src/spi_v4_4/src/xspi_g.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/spi_v4_4/src/xspi_g.o
+ .text          0x00000000        0x0 ./src/spi_v4_4/src/xspi_options.o
+ .data          0x00000000        0x0 ./src/spi_v4_4/src/xspi_options.o
+ .bss           0x00000000        0x0 ./src/spi_v4_4/src/xspi_options.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/spi_v4_4/src/xspi_options.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/spi_v4_4/src/xspi_options.o
+ .data.OptionsTable
+                0x00000000       0x28 ./src/spi_v4_4/src/xspi_options.o
+ .rodata        0x00000000       0x23 ./src/spi_v4_4/src/xspi_options.o
+ .text.XSpi_SetOptions
+                0x00000000       0xf8 ./src/spi_v4_4/src/xspi_options.o
+ .text.XSpi_GetOptions
+                0x00000000       0xb0 ./src/spi_v4_4/src/xspi_options.o
+ .comment       0x00000000       0x7a ./src/spi_v4_4/src/xspi_options.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/spi_v4_4/src/xspi_options.o
+ .text          0x00000000        0x0 ./src/spi_v4_4/src/xspi_selftest.o
+ .data          0x00000000        0x0 ./src/spi_v4_4/src/xspi_selftest.o
+ .bss           0x00000000        0x0 ./src/spi_v4_4/src/xspi_selftest.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/spi_v4_4/src/xspi_selftest.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/spi_v4_4/src/xspi_selftest.o
+ .rodata        0x00000000       0x24 ./src/spi_v4_4/src/xspi_selftest.o
+ .text.XSpi_SelfTest
+                0x00000000      0x184 ./src/spi_v4_4/src/xspi_selftest.o
+ .text.LoopbackTest
+                0x00000000      0x23c ./src/spi_v4_4/src/xspi_selftest.o
+ .comment       0x00000000       0x7a ./src/spi_v4_4/src/xspi_selftest.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/spi_v4_4/src/xspi_selftest.o
+ .text          0x00000000        0x0 ./src/spi_v4_4/src/xspi_sinit.o
+ .data          0x00000000        0x0 ./src/spi_v4_4/src/xspi_sinit.o
+ .bss           0x00000000        0x0 ./src/spi_v4_4/src/xspi_sinit.o
+ .text.XSpi_LookupConfig
+                0x00000000       0x58 ./src/spi_v4_4/src/xspi_sinit.o
+ .rodata        0x00000000       0x21 ./src/spi_v4_4/src/xspi_sinit.o
+ .text.XSpi_Initialize
+                0x00000000       0x68 ./src/spi_v4_4/src/xspi_sinit.o
+ .comment       0x00000000       0x7a ./src/spi_v4_4/src/xspi_sinit.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/spi_v4_4/src/xspi_sinit.o
+ .text          0x00000000        0x0 ./src/spi_v4_4/src/xspi_stats.o
+ .data          0x00000000        0x0 ./src/spi_v4_4/src/xspi_stats.o
+ .bss           0x00000000        0x0 ./src/spi_v4_4/src/xspi_stats.o
+ .rodata        0x00000000       0x21 ./src/spi_v4_4/src/xspi_stats.o
+ .text.XSpi_GetStats
+                0x00000000       0xb0 ./src/spi_v4_4/src/xspi_stats.o
+ .text.XSpi_ClearStats
+                0x00000000       0x84 ./src/spi_v4_4/src/xspi_stats.o
+ .comment       0x00000000       0x7a ./src/spi_v4_4/src/xspi_stats.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/spi_v4_4/src/xspi_stats.o
+ .text          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio.o
+ .data          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio.o
+ .bss           0x00000000        0x0 ./src/gpio_v4_4/src/xgpio.o
+ .text.XGpio_GetDataDirection
+                0x00000000       0xac ./src/gpio_v4_4/src/xgpio.o
+ .text          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_extra.o
+ .data          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_extra.o
+ .bss           0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_extra.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/gpio_v4_4/src/xgpio_extra.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/gpio_v4_4/src/xgpio_extra.o
+ .rodata        0x00000000       0x23 ./src/gpio_v4_4/src/xgpio_extra.o
+ .text.XGpio_DiscreteSet
+                0x00000000       0xc4 ./src/gpio_v4_4/src/xgpio_extra.o
+ .text.XGpio_DiscreteClear
+                0x00000000       0xc8 ./src/gpio_v4_4/src/xgpio_extra.o
+ .comment       0x00000000       0x7a ./src/gpio_v4_4/src/xgpio_extra.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/gpio_v4_4/src/xgpio_extra.o
+ .text          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_g.o
+ .data          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_g.o
+ .bss           0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_g.o
+ .text          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_intr.o
+ .data          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_intr.o
+ .bss           0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.Xil_In32
+                0x00000000       0x14 ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.Xil_Out32
+                0x00000000       0x1c ./src/gpio_v4_4/src/xgpio_intr.o
+ .rodata        0x00000000       0x22 ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptGlobalEnable
+                0x00000000       0x94 ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptGlobalDisable
+                0x00000000       0x90 ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptEnable
+                0x00000000       0xac ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptDisable
+                0x00000000       0xac ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptClear
+                0x00000000       0xac ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptGetEnabled
+                0x00000000       0x9c ./src/gpio_v4_4/src/xgpio_intr.o
+ .text.XGpio_InterruptGetStatus
+                0x00000000       0xa8 ./src/gpio_v4_4/src/xgpio_intr.o
+ .comment       0x00000000       0x7a ./src/gpio_v4_4/src/xgpio_intr.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/gpio_v4_4/src/xgpio_intr.o
+ .text          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_selftest.o
+ .data          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_selftest.o
+ .bss           0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_selftest.o
+ .rodata        0x00000000       0x26 ./src/gpio_v4_4/src/xgpio_selftest.o
+ .text.XGpio_SelfTest
+                0x00000000       0x70 ./src/gpio_v4_4/src/xgpio_selftest.o
+ .comment       0x00000000       0x7a ./src/gpio_v4_4/src/xgpio_selftest.o
+ .ARM.attributes
+                0x00000000       0x2c ./src/gpio_v4_4/src/xgpio_selftest.o
+ .text          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_sinit.o
+ .data          0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_sinit.o
+ .bss           0x00000000        0x0 ./src/gpio_v4_4/src/xgpio_sinit.o
+ .text          0x00000000        0x0 ./src/apps/comm.o
+ .data          0x00000000        0x0 ./src/apps/comm.o
+ .bss           0x00000000        0x0 ./src/apps/comm.o
+ .text          0x00000000        0x0 ./src/apps/gpio.o
+ .data          0x00000000        0x0 ./src/apps/gpio.o
+ .bss           0x00000000        0x0 ./src/apps/gpio.o
+ .text          0x00000000        0x0 ./src/apps/spi.o
+ .data          0x00000000        0x0 ./src/apps/spi.o
+ .bss           0x00000000        0x0 ./src/apps/spi.o
+ .text.SpiApp   0x00000000      0x1d4 ./src/apps/spi.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/startup_CM1.o
+ .bss           0x00000000        0x0 ./src/startup_CM1.o
+ .text          0x00000000        0x0 ./src/system.o
+ .data          0x00000000        0x0 ./src/system.o
+ .bss           0x00000000        0x0 ./src/system.o
+ .text.SystemCoreClockUpdate
+                0x00000000       0x18 ./src/system.o
+ .data          0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .data          0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .bss           0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .text          0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .data          0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .bss           0x00000000        0x0 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+IRAM             0x20000000         0x00005000
+IROM             0x00000000         0x00005000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+START GROUP
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\librdimon.a
+END GROUP
+LOAD ./src/uartlite_v3_2/src/xuartlite.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_g.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_intr.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_l.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_selftest.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_sinit.o
+LOAD ./src/uartlite_v3_2/src/xuartlite_stats.o
+LOAD ./src/standalone_v7_0/src/outbyte.o
+LOAD ./src/standalone_v7_0/src/print.o
+LOAD ./src/standalone_v7_0/src/xil_assert.o
+LOAD ./src/standalone_v7_0/src/xil_printf.o
+LOAD ./src/spi_v4_4/src/xspi.o
+LOAD ./src/spi_v4_4/src/xspi_g.o
+LOAD ./src/spi_v4_4/src/xspi_options.o
+LOAD ./src/spi_v4_4/src/xspi_selftest.o
+LOAD ./src/spi_v4_4/src/xspi_sinit.o
+LOAD ./src/spi_v4_4/src/xspi_stats.o
+LOAD ./src/gpio_v4_4/src/xgpio.o
+LOAD ./src/gpio_v4_4/src/xgpio_extra.o
+LOAD ./src/gpio_v4_4/src/xgpio_g.o
+LOAD ./src/gpio_v4_4/src/xgpio_intr.o
+LOAD ./src/gpio_v4_4/src/xgpio_selftest.o
+LOAD ./src/gpio_v4_4/src/xgpio_sinit.o
+LOAD ./src/apps/comm.o
+LOAD ./src/apps/gpio.o
+LOAD ./src/apps/spi.o
+LOAD ./src/main.o
+LOAD ./src/startup_CM1.o
+LOAD ./src/system.o
+START GROUP
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+END GROUP
+START GROUP
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+LOAD t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\librdimon.a
+END GROUP
+
+.text           0x00000000     0x18d5
+ *(.text)
+ .text          0x00000000      0x134 ./src/startup_CM1.o
+                0x00000000                __Vectors
+                0x000000c0                Reset_Handler
+                0x000000f2                NMI_IRQHandler
+                0x000000f4                HardFault_IRQHandler
+                0x000000f6                SVC_Handler
+                0x000000f8                PendSV_Handler
+                0x000000fa                SysTick_Handler
+                0x000000fc                CT_IRQHandler
+                0x000000fe                TIMER0_IRQHandler
+                0x00000100                NVM0_IRQHandler
+                0x00000102                ALGORITHM_IRQHandler
+                0x00000104                SECURITY_IRQHandler
+                0x00000106                APP_IRQHandler
+                0x00000108                TIMER1_IRQHandler
+                0x0000010a                TIMER2_IRQHandler
+                0x0000010c                SPI_IRQHandler
+                0x0000010e                GPIO_IRQHandler
+                0x00000110                RF_IRQHandler
+ .text          0x00000134      0x114 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                0x00000134                __aeabi_uidiv
+                0x00000134                __udivsi3
+                0x00000240                __aeabi_uidivmod
+ .text          0x00000248        0x4 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x00000248                __aeabi_idiv0
+                0x00000248                __aeabi_ldiv0
+ *(.text .text.*)
+ .text.Xil_In32
+                0x0000024c       0x14 ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text.Xil_Out32
+                0x00000260       0x1c ./src/uartlite_v3_2/src/xuartlite_l.o
+ .text.XUartLite_SendByte
+                0x0000027c       0x3c ./src/uartlite_v3_2/src/xuartlite_l.o
+                0x0000027c                XUartLite_SendByte
+ .text.outbyte  0x000002b8       0x28 ./src/standalone_v7_0/src/outbyte.o
+                0x000002b8                outbyte
+ .text.print    0x000002e0       0x30 ./src/standalone_v7_0/src/print.o
+                0x000002e0                print
+ .text.Xil_Assert
+                0x00000310       0x3c ./src/standalone_v7_0/src/xil_assert.o
+                0x00000310                Xil_Assert
+ .text.padding  0x0000034c       0x50 ./src/standalone_v7_0/src/xil_printf.o
+ .text.outs     0x0000039c       0x80 ./src/standalone_v7_0/src/xil_printf.o
+ .text.outnum   0x0000041c      0x12c ./src/standalone_v7_0/src/xil_printf.o
+ .text.getnum   0x00000548       0xb0 ./src/standalone_v7_0/src/xil_printf.o
+ .text.xil_printf
+                0x000005f8      0x278 ./src/standalone_v7_0/src/xil_printf.o
+                0x000005f8                xil_printf
+ .text.Xil_In32
+                0x00000870       0x14 ./src/gpio_v4_4/src/xgpio.o
+ .text.Xil_Out32
+                0x00000884       0x1c ./src/gpio_v4_4/src/xgpio.o
+ .text.XGpio_CfgInitialize
+                0x000008a0       0x60 ./src/gpio_v4_4/src/xgpio.o
+                0x000008a0                XGpio_CfgInitialize
+ .text.XGpio_SetDataDirection
+                0x00000900       0xa8 ./src/gpio_v4_4/src/xgpio.o
+                0x00000900                XGpio_SetDataDirection
+ .text.XGpio_DiscreteRead
+                0x000009a8       0xa8 ./src/gpio_v4_4/src/xgpio.o
+                0x000009a8                XGpio_DiscreteRead
+ .text.XGpio_DiscreteWrite
+                0x00000a50       0xa8 ./src/gpio_v4_4/src/xgpio.o
+                0x00000a50                XGpio_DiscreteWrite
+ .text.XGpio_LookupConfig
+                0x00000af8       0x4c ./src/gpio_v4_4/src/xgpio_sinit.o
+                0x00000af8                XGpio_LookupConfig
+ .text.XGpio_Initialize
+                0x00000b44       0x70 ./src/gpio_v4_4/src/xgpio_sinit.o
+                0x00000b44                XGpio_Initialize
+ .text.delay    0x00000bb4       0x28 ./src/apps/comm.o
+                0x00000bb4                delay
+ .text.commApi  0x00000bdc      0x364 ./src/apps/comm.o
+                0x00000bdc                commApi
+ .text.gpioInit
+                0x00000f40       0x88 ./src/apps/gpio.o
+                0x00000f40                gpioInit
+ .text.gpioRead
+                0x00000fc8       0x48 ./src/apps/gpio.o
+                0x00000fc8                gpioRead
+ .text.gpioWrite
+                0x00001010       0x80 ./src/apps/gpio.o
+                0x00001010                gpioWrite
+ .text.Xil_In32
+                0x00001090       0x14 ./src/apps/spi.o
+ .text.Xil_Out32
+                0x000010a4       0x1c ./src/apps/spi.o
+ .text.spiInit  0x000010c0      0x108 ./src/apps/spi.o
+                0x000010c0                spiInit
+ .text.spiRead  0x000011c8       0x40 ./src/apps/spi.o
+                0x000011c8                spiRead
+ .text.spiWrite
+                0x00001208       0x5c ./src/apps/spi.o
+                0x00001208                spiWrite
+ .text.main     0x00001264       0x18 ./src/main.o
+                0x00001264                main
+ .text.SystemInit
+                0x0000127c       0x18 ./src/system.o
+                0x0000127c                SystemInit
+ .text.strlen   0x00001294       0x5c t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+                0x00001294                strlen
+ *(.rodata .rodata.* .constdata .constdata.*)
+ .rodata        0x000012f0       0x11 ./src/standalone_v7_0/src/xil_printf.o
+ *fill*         0x00001301        0x3 
+ .rodata.xil_printf
+                0x00001304      0x150 ./src/standalone_v7_0/src/xil_printf.o
+ .rodata        0x00001454       0x1d ./src/gpio_v4_4/src/xgpio.o
+ *fill*         0x00001471        0x3 
+ .rodata        0x00001474       0x23 ./src/gpio_v4_4/src/xgpio_sinit.o
+ *fill*         0x00001497        0x1 
+ .rodata        0x00001498      0x17a ./src/apps/comm.o
+ *fill*         0x00001612        0x2 
+ .rodata        0x00001614       0x5c ./src/apps/gpio.o
+ .rodata        0x00001670      0x14e ./src/apps/spi.o
+ *fill*         0x000017be        0x2 
+ .rodata        0x000017c0       0x13 ./src/main.o
+ *fill*         0x000017d3        0x1 
+ .rodata._ctype_
+                0x000017d4      0x101 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+                0x000017d4                _ctype_
+ *(.glue_7)
+ .glue_7        0x000018d5        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x000018d5        0x0 linker stubs
+
+.vfp11_veneer   0x000018d8        0x0
+ .vfp11_veneer  0x000018d8        0x0 linker stubs
+
+.v4_bx          0x000018d8        0x0
+ .v4_bx         0x000018d8        0x0 linker stubs
+
+.iplt           0x000018d8        0x0
+ .iplt          0x000018d8        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+
+.rel.dyn        0x000018d8        0x0
+ .rel.iplt      0x000018d8        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+
+.data           0x000018d8       0x2c
+                0x000018d8                _idata = .
+ *(.data)
+ *(.data .data.*)
+ .data.Xil_AssertWait
+                0x000018d8        0x4 ./src/standalone_v7_0/src/xil_assert.o
+                0x000018d8                Xil_AssertWait
+ .data.XGpio_ConfigTable
+                0x000018dc       0x10 ./src/gpio_v4_4/src/xgpio_g.o
+                0x000018dc                XGpio_ConfigTable
+ .data.config0  0x000018ec       0x10 ./src/apps/gpio.o
+ .data.BaseAddress
+                0x000018fc        0x4 ./src/apps/spi.o
+                0x000018fc                BaseAddress
+ .data.SystemCoreClock
+                0x00001900        0x4 ./src/system.o
+                0x00001900                SystemCoreClock
+
+.igot.plt       0x00001904        0x0
+ .igot.plt      0x00001904        0x0 ./src/uartlite_v3_2/src/xuartlite_l.o
+
+.bss            0x20000000       0x55
+                0x20000000                _sdata = .
+                0x2000002c                . = (. + SIZEOF (.data))
+ *fill*         0x20000000       0x2c 
+                0x2000002c                _edata = .
+                0x2000002c                _sbss = .
+ *(.bss)
+                0x2000002c                _ebss = .
+ COMMON         0x2000002c        0x4 ./src/standalone_v7_0/src/xil_assert.o
+                0x2000002c                Xil_AssertStatus
+ COMMON         0x20000030       0x25 ./src/apps/spi.o
+                0x20000030                WriteBuffer
+                0x20000044                ReadBuffer
+
+.bss.Xil_AssertCallbackRoutine
+                0x20000058        0x4
+ .bss.Xil_AssertCallbackRoutine
+                0x20000058        0x4 ./src/standalone_v7_0/src/xil_assert.o
+
+.bss.gpio0      0x2000005c       0x10
+ .bss.gpio0     0x2000005c       0x10 ./src/apps/gpio.o
+
+.STACK          0x20000070      0x500
+ *(.STACK)
+ .STACK         0x20000070      0x500 ./src/startup_CM1.o
+                0x20000570                __initial_sp
+OUTPUT(CM1_1.elf elf32-littlearm)
+
+.comment        0x00000000       0x79
+ .comment       0x00000000       0x79 ./src/uartlite_v3_2/src/xuartlite_l.o
+                                 0x7a (size before relaxing)
+ .comment       0x00000079       0x7a ./src/standalone_v7_0/src/outbyte.o
+ .comment       0x00000079       0x7a ./src/standalone_v7_0/src/print.o
+ .comment       0x00000079       0x7a ./src/standalone_v7_0/src/xil_assert.o
+ .comment       0x00000079       0x7a ./src/standalone_v7_0/src/xil_printf.o
+ .comment       0x00000079       0x7a ./src/gpio_v4_4/src/xgpio.o
+ .comment       0x00000079       0x7a ./src/gpio_v4_4/src/xgpio_g.o
+ .comment       0x00000079       0x7a ./src/gpio_v4_4/src/xgpio_sinit.o
+ .comment       0x00000079       0x7a ./src/apps/comm.o
+ .comment       0x00000079       0x7a ./src/apps/gpio.o
+ .comment       0x00000079       0x7a ./src/apps/spi.o
+ .comment       0x00000079       0x7a ./src/main.o
+ .comment       0x00000079       0x7a ./src/system.o
+
+.ARM.attributes
+                0x00000000       0x2a
+ .ARM.attributes
+                0x00000000       0x2c ./src/uartlite_v3_2/src/xuartlite_l.o
+ .ARM.attributes
+                0x0000002c       0x2c ./src/standalone_v7_0/src/outbyte.o
+ .ARM.attributes
+                0x00000058       0x2c ./src/standalone_v7_0/src/print.o
+ .ARM.attributes
+                0x00000084       0x2c ./src/standalone_v7_0/src/xil_assert.o
+ .ARM.attributes
+                0x000000b0       0x2c ./src/standalone_v7_0/src/xil_printf.o
+ .ARM.attributes
+                0x000000dc       0x2c ./src/gpio_v4_4/src/xgpio.o
+ .ARM.attributes
+                0x00000108       0x31 ./src/gpio_v4_4/src/xgpio_g.o
+ .ARM.attributes
+                0x00000139       0x2c ./src/gpio_v4_4/src/xgpio_sinit.o
+ .ARM.attributes
+                0x00000165       0x2c ./src/apps/comm.o
+ .ARM.attributes
+                0x00000191       0x2c ./src/apps/gpio.o
+ .ARM.attributes
+                0x000001bd       0x2c ./src/apps/spi.o
+ .ARM.attributes
+                0x000001e9       0x2c ./src/main.o
+ .ARM.attributes
+                0x00000215       0x1c ./src/startup_CM1.o
+ .ARM.attributes
+                0x00000231       0x2c ./src/system.o
+ .ARM.attributes
+                0x0000025d       0x1e t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000027b       0x1e t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000299       0x2c t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-ctype_.o)
+ .ARM.attributes
+                0x000002c5       0x2c t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+
+.HEAP           0x00000000        0x0
+ .HEAP          0x00000000        0x0 ./src/startup_CM1.o
+
+.debug_frame    0x00000000       0x48
+ .debug_frame   0x00000000       0x20 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000020       0x28 t:/gnu/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)

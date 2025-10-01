@@ -1,0 +1,200 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x1C5B8AEBEE132F55",
+      "device": "xc7a100tcsg324-1",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2"
+    },
+    "design_tree": {
+      "sync_t1_0": "",
+      "clock_div_pow2_0": "",
+      "xlconstant_0": ""
+    },
+    "ports": {
+      "clk_i": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      },
+      "clk_div256_o": {
+        "direction": "O"
+      },
+      "clk_div128_o": {
+        "direction": "O"
+      },
+      "vga_red_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_green_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_blue_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_hs_o": {
+        "direction": "O"
+      },
+      "vga_vs_o": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "sync_t1_0": {
+        "vlnv": "xilinx.com:module_ref:sync_t1:1.0",
+        "xci_name": "design_1_sync_t1_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sync_t1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "clk_pxl": {
+            "direction": "I"
+          },
+          "R": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "G": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "B": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "hsync": {
+            "direction": "O"
+          },
+          "vsync": {
+            "direction": "O"
+          }
+        }
+      },
+      "clock_div_pow2_0": {
+        "vlnv": "xilinx.com:module_ref:clock_div_pow2:1.0",
+        "xci_name": "design_1_clock_div_pow2_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "clock_div_pow2",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "o_clk_div2": {
+            "direction": "O"
+          },
+          "o_clk_div4": {
+            "direction": "O"
+          },
+          "o_clk_div8": {
+            "direction": "O"
+          },
+          "o_clk_div16": {
+            "direction": "O"
+          },
+          "o_clk_div32": {
+            "direction": "O"
+          },
+          "o_clk_div64": {
+            "direction": "O"
+          },
+          "o_clk_div128": {
+            "direction": "O"
+          },
+          "o_clk_div256": {
+            "direction": "O"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "genClkRst_0_oclk": {
+        "ports": [
+          "clk_i",
+          "clock_div_pow2_0/i_clk",
+          "sync_t1_0/clk_pxl"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "sync_t1_0/reset"
+        ]
+      },
+      "clock_div_pow2_0_o_clk_div256": {
+        "ports": [
+          "clock_div_pow2_0/o_clk_div256",
+          "clk_div256_o"
+        ]
+      },
+      "clock_div_pow2_0_o_clk_div128": {
+        "ports": [
+          "clock_div_pow2_0/o_clk_div128",
+          "clk_div128_o"
+        ]
+      },
+      "sync_t1_0_R": {
+        "ports": [
+          "sync_t1_0/R",
+          "vga_red_o"
+        ]
+      },
+      "sync_t1_0_G": {
+        "ports": [
+          "sync_t1_0/G",
+          "vga_green_o"
+        ]
+      },
+      "sync_t1_0_B": {
+        "ports": [
+          "sync_t1_0/B",
+          "vga_blue_o"
+        ]
+      },
+      "sync_t1_0_hsync": {
+        "ports": [
+          "sync_t1_0/hsync",
+          "vga_hs_o"
+        ]
+      },
+      "sync_t1_0_vsync": {
+        "ports": [
+          "sync_t1_0/vsync",
+          "vga_vs_o"
+        ]
+      }
+    }
+  }
+}

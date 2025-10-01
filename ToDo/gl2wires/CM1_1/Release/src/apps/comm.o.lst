@@ -1,0 +1,744 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"comm.c"
+  12              		.text
+  13              		.section	.text.NVIC_EnableIRQ,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv6s-m
+  16              		.syntax unified
+  17              		.code	16
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	NVIC_EnableIRQ:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 1, uses_anonymous_args = 0
+  24 0000 80B5     		push	{r7, lr}
+  25 0002 82B0     		sub	sp, sp, #8
+  26 0004 00AF     		add	r7, sp, #0
+  27 0006 0200     		movs	r2, r0
+  28 0008 FB1D     		adds	r3, r7, #7
+  29 000a 1A70     		strb	r2, [r3]
+  30 000c FB1D     		adds	r3, r7, #7
+  31 000e 1B78     		ldrb	r3, [r3]
+  32 0010 1A00     		movs	r2, r3
+  33 0012 1F23     		movs	r3, #31
+  34 0014 1340     		ands	r3, r2
+  35 0016 0122     		movs	r2, #1
+  36 0018 9A40     		lsls	r2, r2, r3
+  37 001a 034B     		ldr	r3, .L2
+  38 001c 1A60     		str	r2, [r3]
+  39 001e C046     		nop
+  40 0020 BD46     		mov	sp, r7
+  41 0022 02B0     		add	sp, sp, #8
+  42              		@ sp needed
+  43 0024 80BD     		pop	{r7, pc}
+  44              	.L3:
+  45 0026 C046     		.align	2
+  46              	.L2:
+  47 0028 00E100E0 		.word	-536813312
+  49              		.section	.text.NVIC_ClearAllPendingIRQ,"ax",%progbits
+  50              		.align	1
+  51              		.syntax unified
+  52              		.code	16
+  53              		.thumb_func
+  54              		.fpu softvfp
+  56              	NVIC_ClearAllPendingIRQ:
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 1, uses_anonymous_args = 0
+  59 0000 80B5     		push	{r7, lr}
+  60 0002 00AF     		add	r7, sp, #0
+  61 0004 0449     		ldr	r1, .L5
+  62 0006 C023     		movs	r3, #192
+  63 0008 5B00     		lsls	r3, r3, #1
+  64 000a 0122     		movs	r2, #1
+  65 000c 5242     		rsbs	r2, r2, #0
+  66 000e CA50     		str	r2, [r1, r3]
+  67 0010 C046     		nop
+  68 0012 BD46     		mov	sp, r7
+  69              		@ sp needed
+  70 0014 80BD     		pop	{r7, pc}
+  71              	.L6:
+  72 0016 C046     		.align	2
+  73              	.L5:
+  74 0018 00E100E0 		.word	-536813312
+  76              		.section	.rodata
+  77              		.align	2
+  78              	.LC0:
+  79 0000 0A0D6166 		.ascii	"\012\015after delay\000"
+  79      74657220 
+  79      64656C61 
+  79      7900
+  80              		.section	.text.delay,"ax",%progbits
+  81              		.align	1
+  82              		.global	delay
+  83              		.syntax unified
+  84              		.code	16
+  85              		.thumb_func
+  86              		.fpu softvfp
+  88              	delay:
+  89              		@ args = 0, pretend = 0, frame = 8
+  90              		@ frame_needed = 1, uses_anonymous_args = 0
+  91 0000 80B5     		push	{r7, lr}
+  92 0002 82B0     		sub	sp, sp, #8
+  93 0004 00AF     		add	r7, sp, #0
+  94 0006 7860     		str	r0, [r7, #4]
+  95 0008 C046     		nop
+  96              	.L8:
+  97 000a 7B68     		ldr	r3, [r7, #4]
+  98 000c 5A1E     		subs	r2, r3, #1
+  99 000e 7A60     		str	r2, [r7, #4]
+ 100 0010 002B     		cmp	r3, #0
+ 101 0012 FAD1     		bne	.L8
+ 102 0014 034B     		ldr	r3, .L9
+ 103 0016 1800     		movs	r0, r3
+ 104 0018 FFF7FEFF 		bl	uartl_print_s
+ 105 001c C046     		nop
+ 106 001e BD46     		mov	sp, r7
+ 107 0020 02B0     		add	sp, sp, #8
+ 108              		@ sp needed
+ 109 0022 80BD     		pop	{r7, pc}
+ 110              	.L10:
+ 111              		.align	2
+ 112              	.L9:
+ 113 0024 00000000 		.word	.LC0
+ 115              		.section	.rodata
+ 116 000e 0000     		.align	2
+ 117              	.LC2:
+ 118 0010 0A0D4D43 		.ascii	"\012\015MCU: set HSI high \000"
+ 118      553A2073 
+ 118      65742048 
+ 118      53492068 
+ 118      69676820 
+ 119 0025 000000   		.align	2
+ 120              	.LC4:
+ 121 0028 0D0A4D43 		.ascii	"\015\012MCU set HSI low\000"
+ 121      55207365 
+ 121      74204853 
+ 121      49206C6F 
+ 121      7700
+ 122              		.section	.text.commApp2,"ax",%progbits
+ 123              		.align	1
+ 124              		.global	commApp2
+ 125              		.syntax unified
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.fpu softvfp
+ 130              	commApp2:
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 1, uses_anonymous_args = 0
+ 133 0000 80B5     		push	{r7, lr}
+ 134 0002 00AF     		add	r7, sp, #0
+ 135 0004 FFF7FEFF 		bl	gpioInit
+ 136 0008 0021     		movs	r1, #0
+ 137 000a 0220     		movs	r0, #2
+ 138 000c FFF7FEFF 		bl	gpioWrite
+ 139              	.L12:
+ 140 0010 0121     		movs	r1, #1
+ 141 0012 0120     		movs	r0, #1
+ 142 0014 FFF7FEFF 		bl	gpioWrite
+ 143 0018 0A4B     		ldr	r3, .L13
+ 144 001a 1800     		movs	r0, r3
+ 145 001c FFF7FEFF 		bl	uartl_print_s
+ 146 0020 094B     		ldr	r3, .L13+4
+ 147 0022 1800     		movs	r0, r3
+ 148 0024 FFF7FEFF 		bl	delay
+ 149 0028 0021     		movs	r1, #0
+ 150 002a 0120     		movs	r0, #1
+ 151 002c FFF7FEFF 		bl	gpioWrite
+ 152 0030 064B     		ldr	r3, .L13+8
+ 153 0032 1800     		movs	r0, r3
+ 154 0034 FFF7FEFF 		bl	uartl_print_s
+ 155 0038 034B     		ldr	r3, .L13+4
+ 156 003a 1800     		movs	r0, r3
+ 157 003c FFF7FEFF 		bl	delay
+ 158 0040 E6E7     		b	.L12
+ 159              	.L14:
+ 160 0042 C046     		.align	2
+ 161              	.L13:
+ 162 0044 10000000 		.word	.LC2
+ 163 0048 A0860100 		.word	100000
+ 164 004c 28000000 		.word	.LC4
+ 166              		.section	.rodata
+ 167 003a 0000     		.align	2
+ 168              	.LC6:
+ 169 003c 0A0D4D43 		.ascii	"\012\015MCU: set comm state to GPIO \000"
+ 169      553A2073 
+ 169      65742063 
+ 169      6F6D6D20 
+ 169      73746174 
+ 170 005b 00       		.align	2
+ 171              	.LC9:
+ 172 005c 0A0D4D43 		.ascii	"\012\015MCU: spi init \000"
+ 172      553A2073 
+ 172      70692069 
+ 172      6E697420 
+ 172      00
+ 173 006d 000000   		.align	2
+ 174              	.LC11:
+ 175 0070 0D0A4D43 		.ascii	"\015\012MCU: get HSO low\000"
+ 175      553A2067 
+ 175      65742048 
+ 175      534F206C 
+ 175      6F7700
+ 176 0083 00       		.align	2
+ 177              	.LC13:
+ 178 0084 0D0A4D43 		.ascii	"\015\012MCU set HSI low ; wait HSO high\000"
+ 178      55207365 
+ 178      74204853 
+ 178      49206C6F 
+ 178      77203B20 
+ 179 00a6 0000     		.align	2
+ 180              	.LC15:
+ 181 00a8 0D0A4D43 		.ascii	"\015\012MCU: get HSO high\000"
+ 181      553A2067 
+ 181      65742048 
+ 181      534F2068 
+ 181      69676800 
+ 182              		.align	2
+ 183              	.LC17:
+ 184 00bc 0D0A4D43 		.ascii	"\015\012MCU: Error :get HSO low\000"
+ 184      553A2045 
+ 184      72726F72 
+ 184      203A6765 
+ 184      74204853 
+ 185 00d6 0000     		.align	2
+ 186              	.LC19:
+ 187 00d8 0A0D5350 		.ascii	"\012\015SPI receive SE cmd header :\000"
+ 187      49207265 
+ 187      63656976 
+ 187      65205345 
+ 187      20636D64 
+ 188 00f6 0000     		.align	2
+ 189              	.LC21:
+ 190 00f8 0A0D5244 		.ascii	"\012\015RDY low \000"
+ 190      59206C6F 
+ 190      772000
+ 191 0103 00       		.align	2
+ 192              	.LC23:
+ 193 0104 0A0D5244 		.ascii	"\012\015RDY high \000"
+ 193      59206869 
+ 193      67682000 
+ 194              		.align	2
+ 195              	.LC25:
+ 196 0110 0A0D4143 		.ascii	"\012\015ACK low \000"
+ 196      4B206C6F 
+ 196      772000
+ 197 011b 00       		.align	2
+ 198              	.LC27:
+ 199 011c 0A0D4143 		.ascii	"\012\015ACK high \000"
+ 199      4B206869 
+ 199      67682000 
+ 200              		.align	2
+ 201              	.LC29:
+ 202 0128 0A0D5350 		.ascii	"\012\015SPI receive SE cmd data :\000"
+ 202      49207265 
+ 202      63656976 
+ 202      65205345 
+ 202      20636D64 
+ 203              		.align	2
+ 204              	.LC31:
+ 205 0144 0A0D4853 		.ascii	"\012\015HSI low \000"
+ 205      49206C6F 
+ 205      772000
+ 206 014f 00       		.align	2
+ 207              	.LC33:
+ 208 0150 0A0D4853 		.ascii	"\012\015HSI high \000"
+ 208      49206869 
+ 208      67682000 
+ 209              		.align	2
+ 210              	.LC37:
+ 211 015c 0A0D5265 		.ascii	"\012\015Response header sent to SE \000"
+ 211      73706F6E 
+ 211      73652068 
+ 211      65616465 
+ 211      72207365 
+ 212 017a 0000     		.align	2
+ 213              	.LC39:
+ 214 017c 0A0D4853 		.ascii	"\012\015HSI low\000"
+ 214      49206C6F 
+ 214      7700
+ 215 0186 0000     		.align	2
+ 216              	.LC41:
+ 217 0188 0A0D2067 		.ascii	"\012\015 get ACK low\000"
+ 217      65742041 
+ 217      434B206C 
+ 217      6F7700
+ 218 0197 00       		.align	2
+ 219              	.LC43:
+ 220 0198 0A0D2067 		.ascii	"\012\015 get ACK high\000"
+ 220      65742041 
+ 220      434B2068 
+ 220      69676800 
+ 221              		.align	2
+ 222              	.LC45:
+ 223 01a8 0A0D4853 		.ascii	"\012\015HSI high\000"
+ 223      49206869 
+ 223      676800
+ 224 01b3 00       		.align	2
+ 225              	.LC49:
+ 226 01b4 0D0A2052 		.ascii	"\015\012 Response data sent to SE\000"
+ 226      6573706F 
+ 226      6E736520 
+ 226      64617461 
+ 226      2073656E 
+ 227              		.align	2
+ 228              	.LC51:
+ 229 01d0 0A0D5244 		.ascii	"\012\015RDY low\000"
+ 229      59206C6F 
+ 229      7700
+ 230 01da 0000     		.align	2
+ 231              	.LC35:
+ 232 01dc 06AA5590 		.ascii	"\006\252U\220\252U"
+ 232      AA55
+ 233 01e2 0000     		.align	2
+ 234              	.LC47:
+ 235 01e4 11223344 		.ascii	"\021\"3DU\252"
+ 235      55AA
+ 236              		.section	.text.commApp,"ax",%progbits
+ 237              		.align	1
+ 238              		.global	commApp
+ 239              		.syntax unified
+ 240              		.code	16
+ 241              		.thumb_func
+ 242              		.fpu softvfp
+ 244              	commApp:
+ 245              		@ args = 0, pretend = 0, frame = 56
+ 246              		@ frame_needed = 1, uses_anonymous_args = 0
+ 247 0000 B0B5     		push	{r4, r5, r7, lr}
+ 248 0002 8EB0     		sub	sp, sp, #56
+ 249 0004 00AF     		add	r7, sp, #0
+ 250 0006 FFF7FEFF 		bl	NVIC_ClearAllPendingIRQ
+ 251 000a 0320     		movs	r0, #3
+ 252 000c FFF7FEFF 		bl	NVIC_EnableIRQ
+ 253 0010 FFF7FEFF 		bl	uartl_init
+ 254 0014 FFF7FEFF 		bl	uartl_intEnable
+ 255 0018 FFF7FEFF 		bl	gpioInit
+ 256 001c 0021     		movs	r1, #0
+ 257 001e 0220     		movs	r0, #2
+ 258 0020 FFF7FEFF 		bl	gpioWrite
+ 259 0024 CD4B     		ldr	r3, .L41
+ 260 0026 1800     		movs	r0, r3
+ 261 0028 FFF7FEFF 		bl	uartl_print_s
+ 262 002c 0121     		movs	r1, #1
+ 263 002e 0120     		movs	r0, #1
+ 264 0030 FFF7FEFF 		bl	gpioWrite
+ 265 0034 CA4B     		ldr	r3, .L41+4
+ 266 0036 1800     		movs	r0, r3
+ 267 0038 FFF7FEFF 		bl	uartl_print_s
+ 268 003c FFF7FEFF 		bl	spiInit
+ 269 0040 C84B     		ldr	r3, .L41+8
+ 270 0042 1800     		movs	r0, r3
+ 271 0044 FFF7FEFF 		bl	uartl_print_s
+ 272 0048 C74B     		ldr	r3, .L41+12
+ 273 004a 1800     		movs	r0, r3
+ 274 004c FFF7FEFF 		bl	delay
+ 275 0050 FFF7FEFF 		bl	NVIC_ClearAllPendingIRQ
+ 276 0054 0020     		movs	r0, #0
+ 277 0056 FFF7FEFF 		bl	NVIC_EnableIRQ
+ 278 005a 0120     		movs	r0, #1
+ 279 005c FFF7FEFF 		bl	gpio_0_chIntEnable
+ 280 0060 FFF7FEFF 		bl	gpio_0_devIntEnable
+ 281 0064 FFF7FEFF 		bl	gpioClrEvQueue
+ 282              	.L20:
+ 283 0068 2325     		movs	r5, #35
+ 284 006a 7C19     		adds	r4, r7, r5
+ 285 006c FFF7FEFF 		bl	evPop
+ 286 0070 0300     		movs	r3, r0
+ 287 0072 2370     		strb	r3, [r4]
+ 288 0074 7B19     		adds	r3, r7, r5
+ 289 0076 1B78     		ldrb	r3, [r3]
+ 290 0078 032B     		cmp	r3, #3
+ 291 007a 18D0     		beq	.L39
+ 292 007c 7B19     		adds	r3, r7, r5
+ 293 007e 1B78     		ldrb	r3, [r3]
+ 294 0080 012B     		cmp	r3, #1
+ 295 0082 0FD1     		bne	.L18
+ 296 0084 B94B     		ldr	r3, .L41+16
+ 297 0086 1800     		movs	r0, r3
+ 298 0088 FFF7FEFF 		bl	uartl_print_s
+ 299 008c 6420     		movs	r0, #100
+ 300 008e FFF7FEFF 		bl	delay
+ 301 0092 0021     		movs	r1, #0
+ 302 0094 0120     		movs	r0, #1
+ 303 0096 FFF7FEFF 		bl	gpioWrite
+ 304 009a B54B     		ldr	r3, .L41+20
+ 305 009c 1800     		movs	r0, r3
+ 306 009e FFF7FEFF 		bl	uartl_print_s
+ 307 00a2 06E0     		b	.L19
+ 308              	.L18:
+ 309 00a4 B34B     		ldr	r3, .L41+24
+ 310 00a6 1800     		movs	r0, r3
+ 311 00a8 FFF7FEFF 		bl	uartl_print_s
+ 312 00ac DCE7     		b	.L20
+ 313              	.L39:
+ 314 00ae C046     		nop
+ 315 00b0 DAE7     		b	.L20
+ 316              	.L19:
+ 317 00b2 2325     		movs	r5, #35
+ 318 00b4 7C19     		adds	r4, r7, r5
+ 319 00b6 FFF7FEFF 		bl	evPop
+ 320 00ba 0300     		movs	r3, r0
+ 321 00bc 2370     		strb	r3, [r4]
+ 322 00be 7B19     		adds	r3, r7, r5
+ 323 00c0 1B78     		ldrb	r3, [r3]
+ 324 00c2 032B     		cmp	r3, #3
+ 325 00c4 1BD0     		beq	.L40
+ 326 00c6 7B19     		adds	r3, r7, r5
+ 327 00c8 1B78     		ldrb	r3, [r3]
+ 328 00ca 022B     		cmp	r3, #2
+ 329 00cc 12D1     		bne	.L23
+ 330 00ce A94B     		ldr	r3, .L41+24
+ 331 00d0 1800     		movs	r0, r3
+ 332 00d2 FFF7FEFF 		bl	uartl_print_s
+ 333 00d6 6420     		movs	r0, #100
+ 334 00d8 FFF7FEFF 		bl	delay
+ 335 00dc 0121     		movs	r1, #1
+ 336 00de 0120     		movs	r0, #1
+ 337 00e0 FFF7FEFF 		bl	gpioWrite
+ 338 00e4 C046     		nop
+ 339 00e6 0121     		movs	r1, #1
+ 340 00e8 0220     		movs	r0, #2
+ 341 00ea FFF7FEFF 		bl	gpioWrite
+ 342 00ee 0023     		movs	r3, #0
+ 343 00f0 7B63     		str	r3, [r7, #52]
+ 344 00f2 13E0     		b	.L25
+ 345              	.L23:
+ 346 00f4 A04B     		ldr	r3, .L41+28
+ 347 00f6 1800     		movs	r0, r3
+ 348 00f8 FFF7FEFF 		bl	uartl_print_s
+ 349 00fc D9E7     		b	.L19
+ 350              	.L40:
+ 351 00fe C046     		nop
+ 352 0100 D7E7     		b	.L19
+ 353              	.L26:
+ 354 0102 FFF7FEFF 		bl	spiRead
+ 355 0106 0300     		movs	r3, r0
+ 356 0108 1900     		movs	r1, r3
+ 357 010a 1C23     		movs	r3, #28
+ 358 010c FA18     		adds	r2, r7, r3
+ 359 010e 7B6B     		ldr	r3, [r7, #52]
+ 360 0110 D318     		adds	r3, r2, r3
+ 361 0112 0A1C     		adds	r2, r1, #0
+ 362 0114 1A70     		strb	r2, [r3]
+ 363 0116 7B6B     		ldr	r3, [r7, #52]
+ 364 0118 0133     		adds	r3, r3, #1
+ 365 011a 7B63     		str	r3, [r7, #52]
+ 366              	.L25:
+ 367 011c 7B6B     		ldr	r3, [r7, #52]
+ 368 011e 052B     		cmp	r3, #5
+ 369 0120 EFD9     		bls	.L26
+ 370 0122 6420     		movs	r0, #100
+ 371 0124 FFF7FEFF 		bl	delay
+ 372 0128 0021     		movs	r1, #0
+ 373 012a 0220     		movs	r0, #2
+ 374 012c FFF7FEFF 		bl	gpioWrite
+ 375 0130 924B     		ldr	r3, .L41+32
+ 376 0132 1800     		movs	r0, r3
+ 377 0134 FFF7FEFF 		bl	uartl_print_s
+ 378 0138 1C23     		movs	r3, #28
+ 379 013a FB18     		adds	r3, r7, r3
+ 380 013c 0621     		movs	r1, #6
+ 381 013e 1800     		movs	r0, r3
+ 382 0140 FFF7FEFF 		bl	uartl_print_u8buf
+ 383 0144 0021     		movs	r1, #0
+ 384 0146 0120     		movs	r0, #1
+ 385 0148 FFF7FEFF 		bl	gpioWrite
+ 386 014c 8C4B     		ldr	r3, .L41+36
+ 387 014e 1800     		movs	r0, r3
+ 388 0150 FFF7FEFF 		bl	uartl_print_s
+ 389 0154 6420     		movs	r0, #100
+ 390 0156 FFF7FEFF 		bl	delay
+ 391 015a 0121     		movs	r1, #1
+ 392 015c 0120     		movs	r0, #1
+ 393 015e FFF7FEFF 		bl	gpioWrite
+ 394 0162 884B     		ldr	r3, .L41+40
+ 395 0164 1800     		movs	r0, r3
+ 396 0166 FFF7FEFF 		bl	uartl_print_s
+ 397 016a 6420     		movs	r0, #100
+ 398 016c FFF7FEFF 		bl	delay
+ 399 0170 0021     		movs	r1, #0
+ 400 0172 0120     		movs	r0, #1
+ 401 0174 FFF7FEFF 		bl	gpioWrite
+ 402 0178 834B     		ldr	r3, .L41+44
+ 403 017a 1800     		movs	r0, r3
+ 404 017c FFF7FEFF 		bl	uartl_print_s
+ 405 0180 6420     		movs	r0, #100
+ 406 0182 FFF7FEFF 		bl	delay
+ 407 0186 0121     		movs	r1, #1
+ 408 0188 0120     		movs	r0, #1
+ 409 018a FFF7FEFF 		bl	gpioWrite
+ 410 018e 7F4B     		ldr	r3, .L41+48
+ 411 0190 1800     		movs	r0, r3
+ 412 0192 FFF7FEFF 		bl	uartl_print_s
+ 413 0196 0121     		movs	r1, #1
+ 414 0198 0220     		movs	r0, #2
+ 415 019a FFF7FEFF 		bl	gpioWrite
+ 416 019e 0023     		movs	r3, #0
+ 417 01a0 3B63     		str	r3, [r7, #48]
+ 418 01a2 0CE0     		b	.L27
+ 419              	.L28:
+ 420 01a4 FFF7FEFF 		bl	spiRead
+ 421 01a8 0300     		movs	r3, r0
+ 422 01aa 1900     		movs	r1, r3
+ 423 01ac 1423     		movs	r3, #20
+ 424 01ae FA18     		adds	r2, r7, r3
+ 425 01b0 3B6B     		ldr	r3, [r7, #48]
+ 426 01b2 D318     		adds	r3, r2, r3
+ 427 01b4 0A1C     		adds	r2, r1, #0
+ 428 01b6 1A70     		strb	r2, [r3]
+ 429 01b8 3B6B     		ldr	r3, [r7, #48]
+ 430 01ba 0133     		adds	r3, r3, #1
+ 431 01bc 3B63     		str	r3, [r7, #48]
+ 432              	.L27:
+ 433 01be 3B6B     		ldr	r3, [r7, #48]
+ 434 01c0 052B     		cmp	r3, #5
+ 435 01c2 EFD9     		bls	.L28
+ 436 01c4 724B     		ldr	r3, .L41+52
+ 437 01c6 1800     		movs	r0, r3
+ 438 01c8 FFF7FEFF 		bl	uartl_print_s
+ 439 01cc 1423     		movs	r3, #20
+ 440 01ce FB18     		adds	r3, r7, r3
+ 441 01d0 0621     		movs	r1, #6
+ 442 01d2 1800     		movs	r0, r3
+ 443 01d4 FFF7FEFF 		bl	uartl_print_u8buf
+ 444 01d8 0021     		movs	r1, #0
+ 445 01da 0220     		movs	r0, #2
+ 446 01dc FFF7FEFF 		bl	gpioWrite
+ 447 01e0 6420     		movs	r0, #100
+ 448 01e2 FFF7FEFF 		bl	delay
+ 449 01e6 0021     		movs	r1, #0
+ 450 01e8 0120     		movs	r0, #1
+ 451 01ea FFF7FEFF 		bl	gpioWrite
+ 452 01ee 694B     		ldr	r3, .L41+56
+ 453 01f0 1800     		movs	r0, r3
+ 454 01f2 FFF7FEFF 		bl	uartl_print_s
+ 455 01f6 0823     		movs	r3, #8
+ 456 01f8 FB62     		str	r3, [r7, #44]
+ 457 01fa 17E0     		b	.L29
+ 458              	.L31:
+ 459 01fc FA23     		movs	r3, #250
+ 460 01fe 5B00     		lsls	r3, r3, #1
+ 461 0200 1800     		movs	r0, r3
+ 462 0202 FFF7FEFF 		bl	delay
+ 463 0206 0120     		movs	r0, #1
+ 464 0208 FFF7FEFF 		bl	gpioRead
+ 465 020c 031E     		subs	r3, r0, #0
+ 466 020e 0DD1     		bne	.L29
+ 467 0210 0121     		movs	r1, #1
+ 468 0212 0120     		movs	r0, #1
+ 469 0214 FFF7FEFF 		bl	gpioWrite
+ 470 0218 C046     		nop
+ 471              	.L30:
+ 472 021a 0120     		movs	r0, #1
+ 473 021c FFF7FEFF 		bl	gpioRead
+ 474 0220 031E     		subs	r3, r0, #0
+ 475 0222 FAD0     		beq	.L30
+ 476 0224 0021     		movs	r1, #0
+ 477 0226 0120     		movs	r0, #1
+ 478 0228 FFF7FEFF 		bl	gpioWrite
+ 479              	.L29:
+ 480 022c FB6A     		ldr	r3, [r7, #44]
+ 481 022e 5A1E     		subs	r2, r3, #1
+ 482 0230 FA62     		str	r2, [r7, #44]
+ 483 0232 002B     		cmp	r3, #0
+ 484 0234 E2D1     		bne	.L31
+ 485 0236 0121     		movs	r1, #1
+ 486 0238 0120     		movs	r0, #1
+ 487 023a FFF7FEFF 		bl	gpioWrite
+ 488 023e 564B     		ldr	r3, .L41+60
+ 489 0240 1800     		movs	r0, r3
+ 490 0242 FFF7FEFF 		bl	uartl_print_s
+ 491 0246 0221     		movs	r1, #2
+ 492 0248 0220     		movs	r0, #2
+ 493 024a FFF7FEFF 		bl	gpioWrite
+ 494 024e 0C23     		movs	r3, #12
+ 495 0250 FB18     		adds	r3, r7, r3
+ 496 0252 524A     		ldr	r2, .L41+64
+ 497 0254 1168     		ldr	r1, [r2]
+ 498 0256 1960     		str	r1, [r3]
+ 499 0258 9288     		ldrh	r2, [r2, #4]
+ 500 025a 9A80     		strh	r2, [r3, #4]
+ 501 025c 0023     		movs	r3, #0
+ 502 025e BB62     		str	r3, [r7, #40]
+ 503 0260 0AE0     		b	.L32
+ 504              	.L33:
+ 505 0262 0C23     		movs	r3, #12
+ 506 0264 FA18     		adds	r2, r7, r3
+ 507 0266 BB6A     		ldr	r3, [r7, #40]
+ 508 0268 D318     		adds	r3, r2, r3
+ 509 026a 1B78     		ldrb	r3, [r3]
+ 510 026c 1800     		movs	r0, r3
+ 511 026e FFF7FEFF 		bl	spiWrite
+ 512 0272 BB6A     		ldr	r3, [r7, #40]
+ 513 0274 0133     		adds	r3, r3, #1
+ 514 0276 BB62     		str	r3, [r7, #40]
+ 515              	.L32:
+ 516 0278 BB6A     		ldr	r3, [r7, #40]
+ 517 027a 052B     		cmp	r3, #5
+ 518 027c F1D9     		bls	.L33
+ 519 027e 484B     		ldr	r3, .L41+68
+ 520 0280 1800     		movs	r0, r3
+ 521 0282 FFF7FEFF 		bl	uartl_print_s
+ 522 0286 0021     		movs	r1, #0
+ 523 0288 0220     		movs	r0, #2
+ 524 028a FFF7FEFF 		bl	gpioWrite
+ 525 028e FA23     		movs	r3, #250
+ 526 0290 9B00     		lsls	r3, r3, #2
+ 527 0292 1800     		movs	r0, r3
+ 528 0294 FFF7FEFF 		bl	delay
+ 529 0298 0021     		movs	r1, #0
+ 530 029a 0120     		movs	r0, #1
+ 531 029c FFF7FEFF 		bl	gpioWrite
+ 532 02a0 404B     		ldr	r3, .L41+72
+ 533 02a2 1800     		movs	r0, r3
+ 534 02a4 FFF7FEFF 		bl	uartl_print_s
+ 535 02a8 C046     		nop
+ 536              	.L34:
+ 537 02aa 0120     		movs	r0, #1
+ 538 02ac FFF7FEFF 		bl	gpioRead
+ 539 02b0 0300     		movs	r3, r0
+ 540 02b2 012B     		cmp	r3, #1
+ 541 02b4 F9D0     		beq	.L34
+ 542 02b6 3C4B     		ldr	r3, .L41+76
+ 543 02b8 1800     		movs	r0, r3
+ 544 02ba FFF7FEFF 		bl	uartl_print_s
+ 545 02be C046     		nop
+ 546              	.L35:
+ 547 02c0 0120     		movs	r0, #1
+ 548 02c2 FFF7FEFF 		bl	gpioRead
+ 549 02c6 031E     		subs	r3, r0, #0
+ 550 02c8 FAD0     		beq	.L35
+ 551 02ca 384B     		ldr	r3, .L41+80
+ 552 02cc 1800     		movs	r0, r3
+ 553 02ce FFF7FEFF 		bl	uartl_print_s
+ 554 02d2 0121     		movs	r1, #1
+ 555 02d4 0120     		movs	r0, #1
+ 556 02d6 FFF7FEFF 		bl	gpioWrite
+ 557 02da 354B     		ldr	r3, .L41+84
+ 558 02dc 1800     		movs	r0, r3
+ 559 02de FFF7FEFF 		bl	uartl_print_s
+ 560 02e2 0221     		movs	r1, #2
+ 561 02e4 0220     		movs	r0, #2
+ 562 02e6 FFF7FEFF 		bl	gpioWrite
+ 563 02ea 3B1D     		adds	r3, r7, #4
+ 564 02ec 314A     		ldr	r2, .L41+88
+ 565 02ee 1168     		ldr	r1, [r2]
+ 566 02f0 1960     		str	r1, [r3]
+ 567 02f2 9288     		ldrh	r2, [r2, #4]
+ 568 02f4 9A80     		strh	r2, [r3, #4]
+ 569 02f6 0023     		movs	r3, #0
+ 570 02f8 7B62     		str	r3, [r7, #36]
+ 571 02fa 09E0     		b	.L36
+ 572              	.L37:
+ 573 02fc 3A1D     		adds	r2, r7, #4
+ 574 02fe 7B6A     		ldr	r3, [r7, #36]
+ 575 0300 D318     		adds	r3, r2, r3
+ 576 0302 1B78     		ldrb	r3, [r3]
+ 577 0304 1800     		movs	r0, r3
+ 578 0306 FFF7FEFF 		bl	spiWrite
+ 579 030a 7B6A     		ldr	r3, [r7, #36]
+ 580 030c 0133     		adds	r3, r3, #1
+ 581 030e 7B62     		str	r3, [r7, #36]
+ 582              	.L36:
+ 583 0310 7B6A     		ldr	r3, [r7, #36]
+ 584 0312 052B     		cmp	r3, #5
+ 585 0314 F2D9     		bls	.L37
+ 586 0316 284B     		ldr	r3, .L41+92
+ 587 0318 1800     		movs	r0, r3
+ 588 031a FFF7FEFF 		bl	uartl_print_s
+ 589 031e 0021     		movs	r1, #0
+ 590 0320 0220     		movs	r0, #2
+ 591 0322 FFF7FEFF 		bl	gpioWrite
+ 592 0326 FA23     		movs	r3, #250
+ 593 0328 9B00     		lsls	r3, r3, #2
+ 594 032a 1800     		movs	r0, r3
+ 595 032c FFF7FEFF 		bl	delay
+ 596 0330 0021     		movs	r1, #0
+ 597 0332 0120     		movs	r0, #1
+ 598 0334 FFF7FEFF 		bl	gpioWrite
+ 599 0338 204B     		ldr	r3, .L41+96
+ 600 033a 1800     		movs	r0, r3
+ 601 033c FFF7FEFF 		bl	uartl_print_s
+ 602 0340 FA23     		movs	r3, #250
+ 603 0342 9B00     		lsls	r3, r3, #2
+ 604 0344 1800     		movs	r0, r3
+ 605 0346 FFF7FEFF 		bl	delay
+ 606 034a 0121     		movs	r1, #1
+ 607 034c 0120     		movs	r0, #1
+ 608 034e FFF7FEFF 		bl	gpioWrite
+ 609 0352 1A4B     		ldr	r3, .L41+96
+ 610 0354 1800     		movs	r0, r3
+ 611 0356 FFF7FEFF 		bl	uartl_print_s
+ 612              	.L38:
+ 613 035a FEE7     		b	.L38
+ 614              	.L42:
+ 615              		.align	2
+ 616              	.L41:
+ 617 035c 3C000000 		.word	.LC6
+ 618 0360 10000000 		.word	.LC2
+ 619 0364 5C000000 		.word	.LC9
+ 620 0368 10270000 		.word	10000
+ 621 036c 70000000 		.word	.LC11
+ 622 0370 84000000 		.word	.LC13
+ 623 0374 A8000000 		.word	.LC15
+ 624 0378 BC000000 		.word	.LC17
+ 625 037c D8000000 		.word	.LC19
+ 626 0380 F8000000 		.word	.LC21
+ 627 0384 04010000 		.word	.LC23
+ 628 0388 10010000 		.word	.LC25
+ 629 038c 1C010000 		.word	.LC27
+ 630 0390 28010000 		.word	.LC29
+ 631 0394 44010000 		.word	.LC31
+ 632 0398 50010000 		.word	.LC33
+ 633 039c DC010000 		.word	.LC35
+ 634 03a0 5C010000 		.word	.LC37
+ 635 03a4 7C010000 		.word	.LC39
+ 636 03a8 88010000 		.word	.LC41
+ 637 03ac 98010000 		.word	.LC43
+ 638 03b0 A8010000 		.word	.LC45
+ 639 03b4 E4010000 		.word	.LC47
+ 640 03b8 B4010000 		.word	.LC49
+ 641 03bc D0010000 		.word	.LC51
+ 643              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 comm.c
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:14     .text.NVIC_EnableIRQ:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:21     .text.NVIC_EnableIRQ:00000000 NVIC_EnableIRQ
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:47     .text.NVIC_EnableIRQ:00000028 $d
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:50     .text.NVIC_ClearAllPendingIRQ:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:56     .text.NVIC_ClearAllPendingIRQ:00000000 NVIC_ClearAllPendingIRQ
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:74     .text.NVIC_ClearAllPendingIRQ:00000018 $d
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:77     .rodata:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:81     .text.delay:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:88     .text.delay:00000000 delay
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:113    .text.delay:00000024 $d
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:123    .text.commApp2:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:130    .text.commApp2:00000000 commApp2
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:162    .text.commApp2:00000044 $d
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:237    .text.commApp:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:244    .text.commApp:00000000 commApp
+C:\Users\george\AppData\Local\Temp\ccPPyAfk.s:617    .text.commApp:0000035c $d
+
+UNDEFINED SYMBOLS
+uartl_print_s
+gpioInit
+gpioWrite
+uartl_init
+uartl_intEnable
+spiInit
+gpio_0_chIntEnable
+gpio_0_devIntEnable
+gpioClrEvQueue
+evPop
+spiRead
+uartl_print_u8buf
+gpioRead
+spiWrite

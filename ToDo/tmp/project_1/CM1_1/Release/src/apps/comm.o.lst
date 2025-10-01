@@ -1,0 +1,558 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"comm.c"
+  12              		.text
+  13              		.section	.rodata
+  14              		.align	2
+  15              	.LC0:
+  16 0000 0A0D6166 		.ascii	"\012\015after delay\000"
+  16      74657220 
+  16      64656C61 
+  16      7900
+  17              		.section	.text.delay,"ax",%progbits
+  18              		.align	1
+  19              		.global	delay
+  20              		.arch armv6s-m
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  24              		.fpu softvfp
+  26              	delay:
+  27              		@ args = 0, pretend = 0, frame = 8
+  28              		@ frame_needed = 1, uses_anonymous_args = 0
+  29 0000 80B5     		push	{r7, lr}
+  30 0002 82B0     		sub	sp, sp, #8
+  31 0004 00AF     		add	r7, sp, #0
+  32 0006 7860     		str	r0, [r7, #4]
+  33 0008 C046     		nop
+  34              	.L2:
+  35 000a 7B68     		ldr	r3, [r7, #4]
+  36 000c 5A1E     		subs	r2, r3, #1
+  37 000e 7A60     		str	r2, [r7, #4]
+  38 0010 002B     		cmp	r3, #0
+  39 0012 FAD1     		bne	.L2
+  40 0014 034B     		ldr	r3, .L3
+  41 0016 1800     		movs	r0, r3
+  42 0018 FFF7FEFF 		bl	xil_printf
+  43 001c C046     		nop
+  44 001e BD46     		mov	sp, r7
+  45 0020 02B0     		add	sp, sp, #8
+  46              		@ sp needed
+  47 0022 80BD     		pop	{r7, pc}
+  48              	.L4:
+  49              		.align	2
+  50              	.L3:
+  51 0024 00000000 		.word	.LC0
+  53              		.section	.rodata
+  54 000e 0000     		.align	2
+  55              	.LC2:
+  56 0010 0A0D4D43 		.ascii	"\012\015MCU: gpio init \000"
+  56      553A2067 
+  56      70696F20 
+  56      696E6974 
+  56      2000
+  57 0022 0000     		.align	2
+  58              	.LC4:
+  59 0024 0A0D4D43 		.ascii	"\012\015MCU: set comm state to GPIO \000"
+  59      553A2073 
+  59      65742063 
+  59      6F6D6D20 
+  59      73746174 
+  60 0043 00       		.align	2
+  61              	.LC6:
+  62 0044 0A0D4D43 		.ascii	"\012\015MCU: set HSI high \000"
+  62      553A2073 
+  62      65742048 
+  62      53492068 
+  62      69676820 
+  63 0059 000000   		.align	2
+  64              	.LC8:
+  65 005c 0A0D4D43 		.ascii	"\012\015MCU: spi init \000"
+  65      553A2073 
+  65      70692069 
+  65      6E697420 
+  65      00
+  66 006d 000000   		.align	2
+  67              	.LC10:
+  68 0070 0A0D4D43 		.ascii	"\012\015MCU: wait for HSO low \000"
+  68      553A2077 
+  68      61697420 
+  68      666F7220 
+  68      48534F20 
+  69 0089 000000   		.align	2
+  70              	.LC12:
+  71 008c 0A0D4D43 		.ascii	"\012\015MCU: get HSO low \000"
+  71      553A2067 
+  71      65742048 
+  71      534F206C 
+  71      6F772000 
+  72              		.align	2
+  73              	.LC14:
+  74 00a0 0A0D4D43 		.ascii	"\012\015MCU: set HSI low ; wait for HSO high\000"
+  74      553A2073 
+  74      65742048 
+  74      5349206C 
+  74      6F77203B 
+  75 00c7 00       		.align	2
+  76              	.LC16:
+  77 00c8 0A0D4D43 		.ascii	"\012\015MCU: get HSO high \000"
+  77      553A2067 
+  77      65742048 
+  77      534F2068 
+  77      69676820 
+  78 00dd 000000   		.align	2
+  79              	.LC18:
+  80 00e0 0A0D5350 		.ascii	"\012\015SPI receive SE cmd header :\000"
+  80      49207265 
+  80      63656976 
+  80      65205345 
+  80      20636D64 
+  81 00fe 0000     		.align	2
+  82              	.LC20:
+  83 0100 25327820 		.ascii	"%2x \000"
+  83      00
+  84 0105 000000   		.align	2
+  85              	.LC22:
+  86 0108 0A0D4853 		.ascii	"\012\015HSI low \000"
+  86      49206C6F 
+  86      772000
+  87 0113 00       		.align	2
+  88              	.LC24:
+  89 0114 0A0D4853 		.ascii	"\012\015HSI high \000"
+  89      49206869 
+  89      67682000 
+  90              		.align	2
+  91              	.LC26:
+  92 0120 0A0D5350 		.ascii	"\012\015SPI receive SE cmd data :\000"
+  92      49207265 
+  92      63656976 
+  92      65205345 
+  92      20636D64 
+  93              		.align	2
+  94              	.LC30:
+  95 013c 0A0D4853 		.ascii	"\012\015HSI low\000"
+  95      49206C6F 
+  95      7700
+  96 0146 0000     		.align	2
+  97              	.LC32:
+  98 0148 0A0D4853 		.ascii	"\012\015HSI high\000"
+  98      49206869 
+  98      676800
+  99 0153 00       		.align	2
+ 100              	.LC34:
+ 101 0154 0D0A2047 		.ascii	"\015\012 GPIOwrite MISO input : %8x \000"
+ 101      50494F77 
+ 101      72697465 
+ 101      204D4953 
+ 101      4F20696E 
+ 102 0173 00       		.align	2
+ 103              	.LC28:
+ 104 0174 06000090 		.ascii	"\006\000\000\220\252U"
+ 104      AA55
+ 105              		.section	.text.commApi,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	commApi
+ 108              		.syntax unified
+ 109              		.code	16
+ 110              		.thumb_func
+ 111              		.fpu softvfp
+ 113              	commApi:
+ 114              		@ args = 0, pretend = 0, frame = 56
+ 115              		@ frame_needed = 1, uses_anonymous_args = 0
+ 116 0000 80B5     		push	{r7, lr}
+ 117 0002 8EB0     		sub	sp, sp, #56
+ 118 0004 00AF     		add	r7, sp, #0
+ 119 0006 FFF7FEFF 		bl	gpioInit
+ 120 000a C34B     		ldr	r3, .L26
+ 121 000c 1800     		movs	r0, r3
+ 122 000e FFF7FEFF 		bl	xil_printf
+ 123 0012 0021     		movs	r1, #0
+ 124 0014 0220     		movs	r0, #2
+ 125 0016 FFF7FEFF 		bl	gpioWrite
+ 126 001a C04B     		ldr	r3, .L26+4
+ 127 001c 1800     		movs	r0, r3
+ 128 001e FFF7FEFF 		bl	xil_printf
+ 129 0022 0121     		movs	r1, #1
+ 130 0024 0120     		movs	r0, #1
+ 131 0026 FFF7FEFF 		bl	gpioWrite
+ 132 002a BD4B     		ldr	r3, .L26+8
+ 133 002c 1800     		movs	r0, r3
+ 134 002e FFF7FEFF 		bl	xil_printf
+ 135 0032 FFF7FEFF 		bl	spiInit
+ 136 0036 BB4B     		ldr	r3, .L26+12
+ 137 0038 1800     		movs	r0, r3
+ 138 003a FFF7FEFF 		bl	xil_printf
+ 139 003e BA4B     		ldr	r3, .L26+16
+ 140 0040 1800     		movs	r0, r3
+ 141 0042 FFF7FEFF 		bl	delay
+ 142 0046 B94B     		ldr	r3, .L26+20
+ 143 0048 1800     		movs	r0, r3
+ 144 004a FFF7FEFF 		bl	xil_printf
+ 145 004e C046     		nop
+ 146              	.L6:
+ 147 0050 0120     		movs	r0, #1
+ 148 0052 FFF7FEFF 		bl	gpioRead
+ 149 0056 0300     		movs	r3, r0
+ 150 0058 012B     		cmp	r3, #1
+ 151 005a F9D0     		beq	.L6
+ 152 005c B44B     		ldr	r3, .L26+24
+ 153 005e 1800     		movs	r0, r3
+ 154 0060 FFF7FEFF 		bl	xil_printf
+ 155 0064 B34B     		ldr	r3, .L26+28
+ 156 0066 1800     		movs	r0, r3
+ 157 0068 FFF7FEFF 		bl	delay
+ 158 006c 0021     		movs	r1, #0
+ 159 006e 0120     		movs	r0, #1
+ 160 0070 FFF7FEFF 		bl	gpioWrite
+ 161 0074 B04B     		ldr	r3, .L26+32
+ 162 0076 1800     		movs	r0, r3
+ 163 0078 FFF7FEFF 		bl	xil_printf
+ 164 007c C046     		nop
+ 165              	.L7:
+ 166 007e 0120     		movs	r0, #1
+ 167 0080 FFF7FEFF 		bl	gpioRead
+ 168 0084 031E     		subs	r3, r0, #0
+ 169 0086 FAD0     		beq	.L7
+ 170 0088 AC4B     		ldr	r3, .L26+36
+ 171 008a 1800     		movs	r0, r3
+ 172 008c FFF7FEFF 		bl	xil_printf
+ 173 0090 A54B     		ldr	r3, .L26+16
+ 174 0092 1800     		movs	r0, r3
+ 175 0094 FFF7FEFF 		bl	delay
+ 176 0098 0121     		movs	r1, #1
+ 177 009a 0120     		movs	r0, #1
+ 178 009c FFF7FEFF 		bl	gpioWrite
+ 179 00a0 9F4B     		ldr	r3, .L26+8
+ 180 00a2 1800     		movs	r0, r3
+ 181 00a4 FFF7FEFF 		bl	xil_printf
+ 182 00a8 0121     		movs	r1, #1
+ 183 00aa 0220     		movs	r0, #2
+ 184 00ac FFF7FEFF 		bl	gpioWrite
+ 185 00b0 0023     		movs	r3, #0
+ 186 00b2 7B63     		str	r3, [r7, #52]
+ 187 00b4 0CE0     		b	.L8
+ 188              	.L9:
+ 189 00b6 FFF7FEFF 		bl	spiRead
+ 190 00ba 0300     		movs	r3, r0
+ 191 00bc 1900     		movs	r1, r3
+ 192 00be 1823     		movs	r3, #24
+ 193 00c0 FA18     		adds	r2, r7, r3
+ 194 00c2 7B6B     		ldr	r3, [r7, #52]
+ 195 00c4 D318     		adds	r3, r2, r3
+ 196 00c6 0A1C     		adds	r2, r1, #0
+ 197 00c8 1A70     		strb	r2, [r3]
+ 198 00ca 7B6B     		ldr	r3, [r7, #52]
+ 199 00cc 0133     		adds	r3, r3, #1
+ 200 00ce 7B63     		str	r3, [r7, #52]
+ 201              	.L8:
+ 202 00d0 7B6B     		ldr	r3, [r7, #52]
+ 203 00d2 052B     		cmp	r3, #5
+ 204 00d4 EFD9     		bls	.L9
+ 205 00d6 0021     		movs	r1, #0
+ 206 00d8 0220     		movs	r0, #2
+ 207 00da FFF7FEFF 		bl	gpioWrite
+ 208 00de 984B     		ldr	r3, .L26+40
+ 209 00e0 1800     		movs	r0, r3
+ 210 00e2 FFF7FEFF 		bl	xil_printf
+ 211 00e6 0023     		movs	r3, #0
+ 212 00e8 7B63     		str	r3, [r7, #52]
+ 213 00ea 0DE0     		b	.L10
+ 214              	.L11:
+ 215 00ec 1823     		movs	r3, #24
+ 216 00ee FA18     		adds	r2, r7, r3
+ 217 00f0 7B6B     		ldr	r3, [r7, #52]
+ 218 00f2 D318     		adds	r3, r2, r3
+ 219 00f4 1B78     		ldrb	r3, [r3]
+ 220 00f6 1A00     		movs	r2, r3
+ 221 00f8 924B     		ldr	r3, .L26+44
+ 222 00fa 1100     		movs	r1, r2
+ 223 00fc 1800     		movs	r0, r3
+ 224 00fe FFF7FEFF 		bl	xil_printf
+ 225 0102 7B6B     		ldr	r3, [r7, #52]
+ 226 0104 0133     		adds	r3, r3, #1
+ 227 0106 7B63     		str	r3, [r7, #52]
+ 228              	.L10:
+ 229 0108 7B6B     		ldr	r3, [r7, #52]
+ 230 010a 052B     		cmp	r3, #5
+ 231 010c EED9     		bls	.L11
+ 232 010e 0021     		movs	r1, #0
+ 233 0110 0120     		movs	r0, #1
+ 234 0112 FFF7FEFF 		bl	gpioWrite
+ 235 0116 8C4B     		ldr	r3, .L26+48
+ 236 0118 1800     		movs	r0, r3
+ 237 011a FFF7FEFF 		bl	xil_printf
+ 238 011e 824B     		ldr	r3, .L26+16
+ 239 0120 1800     		movs	r0, r3
+ 240 0122 FFF7FEFF 		bl	delay
+ 241 0126 0121     		movs	r1, #1
+ 242 0128 0120     		movs	r0, #1
+ 243 012a FFF7FEFF 		bl	gpioWrite
+ 244 012e 874B     		ldr	r3, .L26+52
+ 245 0130 1800     		movs	r0, r3
+ 246 0132 FFF7FEFF 		bl	xil_printf
+ 247 0136 7C4B     		ldr	r3, .L26+16
+ 248 0138 1800     		movs	r0, r3
+ 249 013a FFF7FEFF 		bl	delay
+ 250 013e 0021     		movs	r1, #0
+ 251 0140 0120     		movs	r0, #1
+ 252 0142 FFF7FEFF 		bl	gpioWrite
+ 253 0146 804B     		ldr	r3, .L26+48
+ 254 0148 1800     		movs	r0, r3
+ 255 014a FFF7FEFF 		bl	xil_printf
+ 256 014e 764B     		ldr	r3, .L26+16
+ 257 0150 1800     		movs	r0, r3
+ 258 0152 FFF7FEFF 		bl	delay
+ 259 0156 0121     		movs	r1, #1
+ 260 0158 0120     		movs	r0, #1
+ 261 015a FFF7FEFF 		bl	gpioWrite
+ 262 015e 7B4B     		ldr	r3, .L26+52
+ 263 0160 1800     		movs	r0, r3
+ 264 0162 FFF7FEFF 		bl	xil_printf
+ 265 0166 FA23     		movs	r3, #250
+ 266 0168 9B00     		lsls	r3, r3, #2
+ 267 016a 1800     		movs	r0, r3
+ 268 016c FFF7FEFF 		bl	delay
+ 269 0170 0121     		movs	r1, #1
+ 270 0172 0220     		movs	r0, #2
+ 271 0174 FFF7FEFF 		bl	gpioWrite
+ 272 0178 0023     		movs	r3, #0
+ 273 017a 3B63     		str	r3, [r7, #48]
+ 274 017c 0CE0     		b	.L12
+ 275              	.L13:
+ 276 017e FFF7FEFF 		bl	spiRead
+ 277 0182 0300     		movs	r3, r0
+ 278 0184 1900     		movs	r1, r3
+ 279 0186 1023     		movs	r3, #16
+ 280 0188 FA18     		adds	r2, r7, r3
+ 281 018a 3B6B     		ldr	r3, [r7, #48]
+ 282 018c D318     		adds	r3, r2, r3
+ 283 018e 0A1C     		adds	r2, r1, #0
+ 284 0190 1A70     		strb	r2, [r3]
+ 285 0192 3B6B     		ldr	r3, [r7, #48]
+ 286 0194 0133     		adds	r3, r3, #1
+ 287 0196 3B63     		str	r3, [r7, #48]
+ 288              	.L12:
+ 289 0198 3B6B     		ldr	r3, [r7, #48]
+ 290 019a 052B     		cmp	r3, #5
+ 291 019c EFD9     		bls	.L13
+ 292 019e 0021     		movs	r1, #0
+ 293 01a0 0220     		movs	r0, #2
+ 294 01a2 FFF7FEFF 		bl	gpioWrite
+ 295 01a6 6A4B     		ldr	r3, .L26+56
+ 296 01a8 1800     		movs	r0, r3
+ 297 01aa FFF7FEFF 		bl	xil_printf
+ 298 01ae 0023     		movs	r3, #0
+ 299 01b0 3B63     		str	r3, [r7, #48]
+ 300 01b2 0DE0     		b	.L14
+ 301              	.L15:
+ 302 01b4 1023     		movs	r3, #16
+ 303 01b6 FA18     		adds	r2, r7, r3
+ 304 01b8 3B6B     		ldr	r3, [r7, #48]
+ 305 01ba D318     		adds	r3, r2, r3
+ 306 01bc 1B78     		ldrb	r3, [r3]
+ 307 01be 1A00     		movs	r2, r3
+ 308 01c0 604B     		ldr	r3, .L26+44
+ 309 01c2 1100     		movs	r1, r2
+ 310 01c4 1800     		movs	r0, r3
+ 311 01c6 FFF7FEFF 		bl	xil_printf
+ 312 01ca 3B6B     		ldr	r3, [r7, #48]
+ 313 01cc 0133     		adds	r3, r3, #1
+ 314 01ce 3B63     		str	r3, [r7, #48]
+ 315              	.L14:
+ 316 01d0 3B6B     		ldr	r3, [r7, #48]
+ 317 01d2 052B     		cmp	r3, #5
+ 318 01d4 EED9     		bls	.L15
+ 319 01d6 FA23     		movs	r3, #250
+ 320 01d8 9B00     		lsls	r3, r3, #2
+ 321 01da 1800     		movs	r0, r3
+ 322 01dc FFF7FEFF 		bl	delay
+ 323 01e0 0021     		movs	r1, #0
+ 324 01e2 0120     		movs	r0, #1
+ 325 01e4 FFF7FEFF 		bl	gpioWrite
+ 326 01e8 574B     		ldr	r3, .L26+48
+ 327 01ea 1800     		movs	r0, r3
+ 328 01ec FFF7FEFF 		bl	xil_printf
+ 329 01f0 FA23     		movs	r3, #250
+ 330 01f2 9B00     		lsls	r3, r3, #2
+ 331 01f4 1800     		movs	r0, r3
+ 332 01f6 FFF7FEFF 		bl	delay
+ 333 01fa 0A23     		movs	r3, #10
+ 334 01fc FB62     		str	r3, [r7, #44]
+ 335 01fe 15E0     		b	.L16
+ 336              	.L18:
+ 337 0200 6420     		movs	r0, #100
+ 338 0202 FFF7FEFF 		bl	delay
+ 339 0206 0120     		movs	r0, #1
+ 340 0208 FFF7FEFF 		bl	gpioRead
+ 341 020c 031E     		subs	r3, r0, #0
+ 342 020e 0DD1     		bne	.L16
+ 343 0210 0121     		movs	r1, #1
+ 344 0212 0120     		movs	r0, #1
+ 345 0214 FFF7FEFF 		bl	gpioWrite
+ 346 0218 C046     		nop
+ 347              	.L17:
+ 348 021a 0120     		movs	r0, #1
+ 349 021c FFF7FEFF 		bl	gpioRead
+ 350 0220 031E     		subs	r3, r0, #0
+ 351 0222 FAD0     		beq	.L17
+ 352 0224 0021     		movs	r1, #0
+ 353 0226 0120     		movs	r0, #1
+ 354 0228 FFF7FEFF 		bl	gpioWrite
+ 355              	.L16:
+ 356 022c FB6A     		ldr	r3, [r7, #44]
+ 357 022e 5A1E     		subs	r2, r3, #1
+ 358 0230 FA62     		str	r2, [r7, #44]
+ 359 0232 002B     		cmp	r3, #0
+ 360 0234 E4D1     		bne	.L18
+ 361 0236 0121     		movs	r1, #1
+ 362 0238 0120     		movs	r0, #1
+ 363 023a FFF7FEFF 		bl	gpioWrite
+ 364 023e 434B     		ldr	r3, .L26+52
+ 365 0240 1800     		movs	r0, r3
+ 366 0242 FFF7FEFF 		bl	xil_printf
+ 367 0246 0221     		movs	r1, #2
+ 368 0248 0220     		movs	r0, #2
+ 369 024a FFF7FEFF 		bl	gpioWrite
+ 370 024e 0823     		movs	r3, #8
+ 371 0250 FB18     		adds	r3, r7, r3
+ 372 0252 404A     		ldr	r2, .L26+60
+ 373 0254 1168     		ldr	r1, [r2]
+ 374 0256 1960     		str	r1, [r3]
+ 375 0258 9288     		ldrh	r2, [r2, #4]
+ 376 025a 9A80     		strh	r2, [r3, #4]
+ 377 025c 0023     		movs	r3, #0
+ 378 025e BB62     		str	r3, [r7, #40]
+ 379 0260 0AE0     		b	.L19
+ 380              	.L20:
+ 381 0262 0823     		movs	r3, #8
+ 382 0264 FA18     		adds	r2, r7, r3
+ 383 0266 BB6A     		ldr	r3, [r7, #40]
+ 384 0268 D318     		adds	r3, r2, r3
+ 385 026a 1B78     		ldrb	r3, [r3]
+ 386 026c 1800     		movs	r0, r3
+ 387 026e FFF7FEFF 		bl	spiWrite
+ 388 0272 BB6A     		ldr	r3, [r7, #40]
+ 389 0274 0133     		adds	r3, r3, #1
+ 390 0276 BB62     		str	r3, [r7, #40]
+ 391              	.L19:
+ 392 0278 BB6A     		ldr	r3, [r7, #40]
+ 393 027a 052B     		cmp	r3, #5
+ 394 027c F1D9     		bls	.L20
+ 395 027e 0021     		movs	r1, #0
+ 396 0280 0220     		movs	r0, #2
+ 397 0282 FFF7FEFF 		bl	gpioWrite
+ 398 0286 FA23     		movs	r3, #250
+ 399 0288 9B00     		lsls	r3, r3, #2
+ 400 028a 1800     		movs	r0, r3
+ 401 028c FFF7FEFF 		bl	delay
+ 402 0290 0021     		movs	r1, #0
+ 403 0292 0120     		movs	r0, #1
+ 404 0294 FFF7FEFF 		bl	gpioWrite
+ 405 0298 2F4B     		ldr	r3, .L26+64
+ 406 029a 1800     		movs	r0, r3
+ 407 029c FFF7FEFF 		bl	xil_printf
+ 408 02a0 C046     		nop
+ 409              	.L21:
+ 410 02a2 0120     		movs	r0, #1
+ 411 02a4 FFF7FEFF 		bl	gpioRead
+ 412 02a8 0300     		movs	r3, r0
+ 413 02aa 012B     		cmp	r3, #1
+ 414 02ac F9D0     		beq	.L21
+ 415 02ae C046     		nop
+ 416              	.L22:
+ 417 02b0 0120     		movs	r0, #1
+ 418 02b2 FFF7FEFF 		bl	gpioRead
+ 419 02b6 031E     		subs	r3, r0, #0
+ 420 02b8 FAD0     		beq	.L22
+ 421 02ba 0121     		movs	r1, #1
+ 422 02bc 0120     		movs	r0, #1
+ 423 02be FFF7FEFF 		bl	gpioWrite
+ 424 02c2 264B     		ldr	r3, .L26+68
+ 425 02c4 1800     		movs	r0, r3
+ 426 02c6 FFF7FEFF 		bl	xil_printf
+ 427 02ca 0220     		movs	r0, #2
+ 428 02cc FFF7FEFF 		bl	gpioRead
+ 429 02d0 0300     		movs	r3, r0
+ 430 02d2 3B62     		str	r3, [r7, #32]
+ 431 02d4 0221     		movs	r1, #2
+ 432 02d6 0220     		movs	r0, #2
+ 433 02d8 FFF7FEFF 		bl	gpioWrite
+ 434 02dc 3B00     		movs	r3, r7
+ 435 02de 1D4A     		ldr	r2, .L26+60
+ 436 02e0 1168     		ldr	r1, [r2]
+ 437 02e2 1960     		str	r1, [r3]
+ 438 02e4 9288     		ldrh	r2, [r2, #4]
+ 439 02e6 9A80     		strh	r2, [r3, #4]
+ 440 02e8 0023     		movs	r3, #0
+ 441 02ea 7B62     		str	r3, [r7, #36]
+ 442 02ec 09E0     		b	.L23
+ 443              	.L24:
+ 444 02ee 3A00     		movs	r2, r7
+ 445 02f0 7B6A     		ldr	r3, [r7, #36]
+ 446 02f2 D318     		adds	r3, r2, r3
+ 447 02f4 1B78     		ldrb	r3, [r3]
+ 448 02f6 1800     		movs	r0, r3
+ 449 02f8 FFF7FEFF 		bl	spiWrite
+ 450 02fc 7B6A     		ldr	r3, [r7, #36]
+ 451 02fe 0133     		adds	r3, r3, #1
+ 452 0300 7B62     		str	r3, [r7, #36]
+ 453              	.L23:
+ 454 0302 7B6A     		ldr	r3, [r7, #36]
+ 455 0304 052B     		cmp	r3, #5
+ 456 0306 F2D9     		bls	.L24
+ 457 0308 3A6A     		ldr	r2, [r7, #32]
+ 458 030a 154B     		ldr	r3, .L26+72
+ 459 030c 1100     		movs	r1, r2
+ 460 030e 1800     		movs	r0, r3
+ 461 0310 FFF7FEFF 		bl	xil_printf
+ 462              	.L25:
+ 463 0314 FEE7     		b	.L25
+ 464              	.L27:
+ 465 0316 C046     		.align	2
+ 466              	.L26:
+ 467 0318 10000000 		.word	.LC2
+ 468 031c 24000000 		.word	.LC4
+ 469 0320 44000000 		.word	.LC6
+ 470 0324 5C000000 		.word	.LC8
+ 471 0328 10270000 		.word	10000
+ 472 032c 70000000 		.word	.LC10
+ 473 0330 8C000000 		.word	.LC12
+ 474 0334 A0860100 		.word	100000
+ 475 0338 A0000000 		.word	.LC14
+ 476 033c C8000000 		.word	.LC16
+ 477 0340 E0000000 		.word	.LC18
+ 478 0344 00010000 		.word	.LC20
+ 479 0348 08010000 		.word	.LC22
+ 480 034c 14010000 		.word	.LC24
+ 481 0350 20010000 		.word	.LC26
+ 482 0354 74010000 		.word	.LC28
+ 483 0358 3C010000 		.word	.LC30
+ 484 035c 48010000 		.word	.LC32
+ 485 0360 54010000 		.word	.LC34
+ 487              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 comm.c
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:14     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:18     .text.delay:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:26     .text.delay:00000000 delay
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:51     .text.delay:00000024 $d
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:106    .text.commApi:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:113    .text.commApi:00000000 commApi
+C:\Users\jl241\AppData\Local\Temp\ccD63Zob.s:467    .text.commApi:00000318 $d
+
+UNDEFINED SYMBOLS
+xil_printf
+gpioInit
+gpioWrite
+spiInit
+gpioRead
+spiRead
+spiWrite

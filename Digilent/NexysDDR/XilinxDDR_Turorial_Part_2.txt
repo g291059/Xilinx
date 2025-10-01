@@ -1,0 +1,213 @@
+Xilinx DDR Tutorial Part 2
+
+
+You've successfully followed part 1 of the tutorial and run the MIG example design on your board
+and now want to start using the external memory for your own projects that do something useful like
+capture ADC samples. This is where we want to go in part 2.
+
+Before starting on a custom project we should review a few concepts first
+
+The interface for a static ram is pretty simple. You have an address, a bidirectional data bus, and
+read and write control lines. Sdram is a lot more complicated as you know from reading your DDR
+datasheet. The sdram memory device has banks of memory arrays. Addressing any bit in any of those
+memory banks involves supplying bank, row, column and address information. Unlike a normal synchronous
+ram you don't directly interact with the memory. Sdram devices have a controller that does this. It has
+internal registers to control timing and a command interface. Also, sdram needs refresh operations in
+order to maintain the state of the memory cells. In return for lower power consumption you get more
+complexity in using it. Everything is a lot more complicated, but in return you get much higher
+performance and density at lower power. Having an appreciation for the complexity of what you are
+creating an interface for will help decide how you want to use the MIG IP code.
+
+The MIG ug586_7Series_MIS reference guide has a lot of good information about how the IP works and
+how to use it; if you don't look too hard at the details. Some of the information is good and helpful
+and some is just plain wrong and confusing. We need to look at a few choices for using the MIG IP before
+starting on a design. One way to do this would be to examine the exampleproject design sources. It's not
+a waste of time to do this but most of us just want to get started on our own project and just start using
+the MIG IP.
+
+ug586 tells us that for DDR designs we can use the UI, native or PHY interfaces in our designs. You
+really need to read through the IP generated source code to appreciate the complexity it covers. The
+ug586 provides a pretty good overview of what's happening in the code. For most IP that Vivado gives you,
+you have a choice of AXI or Native interface. This is true for BRAM, FIFO and many other constructs. For
+all HDL designs the complexity of the AXI bus just takes more resources and make our job more difficult.
+Of course,if you are connecting your design to a device's exposed AXI bus, as is the case for ZYNQ devices,
+then you need the AXI interface. For the MIG most people will want to use the UI as this hides all of the
+complexity in the core. It's possible that you aren't happy with the performance of Xilinx's design and
+might want to implement your own core. Of course you could always work through the source code and change
+it as you prefer. The other alternative to the UI or writing your own code is to use what ug586 calls the
+Native interface. This sounds interesting but how do we do that?
+
+Well, us586 doesn't really tell us. When using someone else's IP that has source code I like to have a
+heirarchical map. Sometimes the IP user guide provides this; the MIG doesn't but we can do this for ourselves
+by glancing through a few files. Here's what I came up with as a partial heirarchical map in the Vivado
+2019.1 project where I created the MIG:
+  mig_7series_0.v
+    mig_7series_0_mig.v
+      mig_7series_v4_2_iodelay_ctrl
+      mig_7series_v4_2_clk_ibuf
+      mig_7series_v4_2_tempmon
+      mig_7series_v4_2_infrastructure
+      mig_7series_v4_2_memc_ui_top_std
+        mig_7series_v4_2_mem_intfc
+          mig_7series_v4_2_mc         <-- memory controller ( native interface )
+          mig_7series_v4_2_ddr_phy_top
+        mig_7series_v4_2_ui_top
+          mig_7series_v4_2_ui_cmd
+          mig_7series_v4_2_ui_wr_data
+          mig_7series_v4_2_ui_rd_data
+
+If you look at mig_7series_v4_2_mc.v you will see the Native interface signals that ug586 is referring to.
+You will also see a lot of source code that you will have to do yourself if you want to interface your design
+directly to the memory controller. So, even though it doesn't mention this, the Native interface isn't directly
+exposed by the MIG IP. By now you've realized that we are going to use the UI because that's what the core
+toplevel module mig_7series_0.v presents us with.
+
+It's worth looking at Figure 1-52 in the DDR3 Clocking Architecture to understand clocking in the MIG IP. One
+thing that the diagram doesn't show is the ui_clk. But this and the other UI signals are described in Table 1-17.
+The clock domain for all of our user design signals will be in the ui_clk domain, which is 1/4 of the PHY clock.
+For the Nexys Video 4:1 Controller that I've chosen this is 400MHz/4 = 100 MHz. That doesn't mean that the data
+going into or our DDR has to be in the ui_clk domain. Nor does it mean that the ui_clk domain data coming out of
+the DDR UI limits our design. So for my Nexys Video DDR application I could certainly write 125 MHz rx_clk data
+coming out of the Ethernet PHY into the DDR. I could also read DDR memory and send it to the Ethernet PHY even though
+txd is in a different 125 Mhz clock domain. I just need to use data buffering and proper clock crossing design logic.
+The dual clock FIFO is a good example of such a data buffer. What we do know is what the maximum read/write
+throughput capabilities of our MIG DDR interface will be. For my Nexys Video 4:1 controller ui_clk is 100 MHz and
+app_rd_data and app_wdf_d are 128-bit or 16 Bytes wide; so I can write or read 16 bytes every 10 ns in bursts. This
+works out to 100000000*128 = 12.8 Gbps. The PHY data rate is 800 Mbpsx16 = 12.8 Gbps. 1600 million bytes per second
+isn't bad, but this is the maximum burst rate, not the average data rate including refresh periods.
+
+About clock domains. If you've only been doing simple designs using one clock for your design you may not be
+ready for DDR or Ethernet projects because these all use multiple clock domains. Designing for related clocks as
+this tutorial does is easier than for unrelated clocks as Ethernet involves. But, you still need to be aware of a
+lot of new things to keep in mind and account for in your design. That's a topic on its own and won't be covered here.
+
+One last thought about the XADC. The MIG IP requires access to the substrate temperature. We elected to enable
+the IP to include this capability. For most modern FPGA applications it's a good idea to be aware of the device
+internal temperature to avoid operating the FPGA out of its specified range. The UI interface doesn't give us access
+to this information. Normally, we would elect to make this an input to the mig_7series_0 toplevel module and
+instantiate our own XADC interface.
+
+Now that we know what interface we are going to use and understand what the signals do from reading ug586 it's
+time to make a custom design that uses the MIG DDR controller. We can see how the example design use the MIG UI
+interface but reading through the source is complicated so let's implement a design that's easier to understand.
+
+Now we come to the part of the tutorial that was a bit difficult for me which was figuring out a good demo design. For
+a general tutorial I needed to come up with an application example that isn't platform dependent. Of course the Nexys
+Video has a lot more capability than less expensive FPGA boards but all of them have a USB UART interface that can
+connect the board to a PC. Though it isn't at a particularly high data rate, this is what we'll use. Other things that
+all Digilent FPGA boards have in common are switches, buttons and PMOD connectors. So, we'll make a data logger that
+samples the states of these, records timestamped samples to DDR, and plays back the samples. We'll use the USB UART to
+run the data logger and play back every instance where there are transitions on any of the IO pins. Essentially, we
+make the DDR into one gigantic FIFO. This is a typical use case for external memory; either storing source data for
+driving an interface, or storing sink data from an interface.
+
+As a start to designing our demo application we need to start with defining a few specifications:
+  - store about 5 seconds of sample data
+  - limit data storage to 128 MB which even the Arty A7 has
+  - have a sample rate Fs that is appropriate for buttons, switches, and normal PMOD data rates: <20 MHz
+  - keep the sample data width and Fs low enough to ensure that everyone can write samples without interruption to
+    the DDR memory
+  - Since the sample data will include a timestamp as well as data I need to size both to fit the sample data width.
+
+A reasonable sampling duration for our demo is 5 seconds. This is sufficient time to press a few buttons and switches,
+but not too long to make a recording session too long. At Fs = 5 MHz and a sample data width of 4 bytes it requires
+5*4*Fs* 100,000,000 bytes. This is within our specifications for a maximum storage requirement. As it turns out we can't
+get a high quality Fs = 5 MHz out of an MMCM with a 100 MHz input clock for the Nexys Video. But we can get a 6.25 MHz
+Fs clock. This changes our storage requirement to 125,000,000 bytes which still meets our specifications. The Nexys
+Video 4:1 controller has a 128-bit UI read and write data busses so it is convenient to choose a sample data width of
+128/(2^n). A 32-bit data width seems reasonable and the maximum DDR PHY data rate of 1600,000,000 bytes/s is 64 times the
+Fs recording data rate of 25,000,000 bytes/s. We shouldn't expect to be able to write to the DDR at the maximum rate so
+this margin seems to be reasonable. The last thing to work out is the sample data format. A 25-bit counter overflows at
+about a 5.4 second interval. This meets our specification but leaves us with 7 bits of data. For this demo that's all we
+need, so it's time to start doing some HDL design work. The easiest way to use the MIG UI interface would be to have
+everything in your design clock with ui_clk. At least some of your design will have to be in the ui_clk domain but I
+wanted to do a typical data sample capture demo and ui_clk is not generally the Fs that you need, so the demo shows you
+how to collect data at an arbitrary Fs rate. It's a bit more complicated, but a more useful demo.
+
+
+We will start by going back to the Vivado project where we first created our MIG design. This time though I will be
+doing my design in VHDL so before doing anything else I'll change the project settings to make this a VHDL project. You
+don't have to do this because you can always do mixed HDL projects regardless of the settings, but IP will give you
+different instantiation templates for VHLD or Verilog projects.
+
+
+So, create a new empty project in Vivado and change the setting to VHDL.
+
+For most Vivado IP you can copy a .xci file from a different project into your new one without having to re-create it
+from scratch. This doesn't work with the MIG IP because Vivado doesn't handle it like other IP. If you try and copy the
+MIG .xci file to your new project ti will fail to update all of the files and you will not be able to modify the MIG IP
+for your new project. We want to turn off the debug signals for our demo project, so we need to create a new MIG from
+scratch using the same settings as we did for the original project. The only change to the MIG project will be to turn
+off the Debug signals because we don't need them for our custom design and we want to make our source code easy to read
+as well as use the minimum amount of resources. As you click through the pages of the MIG IP Wizard, everything else should
+be as we left it so this is easy. I was having a lot of problems with Vivado 2020.2 because it kept changing the Input
+Clock period to 2500ps even though I was setting this to 5000ps. That wasn't the only issues that I had with this version
+of the tools. Unfortunately, not every version of the tools is what you should use for a particular project. I've also
+had issues with 2 instances of Vivado running at the same time so I avoid doing that.
+
+Once you've created the MIG for this project it's time to add sources. I've provided you with the sources that work on
+my Nexys Video board. you will have to modify the toplevel name and some signal names to port this to your board. The
+same is true for the constraints file that I uses. I won't go into details here about the elements in the toplevel source
+file NexysVideoDdrDemo.vhd but I will try and make useful comments to help you use it.
+
+Modify the toplevel source and constraints and save the changes to new files with appropriate names for your board. In
+addition to the NexysVideoDdrDemo.vhd and NexysVideoDdrDemo.xdc files I've provided a few additional files for the UART
+messaging. These are UART_DEBUGGER2.vhd and YASUTX.vhd. You will have to add these two source files to your project.
+You will have to create the necessary clocks from your external clock module to run the demo. You need a 200 MHz clock for
+the mig_7series_0 component and a 50-100 MHz clock for the UART components. Lastly, you need an Fs clock for the recording
+processes. The instantiation of clk_wiz_0 in the toplevel entity should be all that you need. Some boards have differential
+external clock module inputs. If your board uses differential clock inputs then you will have to change this while using the
+clocking wizard. For some boards you can't have a 4:1 Controller or supply a common system_clock_i and reference_clk_i of
+200 MHz, so you have a bit more work to do.
+
+You will need to create 3 FIFOs. I've provided comments that should be sufficient for doing this. Not all  boards will have
+the same widths. If you don't want to create the ILA IP you can just comment out the instantiation for these components.
+They are included so that you can see the UI interface signals interacting with the application.
+
+
+Once you have gotten a bitstream it's time to use the demo application. If you are having trouble getting to this point you
+can always post a question to the Digilent Forum where this tutorial lives.
+
+You'll need a terminal application like Putty connected to the UART on your board. Sometimes this is the same USB
+connector as is used for FPGA configuration. For the Nexys Video board there are separate connectors. The application sends
+messages at 921600 baud, 8-N-1, and no flow control. So make sure that your terminal program is connected as a Serial
+connection to your USB COM or tty device before starting to use the application.
+
+The application as a record mode and a play mode. You can't do both at once so there are LEDs to let you know when one
+or the other is active. Following configuration of the FPGA, if LED(7) isn't lit then your MMCM hasn't started generating
+usable clocks. If LED(6) isn't lit then the DDR controller hasn't completed calibration and the DDR isn't usable yet.
+
+You'd want to start by hitting the hard reset button on your board, whatever button you've assigned to areset in your code.
+Then you can hit the record button. While LED(7) is lit you can press the two buttons that are assigned to r_fifo_wdata in
+your code. You can then press the play button. You should see messages written to the UART. Each Play session always starts
+with 'Play Starts' followed by one sample data word and ending with a 'Play Ends..' message. Typically, mechanical buttons
+and switches exhibit contact bounce so you are likely see more than one transition when buttons are pushed or released. This
+is not always the case. You can correlate the reporting with an oscilloscope connected to JA(4) or whatever PMOD you are using.
+You can play a recording as many times as you like, even hours after a recording, and the messages should be the same.
+
+How do you use the UART data? In Putty, when you open a terminal you can set it up to log incoming data to a file. This is
+the easiest way to get the data into a usable form when there are a lot of transitions reported. Even though my sample data
+is 32-bits wide, I send it out as a 36-bit word. By inserting a '0' bit between the msb of the 7-bit data and the lsb of the
+timestamp it's a lot easier to use a spreadsheet to turn the data into usable information. You can paste the UART output into
+a spreadsheet as text into one column. The low 8 bits need to be separated from the high 28 bits to form a timestamp and data.
+Using the HEX2BIN() function can change the timestamp into decimal form. Dividing that by Fs converts it into absolute time.
+I copy the UART output from the Putty terminal if there aren't too many transitions being reported, or you can just open the
+Putty log file in an editor. My text editor has a column mode for inserting a space between the right-most two columns of data
+and the rest. Then I can paste this into 2 separate columns of a spreadsheet. In a separate column you can calculate the delta
+between timestamps to get the time between bit transitions. For the data, you can use the HEX2BIN() function to display each of
+data bits. Of course, only the low 7-bits are meaningful. You could also write a Python script to capture UART data and write
+results to your hard drive. But this is just a demo to get you started using DDR in you own projects.
+
+There's plenty of things that you and play with, such as the Fs rate and data width. I highly recommend that you use the
+ILA IP to look at the UI signals. Understand that this demo is not designed to be high performance.
+
+
+
+
+
+
+
+
+
+
+

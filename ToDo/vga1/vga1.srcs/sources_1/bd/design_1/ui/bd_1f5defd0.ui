@@ -1,0 +1,21 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-257,-26",
+   "ExpandedHierarchyInLayout":"/vga",
+   "PinnedBlocks":"",
+   "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace inst vga -pg 1 -lvl 1 -x 120 -y 60 -defaultsOSRD
+preplace inst vga|RgbLedDisplay_0 -pg 1 -lvl 1 -x 330 -y 310 -defaultsOSRD
+preplace inst vga|OverlayCtl_0 -pg 1 -lvl 1 -x 330 -y 110 -defaultsOSRD
+preplace netloc vga|pxl_clk_1 1 0 1 NJ 260
+levelinfo -pg 1 0 120 590
+levelinfo -hier vga * 330 *
+pagesize -pg 1 -db -bbox -sgen 0 0 590 470
+pagesize -hier vga -db -bbox -sgen 80 30 560 450
+"
+}
+{
+   "da_clkrst_cnt":"1"
+}

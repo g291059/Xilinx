@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 15 13:56:14 2023" VIVADOVERSION="2019.1">
+
+  <SYSTEMINFO ARCH="kintex7" DEVICE="7k325t" NAME="design_1" PACKAGE="ffg676" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="sys_rst_n" SIGIS="undef" SIGNAME="External_Ports_sys_rst_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="rst_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="key_4" SIGIS="undef" SIGNAME="External_Ports_key_4">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="key_4"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="key_5" SIGIS="undef" SIGNAME="External_Ports_key_5">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="key_5"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="key_6" SIGIS="undef" SIGNAME="External_Ports_key_6">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="key_6"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led_3" SIGIS="undef" SIGNAME="test_0_led_1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="led_1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="switch" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_switch">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="switch"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="sys_clk" SIGIS="undef" SIGNAME="External_Ports_sys_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="clk_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led_4" SIGIS="undef" SIGNAME="test_0_led_2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="led_2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led_5" SIGIS="undef" SIGNAME="test_0_led_3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="test_0" PORT="led_3"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/test_0" HWVERSION="1.0" INSTANCE="test_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="test" VLNV="xilinx.com:module_ref:test:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_test_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_sys_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="sys_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst_n" SIGIS="rst" SIGNAME="External_Ports_sys_rst_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="sys_rst_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="key_4" SIGIS="undef" SIGNAME="External_Ports_key_4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="key_4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="key_5" SIGIS="undef" SIGNAME="External_Ports_key_5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="key_5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="key_6" SIGIS="undef" SIGNAME="External_Ports_key_6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="key_6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="switch" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="switch"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_1" SIGIS="undef" SIGNAME="test_0_led_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_2" SIGIS="undef" SIGNAME="test_0_led_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_3" SIGIS="undef" SIGNAME="test_0_led_3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_5"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

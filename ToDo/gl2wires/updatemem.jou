@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# updatemem v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Apr  4 20:03:58 2021
+# Process ID: 2036
+# Current directory: T:/Workspace/Xilinx/gl2wires
+# Command line: updatemem.exe -mode batch -source T:/Xilinx/Vivado/2019.1/scripts/updatemem/main.tcl -notrace -tclargs -meminfo ./m10.mmi -data ./CM1_0/Release/CM1_0.elf -proc dummy -bit ./hello.bit -out hello2.bit -force
+# Log file: T:/Workspace/Xilinx/gl2wires/updatemem.log
+# Journal file: T:/Workspace/Xilinx/gl2wires\updatemem.jou
+#-----------------------------------------------------------
+source T:/Xilinx/Vivado/2019.1/scripts/updatemem/main.tcl -notrace

@@ -1,0 +1,753 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"spi.c"
+  12              		.text
+  13              		.section	.text.Xil_In32,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv6s-m
+  16              		.syntax unified
+  17              		.code	16
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	Xil_In32:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 1, uses_anonymous_args = 0
+  24 0000 80B5     		push	{r7, lr}
+  25 0002 82B0     		sub	sp, sp, #8
+  26 0004 00AF     		add	r7, sp, #0
+  27 0006 7860     		str	r0, [r7, #4]
+  28 0008 7B68     		ldr	r3, [r7, #4]
+  29 000a 1B68     		ldr	r3, [r3]
+  30 000c 1800     		movs	r0, r3
+  31 000e BD46     		mov	sp, r7
+  32 0010 02B0     		add	sp, sp, #8
+  33              		@ sp needed
+  34 0012 80BD     		pop	{r7, pc}
+  36              		.section	.text.Xil_Out32,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.code	16
+  40              		.thumb_func
+  41              		.fpu softvfp
+  43              	Xil_Out32:
+  44              		@ args = 0, pretend = 0, frame = 16
+  45              		@ frame_needed = 1, uses_anonymous_args = 0
+  46 0000 80B5     		push	{r7, lr}
+  47 0002 84B0     		sub	sp, sp, #16
+  48 0004 00AF     		add	r7, sp, #0
+  49 0006 7860     		str	r0, [r7, #4]
+  50 0008 3960     		str	r1, [r7]
+  51 000a 7B68     		ldr	r3, [r7, #4]
+  52 000c FB60     		str	r3, [r7, #12]
+  53 000e FB68     		ldr	r3, [r7, #12]
+  54 0010 3A68     		ldr	r2, [r7]
+  55 0012 1A60     		str	r2, [r3]
+  56 0014 C046     		nop
+  57 0016 BD46     		mov	sp, r7
+  58 0018 04B0     		add	sp, sp, #16
+  59              		@ sp needed
+  60 001a 80BD     		pop	{r7, pc}
+  62              		.global	xspi_srr
+  63              		.section	.data.xspi_srr,"aw"
+  64              		.align	2
+  67              	xspi_srr:
+  68 0000 4000A044 		.word	1151336512
+  69              		.global	xspi_cr
+  70              		.section	.data.xspi_cr,"aw"
+  71              		.align	2
+  74              	xspi_cr:
+  75 0000 6000A044 		.word	1151336544
+  76              		.global	xspi_sr
+  77              		.section	.data.xspi_sr,"aw"
+  78              		.align	2
+  81              	xspi_sr:
+  82 0000 6400A044 		.word	1151336548
+  83              		.global	xspi_dtr
+  84              		.section	.data.xspi_dtr,"aw"
+  85              		.align	2
+  88              	xspi_dtr:
+  89 0000 6800A044 		.word	1151336552
+  90              		.global	xspi_drr
+  91              		.section	.data.xspi_drr,"aw"
+  92              		.align	2
+  95              	xspi_drr:
+  96 0000 6C00A044 		.word	1151336556
+  97              		.global	xspi_ssr
+  98              		.section	.data.xspi_ssr,"aw"
+  99              		.align	2
+ 102              	xspi_ssr:
+ 103 0000 7000A044 		.word	1151336560
+ 104              		.global	xspi_tfo
+ 105              		.section	.data.xspi_tfo,"aw"
+ 106              		.align	2
+ 109              	xspi_tfo:
+ 110 0000 7400A044 		.word	1151336564
+ 111              		.global	xspi_rfo
+ 112              		.section	.data.xspi_rfo,"aw"
+ 113              		.align	2
+ 116              	xspi_rfo:
+ 117 0000 7800A044 		.word	1151336568
+ 118              		.global	xspi_dgier
+ 119              		.section	.data.xspi_dgier,"aw"
+ 120              		.align	2
+ 123              	xspi_dgier:
+ 124 0000 1C00A044 		.word	1151336476
+ 125              		.global	xspi_isr
+ 126              		.section	.data.xspi_isr,"aw"
+ 127              		.align	2
+ 130              	xspi_isr:
+ 131 0000 2000A044 		.word	1151336480
+ 132              		.global	xspi_ier
+ 133              		.section	.data.xspi_ier,"aw"
+ 134              		.align	2
+ 137              	xspi_ier:
+ 138 0000 2800A044 		.word	1151336488
+ 139              		.comm	WriteBuffer,17,4
+ 140              		.comm	ReadBuffer,17,4
+ 141              		.section	.rodata
+ 142              		.align	2
+ 143              	.LC0:
+ 144 0000 58537069 		.ascii	"XSpi 1 \012\015\000"
+ 144      2031200A 
+ 144      0D00
+ 145 000a 0000     		.align	2
+ 146              	.LC2:
+ 147 000c 4572726F 		.ascii	"Error: XSpi_Start %d\012\015\000"
+ 147      723A2058 
+ 147      5370695F 
+ 147      53746172 
+ 147      74202564 
+ 148 0023 00       		.align	2
+ 149              	.LC4:
+ 150 0024 58537069 		.ascii	"XSpi_Stop Status = %d\012\015\000"
+ 150      5F53746F 
+ 150      70205374 
+ 150      61747573 
+ 150      203D2025 
+ 151              		.align	2
+ 152              	.LC6:
+ 153 003c 58537069 		.ascii	"XSpi_Initialize Status = %d\012\015\000"
+ 153      5F496E69 
+ 153      7469616C 
+ 153      697A6520 
+ 153      53746174 
+ 154 005a 0000     		.align	2
+ 155              	.LC8:
+ 156 005c 58537069 		.ascii	"XSpi_CfgInitialize %d\012\015\000"
+ 156      5F436667 
+ 156      496E6974 
+ 156      69616C69 
+ 156      7A652025 
+ 157              		.align	2
+ 158              	.LC10:
+ 159 0074 4572726F 		.ascii	"Error: XSpi_SetOptions %d\012\015\000"
+ 159      723A2058 
+ 159      5370695F 
+ 159      5365744F 
+ 159      7074696F 
+ 160              		.align	2
+ 161              	.LC12:
+ 162 0090 4572726F 		.ascii	"Error: XSpi_IntrGlobalDisable %d\012\015\000"
+ 162      723A2058 
+ 162      5370695F 
+ 162      496E7472 
+ 162      476C6F62 
+ 163 00b3 00       		.align	2
+ 164              	.LC14:
+ 165 00b4 53756363 		.ascii	"Success: XSpi_IntrGlobalDisable %d\012\015\000"
+ 165      6573733A 
+ 165      20585370 
+ 165      695F496E 
+ 165      7472476C 
+ 166 00d9 000000   		.align	2
+ 167              	.LC17:
+ 168 00dc 4572726F 		.ascii	"Error: XSpi_Transfer %d\012\015\000"
+ 168      723A2058 
+ 168      5370695F 
+ 168      5472616E 
+ 168      73666572 
+ 169 00f6 0000     		.align	2
+ 170              	.LC19:
+ 171 00f8 25327820 		.ascii	"%2x \000"
+ 171      00
+ 172 00fd 000000   		.align	2
+ 173              	.LC21:
+ 174 0100 0A0D456E 		.ascii	"\012\015End of SPI APP  Status = %d\012\015\000"
+ 174      64206F66 
+ 174      20535049 
+ 174      20415050 
+ 174      20205374 
+ 175              		.section	.text.SpiApp,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	SpiApp
+ 178              		.syntax unified
+ 179              		.code	16
+ 180              		.thumb_func
+ 181              		.fpu softvfp
+ 183              	SpiApp:
+ 184              		@ args = 0, pretend = 0, frame = 24
+ 185              		@ frame_needed = 1, uses_anonymous_args = 0
+ 186 0000 80B5     		push	{r7, lr}
+ 187 0002 86B0     		sub	sp, sp, #24
+ 188 0004 00AF     		add	r7, sp, #0
+ 189 0006 7860     		str	r0, [r7, #4]
+ 190 0008 0A00     		movs	r2, r1
+ 191 000a BB1C     		adds	r3, r7, #2
+ 192 000c 1A80     		strh	r2, [r3]
+ 193 000e 644B     		ldr	r3, .L17
+ 194 0010 0A21     		movs	r1, #10
+ 195 0012 1800     		movs	r0, r3
+ 196 0014 FFF7FEFF 		bl	Xil_Out32
+ 197 0018 624B     		ldr	r3, .L17+4
+ 198 001a 1800     		movs	r0, r3
+ 199 001c FFF7FEFF 		bl	uartl_print_s
+ 200 0020 BB1C     		adds	r3, r7, #2
+ 201 0022 1B88     		ldrh	r3, [r3]
+ 202 0024 1800     		movs	r0, r3
+ 203 0026 FFF7FEFF 		bl	XSpi_LookupConfig
+ 204 002a 0300     		movs	r3, r0
+ 205 002c BB60     		str	r3, [r7, #8]
+ 206 002e BB68     		ldr	r3, [r7, #8]
+ 207 0030 002B     		cmp	r3, #0
+ 208 0032 07D1     		bne	.L5
+ 209 0034 7A69     		ldr	r2, [r7, #20]
+ 210 0036 5C4B     		ldr	r3, .L17+8
+ 211 0038 1100     		movs	r1, r2
+ 212 003a 1800     		movs	r0, r3
+ 213 003c FFF7FEFF 		bl	uartl_print_s1u
+ 214 0040 0123     		movs	r3, #1
+ 215 0042 A9E0     		b	.L6
+ 216              	.L5:
+ 217 0044 0323     		movs	r3, #3
+ 218 0046 3B61     		str	r3, [r7, #16]
+ 219 0048 1EE0     		b	.L7
+ 220              	.L10:
+ 221 004a BB68     		ldr	r3, [r7, #8]
+ 222 004c 5A68     		ldr	r2, [r3, #4]
+ 223 004e B968     		ldr	r1, [r7, #8]
+ 224 0050 7B68     		ldr	r3, [r7, #4]
+ 225 0052 1800     		movs	r0, r3
+ 226 0054 FFF7FEFF 		bl	XSpi_CfgInitialize
+ 227 0058 0300     		movs	r3, r0
+ 228 005a 7B61     		str	r3, [r7, #20]
+ 229 005c 7B69     		ldr	r3, [r7, #20]
+ 230 005e 052B     		cmp	r3, #5
+ 231 0060 0CD1     		bne	.L8
+ 232 0062 7B68     		ldr	r3, [r7, #4]
+ 233 0064 1800     		movs	r0, r3
+ 234 0066 FFF7FEFF 		bl	XSpi_Stop
+ 235 006a 0300     		movs	r3, r0
+ 236 006c 7B61     		str	r3, [r7, #20]
+ 237 006e 7A69     		ldr	r2, [r7, #20]
+ 238 0070 4E4B     		ldr	r3, .L17+12
+ 239 0072 1100     		movs	r1, r2
+ 240 0074 1800     		movs	r0, r3
+ 241 0076 FFF7FEFF 		bl	uartl_print_s1u
+ 242 007a 05E0     		b	.L7
+ 243              	.L8:
+ 244 007c 7A69     		ldr	r2, [r7, #20]
+ 245 007e 4C4B     		ldr	r3, .L17+16
+ 246 0080 1100     		movs	r1, r2
+ 247 0082 1800     		movs	r0, r3
+ 248 0084 FFF7FEFF 		bl	uartl_print_s1u
+ 249              	.L7:
+ 250 0088 3B69     		ldr	r3, [r7, #16]
+ 251 008a 5A1E     		subs	r2, r3, #1
+ 252 008c 3A61     		str	r2, [r7, #16]
+ 253 008e 002B     		cmp	r3, #0
+ 254 0090 02D0     		beq	.L9
+ 255 0092 7B69     		ldr	r3, [r7, #20]
+ 256 0094 002B     		cmp	r3, #0
+ 257 0096 D8D1     		bne	.L10
+ 258              	.L9:
+ 259 0098 7B68     		ldr	r3, [r7, #4]
+ 260 009a 9B69     		ldr	r3, [r3, #24]
+ 261 009c 6433     		adds	r3, r3, #100
+ 262 009e 1800     		movs	r0, r3
+ 263 00a0 FFF7FEFF 		bl	Xil_In32
+ 264 00a4 0200     		movs	r2, r0
+ 265 00a6 434B     		ldr	r3, .L17+20
+ 266 00a8 1100     		movs	r1, r2
+ 267 00aa 1800     		movs	r0, r3
+ 268 00ac FFF7FEFF 		bl	uartl_print_s1u
+ 269 00b0 7B68     		ldr	r3, [r7, #4]
+ 270 00b2 0621     		movs	r1, #6
+ 271 00b4 1800     		movs	r0, r3
+ 272 00b6 FFF7FEFF 		bl	XSpi_SetOptions
+ 273 00ba 0300     		movs	r3, r0
+ 274 00bc 7B61     		str	r3, [r7, #20]
+ 275 00be 7B69     		ldr	r3, [r7, #20]
+ 276 00c0 002B     		cmp	r3, #0
+ 277 00c2 07D0     		beq	.L11
+ 278 00c4 7A69     		ldr	r2, [r7, #20]
+ 279 00c6 3C4B     		ldr	r3, .L17+24
+ 280 00c8 1100     		movs	r1, r2
+ 281 00ca 1800     		movs	r0, r3
+ 282 00cc FFF7FEFF 		bl	uartl_print_s1u
+ 283 00d0 0123     		movs	r3, #1
+ 284 00d2 61E0     		b	.L6
+ 285              	.L11:
+ 286 00d4 7B68     		ldr	r3, [r7, #4]
+ 287 00d6 1800     		movs	r0, r3
+ 288 00d8 FFF7FEFF 		bl	XSpi_Start
+ 289 00dc 0300     		movs	r3, r0
+ 290 00de 7B61     		str	r3, [r7, #20]
+ 291 00e0 7B69     		ldr	r3, [r7, #20]
+ 292 00e2 002B     		cmp	r3, #0
+ 293 00e4 07D0     		beq	.L12
+ 294 00e6 7A69     		ldr	r2, [r7, #20]
+ 295 00e8 2F4B     		ldr	r3, .L17+8
+ 296 00ea 1100     		movs	r1, r2
+ 297 00ec 1800     		movs	r0, r3
+ 298 00ee FFF7FEFF 		bl	uartl_print_s1u
+ 299 00f2 0123     		movs	r3, #1
+ 300 00f4 50E0     		b	.L6
+ 301              	.L12:
+ 302 00f6 7B68     		ldr	r3, [r7, #4]
+ 303 00f8 9B69     		ldr	r3, [r3, #24]
+ 304 00fa 1C33     		adds	r3, r3, #28
+ 305 00fc 0021     		movs	r1, #0
+ 306 00fe 1800     		movs	r0, r3
+ 307 0100 FFF7FEFF 		bl	Xil_Out32
+ 308 0104 7B69     		ldr	r3, [r7, #20]
+ 309 0106 002B     		cmp	r3, #0
+ 310 0108 0DD0     		beq	.L13
+ 311 010a 7B68     		ldr	r3, [r7, #4]
+ 312 010c 9B69     		ldr	r3, [r3, #24]
+ 313 010e 6433     		adds	r3, r3, #100
+ 314 0110 1800     		movs	r0, r3
+ 315 0112 FFF7FEFF 		bl	Xil_In32
+ 316 0116 0200     		movs	r2, r0
+ 317 0118 284B     		ldr	r3, .L17+28
+ 318 011a 1100     		movs	r1, r2
+ 319 011c 1800     		movs	r0, r3
+ 320 011e FFF7FEFF 		bl	uartl_print_s1u
+ 321 0122 0123     		movs	r3, #1
+ 322 0124 38E0     		b	.L6
+ 323              	.L13:
+ 324 0126 7B68     		ldr	r3, [r7, #4]
+ 325 0128 9B69     		ldr	r3, [r3, #24]
+ 326 012a 6433     		adds	r3, r3, #100
+ 327 012c 1800     		movs	r0, r3
+ 328 012e FFF7FEFF 		bl	Xil_In32
+ 329 0132 0200     		movs	r2, r0
+ 330 0134 224B     		ldr	r3, .L17+32
+ 331 0136 1100     		movs	r1, r2
+ 332 0138 1800     		movs	r0, r3
+ 333 013a FFF7FEFF 		bl	uartl_print_s1u
+ 334 013e 214A     		ldr	r2, .L17+36
+ 335 0140 2049     		ldr	r1, .L17+36
+ 336 0142 7868     		ldr	r0, [r7, #4]
+ 337 0144 1123     		movs	r3, #17
+ 338 0146 FFF7FEFF 		bl	XSpi_Transfer
+ 339 014a 0300     		movs	r3, r0
+ 340 014c 7B61     		str	r3, [r7, #20]
+ 341 014e 7B69     		ldr	r3, [r7, #20]
+ 342 0150 002B     		cmp	r3, #0
+ 343 0152 07D0     		beq	.L14
+ 344 0154 7A69     		ldr	r2, [r7, #20]
+ 345 0156 1C4B     		ldr	r3, .L17+40
+ 346 0158 1100     		movs	r1, r2
+ 347 015a 1800     		movs	r0, r3
+ 348 015c FFF7FEFF 		bl	uartl_print_s1u
+ 349 0160 0123     		movs	r3, #1
+ 350 0162 19E0     		b	.L6
+ 351              	.L14:
+ 352 0164 0023     		movs	r3, #0
+ 353 0166 FB60     		str	r3, [r7, #12]
+ 354 0168 0CE0     		b	.L15
+ 355              	.L16:
+ 356 016a 164A     		ldr	r2, .L17+36
+ 357 016c FB68     		ldr	r3, [r7, #12]
+ 358 016e D318     		adds	r3, r2, r3
+ 359 0170 1B78     		ldrb	r3, [r3]
+ 360 0172 1A00     		movs	r2, r3
+ 361 0174 154B     		ldr	r3, .L17+44
+ 362 0176 1100     		movs	r1, r2
+ 363 0178 1800     		movs	r0, r3
+ 364 017a FFF7FEFF 		bl	uartl_print_s1u
+ 365 017e FB68     		ldr	r3, [r7, #12]
+ 366 0180 0133     		adds	r3, r3, #1
+ 367 0182 FB60     		str	r3, [r7, #12]
+ 368              	.L15:
+ 369 0184 FB68     		ldr	r3, [r7, #12]
+ 370 0186 102B     		cmp	r3, #16
+ 371 0188 EFD9     		bls	.L16
+ 372 018a 7A69     		ldr	r2, [r7, #20]
+ 373 018c 104B     		ldr	r3, .L17+48
+ 374 018e 1100     		movs	r1, r2
+ 375 0190 1800     		movs	r0, r3
+ 376 0192 FFF7FEFF 		bl	uartl_print_s1u
+ 377 0196 0023     		movs	r3, #0
+ 378              	.L6:
+ 379 0198 1800     		movs	r0, r3
+ 380 019a BD46     		mov	sp, r7
+ 381 019c 06B0     		add	sp, sp, #24
+ 382              		@ sp needed
+ 383 019e 80BD     		pop	{r7, pc}
+ 384              	.L18:
+ 385              		.align	2
+ 386              	.L17:
+ 387 01a0 7000A044 		.word	1151336560
+ 388 01a4 00000000 		.word	.LC0
+ 389 01a8 0C000000 		.word	.LC2
+ 390 01ac 24000000 		.word	.LC4
+ 391 01b0 3C000000 		.word	.LC6
+ 392 01b4 5C000000 		.word	.LC8
+ 393 01b8 74000000 		.word	.LC10
+ 394 01bc 90000000 		.word	.LC12
+ 395 01c0 B4000000 		.word	.LC14
+ 396 01c4 00000000 		.word	ReadBuffer
+ 397 01c8 DC000000 		.word	.LC17
+ 398 01cc F8000000 		.word	.LC19
+ 399 01d0 00010000 		.word	.LC21
+ 401              		.global	BaseAddress
+ 402              		.section	.data.BaseAddress,"aw"
+ 403              		.align	2
+ 406              	BaseAddress:
+ 407 0000 0000A044 		.word	1151336448
+ 408              		.section	.rodata
+ 409              		.align	2
+ 410              	.LC24:
+ 411 0120 0A0D5853 		.ascii	"\012\015XSpi 1\000"
+ 411      70692031 
+ 411      00
+ 412 0129 000000   		.align	2
+ 413              	.LC26:
+ 414 012c 203200   		.ascii	" 2\000"
+ 415 012f 00       		.align	2
+ 416              	.LC30:
+ 417 0130 203300   		.ascii	" 3\000"
+ 418 0133 00       		.align	2
+ 419              	.LC32:
+ 420 0134 203400   		.ascii	" 4\000"
+ 421 0137 00       		.align	2
+ 422              	.LC34:
+ 423 0138 203500   		.ascii	" 5\000"
+ 424              		.section	.text.spiInit,"ax",%progbits
+ 425              		.align	1
+ 426              		.global	spiInit
+ 427              		.syntax unified
+ 428              		.code	16
+ 429              		.thumb_func
+ 430              		.fpu softvfp
+ 432              	spiInit:
+ 433              		@ args = 0, pretend = 0, frame = 16
+ 434              		@ frame_needed = 1, uses_anonymous_args = 0
+ 435 0000 80B5     		push	{r7, lr}
+ 436 0002 84B0     		sub	sp, sp, #16
+ 437 0004 00AF     		add	r7, sp, #0
+ 438 0006 0023     		movs	r3, #0
+ 439 0008 BB60     		str	r3, [r7, #8]
+ 440 000a 0023     		movs	r3, #0
+ 441 000c 7B60     		str	r3, [r7, #4]
+ 442 000e 354B     		ldr	r3, .L23
+ 443 0010 1B68     		ldr	r3, [r3]
+ 444 0012 4033     		adds	r3, r3, #64
+ 445 0014 0A21     		movs	r1, #10
+ 446 0016 1800     		movs	r0, r3
+ 447 0018 FFF7FEFF 		bl	Xil_Out32
+ 448 001c 324B     		ldr	r3, .L23+4
+ 449 001e 1800     		movs	r0, r3
+ 450 0020 FFF7FEFF 		bl	uartl_print_s
+ 451 0024 2F4B     		ldr	r3, .L23
+ 452 0026 1B68     		ldr	r3, [r3]
+ 453 0028 6033     		adds	r3, r3, #96
+ 454 002a 1800     		movs	r0, r3
+ 455 002c FFF7FEFF 		bl	Xil_In32
+ 456 0030 0300     		movs	r3, r0
+ 457 0032 3B60     		str	r3, [r7]
+ 458 0034 3B68     		ldr	r3, [r7]
+ 459 0036 1822     		movs	r2, #24
+ 460 0038 1343     		orrs	r3, r2
+ 461 003a 3B60     		str	r3, [r7]
+ 462 003c 294B     		ldr	r3, .L23
+ 463 003e 1B68     		ldr	r3, [r3]
+ 464 0040 6033     		adds	r3, r3, #96
+ 465 0042 3A68     		ldr	r2, [r7]
+ 466 0044 1100     		movs	r1, r2
+ 467 0046 1800     		movs	r0, r3
+ 468 0048 FFF7FEFF 		bl	Xil_Out32
+ 469 004c 274B     		ldr	r3, .L23+8
+ 470 004e 1800     		movs	r0, r3
+ 471 0050 FFF7FEFF 		bl	uartl_print_s
+ 472 0054 0023     		movs	r3, #0
+ 473 0056 FB60     		str	r3, [r7, #12]
+ 474 0058 10E0     		b	.L20
+ 475              	.L21:
+ 476 005a FB68     		ldr	r3, [r7, #12]
+ 477 005c DBB2     		uxtb	r3, r3
+ 478 005e 1033     		adds	r3, r3, #16
+ 479 0060 D9B2     		uxtb	r1, r3
+ 480 0062 234A     		ldr	r2, .L23+12
+ 481 0064 FB68     		ldr	r3, [r7, #12]
+ 482 0066 D318     		adds	r3, r2, r3
+ 483 0068 0A1C     		adds	r2, r1, #0
+ 484 006a 1A70     		strb	r2, [r3]
+ 485 006c 214A     		ldr	r2, .L23+16
+ 486 006e FB68     		ldr	r3, [r7, #12]
+ 487 0070 D318     		adds	r3, r2, r3
+ 488 0072 1122     		movs	r2, #17
+ 489 0074 1A70     		strb	r2, [r3]
+ 490 0076 FB68     		ldr	r3, [r7, #12]
+ 491 0078 0133     		adds	r3, r3, #1
+ 492 007a FB60     		str	r3, [r7, #12]
+ 493              	.L20:
+ 494 007c FB68     		ldr	r3, [r7, #12]
+ 495 007e 102B     		cmp	r3, #16
+ 496 0080 EBD9     		bls	.L21
+ 497 0082 1D4B     		ldr	r3, .L23+20
+ 498 0084 1800     		movs	r0, r3
+ 499 0086 FFF7FEFF 		bl	uartl_print_s
+ 500 008a 164B     		ldr	r3, .L23
+ 501 008c 1B68     		ldr	r3, [r3]
+ 502 008e 6033     		adds	r3, r3, #96
+ 503 0090 1800     		movs	r0, r3
+ 504 0092 FFF7FEFF 		bl	Xil_In32
+ 505 0096 0300     		movs	r3, r0
+ 506 0098 3B60     		str	r3, [r7]
+ 507 009a 3B68     		ldr	r3, [r7]
+ 508 009c 6222     		movs	r2, #98
+ 509 009e 1343     		orrs	r3, r2
+ 510 00a0 3B60     		str	r3, [r7]
+ 511 00a2 3B68     		ldr	r3, [r7]
+ 512 00a4 154A     		ldr	r2, .L23+24
+ 513 00a6 1340     		ands	r3, r2
+ 514 00a8 3B60     		str	r3, [r7]
+ 515 00aa 0E4B     		ldr	r3, .L23
+ 516 00ac 1B68     		ldr	r3, [r3]
+ 517 00ae 6033     		adds	r3, r3, #96
+ 518 00b0 3A68     		ldr	r2, [r7]
+ 519 00b2 1100     		movs	r1, r2
+ 520 00b4 1800     		movs	r0, r3
+ 521 00b6 FFF7FEFF 		bl	Xil_Out32
+ 522 00ba 114B     		ldr	r3, .L23+28
+ 523 00bc 1800     		movs	r0, r3
+ 524 00be FFF7FEFF 		bl	uartl_print_s
+ 525 00c2 084B     		ldr	r3, .L23
+ 526 00c4 1B68     		ldr	r3, [r3]
+ 527 00c6 1C33     		adds	r3, r3, #28
+ 528 00c8 0021     		movs	r1, #0
+ 529 00ca 1800     		movs	r0, r3
+ 530 00cc FFF7FEFF 		bl	Xil_Out32
+ 531 00d0 0C4B     		ldr	r3, .L23+32
+ 532 00d2 1800     		movs	r0, r3
+ 533 00d4 FFF7FEFF 		bl	uartl_print_s
+ 534 00d8 0023     		movs	r3, #0
+ 535 00da 1800     		movs	r0, r3
+ 536 00dc BD46     		mov	sp, r7
+ 537 00de 04B0     		add	sp, sp, #16
+ 538              		@ sp needed
+ 539 00e0 80BD     		pop	{r7, pc}
+ 540              	.L24:
+ 541 00e2 C046     		.align	2
+ 542              	.L23:
+ 543 00e4 00000000 		.word	BaseAddress
+ 544 00e8 20010000 		.word	.LC24
+ 545 00ec 2C010000 		.word	.LC26
+ 546 00f0 00000000 		.word	WriteBuffer
+ 547 00f4 00000000 		.word	ReadBuffer
+ 548 00f8 30010000 		.word	.LC30
+ 549 00fc FFFEFFFF 		.word	-257
+ 550 0100 34010000 		.word	.LC32
+ 551 0104 38010000 		.word	.LC34
+ 553              		.section	.text.spiResetFifos,"ax",%progbits
+ 554              		.align	1
+ 555              		.global	spiResetFifos
+ 556              		.syntax unified
+ 557              		.code	16
+ 558              		.thumb_func
+ 559              		.fpu softvfp
+ 561              	spiResetFifos:
+ 562              		@ args = 0, pretend = 0, frame = 8
+ 563              		@ frame_needed = 1, uses_anonymous_args = 0
+ 564 0000 80B5     		push	{r7, lr}
+ 565 0002 82B0     		sub	sp, sp, #8
+ 566 0004 00AF     		add	r7, sp, #0
+ 567 0006 0C4B     		ldr	r3, .L26
+ 568 0008 1B68     		ldr	r3, [r3]
+ 569 000a 6033     		adds	r3, r3, #96
+ 570 000c 1800     		movs	r0, r3
+ 571 000e FFF7FEFF 		bl	Xil_In32
+ 572 0012 0300     		movs	r3, r0
+ 573 0014 7B60     		str	r3, [r7, #4]
+ 574 0016 7B68     		ldr	r3, [r7, #4]
+ 575 0018 6022     		movs	r2, #96
+ 576 001a 1343     		orrs	r3, r2
+ 577 001c 7B60     		str	r3, [r7, #4]
+ 578 001e 064B     		ldr	r3, .L26
+ 579 0020 1B68     		ldr	r3, [r3]
+ 580 0022 6033     		adds	r3, r3, #96
+ 581 0024 7A68     		ldr	r2, [r7, #4]
+ 582 0026 1100     		movs	r1, r2
+ 583 0028 1800     		movs	r0, r3
+ 584 002a FFF7FEFF 		bl	Xil_Out32
+ 585 002e C046     		nop
+ 586 0030 BD46     		mov	sp, r7
+ 587 0032 02B0     		add	sp, sp, #8
+ 588              		@ sp needed
+ 589 0034 80BD     		pop	{r7, pc}
+ 590              	.L27:
+ 591 0036 C046     		.align	2
+ 592              	.L26:
+ 593 0038 00000000 		.word	BaseAddress
+ 595              		.section	.text.spiRead,"ax",%progbits
+ 596              		.align	1
+ 597              		.global	spiRead
+ 598              		.syntax unified
+ 599              		.code	16
+ 600              		.thumb_func
+ 601              		.fpu softvfp
+ 603              	spiRead:
+ 604              		@ args = 0, pretend = 0, frame = 8
+ 605              		@ frame_needed = 1, uses_anonymous_args = 0
+ 606 0000 80B5     		push	{r7, lr}
+ 607 0002 82B0     		sub	sp, sp, #8
+ 608 0004 00AF     		add	r7, sp, #0
+ 609 0006 C046     		nop
+ 610              	.L29:
+ 611 0008 0C4B     		ldr	r3, .L31
+ 612 000a 1B68     		ldr	r3, [r3]
+ 613 000c 6433     		adds	r3, r3, #100
+ 614 000e 1800     		movs	r0, r3
+ 615 0010 FFF7FEFF 		bl	Xil_In32
+ 616 0014 0300     		movs	r3, r0
+ 617 0016 0122     		movs	r2, #1
+ 618 0018 1340     		ands	r3, r2
+ 619 001a 012B     		cmp	r3, #1
+ 620 001c F4D0     		beq	.L29
+ 621 001e 074B     		ldr	r3, .L31
+ 622 0020 1B68     		ldr	r3, [r3]
+ 623 0022 6C33     		adds	r3, r3, #108
+ 624 0024 1800     		movs	r0, r3
+ 625 0026 FFF7FEFF 		bl	Xil_In32
+ 626 002a 0200     		movs	r2, r0
+ 627 002c FB1D     		adds	r3, r7, #7
+ 628 002e 1A70     		strb	r2, [r3]
+ 629 0030 FB1D     		adds	r3, r7, #7
+ 630 0032 1B78     		ldrb	r3, [r3]
+ 631 0034 1800     		movs	r0, r3
+ 632 0036 BD46     		mov	sp, r7
+ 633 0038 02B0     		add	sp, sp, #8
+ 634              		@ sp needed
+ 635 003a 80BD     		pop	{r7, pc}
+ 636              	.L32:
+ 637              		.align	2
+ 638              	.L31:
+ 639 003c 00000000 		.word	BaseAddress
+ 641              		.section	.text.spiWrite,"ax",%progbits
+ 642              		.align	1
+ 643              		.global	spiWrite
+ 644              		.syntax unified
+ 645              		.code	16
+ 646              		.thumb_func
+ 647              		.fpu softvfp
+ 649              	spiWrite:
+ 650              		@ args = 0, pretend = 0, frame = 8
+ 651              		@ frame_needed = 1, uses_anonymous_args = 0
+ 652 0000 80B5     		push	{r7, lr}
+ 653 0002 82B0     		sub	sp, sp, #8
+ 654 0004 00AF     		add	r7, sp, #0
+ 655 0006 0200     		movs	r2, r0
+ 656 0008 FB1D     		adds	r3, r7, #7
+ 657 000a 1A70     		strb	r2, [r3]
+ 658 000c C046     		nop
+ 659              	.L34:
+ 660 000e 0C4B     		ldr	r3, .L36
+ 661 0010 1B68     		ldr	r3, [r3]
+ 662 0012 1B68     		ldr	r3, [r3]
+ 663 0014 0822     		movs	r2, #8
+ 664 0016 1340     		ands	r3, r2
+ 665 0018 012B     		cmp	r3, #1
+ 666 001a F8D0     		beq	.L34
+ 667 001c 094B     		ldr	r3, .L36+4
+ 668 001e 1B68     		ldr	r3, [r3]
+ 669 0020 FA1D     		adds	r2, r7, #7
+ 670 0022 1278     		ldrb	r2, [r2]
+ 671 0024 1A60     		str	r2, [r3]
+ 672 0026 C046     		nop
+ 673              	.L35:
+ 674 0028 054B     		ldr	r3, .L36
+ 675 002a 1B68     		ldr	r3, [r3]
+ 676 002c 1B68     		ldr	r3, [r3]
+ 677 002e 0422     		movs	r2, #4
+ 678 0030 1340     		ands	r3, r2
+ 679 0032 F9D0     		beq	.L35
+ 680 0034 C046     		nop
+ 681 0036 C046     		nop
+ 682 0038 BD46     		mov	sp, r7
+ 683 003a 02B0     		add	sp, sp, #8
+ 684              		@ sp needed
+ 685 003c 80BD     		pop	{r7, pc}
+ 686              	.L37:
+ 687 003e C046     		.align	2
+ 688              	.L36:
+ 689 0040 00000000 		.word	xspi_sr
+ 690 0044 00000000 		.word	xspi_dtr
+ 692              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 spi.c
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:14     .text.Xil_In32:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:21     .text.Xil_In32:00000000 Xil_In32
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:37     .text.Xil_Out32:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:43     .text.Xil_Out32:00000000 Xil_Out32
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:67     .data.xspi_srr:00000000 xspi_srr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:64     .data.xspi_srr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:74     .data.xspi_cr:00000000 xspi_cr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:71     .data.xspi_cr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:81     .data.xspi_sr:00000000 xspi_sr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:78     .data.xspi_sr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:88     .data.xspi_dtr:00000000 xspi_dtr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:85     .data.xspi_dtr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:95     .data.xspi_drr:00000000 xspi_drr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:92     .data.xspi_drr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:102    .data.xspi_ssr:00000000 xspi_ssr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:99     .data.xspi_ssr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:109    .data.xspi_tfo:00000000 xspi_tfo
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:106    .data.xspi_tfo:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:116    .data.xspi_rfo:00000000 xspi_rfo
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:113    .data.xspi_rfo:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:123    .data.xspi_dgier:00000000 xspi_dgier
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:120    .data.xspi_dgier:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:130    .data.xspi_isr:00000000 xspi_isr
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:127    .data.xspi_isr:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:137    .data.xspi_ier:00000000 xspi_ier
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:134    .data.xspi_ier:00000000 $d
+                            *COM*:00000011 WriteBuffer
+                            *COM*:00000011 ReadBuffer
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:142    .rodata:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:176    .text.SpiApp:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:183    .text.SpiApp:00000000 SpiApp
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:387    .text.SpiApp:000001a0 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:406    .data.BaseAddress:00000000 BaseAddress
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:403    .data.BaseAddress:00000000 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:425    .text.spiInit:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:432    .text.spiInit:00000000 spiInit
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:543    .text.spiInit:000000e4 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:554    .text.spiResetFifos:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:561    .text.spiResetFifos:00000000 spiResetFifos
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:593    .text.spiResetFifos:00000038 $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:596    .text.spiRead:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:603    .text.spiRead:00000000 spiRead
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:639    .text.spiRead:0000003c $d
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:642    .text.spiWrite:00000000 $t
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:649    .text.spiWrite:00000000 spiWrite
+C:\Users\george\AppData\Local\Temp\ccPNYxQs.s:689    .text.spiWrite:00000040 $d
+
+UNDEFINED SYMBOLS
+uartl_print_s
+XSpi_LookupConfig
+uartl_print_s1u
+XSpi_CfgInitialize
+XSpi_Stop
+XSpi_SetOptions
+XSpi_Start
+XSpi_Transfer

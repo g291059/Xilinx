@@ -1,0 +1,151 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xF3FCEDE533871987",
+      "device": "xc7k325tffg676-1",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "test_0": ""
+    },
+    "ports": {
+      "sys_rst_n": {
+        "direction": "I"
+      },
+      "key_4": {
+        "direction": "I"
+      },
+      "key_5": {
+        "direction": "I"
+      },
+      "key_6": {
+        "direction": "I"
+      },
+      "led_3": {
+        "direction": "O"
+      },
+      "switch": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "sys_clk": {
+        "direction": "I"
+      },
+      "led_4": {
+        "direction": "O"
+      },
+      "led_5": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "test_0": {
+        "vlnv": "xilinx.com:module_ref:test:1.0",
+        "xci_name": "design_1_test_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "test",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk_i": {
+            "direction": "I"
+          },
+          "key_4": {
+            "direction": "I"
+          },
+          "key_5": {
+            "direction": "I"
+          },
+          "key_6": {
+            "direction": "I"
+          },
+          "switch": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "led_1": {
+            "direction": "O"
+          },
+          "led_2": {
+            "direction": "O"
+          },
+          "led_3": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "sys_rst_n_1": {
+        "ports": [
+          "sys_rst_n",
+          "test_0/rst_n"
+        ]
+      },
+      "key_4_1": {
+        "ports": [
+          "key_4",
+          "test_0/key_4"
+        ]
+      },
+      "key_5_1": {
+        "ports": [
+          "key_5",
+          "test_0/key_5"
+        ]
+      },
+      "key_6_1": {
+        "ports": [
+          "key_6",
+          "test_0/key_6"
+        ]
+      },
+      "switch_1": {
+        "ports": [
+          "switch",
+          "test_0/switch"
+        ]
+      },
+      "sys_clk_1": {
+        "ports": [
+          "sys_clk",
+          "test_0/clk_i"
+        ]
+      },
+      "test_0_led_1": {
+        "ports": [
+          "test_0/led_1",
+          "led_3"
+        ]
+      },
+      "test_0_led_2": {
+        "ports": [
+          "test_0/led_2",
+          "led_4"
+        ]
+      },
+      "test_0_led_3": {
+        "ports": [
+          "test_0/led_3",
+          "led_5"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "Rom_t_0": "",
+      "genClkRst_0": "",
+      "dpram_t2_0": "",
+      "changer_t1_0": "",
+      "freeRunCounter_0": "",
+      "term_t1_0": "",
+      "xlconstant_1": "",
+      "xlconstant_0": ""
+    },
+    "components": {
+      "Rom_t_0": {
+        "vlnv": "xilinx.com:module_ref:Rom_t:1.0",
+        "xci_name": "design_1_Rom_t_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Rom_t",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "do": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "addr": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "ck": {
+            "direction": "I"
+          }
+        }
+      },
+      "genClkRst_0": {
+        "vlnv": "xilinx.com:module_ref:genClkRst:1.0",
+        "xci_name": "design_1_genClkRst_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "genClkRst",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "oclk": {
+            "direction": "O"
+          },
+          "oreset": {
+            "direction": "O"
+          },
+          "addr_o": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          }
+        }
+      },
+      "dpram_t2_0": {
+        "vlnv": "xilinx.com:module_ref:dpram_t2:1.0",
+        "xci_name": "design_1_dpram_t2_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "dpram_t2",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clka": {
+            "direction": "I"
+          },
+          "clkb": {
+            "direction": "I"
+          },
+          "wea": {
+            "direction": "I"
+          },
+          "addra": {
+            "direction": "I",
+            "left": "10",
+            "right": "0"
+          },
+          "addrb": {
+            "direction": "I",
+            "left": "10",
+            "right": "0"
+          },
+          "dia": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "doa": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "dob": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "changer_t1_0": {
+        "vlnv": "xilinx.com:module_ref:changer_t1:1.0",
+        "xci_name": "design_1_changer_t1_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "changer_t1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I"
+          },
+          "addri": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "di16": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "addro": {
+            "direction": "O",
+            "left": "10",
+            "right": "0"
+          },
+          "do8": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "freeRunCounter_0": {
+        "vlnv": "xilinx.com:module_ref:freeRunCounter:1.0",
+        "xci_name": "design_1_freeRunCounter_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "freeRunCounter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "ce": {
+            "direction": "I"
+          },
+          "do": {
+            "direction": "O"
+          },
+          "di": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "term_t1_0": {
+        "vlnv": "xilinx.com:module_ref:term_t1:1.0",
+        "xci_name": "design_1_term_t1_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "term_t1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I"
+          },
+          "hctr_i": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "vctr_i": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "cnt_oe": {
+            "direction": "O"
+          },
+          "addr_o": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_1_1"
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_1",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "12"
+          }
+        }
+      }
+    },
+    "nets": {
+      "genClkRst_0_oclk": {
+        "ports": [
+          "genClkRst_0/oclk",
+          "Rom_t_0/ck",
+          "dpram_t2_0/clkb",
+          "changer_t1_0/clk_i",
+          "freeRunCounter_0/clk",
+          "term_t1_0/clk_i"
+        ]
+      },
+      "genClkRst_0_addr_o": {
+        "ports": [
+          "genClkRst_0/addr_o",
+          "term_t1_0/hctr_i"
+        ]
+      },
+      "dpram_t2_0_dob": {
+        "ports": [
+          "dpram_t2_0/dob",
+          "changer_t1_0/di16"
+        ]
+      },
+      "term_t1_0_addr_o": {
+        "ports": [
+          "term_t1_0/addr_o",
+          "changer_t1_0/addri"
+        ]
+      },
+      "term_t1_0_cnt_oe": {
+        "ports": [
+          "term_t1_0/cnt_oe",
+          "freeRunCounter_0/ce"
+        ]
+      },
+      "changer_t1_0_addro": {
+        "ports": [
+          "changer_t1_0/addro",
+          "dpram_t2_0/addrb"
+        ]
+      },
+      "genClkRst_0_oreset": {
+        "ports": [
+          "genClkRst_0/oreset",
+          "Rom_t_0/rst"
+        ]
+      },
+      "Rom_t_0_do": {
+        "ports": [
+          "Rom_t_0/do",
+          "freeRunCounter_0/di"
+        ]
+      },
+      "changer_t1_0_do8": {
+        "ports": [
+          "changer_t1_0/do8",
+          "Rom_t_0/addr"
+        ]
+      },
+      "xlconstant_1_dout": {
+        "ports": [
+          "xlconstant_1/dout",
+          "dpram_t2_0/wea"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "term_t1_0/vctr_i"
+        ]
+      }
+    }
+  }
+}

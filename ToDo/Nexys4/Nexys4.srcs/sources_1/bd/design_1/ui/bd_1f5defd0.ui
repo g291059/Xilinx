@@ -1,0 +1,107 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.18075",
+   "Default View_TopLeft":"-254,146",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace port btnr_i -pg 1 -lvl 0 -x -110 -y 1240 -defaultsOSRD
+preplace port btnd_i -pg 1 -lvl 0 -x -110 -y 1260 -defaultsOSRD
+preplace port ps2_clk -pg 1 -lvl 5 -x 1420 -y 1550 -defaultsOSRD
+preplace port clk_i -pg 1 -lvl 0 -x -110 -y 1340 -defaultsOSRD
+preplace port Mem_CEN -pg 1 -lvl 5 -x 1420 -y 200 -defaultsOSRD
+preplace port Mem_OEN -pg 1 -lvl 5 -x 1420 -y 220 -defaultsOSRD
+preplace port Mem_WEN -pg 1 -lvl 5 -x 1420 -y 240 -defaultsOSRD
+preplace port Mem_UB -pg 1 -lvl 5 -x 1420 -y 260 -defaultsOSRD
+preplace port Mem_ADV -pg 1 -lvl 5 -x 1420 -y 300 -defaultsOSRD
+preplace port Mem_CLK -pg 1 -lvl 5 -x 1420 -y 320 -defaultsOSRD
+preplace port Mem_CRE -pg 1 -lvl 5 -x 1420 -y 340 -defaultsOSRD
+preplace port Mem_LB -pg 1 -lvl 5 -x 1420 -y 280 -defaultsOSRD
+preplace port reset_p -pg 1 -lvl 0 -x -110 -y 1320 -defaultsOSRD
+preplace port btnl_i -pg 1 -lvl 0 -x -110 -y 1200 -defaultsOSRD
+preplace port btnc_i -pg 1 -lvl 0 -x -110 -y 1220 -defaultsOSRD
+preplace port btnu_i -pg 1 -lvl 0 -x -110 -y 220 -defaultsOSRD
+preplace port vga_hs_o -pg 1 -lvl 5 -x 1420 -y 920 -defaultsOSRD
+preplace port vga_vs_o -pg 1 -lvl 5 -x 1420 -y 940 -defaultsOSRD
+preplace port sclk -pg 1 -lvl 5 -x 1420 -y 670 -defaultsOSRD
+preplace port mosi -pg 1 -lvl 5 -x 1420 -y 690 -defaultsOSRD
+preplace port ss -pg 1 -lvl 5 -x 1420 -y 710 -defaultsOSRD
+preplace port miso -pg 1 -lvl 0 -x -110 -y 750 -defaultsOSRD
+preplace port tmp_scl -pg 1 -lvl 5 -x 1420 -y 480 -defaultsOSRD
+preplace port tmp_sda -pg 1 -lvl 5 -x 1420 -y 500 -defaultsOSRD
+preplace port ps2_data -pg 1 -lvl 5 -x 1420 -y 1570 -defaultsOSRD
+preplace portBus Mem_DQ -pg 1 -lvl 5 -x 1420 -y 180 -defaultsOSRD
+preplace portBus Mem_A -pg 1 -lvl 5 -x 1420 -y 160 -defaultsOSRD
+preplace portBus vga_red_o -pg 1 -lvl 5 -x 1420 -y 960 -defaultsOSRD
+preplace portBus vga_green_o -pg 1 -lvl 5 -x 1420 -y 980 -defaultsOSRD
+preplace portBus vga_blue_o -pg 1 -lvl 5 -x 1420 -y 1000 -defaultsOSRD
+preplace portBus disp_seg_o -pg 1 -lvl 5 -x 1420 -y 1710 -defaultsOSRD
+preplace portBus disp_an_o -pg 1 -lvl 5 -x 1420 -y 1730 -defaultsOSRD
+preplace inst RgbLed_0 -pg 1 -lvl 3 -x 680 -y 1210 -defaultsOSRD
+preplace inst sSegDemo_0 -pg 1 -lvl 4 -x 1190 -y 1720 -defaultsOSRD
+preplace inst AudioDemo_0 -pg 1 -lvl 3 -x 680 -y 210 -defaultsOSRD
+preplace inst FPGAMonitor_0 -pg 1 -lvl 3 -x 680 -y 1020 -defaultsOSRD
+preplace inst TempSensorCtl_0 -pg 1 -lvl 3 -x 680 -y 530 -defaultsOSRD
+preplace inst AccelerometerCtl_0 -pg 1 -lvl 3 -x 680 -y 730 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 2 -x 400 -y 1330 -defaultsOSRD
+preplace inst MouseCtl_0 -pg 1 -lvl 3 -x 680 -y 1490 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 3 -x 680 -y 890 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 3 -x 680 -y 1670 -defaultsOSRD
+preplace inst Vga_0 -pg 1 -lvl 4 -x 1190 -y 960 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 1 -x -10 -y 340 -defaultsOSRD
+preplace netloc clk_wiz_clk_out1 1 2 2 500 430 870
+preplace netloc TempSensorCtl_0_TEMP_O 1 3 1 880 530n
+preplace netloc btnr_i_1 1 0 3 NJ 1240 N 1240 NJ
+preplace netloc btnd_i_1 1 0 3 NJ 1260 N 1260 NJ
+preplace netloc AccelerometerCtl_0_ACCEL_X_OUT 1 3 1 940 730n
+preplace netloc AccelerometerCtl_0_ACCEL_Y_OUT 1 3 1 920 750n
+preplace netloc AccelerometerCtl_0_ACCEL_MAG_OUT 1 3 1 900 770n
+preplace netloc RgbLed_0_RED_OUT 1 3 1 860 830n
+preplace netloc RgbLed_0_GREEN_OUT 1 3 1 890 850n
+preplace netloc RgbLed_0_BLUE_OUT 1 3 1 910 870n
+preplace netloc Net4 1 1 3 N 340 490 0 950J
+preplace netloc AudioDemo_0_pdm_clk_rising_o 1 3 1 930 360n
+preplace netloc FPGAMonitor_0_TEMP_O 1 3 1 850 1020n
+preplace netloc AccelerometerCtl_0_ACCEL_TMP_OUT 1 3 1 840 790n
+preplace netloc MouseCtl_0_xpos 1 3 1 940 1030n
+preplace netloc MouseCtl_0_ypos 1 3 1 970 1050n
+preplace netloc Net2 1 3 2 NJ 1550 NJ
+preplace netloc xlconstant_0_dout 1 3 1 NJ 890
+preplace netloc xlconstant_1_dout 1 3 1 960J 910n
+preplace netloc clk_i_1 1 0 2 NJ 1340 N
+preplace netloc AudioDemo_0_Mem_CEN 1 3 2 NJ 200 NJ
+preplace netloc AudioDemo_0_Mem_OEN 1 3 2 NJ 220 NJ
+preplace netloc AudioDemo_0_Mem_WEN 1 3 2 NJ 240 NJ
+preplace netloc AudioDemo_0_Mem_UB 1 3 2 NJ 260 NJ
+preplace netloc AudioDemo_0_Mem_ADV 1 3 2 NJ 300 NJ
+preplace netloc AudioDemo_0_Mem_CLK 1 3 2 NJ 320 NJ
+preplace netloc AudioDemo_0_Mem_CRE 1 3 2 NJ 340 NJ
+preplace netloc AudioDemo_0_Mem_LB 1 3 2 NJ 280 NJ
+preplace netloc Net5 1 3 2 NJ 180 NJ
+preplace netloc AudioDemo_0_Mem_A 1 3 2 NJ 160 NJ
+preplace netloc reset_p_1 1 0 4 N 1320 70 1400 510 1730 N
+preplace netloc btnl_i_0_1 1 0 3 NJ 1200 N 1200 NJ
+preplace netloc btnc_i_0_1 1 0 3 NJ 1220 N 1220 NJ
+preplace netloc btnu_i_1 1 0 3 NJ 220 N 220 N
+preplace netloc Vga_0_VGA_HS_O 1 4 1 N 920
+preplace netloc Vga_0_VGA_VS_O 1 4 1 N 940
+preplace netloc Vga_0_VGA_RED_O 1 4 1 N 960
+preplace netloc Vga_0_VGA_GREEN_O 1 4 1 N 980
+preplace netloc Vga_0_VGA_BLUE_O 1 4 1 N 1000
+preplace netloc AccelerometerCtl_0_SCLK 1 3 2 N 670 NJ
+preplace netloc AccelerometerCtl_0_MOSI 1 3 2 N 690 NJ
+preplace netloc AccelerometerCtl_0_SS 1 3 2 N 710 NJ
+preplace netloc miso_1 1 0 3 NJ 750 N 750 N
+preplace netloc Net1 1 3 2 840 480 NJ
+preplace netloc Net 1 3 2 840 500 NJ
+preplace netloc sSegDemo_0_seg_o 1 4 1 N 1710
+preplace netloc sSegDemo_0_an_o 1 4 1 N 1730
+preplace netloc Net3 1 3 2 N 1570 NJ
+levelinfo -pg 1 -110 -10 400 680 1190 1420
+pagesize -pg 1 -db -bbox -sgen -210 -90 1580 1910
+"
+}
+{
+   "da_board_cnt":"2",
+   "da_clkrst_cnt":"1"
+}

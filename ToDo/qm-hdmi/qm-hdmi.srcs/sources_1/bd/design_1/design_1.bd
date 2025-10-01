@@ -1,0 +1,1103 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xFBBE6AB60407E63A",
+      "device": "xc7a100tlfgg676-2L",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "OutputSERDES_0": "",
+      "OutputSERDES_1": "",
+      "TMDS_Encoder_0": "",
+      "OutputSERDES_2": "",
+      "TMDS_Encoder_1": "",
+      "OutputSERDES_3": "",
+      "TMDS_Encoder_2": "",
+      "xlconstant_0": "",
+      "ResetBridge_0": "",
+      "xlconstant_1": "",
+      "clk_wiz_0": "",
+      "v_tc_0": "",
+      "xlconstant_2": "",
+      "util_vector_logic_1": "",
+      "util_vector_logic_0": "",
+      "Rom_t_0": "",
+      "xlconstant_3": "",
+      "dpram_t2_0": "",
+      "color_bar_t2_0": ""
+    },
+    "ports": {
+      "clk_i": {
+        "direction": "I"
+      },
+      "resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "TMDS_clk_p": {
+        "direction": "O"
+      },
+      "TMDS_clk_n": {
+        "direction": "O"
+      },
+      "TMDS_d1_p": {
+        "direction": "O"
+      },
+      "TMDS_d1_n": {
+        "direction": "O"
+      },
+      "TMDS_d2_p": {
+        "direction": "O"
+      },
+      "TMDS_d2_n": {
+        "direction": "O"
+      },
+      "TMDS_d0_p": {
+        "direction": "O"
+      },
+      "TMDS_d0_n": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "OutputSERDES_0": {
+        "vlnv": "xilinx.com:module_ref:OutputSERDES:1.0",
+        "xci_name": "design_1_OutputSERDES_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "OutputSERDES",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "sDataOut_p": {
+            "direction": "O"
+          },
+          "sDataOut_n": {
+            "direction": "O"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "aRst": {
+            "direction": "I"
+          }
+        }
+      },
+      "OutputSERDES_1": {
+        "vlnv": "xilinx.com:module_ref:OutputSERDES:1.0",
+        "xci_name": "design_1_OutputSERDES_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "OutputSERDES",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "sDataOut_p": {
+            "direction": "O"
+          },
+          "sDataOut_n": {
+            "direction": "O"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "aRst": {
+            "direction": "I"
+          }
+        }
+      },
+      "TMDS_Encoder_0": {
+        "vlnv": "xilinx.com:module_ref:TMDS_Encoder:1.0",
+        "xci_name": "design_1_TMDS_Encoder_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TMDS_Encoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "aRst": {
+            "direction": "I"
+          },
+          "pDataOutRaw": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "pC0": {
+            "direction": "I"
+          },
+          "pC1": {
+            "direction": "I"
+          },
+          "pVde": {
+            "direction": "I"
+          }
+        }
+      },
+      "OutputSERDES_2": {
+        "vlnv": "xilinx.com:module_ref:OutputSERDES:1.0",
+        "xci_name": "design_1_OutputSERDES_2_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "OutputSERDES",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "sDataOut_p": {
+            "direction": "O"
+          },
+          "sDataOut_n": {
+            "direction": "O"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "aRst": {
+            "direction": "I"
+          }
+        }
+      },
+      "TMDS_Encoder_1": {
+        "vlnv": "xilinx.com:module_ref:TMDS_Encoder:1.0",
+        "xci_name": "design_1_TMDS_Encoder_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TMDS_Encoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "aRst": {
+            "direction": "I"
+          },
+          "pDataOutRaw": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "pC0": {
+            "direction": "I"
+          },
+          "pC1": {
+            "direction": "I"
+          },
+          "pVde": {
+            "direction": "I"
+          }
+        }
+      },
+      "OutputSERDES_3": {
+        "vlnv": "xilinx.com:module_ref:OutputSERDES:1.0",
+        "xci_name": "design_1_OutputSERDES_3_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "OutputSERDES",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "sDataOut_p": {
+            "direction": "O"
+          },
+          "sDataOut_n": {
+            "direction": "O"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "aRst": {
+            "direction": "I"
+          }
+        }
+      },
+      "TMDS_Encoder_2": {
+        "vlnv": "xilinx.com:module_ref:TMDS_Encoder:1.0",
+        "xci_name": "design_1_TMDS_Encoder_2_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TMDS_Encoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PixelClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "SerialClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "750000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "aRst": {
+            "direction": "I"
+          },
+          "pDataOutRaw": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "pDataOut": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "pC0": {
+            "direction": "I"
+          },
+          "pC1": {
+            "direction": "I"
+          },
+          "pVde": {
+            "direction": "I"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
+      "ResetBridge_0": {
+        "vlnv": "xilinx.com:module_ref:ResetBridge:1.0",
+        "xci_name": "design_1_ResetBridge_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ResetBridge",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "aRst": {
+            "direction": "I"
+          },
+          "OutClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "oRst": {
+            "direction": "O"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_1_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "b1111100000"
+          },
+          "CONST_WIDTH": {
+            "value": "10"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0_0",
+        "parameters": {
+          "CLKIN1_JITTER_PS": {
+            "value": "200.0"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "176.933"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "139.020"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "150.000"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "134.087"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "139.020"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "750.000"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "15.000"
+          },
+          "MMCM_CLKIN1_PERIOD": {
+            "value": "20.000"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.0"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "5.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "1"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "2"
+          },
+          "PRIM_IN_FREQ": {
+            "value": "50.000"
+          }
+        }
+      },
+      "v_tc_0": {
+        "vlnv": "xilinx.com:ip:v_tc:6.1",
+        "xci_name": "design_1_v_tc_0_0",
+        "parameters": {
+          "FSYNC_HSTART0": {
+            "value": "20"
+          },
+          "FSYNC_HSTART1": {
+            "value": "30"
+          },
+          "FSYNC_HSTART2": {
+            "value": "40"
+          },
+          "FSYNC_HSTART3": {
+            "value": "50"
+          },
+          "FSYNC_VSTART1": {
+            "value": "0"
+          },
+          "FSYNC_VSTART2": {
+            "value": "0"
+          },
+          "FSYNC_VSTART3": {
+            "value": "0"
+          },
+          "HAS_AXI4_LITE": {
+            "value": "false"
+          },
+          "VIDEO_MODE": {
+            "value": "800x600p"
+          },
+          "enable_detection": {
+            "value": "false"
+          },
+          "frame_syncs": {
+            "value": "4"
+          }
+        }
+      },
+      "xlconstant_2": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_2_0"
+      },
+      "util_vector_logic_1": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_1_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_0_1",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "Rom_t_0": {
+        "vlnv": "xilinx.com:module_ref:Rom_t:1.0",
+        "xci_name": "design_1_Rom_t_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Rom_t",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "rom_o": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "addr": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "ck": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          }
+        }
+      },
+      "xlconstant_3": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_3_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
+      "dpram_t2_0": {
+        "vlnv": "xilinx.com:module_ref:dpram_t2:1.0",
+        "xci_name": "design_1_dpram_t2_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "dpram_t2",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clka": {
+            "direction": "I"
+          },
+          "clkb": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "wea": {
+            "direction": "I"
+          },
+          "addra": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "addrb": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "dia": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "dob": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "color_bar_t2_0": {
+        "vlnv": "xilinx.com:module_ref:color_bar_t2:1.0",
+        "xci_name": "design_1_color_bar_t2_0_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "color_bar_t2",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "150000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "hs": {
+            "direction": "O"
+          },
+          "vs": {
+            "direction": "O"
+          },
+          "de": {
+            "direction": "O"
+          },
+          "rgb_r": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "rgb_g": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "rgb_b": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "ram_di": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "ram_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "rom_addr": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "rom_di": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "TMDS_Encoder_0_pDataOutRaw": {
+        "ports": [
+          "TMDS_Encoder_0/pDataOutRaw",
+          "OutputSERDES_1/pDataOut"
+        ]
+      },
+      "TMDS_Encoder_1_pDataOutRaw": {
+        "ports": [
+          "TMDS_Encoder_1/pDataOutRaw",
+          "OutputSERDES_2/pDataOut"
+        ]
+      },
+      "TMDS_Encoder_2_pDataOutRaw": {
+        "ports": [
+          "TMDS_Encoder_2/pDataOutRaw",
+          "OutputSERDES_3/pDataOut"
+        ]
+      },
+      "ResetBridge_0_oRst": {
+        "ports": [
+          "ResetBridge_0/oRst",
+          "TMDS_Encoder_1/aRst",
+          "TMDS_Encoder_2/aRst",
+          "TMDS_Encoder_0/aRst",
+          "OutputSERDES_2/aRst",
+          "OutputSERDES_1/aRst",
+          "OutputSERDES_0/aRst",
+          "OutputSERDES_3/aRst"
+        ]
+      },
+      "ClockGen_0_SerialClk": {
+        "ports": [
+          "clk_wiz_0/clk_out2",
+          "OutputSERDES_0/SerialClk",
+          "OutputSERDES_1/SerialClk",
+          "OutputSERDES_2/SerialClk",
+          "OutputSERDES_3/SerialClk",
+          "TMDS_Encoder_0/SerialClk",
+          "TMDS_Encoder_1/SerialClk",
+          "TMDS_Encoder_2/SerialClk"
+        ]
+      },
+      "ClockGen_0_PixelClkOut": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "OutputSERDES_0/PixelClk",
+          "OutputSERDES_1/PixelClk",
+          "OutputSERDES_2/PixelClk",
+          "OutputSERDES_3/PixelClk",
+          "TMDS_Encoder_0/PixelClk",
+          "TMDS_Encoder_1/PixelClk",
+          "TMDS_Encoder_2/PixelClk",
+          "ResetBridge_0/OutClk",
+          "v_tc_0/clk",
+          "Rom_t_0/ck",
+          "dpram_t2_0/clkb",
+          "color_bar_t2_0/clk"
+        ]
+      },
+      "xlconstant_1_dout": {
+        "ports": [
+          "xlconstant_1/dout",
+          "OutputSERDES_0/pDataOut"
+        ]
+      },
+      "OutputSERDES_0_sDataOut_p": {
+        "ports": [
+          "OutputSERDES_0/sDataOut_p",
+          "TMDS_clk_p"
+        ]
+      },
+      "OutputSERDES_0_sDataOut_n": {
+        "ports": [
+          "OutputSERDES_0/sDataOut_n",
+          "TMDS_clk_n"
+        ]
+      },
+      "OutputSERDES_1_sDataOut_p": {
+        "ports": [
+          "OutputSERDES_1/sDataOut_p",
+          "TMDS_d1_p"
+        ]
+      },
+      "OutputSERDES_1_sDataOut_n": {
+        "ports": [
+          "OutputSERDES_1/sDataOut_n",
+          "TMDS_d1_n"
+        ]
+      },
+      "OutputSERDES_2_sDataOut_p": {
+        "ports": [
+          "OutputSERDES_2/sDataOut_p",
+          "TMDS_d2_p"
+        ]
+      },
+      "OutputSERDES_2_sDataOut_n": {
+        "ports": [
+          "OutputSERDES_2/sDataOut_n",
+          "TMDS_d2_n"
+        ]
+      },
+      "OutputSERDES_3_sDataOut_p": {
+        "ports": [
+          "OutputSERDES_3/sDataOut_p",
+          "TMDS_d0_p"
+        ]
+      },
+      "OutputSERDES_3_sDataOut_n": {
+        "ports": [
+          "OutputSERDES_3/sDataOut_n",
+          "TMDS_d0_n"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "TMDS_Encoder_1/pC0",
+          "TMDS_Encoder_1/pC1",
+          "TMDS_Encoder_2/pC0",
+          "TMDS_Encoder_2/pC1",
+          "ResetBridge_0/aRst"
+        ]
+      },
+      "xlconstant_2_dout": {
+        "ports": [
+          "xlconstant_2/dout",
+          "v_tc_0/clken",
+          "v_tc_0/gen_clken"
+        ]
+      },
+      "clk_i_1": {
+        "ports": [
+          "clk_i",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "resetn_1": {
+        "ports": [
+          "resetn",
+          "util_vector_logic_0/Op1"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "util_vector_logic_1/Op1",
+          "clk_wiz_0/reset",
+          "Rom_t_0/rst",
+          "color_bar_t2_0/rst"
+        ]
+      },
+      "color_bar_t2_0_hs": {
+        "ports": [
+          "color_bar_t2_0/hs",
+          "TMDS_Encoder_0/pC0"
+        ]
+      },
+      "color_bar_t2_0_vs": {
+        "ports": [
+          "color_bar_t2_0/vs",
+          "TMDS_Encoder_0/pC1"
+        ]
+      },
+      "color_bar_t2_0_de": {
+        "ports": [
+          "color_bar_t2_0/de",
+          "TMDS_Encoder_0/pVde",
+          "TMDS_Encoder_1/pVde",
+          "TMDS_Encoder_2/pVde"
+        ]
+      },
+      "color_bar_t2_0_rgb_r": {
+        "ports": [
+          "color_bar_t2_0/rgb_r",
+          "TMDS_Encoder_0/pDataOut"
+        ]
+      },
+      "color_bar_t2_0_rgb_g": {
+        "ports": [
+          "color_bar_t2_0/rgb_g",
+          "TMDS_Encoder_1/pDataOut"
+        ]
+      },
+      "color_bar_t2_0_rgb_b": {
+        "ports": [
+          "color_bar_t2_0/rgb_b",
+          "TMDS_Encoder_2/pDataOut"
+        ]
+      },
+      "util_vector_logic_1_Res": {
+        "ports": [
+          "util_vector_logic_1/Res",
+          "v_tc_0/resetn"
+        ]
+      },
+      "color_bar_t2_0_ram_addr": {
+        "ports": [
+          "color_bar_t2_0/ram_addr",
+          "dpram_t2_0/addrb"
+        ]
+      },
+      "color_bar_t2_0_rom_addr": {
+        "ports": [
+          "color_bar_t2_0/rom_addr",
+          "Rom_t_0/addr"
+        ]
+      },
+      "dpram_t2_0_dob": {
+        "ports": [
+          "dpram_t2_0/dob",
+          "color_bar_t2_0/ram_di"
+        ]
+      },
+      "xlconstant_3_dout": {
+        "ports": [
+          "xlconstant_3/dout",
+          "dpram_t2_0/clka",
+          "dpram_t2_0/wea",
+          "dpram_t2_0/addra",
+          "dpram_t2_0/dia"
+        ]
+      },
+      "Rom_t_0_rom_o": {
+        "ports": [
+          "Rom_t_0/rom_o",
+          "color_bar_t2_0/rom_di"
+        ]
+      }
+    }
+  }
+}

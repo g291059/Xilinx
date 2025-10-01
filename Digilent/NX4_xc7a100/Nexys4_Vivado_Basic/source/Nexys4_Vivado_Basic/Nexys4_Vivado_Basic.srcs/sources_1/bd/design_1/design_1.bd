@@ -1,0 +1,229 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "name": "design_1",
+      "synth_flow_mode": "None",
+      "tool_version": "2019.2"
+    },
+    "design_tree": {
+      "UART_TX_CTRL_0": "",
+      "RGB_controller_0": "",
+      "clk_wiz": "",
+      "debouncer_0": "",
+      "GPIO_demo_0": ""
+    },
+    "ports": {
+      "clk_100MHz": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      },
+      "reset_rtl_0": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      }
+    },
+    "components": {
+      "UART_TX_CTRL_0": {
+        "vlnv": "xilinx.com:module_ref:UART_TX_CTRL:1.0",
+        "xci_name": "design_1_UART_TX_CTRL_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "UART_TX_CTRL",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "SEND": {
+            "direction": "I"
+          },
+          "DATA": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "READY": {
+            "direction": "O"
+          },
+          "UART_TX": {
+            "direction": "O"
+          }
+        }
+      },
+      "RGB_controller_0": {
+        "vlnv": "xilinx.com:module_ref:RGB_controller:1.0",
+        "xci_name": "design_1_RGB_controller_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RGB_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "GCLK": {
+            "direction": "I"
+          },
+          "RGB_LED_1_O": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "RGB_LED_2_O": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
+      },
+      "clk_wiz": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0"
+      },
+      "debouncer_0": {
+        "vlnv": "xilinx.com:module_ref:debouncer:1.0",
+        "xci_name": "design_1_debouncer_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debouncer",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "SIGNAL_I": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "CLK_I": {
+            "direction": "I"
+          },
+          "SIGNAL_O": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          }
+        }
+      },
+      "GPIO_demo_0": {
+        "vlnv": "xilinx.com:module_ref:GPIO_demo:1.0",
+        "xci_name": "design_1_GPIO_demo_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "GPIO_demo",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "SW": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "BTN": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "LED": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "SSEG_CA": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "SSEG_AN": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "UART_TXD": {
+            "direction": "O"
+          },
+          "RGB1_Red": {
+            "direction": "O"
+          },
+          "RGB1_Green": {
+            "direction": "O"
+          },
+          "RGB1_Blue": {
+            "direction": "O"
+          },
+          "RGB2_Red": {
+            "direction": "O"
+          },
+          "RGB2_Green": {
+            "direction": "O"
+          },
+          "RGB2_Blue": {
+            "direction": "O"
+          },
+          "micClk": {
+            "direction": "O"
+          },
+          "micLRSel": {
+            "direction": "O"
+          },
+          "micData": {
+            "direction": "I"
+          },
+          "ampPWM": {
+            "direction": "O"
+          },
+          "ampSD": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_wiz_clk_out1": {
+        "ports": [
+          "clk_wiz/clk_out1",
+          "UART_TX_CTRL_0/CLK"
+        ]
+      },
+      "clk_100MHz_1": {
+        "ports": [
+          "clk_100MHz",
+          "clk_wiz/clk_in1"
+        ]
+      },
+      "reset_rtl_0_1": {
+        "ports": [
+          "reset_rtl_0",
+          "clk_wiz/reset"
+        ]
+      },
+      "RGB_controller_0_RGB_LED_1_O": {
+        "ports": [
+          "RGB_controller_0/RGB_LED_1_O",
+          "debouncer_0/SIGNAL_I"
+        ]
+      },
+      "RGB_controller_0_RGB_LED_2_O": {
+        "ports": [
+          "RGB_controller_0/RGB_LED_2_O",
+          "UART_TX_CTRL_0/SEND"
+        ]
+      }
+    }
+  }
+}

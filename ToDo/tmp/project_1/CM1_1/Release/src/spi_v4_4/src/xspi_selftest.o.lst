@@ -1,0 +1,591 @@
+   1              		.cpu cortex-m1
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"xspi_selftest.c"
+  12              		.text
+  13              		.section	.text.Xil_In32,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv6s-m
+  16              		.syntax unified
+  17              		.code	16
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	Xil_In32:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 1, uses_anonymous_args = 0
+  24 0000 80B5     		push	{r7, lr}
+  25 0002 82B0     		sub	sp, sp, #8
+  26 0004 00AF     		add	r7, sp, #0
+  27 0006 7860     		str	r0, [r7, #4]
+  28 0008 7B68     		ldr	r3, [r7, #4]
+  29 000a 1B68     		ldr	r3, [r3]
+  30 000c 1800     		movs	r0, r3
+  31 000e BD46     		mov	sp, r7
+  32 0010 02B0     		add	sp, sp, #8
+  33              		@ sp needed
+  34 0012 80BD     		pop	{r7, pc}
+  36              		.section	.text.Xil_Out32,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.code	16
+  40              		.thumb_func
+  41              		.fpu softvfp
+  43              	Xil_Out32:
+  44              		@ args = 0, pretend = 0, frame = 16
+  45              		@ frame_needed = 1, uses_anonymous_args = 0
+  46 0000 80B5     		push	{r7, lr}
+  47 0002 84B0     		sub	sp, sp, #16
+  48 0004 00AF     		add	r7, sp, #0
+  49 0006 7860     		str	r0, [r7, #4]
+  50 0008 3960     		str	r1, [r7]
+  51 000a 7B68     		ldr	r3, [r7, #4]
+  52 000c FB60     		str	r3, [r7, #12]
+  53 000e FB68     		ldr	r3, [r7, #12]
+  54 0010 3A68     		ldr	r2, [r7]
+  55 0012 1A60     		str	r2, [r3]
+  56 0014 C046     		nop
+  57 0016 BD46     		mov	sp, r7
+  58 0018 04B0     		add	sp, sp, #16
+  59              		@ sp needed
+  60 001a 80BD     		pop	{r7, pc}
+  62              		.section	.rodata
+  63              		.align	2
+  64              	.LC1:
+  65 0000 2E2E2F73 		.ascii	"../src/spi_v4_4/src/xspi_selftest.c\000"
+  65      72632F73 
+  65      70695F76 
+  65      345F342F 
+  65      7372632F 
+  66              		.section	.text.XSpi_SelfTest,"ax",%progbits
+  67              		.align	1
+  68              		.global	XSpi_SelfTest
+  69              		.syntax unified
+  70              		.code	16
+  71              		.thumb_func
+  72              		.fpu softvfp
+  74              	XSpi_SelfTest:
+  75              		@ args = 0, pretend = 0, frame = 16
+  76              		@ frame_needed = 1, uses_anonymous_args = 0
+  77 0000 80B5     		push	{r7, lr}
+  78 0002 84B0     		sub	sp, sp, #16
+  79 0004 00AF     		add	r7, sp, #0
+  80 0006 7860     		str	r0, [r7, #4]
+  81 0008 7B68     		ldr	r3, [r7, #4]
+  82 000a 002B     		cmp	r3, #0
+  83 000c 08D0     		beq	.L5
+  84 000e 5A4B     		ldr	r3, .L22
+  85 0010 0022     		movs	r2, #0
+  86 0012 1A60     		str	r2, [r3]
+  87 0014 7B68     		ldr	r3, [r7, #4]
+  88 0016 DB69     		ldr	r3, [r3, #28]
+  89 0018 584A     		ldr	r2, .L22+4
+  90 001a 9342     		cmp	r3, r2
+  91 001c 13D1     		bne	.L8
+  92 001e 09E0     		b	.L20
+  93              	.L5:
+  94 0020 574B     		ldr	r3, .L22+8
+  95 0022 7121     		movs	r1, #113
+  96 0024 1800     		movs	r0, r3
+  97 0026 FFF7FEFF 		bl	Xil_Assert
+  98 002a 534B     		ldr	r3, .L22
+  99 002c 0122     		movs	r2, #1
+ 100 002e 1A60     		str	r2, [r3]
+ 101 0030 0023     		movs	r3, #0
+ 102 0032 9DE0     		b	.L7
+ 103              	.L20:
+ 104 0034 504B     		ldr	r3, .L22
+ 105 0036 0022     		movs	r2, #0
+ 106 0038 1A60     		str	r2, [r3]
+ 107 003a 7B68     		ldr	r3, [r7, #4]
+ 108 003c 5822     		movs	r2, #88
+ 109 003e 9B5C     		ldrb	r3, [r3, r2]
+ 110 0040 012B     		cmp	r3, #1
+ 111 0042 0CD1     		bne	.L10
+ 112 0044 09E0     		b	.L21
+ 113              	.L8:
+ 114 0046 4E4B     		ldr	r3, .L22+8
+ 115 0048 7221     		movs	r1, #114
+ 116 004a 1800     		movs	r0, r3
+ 117 004c FFF7FEFF 		bl	Xil_Assert
+ 118 0050 494B     		ldr	r3, .L22
+ 119 0052 0122     		movs	r2, #1
+ 120 0054 1A60     		str	r2, [r3]
+ 121 0056 0023     		movs	r3, #0
+ 122 0058 8AE0     		b	.L7
+ 123              	.L21:
+ 124 005a 0023     		movs	r3, #0
+ 125 005c 88E0     		b	.L7
+ 126              	.L10:
+ 127 005e 7B68     		ldr	r3, [r7, #4]
+ 128 0060 1800     		movs	r0, r3
+ 129 0062 FFF7FEFF 		bl	XSpi_Reset
+ 130 0066 7B68     		ldr	r3, [r7, #4]
+ 131 0068 5822     		movs	r2, #88
+ 132 006a 9B5C     		ldrb	r3, [r3, r2]
+ 133 006c 002B     		cmp	r3, #0
+ 134 006e 1DD0     		beq	.L11
+ 135 0070 7B68     		ldr	r3, [r7, #4]
+ 136 0072 9B69     		ldr	r3, [r3, #24]
+ 137 0074 6033     		adds	r3, r3, #96
+ 138 0076 1800     		movs	r0, r3
+ 139 0078 FFF7FEFF 		bl	Xil_In32
+ 140 007c 0300     		movs	r3, r0
+ 141 007e FB60     		str	r3, [r7, #12]
+ 142 0080 FA68     		ldr	r2, [r7, #12]
+ 143 0082 C023     		movs	r3, #192
+ 144 0084 5B00     		lsls	r3, r3, #1
+ 145 0086 9A42     		cmp	r2, r3
+ 146 0088 01D0     		beq	.L12
+ 147 008a 0E23     		movs	r3, #14
+ 148 008c 70E0     		b	.L7
+ 149              	.L12:
+ 150 008e 7B68     		ldr	r3, [r7, #4]
+ 151 0090 9B69     		ldr	r3, [r3, #24]
+ 152 0092 6433     		adds	r3, r3, #100
+ 153 0094 1800     		movs	r0, r3
+ 154 0096 FFF7FEFF 		bl	Xil_In32
+ 155 009a 0300     		movs	r3, r0
+ 156 009c FB60     		str	r3, [r7, #12]
+ 157 009e FB68     		ldr	r3, [r7, #12]
+ 158 00a0 0522     		movs	r2, #5
+ 159 00a2 1340     		ands	r3, r2
+ 160 00a4 052B     		cmp	r3, #5
+ 161 00a6 01D0     		beq	.L11
+ 162 00a8 0E23     		movs	r3, #14
+ 163 00aa 61E0     		b	.L7
+ 164              	.L11:
+ 165 00ac 7B68     		ldr	r3, [r7, #4]
+ 166 00ae 9B69     		ldr	r3, [r3, #24]
+ 167 00b0 6033     		adds	r3, r3, #96
+ 168 00b2 1800     		movs	r0, r3
+ 169 00b4 FFF7FEFF 		bl	Xil_In32
+ 170 00b8 0300     		movs	r3, r0
+ 171 00ba FB60     		str	r3, [r7, #12]
+ 172 00bc FA68     		ldr	r2, [r7, #12]
+ 173 00be C023     		movs	r3, #192
+ 174 00c0 5B00     		lsls	r3, r3, #1
+ 175 00c2 9A42     		cmp	r2, r3
+ 176 00c4 01D0     		beq	.L13
+ 177 00c6 0E23     		movs	r3, #14
+ 178 00c8 52E0     		b	.L7
+ 179              	.L13:
+ 180 00ca 7B68     		ldr	r3, [r7, #4]
+ 181 00cc 9B69     		ldr	r3, [r3, #24]
+ 182 00ce 6433     		adds	r3, r3, #100
+ 183 00d0 1800     		movs	r0, r3
+ 184 00d2 FFF7FEFF 		bl	Xil_In32
+ 185 00d6 0300     		movs	r3, r0
+ 186 00d8 FB60     		str	r3, [r7, #12]
+ 187 00da FB68     		ldr	r3, [r7, #12]
+ 188 00dc 0522     		movs	r2, #5
+ 189 00de 1340     		ands	r3, r2
+ 190 00e0 052B     		cmp	r3, #5
+ 191 00e2 01D0     		beq	.L14
+ 192 00e4 0E23     		movs	r3, #14
+ 193 00e6 43E0     		b	.L7
+ 194              	.L14:
+ 195 00e8 7B68     		ldr	r3, [r7, #4]
+ 196 00ea 9B69     		ldr	r3, [r3, #24]
+ 197 00ec 7033     		adds	r3, r3, #112
+ 198 00ee 1800     		movs	r0, r3
+ 199 00f0 FFF7FEFF 		bl	Xil_In32
+ 200 00f4 0300     		movs	r3, r0
+ 201 00f6 FB60     		str	r3, [r7, #12]
+ 202 00f8 7B68     		ldr	r3, [r7, #4]
+ 203 00fa 1B6B     		ldr	r3, [r3, #48]
+ 204 00fc FA68     		ldr	r2, [r7, #12]
+ 205 00fe 9A42     		cmp	r2, r3
+ 206 0100 01D0     		beq	.L15
+ 207 0102 0E23     		movs	r3, #14
+ 208 0104 34E0     		b	.L7
+ 209              	.L15:
+ 210 0106 7B68     		ldr	r3, [r7, #4]
+ 211 0108 5B6A     		ldr	r3, [r3, #36]
+ 212 010a 002B     		cmp	r3, #0
+ 213 010c 19D0     		beq	.L16
+ 214 010e 7B68     		ldr	r3, [r7, #4]
+ 215 0110 9B69     		ldr	r3, [r3, #24]
+ 216 0112 7433     		adds	r3, r3, #116
+ 217 0114 1800     		movs	r0, r3
+ 218 0116 FFF7FEFF 		bl	Xil_In32
+ 219 011a 0300     		movs	r3, r0
+ 220 011c FB60     		str	r3, [r7, #12]
+ 221 011e FB68     		ldr	r3, [r7, #12]
+ 222 0120 002B     		cmp	r3, #0
+ 223 0122 01D0     		beq	.L17
+ 224 0124 0E23     		movs	r3, #14
+ 225 0126 23E0     		b	.L7
+ 226              	.L17:
+ 227 0128 7B68     		ldr	r3, [r7, #4]
+ 228 012a 9B69     		ldr	r3, [r3, #24]
+ 229 012c 7833     		adds	r3, r3, #120
+ 230 012e 1800     		movs	r0, r3
+ 231 0130 FFF7FEFF 		bl	Xil_In32
+ 232 0134 0300     		movs	r3, r0
+ 233 0136 FB60     		str	r3, [r7, #12]
+ 234 0138 FB68     		ldr	r3, [r7, #12]
+ 235 013a 002B     		cmp	r3, #0
+ 236 013c 01D0     		beq	.L16
+ 237 013e 0E23     		movs	r3, #14
+ 238 0140 16E0     		b	.L7
+ 239              	.L16:
+ 240 0142 7B68     		ldr	r3, [r7, #4]
+ 241 0144 2E22     		movs	r2, #46
+ 242 0146 9B5C     		ldrb	r3, [r3, r2]
+ 243 0148 002B     		cmp	r3, #0
+ 244 014a 01D0     		beq	.L18
+ 245 014c 0023     		movs	r3, #0
+ 246 014e 0FE0     		b	.L7
+ 247              	.L18:
+ 248 0150 7B68     		ldr	r3, [r7, #4]
+ 249 0152 1800     		movs	r0, r3
+ 250 0154 FFF7FEFF 		bl	LoopbackTest
+ 251 0158 0300     		movs	r3, r0
+ 252 015a BB60     		str	r3, [r7, #8]
+ 253 015c BB68     		ldr	r3, [r7, #8]
+ 254 015e 002B     		cmp	r3, #0
+ 255 0160 01D0     		beq	.L19
+ 256 0162 BB68     		ldr	r3, [r7, #8]
+ 257 0164 04E0     		b	.L7
+ 258              	.L19:
+ 259 0166 7B68     		ldr	r3, [r7, #4]
+ 260 0168 1800     		movs	r0, r3
+ 261 016a FFF7FEFF 		bl	XSpi_Reset
+ 262 016e 0023     		movs	r3, #0
+ 263              	.L7:
+ 264 0170 1800     		movs	r0, r3
+ 265 0172 BD46     		mov	sp, r7
+ 266 0174 04B0     		add	sp, sp, #16
+ 267              		@ sp needed
+ 268 0176 80BD     		pop	{r7, pc}
+ 269              	.L23:
+ 270              		.align	2
+ 271              	.L22:
+ 272 0178 00000000 		.word	Xil_AssertStatus
+ 273 017c 11111111 		.word	286331153
+ 274 0180 00000000 		.word	.LC1
+ 276              		.section	.text.LoopbackTest,"ax",%progbits
+ 277              		.align	1
+ 278              		.syntax unified
+ 279              		.code	16
+ 280              		.thumb_func
+ 281              		.fpu softvfp
+ 283              	LoopbackTest:
+ 284              		@ args = 0, pretend = 0, frame = 40
+ 285              		@ frame_needed = 1, uses_anonymous_args = 0
+ 286 0000 90B5     		push	{r4, r7, lr}
+ 287 0002 8BB0     		sub	sp, sp, #44
+ 288 0004 00AF     		add	r7, sp, #0
+ 289 0006 7860     		str	r0, [r7, #4]
+ 290 0008 0023     		movs	r3, #0
+ 291 000a BB61     		str	r3, [r7, #24]
+ 292 000c 0023     		movs	r3, #0
+ 293 000e 7B61     		str	r3, [r7, #20]
+ 294 0010 7B68     		ldr	r3, [r7, #4]
+ 295 0012 9B6A     		ldr	r3, [r3, #40]
+ 296 0014 002B     		cmp	r3, #0
+ 297 0016 01D0     		beq	.L25
+ 298 0018 0023     		movs	r3, #0
+ 299 001a 07E1     		b	.L26
+ 300              	.L25:
+ 301 001c 7B68     		ldr	r3, [r7, #4]
+ 302 001e 9B69     		ldr	r3, [r3, #24]
+ 303 0020 6033     		adds	r3, r3, #96
+ 304 0022 1800     		movs	r0, r3
+ 305 0024 FFF7FEFF 		bl	Xil_In32
+ 306 0028 0300     		movs	r3, r0
+ 307 002a 3B61     		str	r3, [r7, #16]
+ 308 002c 7B68     		ldr	r3, [r7, #4]
+ 309 002e 9B69     		ldr	r3, [r3, #24]
+ 310 0030 6033     		adds	r3, r3, #96
+ 311 0032 1A00     		movs	r2, r3
+ 312 0034 3B69     		ldr	r3, [r7, #16]
+ 313 0036 0521     		movs	r1, #5
+ 314 0038 0B43     		orrs	r3, r1
+ 315 003a 1900     		movs	r1, r3
+ 316 003c 1000     		movs	r0, r2
+ 317 003e FFF7FEFF 		bl	Xil_Out32
+ 318 0042 7B68     		ldr	r3, [r7, #4]
+ 319 0044 9B69     		ldr	r3, [r3, #24]
+ 320 0046 1C33     		adds	r3, r3, #28
+ 321 0048 0021     		movs	r1, #0
+ 322 004a 1800     		movs	r0, r3
+ 323 004c FFF7FEFF 		bl	Xil_Out32
+ 324 0050 0F23     		movs	r3, #15
+ 325 0052 FB18     		adds	r3, r7, r3
+ 326 0054 7A68     		ldr	r2, [r7, #4]
+ 327 0056 2D21     		movs	r1, #45
+ 328 0058 525C     		ldrb	r2, [r2, r1]
+ 329 005a 1A70     		strb	r2, [r3]
+ 330 005c 0023     		movs	r3, #0
+ 331 005e 3B62     		str	r3, [r7, #32]
+ 332 0060 D9E0     		b	.L27
+ 333              	.L39:
+ 334 0062 0023     		movs	r3, #0
+ 335 0064 FB61     		str	r3, [r7, #28]
+ 336 0066 7B68     		ldr	r3, [r7, #4]
+ 337 0068 9B69     		ldr	r3, [r3, #24]
+ 338 006a 6433     		adds	r3, r3, #100
+ 339 006c 1800     		movs	r0, r3
+ 340 006e FFF7FEFF 		bl	Xil_In32
+ 341 0072 0300     		movs	r3, r0
+ 342 0074 7B62     		str	r3, [r7, #36]
+ 343 0076 32E0     		b	.L28
+ 344              	.L32:
+ 345 0078 0F23     		movs	r3, #15
+ 346 007a FB18     		adds	r3, r7, r3
+ 347 007c 1B78     		ldrb	r3, [r3]
+ 348 007e 082B     		cmp	r3, #8
+ 349 0080 02D1     		bne	.L29
+ 350 0082 0023     		movs	r3, #0
+ 351 0084 FB61     		str	r3, [r7, #28]
+ 352 0086 0FE0     		b	.L30
+ 353              	.L29:
+ 354 0088 0F23     		movs	r3, #15
+ 355 008a FB18     		adds	r3, r7, r3
+ 356 008c 1B78     		ldrb	r3, [r3]
+ 357 008e 102B     		cmp	r3, #16
+ 358 0090 03D1     		bne	.L31
+ 359 0092 8823     		movs	r3, #136
+ 360 0094 9B01     		lsls	r3, r3, #6
+ 361 0096 FB61     		str	r3, [r7, #28]
+ 362 0098 06E0     		b	.L30
+ 363              	.L31:
+ 364 009a 0F23     		movs	r3, #15
+ 365 009c FB18     		adds	r3, r7, r3
+ 366 009e 1B78     		ldrb	r3, [r3]
+ 367 00a0 202B     		cmp	r3, #32
+ 368 00a2 01D1     		bne	.L30
+ 369 00a4 634B     		ldr	r3, .L41
+ 370 00a6 FB61     		str	r3, [r7, #28]
+ 371              	.L30:
+ 372 00a8 7B68     		ldr	r3, [r7, #4]
+ 373 00aa 9B69     		ldr	r3, [r3, #24]
+ 374 00ac 6833     		adds	r3, r3, #104
+ 375 00ae 1800     		movs	r0, r3
+ 376 00b0 FA69     		ldr	r2, [r7, #28]
+ 377 00b2 3B6A     		ldr	r3, [r7, #32]
+ 378 00b4 D318     		adds	r3, r2, r3
+ 379 00b6 1900     		movs	r1, r3
+ 380 00b8 FFF7FEFF 		bl	Xil_Out32
+ 381 00bc 0F23     		movs	r3, #15
+ 382 00be FB18     		adds	r3, r7, r3
+ 383 00c0 1B78     		ldrb	r3, [r3]
+ 384 00c2 DB08     		lsrs	r3, r3, #3
+ 385 00c4 DBB2     		uxtb	r3, r3
+ 386 00c6 1A00     		movs	r2, r3
+ 387 00c8 BB69     		ldr	r3, [r7, #24]
+ 388 00ca 9B18     		adds	r3, r3, r2
+ 389 00cc BB61     		str	r3, [r7, #24]
+ 390 00ce 7B68     		ldr	r3, [r7, #4]
+ 391 00d0 9B69     		ldr	r3, [r3, #24]
+ 392 00d2 6433     		adds	r3, r3, #100
+ 393 00d4 1800     		movs	r0, r3
+ 394 00d6 FFF7FEFF 		bl	Xil_In32
+ 395 00da 0300     		movs	r3, r0
+ 396 00dc 7B62     		str	r3, [r7, #36]
+ 397              	.L28:
+ 398 00de 7B6A     		ldr	r3, [r7, #36]
+ 399 00e0 0822     		movs	r2, #8
+ 400 00e2 1340     		ands	r3, r2
+ 401 00e4 C8D0     		beq	.L32
+ 402 00e6 7B68     		ldr	r3, [r7, #4]
+ 403 00e8 9B69     		ldr	r3, [r3, #24]
+ 404 00ea 6033     		adds	r3, r3, #96
+ 405 00ec 1800     		movs	r0, r3
+ 406 00ee FFF7FEFF 		bl	Xil_In32
+ 407 00f2 0300     		movs	r3, r0
+ 408 00f4 504A     		ldr	r2, .L41+4
+ 409 00f6 1340     		ands	r3, r2
+ 410 00f8 3B61     		str	r3, [r7, #16]
+ 411 00fa 7B68     		ldr	r3, [r7, #4]
+ 412 00fc 9B69     		ldr	r3, [r3, #24]
+ 413 00fe 6033     		adds	r3, r3, #96
+ 414 0100 1A00     		movs	r2, r3
+ 415 0102 3B69     		ldr	r3, [r7, #16]
+ 416 0104 0221     		movs	r1, #2
+ 417 0106 0B43     		orrs	r3, r1
+ 418 0108 1900     		movs	r1, r3
+ 419 010a 1000     		movs	r0, r2
+ 420 010c FFF7FEFF 		bl	Xil_Out32
+ 421              	.L33:
+ 422 0110 7B68     		ldr	r3, [r7, #4]
+ 423 0112 9B69     		ldr	r3, [r3, #24]
+ 424 0114 2033     		adds	r3, r3, #32
+ 425 0116 1800     		movs	r0, r3
+ 426 0118 FFF7FEFF 		bl	Xil_In32
+ 427 011c 0300     		movs	r3, r0
+ 428 011e 7B62     		str	r3, [r7, #36]
+ 429 0120 7B6A     		ldr	r3, [r7, #36]
+ 430 0122 0422     		movs	r2, #4
+ 431 0124 1340     		ands	r3, r2
+ 432 0126 F3D0     		beq	.L33
+ 433 0128 7B68     		ldr	r3, [r7, #4]
+ 434 012a 9B69     		ldr	r3, [r3, #24]
+ 435 012c 2033     		adds	r3, r3, #32
+ 436 012e 1C00     		movs	r4, r3
+ 437 0130 7B68     		ldr	r3, [r7, #4]
+ 438 0132 9B69     		ldr	r3, [r3, #24]
+ 439 0134 2033     		adds	r3, r3, #32
+ 440 0136 1800     		movs	r0, r3
+ 441 0138 FFF7FEFF 		bl	Xil_In32
+ 442 013c 0300     		movs	r3, r0
+ 443 013e 0422     		movs	r2, #4
+ 444 0140 1343     		orrs	r3, r2
+ 445 0142 1900     		movs	r1, r3
+ 446 0144 2000     		movs	r0, r4
+ 447 0146 FFF7FEFF 		bl	Xil_Out32
+ 448 014a 7B68     		ldr	r3, [r7, #4]
+ 449 014c 9B69     		ldr	r3, [r3, #24]
+ 450 014e 6433     		adds	r3, r3, #100
+ 451 0150 1800     		movs	r0, r3
+ 452 0152 FFF7FEFF 		bl	Xil_In32
+ 453 0156 0300     		movs	r3, r0
+ 454 0158 7B62     		str	r3, [r7, #36]
+ 455 015a 45E0     		b	.L34
+ 456              	.L38:
+ 457 015c 7B68     		ldr	r3, [r7, #4]
+ 458 015e 9B69     		ldr	r3, [r3, #24]
+ 459 0160 6C33     		adds	r3, r3, #108
+ 460 0162 1800     		movs	r0, r3
+ 461 0164 FFF7FEFF 		bl	Xil_In32
+ 462 0168 0300     		movs	r3, r0
+ 463 016a BB60     		str	r3, [r7, #8]
+ 464 016c 0F23     		movs	r3, #15
+ 465 016e FB18     		adds	r3, r7, r3
+ 466 0170 1B78     		ldrb	r3, [r3]
+ 467 0172 082B     		cmp	r3, #8
+ 468 0174 07D1     		bne	.L35
+ 469 0176 BB68     		ldr	r3, [r7, #8]
+ 470 0178 DBB2     		uxtb	r3, r3
+ 471 017a 1A00     		movs	r2, r3
+ 472 017c 3B6A     		ldr	r3, [r7, #32]
+ 473 017e 9342     		cmp	r3, r2
+ 474 0180 21D0     		beq	.L36
+ 475 0182 1123     		movs	r3, #17
+ 476 0184 52E0     		b	.L26
+ 477              	.L35:
+ 478 0186 0F23     		movs	r3, #15
+ 479 0188 FB18     		adds	r3, r7, r3
+ 480 018a 1B78     		ldrb	r3, [r3]
+ 481 018c 102B     		cmp	r3, #16
+ 482 018e 0CD1     		bne	.L37
+ 483 0190 BB68     		ldr	r3, [r7, #8]
+ 484 0192 9AB2     		uxth	r2, r3
+ 485 0194 3B6A     		ldr	r3, [r7, #32]
+ 486 0196 9BB2     		uxth	r3, r3
+ 487 0198 8821     		movs	r1, #136
+ 488 019a 8901     		lsls	r1, r1, #6
+ 489 019c 8C46     		mov	ip, r1
+ 490 019e 6344     		add	r3, r3, ip
+ 491 01a0 9BB2     		uxth	r3, r3
+ 492 01a2 9A42     		cmp	r2, r3
+ 493 01a4 0FD0     		beq	.L36
+ 494 01a6 1123     		movs	r3, #17
+ 495 01a8 40E0     		b	.L26
+ 496              	.L37:
+ 497 01aa 0F23     		movs	r3, #15
+ 498 01ac FB18     		adds	r3, r7, r3
+ 499 01ae 1B78     		ldrb	r3, [r3]
+ 500 01b0 202B     		cmp	r3, #32
+ 501 01b2 08D1     		bne	.L36
+ 502 01b4 3B6A     		ldr	r3, [r7, #32]
+ 503 01b6 1F4A     		ldr	r2, .L41
+ 504 01b8 9446     		mov	ip, r2
+ 505 01ba 6344     		add	r3, r3, ip
+ 506 01bc BA68     		ldr	r2, [r7, #8]
+ 507 01be 9A42     		cmp	r2, r3
+ 508 01c0 01D0     		beq	.L36
+ 509 01c2 1123     		movs	r3, #17
+ 510 01c4 32E0     		b	.L26
+ 511              	.L36:
+ 512 01c6 0F23     		movs	r3, #15
+ 513 01c8 FB18     		adds	r3, r7, r3
+ 514 01ca 1B78     		ldrb	r3, [r3]
+ 515 01cc DB08     		lsrs	r3, r3, #3
+ 516 01ce DBB2     		uxtb	r3, r3
+ 517 01d0 1A00     		movs	r2, r3
+ 518 01d2 7B69     		ldr	r3, [r7, #20]
+ 519 01d4 9B18     		adds	r3, r3, r2
+ 520 01d6 7B61     		str	r3, [r7, #20]
+ 521 01d8 7B68     		ldr	r3, [r7, #4]
+ 522 01da 9B69     		ldr	r3, [r3, #24]
+ 523 01dc 6433     		adds	r3, r3, #100
+ 524 01de 1800     		movs	r0, r3
+ 525 01e0 FFF7FEFF 		bl	Xil_In32
+ 526 01e4 0300     		movs	r3, r0
+ 527 01e6 7B62     		str	r3, [r7, #36]
+ 528              	.L34:
+ 529 01e8 7B6A     		ldr	r3, [r7, #36]
+ 530 01ea 0122     		movs	r2, #1
+ 531 01ec 1340     		ands	r3, r2
+ 532 01ee B5D0     		beq	.L38
+ 533 01f0 3B69     		ldr	r3, [r7, #16]
+ 534 01f2 8022     		movs	r2, #128
+ 535 01f4 5200     		lsls	r2, r2, #1
+ 536 01f6 1343     		orrs	r3, r2
+ 537 01f8 3B61     		str	r3, [r7, #16]
+ 538 01fa 7B68     		ldr	r3, [r7, #4]
+ 539 01fc 9B69     		ldr	r3, [r3, #24]
+ 540 01fe 6033     		adds	r3, r3, #96
+ 541 0200 1A00     		movs	r2, r3
+ 542 0202 3B69     		ldr	r3, [r7, #16]
+ 543 0204 0221     		movs	r1, #2
+ 544 0206 8B43     		bics	r3, r1
+ 545 0208 1900     		movs	r1, r3
+ 546 020a 1000     		movs	r0, r2
+ 547 020c FFF7FEFF 		bl	Xil_Out32
+ 548 0210 3B6A     		ldr	r3, [r7, #32]
+ 549 0212 0133     		adds	r3, r3, #1
+ 550 0214 3B62     		str	r3, [r7, #32]
+ 551              	.L27:
+ 552 0216 3B6A     		ldr	r3, [r7, #32]
+ 553 0218 032B     		cmp	r3, #3
+ 554 021a 00D8     		bhi	.LCB584
+ 555 021c 21E7     		b	.L39	@long jump
+ 556              	.LCB584:
+ 557 021e BA69     		ldr	r2, [r7, #24]
+ 558 0220 7B69     		ldr	r3, [r7, #20]
+ 559 0222 9A42     		cmp	r2, r3
+ 560 0224 01D0     		beq	.L40
+ 561 0226 1123     		movs	r3, #17
+ 562 0228 00E0     		b	.L26
+ 563              	.L40:
+ 564 022a 0023     		movs	r3, #0
+ 565              	.L26:
+ 566 022c 1800     		movs	r0, r3
+ 567 022e BD46     		mov	sp, r7
+ 568 0230 0BB0     		add	sp, sp, #44
+ 569              		@ sp needed
+ 570 0232 90BD     		pop	{r4, r7, pc}
+ 571              	.L42:
+ 572              		.align	2
+ 573              	.L41:
+ 574 0234 005500AA 		.word	-1442818816
+ 575 0238 FFFEFFFF 		.word	-257
+ 577              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+DEFINED SYMBOLS
+                            *ABS*:00000000 xspi_selftest.c
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:14     .text.Xil_In32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:21     .text.Xil_In32:00000000 Xil_In32
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:37     .text.Xil_Out32:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:43     .text.Xil_Out32:00000000 Xil_Out32
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:63     .rodata:00000000 $d
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:67     .text.XSpi_SelfTest:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:74     .text.XSpi_SelfTest:00000000 XSpi_SelfTest
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:283    .text.LoopbackTest:00000000 LoopbackTest
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:272    .text.XSpi_SelfTest:00000178 $d
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:277    .text.LoopbackTest:00000000 $t
+C:\Users\jl241\AppData\Local\Temp\cco4hbxP.s:574    .text.LoopbackTest:00000234 $d
+
+UNDEFINED SYMBOLS
+Xil_Assert
+XSpi_Reset
+Xil_AssertStatus
